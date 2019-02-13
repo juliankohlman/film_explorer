@@ -4,12 +4,14 @@
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
-		"server": "nodemon server.js"
+		"start": "...",
+		"dev": "nodemon -r esm server.js"
 	},
 	"dependencies": {
 		"axios": "^0.18.0",
 		"cors": "^2.8.5",
 		"dotenv": "^6.2.0",
+		"esm": "^3.2.4",
 		"graphql": "^14.1.1",
 		"graphql-yoga": "^1.17.4",
 		"nexus": "^0.9.9"
