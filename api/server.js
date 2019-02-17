@@ -2,9 +2,9 @@
 import { GraphQLServer } from 'graphql-yoga';
 import { schema } from './schema/schema';
 import dotenv from 'dotenv';
-dotenv.config();
 
-let port = process.env.PORT || 4000;
+const port = process.env.PORT || 4000;
+dotenv.config();
 
 const server = new GraphQLServer({ schema });
 

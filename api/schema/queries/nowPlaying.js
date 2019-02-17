@@ -12,7 +12,9 @@ export const NowPlaying = queryType({
 		t.string('overview');
 		defaultFieldResolver: axios
 			.get(
-				`https://api.themoviedb.org/3/movie/now_playing?api_key=eb605f9e7a0e17bd244987219e32193a&language=en-US&page=1`
+				`https://api.themoviedb.org/3/movie/now_playing?api_key=${
+					process.env.API
+				}&language=en-US&page=1`
 			)
 			.then(res => {
 				const movies = res.data.results;
@@ -29,24 +31,4 @@ export const NowPlaying = queryType({
 				console.log(err);
 			});
 	}
-	// ! Research how nexus handles resolvers in your schema
-	// t.resolveType(() =>
-	//   axios
-	//     .get(
-	//       `https://api.themoviedb.org/3/movie/now_playing?api_key=${
-	//       process.env.API
-	//       }&language=en-US&page=1`
-	//     )
-	//     .then(res => {
-	//       const movies = res.data.results;
-	//       movies.map(movie => {
-	//         movie.poster_path = `https://image.tmdb.org/t/p/w500${
-	//           movie.poster_path
-	//           }`;
-	//         movie.overview;
-	//       });
-
-	//       return movies;
-	//     })
-	// );
 });
