@@ -1,7 +1,7 @@
 export const typeDefs = `
   type Query {
     getNowPlaying: [NowPlaying!]!
-    getGenre: [NowPlaying!]!
+    getGenre(genreID: Int): [NowPlaying!]!
   }
 
   type NowPlaying {
