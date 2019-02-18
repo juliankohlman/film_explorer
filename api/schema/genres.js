@@ -1,4 +1,5 @@
-export const genres = {
+// * JUST FOR REFERENCE AND GENRE QUERY TESTS (WILL DELETE IN PROD)
+const genres = {
 	action: 28,
 	adventure: 12,
 	animation: 16,

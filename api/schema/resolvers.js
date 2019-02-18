@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { genres } from './genres';
 // ! TODO USE the api-connector pattern (axios functions separated from resolver functions)
 /**
  * Building dynamic requests
@@ -36,20 +35,14 @@ export const resolvers = {
 					return movies;
 				})
 				.catch(err => console.error(err)),
-		getGenre: () => {
-			let id;
-			// frontend user selection will determine genreID
-			// if frontend selection = genreName associated with selection then assign id to genres.genre
-			id = genres.crime;
-			// console.log(genreID);
+		getGenre: (_, { genreID }) => {
 			return axios
 				.get(
 					`https://api.themoviedb.org/3/discover/movie?api_key=${
 						process.env.API
-					}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${id}`
+					}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${genreID}`
 				)
 				.then(res => {
-					// console.log(res.parent);
 					const genreFilms = res.data.results;
 					genreFilms.map(film => {
 						film.poster_path = `https://image.tmdb.org/t/p/w500${
