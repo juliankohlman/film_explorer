@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { genres } from './genres';
 /**
  * Building dynamic requests
  * base request
@@ -33,5 +34,30 @@ export const resolvers = {
 
 					return movies;
 				})
+				.catch(e => res.json('error', e)),
+		getGenre: () => {
+			let id;
+			// frontend user selection will determine genreID
+			// if frontend selection = genreName associated with selection then assign id to genres.genre
+			id = genres.history;
+			return axios
+				.get(
+					`https://api.themoviedb.org/3/discover/movie?api_key=${
+						process.env.API
+					}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${id}`
+				)
+				.then(res => {
+					console.log(res.data.results);
+					const genreFilms = res.data.results;
+					genreFilms.map(film => {
+						film.poster_path = `https://image.tmdb.org/t/p/w500${
+							film.poster_path
+						}`;
+						film.overview;
+					});
+					return genreFilms;
+				})
+				.catch(e => res.json('error', e));
+		}
 	}
 };
