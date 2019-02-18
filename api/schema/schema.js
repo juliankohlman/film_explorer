@@ -4,9 +4,11 @@ export const typeDefs = `
   }
 
   type NowPlaying {
-    id: ID
-		poster_path: String
-		title: String
-		overview: String
+    id: ID!
+		poster_path: String!
+		title: String!
+		overview: String!
   }
+
+  
 `;
