@@ -12,7 +12,9 @@ export const NowPlaying = queryType({
 		t.string('overview');
 		defaultFieldResolver: axios
 			.get(
-				`https://api.themoviedb.org/3/movie/now_playing?api_key=eb605f9e7a0e17bd244987219e32193a&language=en-US&page=1`
+				`https://api.themoviedb.org/3/movie/now_playing?api_key=${
+					process.env.API
+				}&language=en-US&page=1`
 			)
 			.then(res => {
 				const movies = res.data.results;
