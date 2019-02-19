@@ -1,5 +1,6 @@
 import axios from 'axios';
 // ! TODO USE the api-connector pattern (axios functions separated from resolver functions)
+import { nowPlaying } from './tmdb-connector';
 /**
  * Building dynamic requests
  * base request
@@ -16,25 +17,28 @@ import axios from 'axios';
  */
 export const resolvers = {
 	Query: {
-		getNowPlaying: () =>
-			axios
-				.get(
-					`https://api.themoviedb.org/3/movie/now_playing?api_key=${
-						process.env.API
-					}&language=en-US&page=1`
-				)
-				.then(res => {
-					const movies = res.data.results;
-					movies.map(movie => {
-						movie.poster_path = `https://image.tmdb.org/t/p/w500${
-							movie.poster_path
-						}`;
-						movie.overview;
-					});
+		getNowPlaying() {
+			return nowPlaying();
+		},
+		// getNowPlaying: () =>
+		// 	axios
+		// 		.get(
+		// 			`https://api.themoviedb.org/3/movie/now_playing?api_key=${
+		// 				process.env.API
+		// 			}&language=en-US&page=1`
+		// 		)
+		// 		.then(res => {
+		// 			const movies = res.data.results;
+		// 			movies.map(movie => {
+		// 				movie.poster_path = `https://image.tmdb.org/t/p/w500${
+		// 					movie.poster_path
+		// 				}`;
+		// 				movie.overview;
+		// 			});
 
-					return movies;
-				})
-				.catch(err => console.error(err)),
+		// 			return movies;
+		// 		})
+		//     .catch(err => console.error(err))
 		getGenre: (_, { genreID }) => {
 			return axios
 				.get(
