@@ -6,6 +6,10 @@ import dotenv from 'dotenv';
 dotenv.config();
 const { API } = process.env;
 
+/**
+ * nowPlaying
+ * returns films now playing in theaters
+ */
 export const nowPlaying = () =>
 	axios
 		.get(

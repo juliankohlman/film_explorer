@@ -1,4 +1,3 @@
-import axios from 'axios';
 // ! TODO USE the api-connector pattern (axios functions separated from resolver functions)
 import { nowPlaying, genreFilms } from './tmdb-connector';
 /**
