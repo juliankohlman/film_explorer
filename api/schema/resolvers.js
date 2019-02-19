@@ -1,6 +1,6 @@
 import axios from 'axios';
 // ! TODO USE the api-connector pattern (axios functions separated from resolver functions)
-import { nowPlaying } from './tmdb-connector';
+import { nowPlaying, genreFilms } from './tmdb-connector';
 /**
  * Building dynamic requests
  * base request
@@ -20,43 +20,9 @@ export const resolvers = {
 		getNowPlaying() {
 			return nowPlaying();
 		},
-		// getNowPlaying: () =>
-		// 	axios
-		// 		.get(
-		// 			`https://api.themoviedb.org/3/movie/now_playing?api_key=${
-		// 				process.env.API
-		// 			}&language=en-US&page=1`
-		// 		)
-		// 		.then(res => {
-		// 			const movies = res.data.results;
-		// 			movies.map(movie => {
-		// 				movie.poster_path = `https://image.tmdb.org/t/p/w500${
-		// 					movie.poster_path
-		// 				}`;
-		// 				movie.overview;
-		// 			});
 
-		// 			return movies;
-		// 		})
-		//     .catch(err => console.error(err))
-		getGenre: (_, { genreID }) => {
-			return axios
-				.get(
-					`https://api.themoviedb.org/3/discover/movie?api_key=${
-						process.env.API
-					}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${genreID}`
-				)
-				.then(res => {
-					const genreFilms = res.data.results;
-					genreFilms.map(film => {
-						film.poster_path = `https://image.tmdb.org/t/p/w500${
-							film.poster_path
-						}`;
-						film.overview;
-					});
-					return genreFilms;
-				})
-				.catch(e => res.json('error', e));
+		getGenre(_, { genreID }) {
+			return genreFilms(_, { genreID });
 		}
 	}
 };
