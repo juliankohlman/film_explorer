@@ -4,6 +4,7 @@ import { nowPlaying, genreFilms, filmDetails } from './tmdb-connector';
  * Building dynamic requests
  * base request
  * Query string options get added based on order on api page SEE => https://developers.themoviedb.org/3/discover/movie-discover
+ * Can use a regex helper function to build queries on frontend based on users selections for sorting and exploration criteria
  * https://api.themoviedb.org/3/discover/movie?api_key=${process.env.API}&language=en-US&include_adult=false&include_video=false&page=1
  * Potential modifiers
  * &with_genres=string...but maps to ints like 28

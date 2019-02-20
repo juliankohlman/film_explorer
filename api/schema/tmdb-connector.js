@@ -7,9 +7,9 @@ dotenv.config();
 const { API } = process.env;
 
 /**
- * nowPlaying
- * returns films now playing in theaters
+ * nowPlaying: returns a list of films now playing in theaters
  */
+
 export const nowPlaying = () =>
 	axios
 		.get(
@@ -28,6 +28,12 @@ export const nowPlaying = () =>
 		})
 		.catch(err => console.error(err));
 
+/**
+ * genreFilms: accepts genre ID and return list of films by genre
+ * @param {*} _ root param ignored
+ * @param {*} param1 genreID
+ */
+
 export const genreFilms = (_, { genreID }) =>
 	axios
 		.get(
@@ -43,7 +49,12 @@ export const genreFilms = (_, { genreID }) =>
 		})
 		.catch(e => res.json('error', e));
 
-// ! use append_to_response for videos and images etc...counts as only 1 request
+/**
+ * filmDetails: returns a data specific to film with given ID
+ * @param {*} _ root param ignored
+ * @param {*} param1 filmID
+ */
+
 export const filmDetails = (_, { filmID }) =>
 	axios
 		.get(
@@ -51,7 +62,9 @@ export const filmDetails = (_, { filmID }) =>
 		)
 		.then(res => {
 			const film = res.data;
-			console.log(film.credits);
+			console.log(film.similar);
+			//! Todo format data for certain fields for easier usage on frontend
+			//! Todo consult tmdb api for fields that are labeled 'string or null' and make those fields nullable. Then decide what to render on frontend in cases where data fields are null...like a poster_path for example
 			return film;
 		})
 		.catch(e => res.json('error', e));
