@@ -47,11 +47,11 @@ export const genreFilms = (_, { genreID }) =>
 export const filmDetails = (_, { filmID }) =>
 	axios
 		.get(
-			`https://api.themoviedb.org/3/movie/${filmID}?api_key=${API}&language=en-US`
+			`https://api.themoviedb.org/3/movie/${filmID}?api_key=${API}&language=en-US&append_to_response=credits,videos,similar,recommendations`
 		)
 		.then(res => {
-			// console.log(res.data.tagline);
-			// let { overview, id } = res.data;
-			return res.data;
+			const film = res.data;
+			console.log(film.credits);
+			return film;
 		})
 		.catch(e => res.json('error', e));

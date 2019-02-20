@@ -25,7 +25,7 @@ export const typeDefs = `
     revenue: Int!
     runtime: String!
     status: String!
-    tagline: String
+    tagline: String!
     title: String!
   }
 `;
