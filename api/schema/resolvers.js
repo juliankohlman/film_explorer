@@ -1,5 +1,5 @@
 // ! TODO USE the api-connector pattern (axios functions separated from resolver functions)
-import { nowPlaying, genreFilms } from './tmdb-connector';
+import { nowPlaying, genreFilms, filmDetails } from './tmdb-connector';
 /**
  * Building dynamic requests
  * base request
@@ -10,9 +10,11 @@ import { nowPlaying, genreFilms } from './tmdb-connector';
  * &primary_release_year=integer
  * &sort_by=(popularity|release_date|revenue|title) <= this goes directly after US in base req string
  * All base req modifiers should be added as args to the resolver for genres selections
+ ** CREATE a custom query builder helper function to handle this!
  * On the front-end a 'next' button will increment the page by 1 and run the query again
  * Should map all sorting options to user selections
  * Future feature: query by actor/director/studio...etc
+ *! Add input type to handle custom queries contained within specific genres
  */
 export const resolvers = {
 	Query: {
@@ -22,6 +24,10 @@ export const resolvers = {
 
 		getGenre(_, { genreID }) {
 			return genreFilms(_, { genreID });
+		},
+
+		getFilmDetails(_, { filmID }) {
+			return filmDetails(_, { filmID });
 		}
 	}
 };

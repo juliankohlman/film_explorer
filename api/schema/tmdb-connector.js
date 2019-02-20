@@ -1,5 +1,5 @@
 /**
- * TMDB axios connector functions
+ * TMDB axios connector functions (data-fetching)
  */
 import axios from 'axios';
 import dotenv from 'dotenv';
@@ -40,5 +40,18 @@ export const genreFilms = (_, { genreID }) =>
 				film.overview;
 			});
 			return genreFilms;
+		})
+		.catch(e => res.json('error', e));
+
+// ! use append_to_response for videos and images etc...counts as only 1 request
+export const filmDetails = (_, { filmID }) =>
+	axios
+		.get(
+			`https://api.themoviedb.org/3/movie/${filmID}?api_key=${API}&language=en-US`
+		)
+		.then(res => {
+			// console.log(res.data.tagline);
+			// let { overview, id } = res.data;
+			return res.data;
 		})
 		.catch(e => res.json('error', e));
