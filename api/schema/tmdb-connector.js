@@ -64,7 +64,7 @@ export const filmDetails = (_, { filmID }) =>
 			const film = res.data;
 			console.log(film.similar);
 			//! Todo format data for certain fields for easier usage on frontend
-			//! Todo consult tmdb api for fields that are labeled 'string or null' and make those fields nullable. Then decide what to render on frontend in cases where data fields are null...like a poster_path for example
+			//! Todo consult tmdb api for fields that are labeled 'string/integer or null' and make those fields nullable. Then decide what to render on frontend in cases where data fields are null...like a poster_path for example
 			return film;
 		})
 		.catch(e => res.json('error', e));
