@@ -2,6 +2,7 @@
  * TMDB axios connector functions (data-fetching)
  */
 import axios from 'axios';
+// Access to environment variables
 import dotenv from 'dotenv';
 dotenv.config();
 const { API } = process.env;
@@ -62,9 +63,8 @@ export const filmDetails = (_, { filmID }) =>
 		)
 		.then(res => {
 			const film = res.data;
-			console.log(film.similar);
-			//! Todo format data for certain fields for easier usage on frontend
-			//! Todo consult tmdb api for fields that are labeled 'string/integer or null' and make those fields nullable. Then decide what to render on frontend in cases where data fields are null...like a poster_path for example
+			// additional fields: credits, videos, similar, recommendations
+
 			return film;
 		})
 		.catch(e => res.json('error', e));
