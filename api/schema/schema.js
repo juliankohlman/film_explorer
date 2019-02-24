@@ -1,5 +1,12 @@
 export const typeDefs = `
   type Query {
+   """
+    getNowPlaying($page: Int! = 1) {
+      nowPlaying(page: $page) {
+        [NowPlaying!]!
+      }
+    }
+    """
     getNowPlaying: [NowPlaying!]!
     getGenre(genreID: Int!): [NowPlaying!]!
     getFilmDetails(filmID: Int!): FilmDetails

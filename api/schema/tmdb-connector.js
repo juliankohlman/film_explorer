@@ -17,6 +17,10 @@ export const nowPlaying = () =>
 			`https://api.themoviedb.org/3/movie/now_playing?api_key=${API}&language=en-US&page=1`
 		)
 		.then(res => {
+			//! Add pagination functionality to typeDef
+			console.log('# of pages:', res.data.total_pages);
+			console.log('# of movies:', res.data.total_results);
+
 			const movies = res.data.results;
 			movies.map(movie => {
 				movie.poster_path = `https://image.tmdb.org/t/p/w500${
@@ -41,6 +45,9 @@ export const genreFilms = (_, { genreID }) =>
 			`https://api.themoviedb.org/3/discover/movie?api_key=${API}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${genreID}`
 		)
 		.then(res => {
+			console.log('# of pages:', res.data.total_pages);
+			console.log('# of movies:', res.data.total_results);
+
 			const genreFilms = res.data.results;
 			genreFilms.map(film => {
 				film.poster_path = `https://image.tmdb.org/t/p/w500${film.poster_path}`;
