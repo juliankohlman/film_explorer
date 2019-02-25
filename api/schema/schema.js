@@ -2,8 +2,8 @@
 export const typeDefs = `
 	type Query {
 		getFilmDetails(filmID: Int!): FilmDetails
-		getGenre(genreID: Int!): [NowPlaying!]!
-    getNowPlaying(page: Int): [NowPlaying!]!
+		getGenre(genreID: Int!, page: Int = 1): [NowPlaying!]!
+    getNowPlaying(page: Int = 1): [NowPlaying!]!
   }
   
 	type NowPlaying {
@@ -30,7 +30,3 @@ export const typeDefs = `
 		title: String!
   }
 `;
-
-export const variables = {
-	page: '1'
-};

@@ -23,8 +23,8 @@ export const resolvers = {
 			return nowPlaying(_, { page });
 		},
 
-		getGenre(_, { genreID }) {
-			return genreFilms(_, { genreID });
+		getGenre(_, { genreID, page }) {
+			return genreFilms(_, { genreID, page });
 		},
 
 		getFilmDetails(_, { filmID }) {

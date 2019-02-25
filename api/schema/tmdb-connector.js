@@ -39,10 +39,10 @@ export const nowPlaying = (_, { page }) =>
  * @param {*} param1 genreID
  */
 
-export const genreFilms = (_, { genreID }) =>
+export const genreFilms = (_, { genreID, page }) =>
 	axios
 		.get(
-			`https://api.themoviedb.org/3/discover/movie?api_key=${API}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${genreID}`
+			`https://api.themoviedb.org/3/discover/movie?api_key=${API}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreID}`
 		)
 		.then(res => {
 			console.log('# of pages:', res.data.total_pages);
