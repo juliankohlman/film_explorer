@@ -95,15 +95,25 @@ export const genreQuery = (
 		with_runtime_lte
 	}
 ) => {
-	//* Add logic to dynamically build query string based on arguments
-	// [https://api.themoviedb.org/3/discover/movie?api_key=${API}&language=en-US&]
-	// [sort_by section&]
-	// [certification &]
-	// [primary_release_date.gte]
-	// [primary_release_date.lte]
-	// [year]
-	// [with_runtime.gte]
-	// [with_runtime.lte]
+	//TODO Add logic to dynamically build query string based on arguments
+	// [https://api.themoviedb.org/3/discover/movie?api_key=${API}&language=en-US]
+	// [&sort_by section]
+	// [&certification ]
+	//! [&include_adult=false]
+	//! [&include_video=false]
+	// [&page]
+	// [&primary_release_date.gte] year-month-day (after)
+	// [&primary_release_date.lte] year-month-day (before)
+	// [&year]
+	// [&with_runtime.gte]
+	// [&with_runtime.lte]
+	// ? iterate over query sections
+	// ? IF a query arg exists...!== undefined
+	// * then insert that section into query string
+	// * IF query arg is empty move onto the next
+	//  HARD CODE GENRE FROM client-side label somehow
+	console.log(sort_by);
+
 	return axios
 		.get(
 			`https://api.themoviedb.org/3/discover/movie?api_key=${API}&language=en-US&include_adult=false&include_video=false&page=${page}&with_genres=${genreID}`
