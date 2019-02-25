@@ -1,5 +1,10 @@
 // ! TODO USE the api-connector pattern (axios functions separated from resolver functions)
-import { nowPlaying, genreFilms, filmDetails } from './tmdb-connector';
+import {
+	nowPlaying,
+	genreFilms,
+	filmDetails,
+	genreQuery
+} from './tmdb-connector';
 /**
  * Building dynamic requests
  * base request
@@ -29,6 +34,34 @@ export const resolvers = {
 
 		getFilmDetails(_, { filmID }) {
 			return filmDetails(_, { filmID });
+		},
+		exploreGenre(
+			_,
+			{
+				genreID,
+				page,
+				sort_by,
+				certification_country,
+				certification,
+				primary_release_date_gte,
+				primary_release_date_lte,
+				year,
+				with_runtime_gte,
+				with_runtime_lte
+			}
+		) {
+			return genreQuery(_, {
+				genreID,
+				page,
+				sort_by,
+				certification_country,
+				certification,
+				primary_release_date_gte,
+				primary_release_date_lte,
+				year,
+				with_runtime_gte,
+				with_runtime_lte
+			});
 		}
 	}
 };

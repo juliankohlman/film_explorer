@@ -76,7 +76,52 @@ export const filmDetails = (_, { filmID }) =>
 		})
 		.catch(e => res.json('error', e));
 
+/**
+ * genreExplore
+ */
+
+export const genreQuery = (
+	_,
+	{
+		genreID,
+		page,
+		sort_by,
+		certification_country,
+		certification,
+		primary_release_date_gte,
+		primary_release_date_lte,
+		year,
+		with_runtime_gte,
+		with_runtime_lte
+	}
+) => {
+	//* Add logic to dynamically build query string based on arguments
+	// [https://api.themoviedb.org/3/discover/movie?api_key=${API}&language=en-US&]
+	// [sort_by section&]
+	// [certification &]
+	// [primary_release_date.gte]
+	// [primary_release_date.lte]
+	// [year]
+	// [with_runtime.gte]
+	// [with_runtime.lte]
+	return axios
+		.get(
+			`https://api.themoviedb.org/3/discover/movie?api_key=${API}&language=en-US&include_adult=false&include_video=false&page=${page}&with_genres=${genreID}`
+		)
+		.then(res => {
+			console.log('# of pages:', res.data.total_pages);
+			console.log('# of movies:', res.data.total_results);
+
+			const genreFilms = res.data.results;
+			genreFilms.map(film => {
+				film.poster_path = `https://image.tmdb.org/t/p/w500${film.poster_path}`;
+				film.overview;
+			});
+			return genreFilms;
+		})
+		.catch(e => res.json('error', e));
+};
 // sort by options
 // [popularity.asc, popularity.desc, release_date.asc, release_date.desc, revenue.asc, revenue.desc, primary_release_date.asc, primary_release_date.desc, original_title.asc, original_title.desc, vote_average.asc, vote_average.desc, vote_count.asc, vote_count.desc]
 
-// [sort_by, page, primary_release_date.gte, primary_release_date.lte, year, with_runtime.gte, with_runtime.lte]
+// [sort_by, cert_country, cert, page, primary_release_date.gte, primary_release_date.lte, year, with_runtime.gte, with_runtime.lte]

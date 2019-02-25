@@ -4,6 +4,17 @@ export const typeDefs = `
 		getFilmDetails(filmID: Int!): FilmDetails
 		getGenre(genreID: Int!, page: Int = 1): [NowPlaying!]!
     getNowPlaying(page: Int = 1): [NowPlaying!]!
+    exploreGenre(
+      genreID: Int!,
+      page: Int = 1,
+      sort_by: String,
+      certification_country: String,
+      certification: String,
+      primary_release_date_gte: String,
+      primary_release_date_lte: String,
+      year: Int,
+      with_runtime_gte: Int,
+      with_runtime_lte: Int): [NowPlaying!]!
   }
   
 	type NowPlaying {
