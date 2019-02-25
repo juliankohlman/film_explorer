@@ -75,3 +75,8 @@ export const filmDetails = (_, { filmID }) =>
 			return film;
 		})
 		.catch(e => res.json('error', e));
+
+// sort by options
+// [popularity.asc, popularity.desc, release_date.asc, release_date.desc, revenue.asc, revenue.desc, primary_release_date.asc, primary_release_date.desc, original_title.asc, original_title.desc, vote_average.asc, vote_average.desc, vote_count.asc, vote_count.desc]
+
+// [sort_by, page, primary_release_date.gte, primary_release_date.lte, year, with_runtime.gte, with_runtime.lte]

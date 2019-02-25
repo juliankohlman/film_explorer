@@ -1,4 +1,4 @@
-// getNowPlaying: [NowPlaying!]!
+// exploreGenre(sort_by: String): [NowPlaying!]!
 export const typeDefs = `
 	type Query {
 		getFilmDetails(filmID: Int!): FilmDetails
