@@ -11,10 +11,10 @@ const { API } = process.env;
  * nowPlaying: returns a list of films now playing in theaters
  */
 
-export const nowPlaying = () =>
+export const nowPlaying = (_, { page }) =>
 	axios
 		.get(
-			`https://api.themoviedb.org/3/movie/now_playing?api_key=${API}&language=en-US&page=1`
+			`https://api.themoviedb.org/3/movie/now_playing?api_key=${API}&language=en-US&page=${page}`
 		)
 		.then(res => {
 			//! Add pagination functionality to typeDef

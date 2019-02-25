@@ -19,8 +19,8 @@ import { nowPlaying, genreFilms, filmDetails } from './tmdb-connector';
  */
 export const resolvers = {
 	Query: {
-		getNowPlaying() {
-			return nowPlaying();
+		getNowPlaying(_, { page }) {
+			return nowPlaying(_, { page });
 		},
 
 		getGenre(_, { genreID }) {
