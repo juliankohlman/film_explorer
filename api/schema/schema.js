@@ -11,6 +11,7 @@ export const typeDefs = `
       include_adult: Boolean = false,
       include_video: Boolean = false,
       page: Int = 1,
+      primary_release_year: Int,
       primary_release_date_gte: String,
       primary_release_date_lte: String,
       genreID: Int!,

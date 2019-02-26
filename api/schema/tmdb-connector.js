@@ -44,6 +44,8 @@ export const genreFilms = (_, { genreID, page }) =>
 			`https://api.themoviedb.org/3/discover/movie?api_key=${API}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreID}`
 		)
 		.then(res => {
+			// tie basic idea below to pagination and informative display info to user...now viewing <genre> page # blank of pages etc...
+			console.log(`Now viewing page ${page} of ${res.data.total_pages}`);
 			console.log('# of pages:', res.data.total_pages);
 			console.log('# of movies:', res.data.total_results);
 
@@ -69,7 +71,12 @@ export const filmDetails = (_, { filmID }) =>
 		)
 		.then(res => {
 			const film = res.data;
-			// additional fields: credits, videos, similar, recommendations
+			//Todo format response with well-shaped data including the fields: credits, videos, similar, recommendations
+			//Todo write simple function to format runtime (mins) => hrs = mins/60 mins = mins % 60 return hrs and mins (Check for <= 60minute runtimes)
+			// console.log(film.credits); [ cast: {8 props}, crew: {7 props}]
+			// console.log(film.videos);
+			// console.log(film.similar);
+			// console.log(film.recommendations);
 
 			return film;
 		})
@@ -78,7 +85,7 @@ export const filmDetails = (_, { filmID }) =>
 /**
  * genreExplore
  */
-
+//Todo refactor code to import queryArg and prop arrays from a util file
 export const genreQuery = (
 	_,
 	{
@@ -88,6 +95,7 @@ export const genreQuery = (
 		include_adult,
 		include_video,
 		page,
+		primary_release_year,
 		primary_release_date_gte,
 		primary_release_date_lte,
 		genreID,
@@ -96,9 +104,6 @@ export const genreQuery = (
 		with_runtime_lte
 	}
 ) => {
-	//TODO Add logic to dynamically build query string based on arguments HARD CODE GENRE FROM client-side label somehow
-	// console.log(sort_by);
-	// https://api.themoviedb.org/3/discover/movie?api_key=${API}&language=en-US
 	let queryArguments = [
 		sort_by,
 		certification_country,
@@ -106,6 +111,7 @@ export const genreQuery = (
 		include_adult,
 		include_video,
 		page,
+		primary_release_year,
 		primary_release_date_gte,
 		primary_release_date_lte,
 		genreID,
@@ -114,7 +120,6 @@ export const genreQuery = (
 		with_runtime_lte
 	];
 
-	//Todo need to check for certification/argument argument and set country certification arg to US for both filter to work
 	let queryPropValues = [
 		`&sort_by=${sort_by}`,
 		`&certification_country=${certification_country}`,
@@ -122,6 +127,7 @@ export const genreQuery = (
 		`&include_adult=${include_adult}`,
 		`&include_video=${include_video}`,
 		`&page=${page}`,
+		`&primary_release_year=${primary_release_year}`,
 		`&primary_release_date.gte=${primary_release_date_gte}`,
 		`&primary_release_date.lte=${primary_release_date_lte}`,
 		`&with_genres=${genreID}`,
@@ -131,9 +137,13 @@ export const genreQuery = (
 	];
 
 	let query = `https://api.themoviedb.org/3/discover/movie?api_key=${API}&language=en-US`;
-	// ratings check b/f looping
+	//* Checking for certifications existence to trigger setting of cert_country to US. per the tmdb api, these two
+	//* params work in tandem so we need to check for a certification param then backtrack to set the country to the
+	//* US for accurate filtering
 	if (queryArguments[2]) {
+		// now certification_country is no longer === undefined inside our loop
 		queryArguments[1] = 'US';
+		// replace cert_country value with needed string
 		queryPropValues[1] = `&certification_country=US`;
 	}
 	console.log('certification country', queryArguments[1]);
@@ -141,31 +151,21 @@ export const genreQuery = (
 	queryArguments.forEach((arg, idx) =>
 		arg !== undefined ? (query += queryPropValues[idx]) : null
 	);
-	console.log(query);
+	console.log('dynamic query string', query);
 
-	return (
-		axios
-			// .get(
-			// 	`https://api.themoviedb.org/3/discover/movie?api_key=${API}&language=en-US&include_adult=false&include_video=false&page=${page}&with_genres=${genreID}`
-			// )
-			.get(query)
-			.then(res => {
-				console.log('# of pages:', res.data.total_pages);
-				console.log('# of movies:', res.data.total_results);
+	return axios
 
-				const genreFilms = res.data.results;
-				genreFilms.map(film => {
-					film.poster_path = `https://image.tmdb.org/t/p/w500${
-						film.poster_path
-					}`;
-					film.overview;
-				});
-				return genreFilms;
-			})
-			.catch(e => res.json('error', e))
-	);
+		.get(query)
+		.then(res => {
+			console.log('# of pages:', res.data.total_pages);
+			console.log('# of movies:', res.data.total_results);
+
+			const genreFilms = res.data.results;
+			genreFilms.map(film => {
+				film.poster_path = `https://image.tmdb.org/t/p/w500${film.poster_path}`;
+				film.overview;
+			});
+			return genreFilms;
+		})
+		.catch(e => res.json('error', e));
 };
-// sort by options
-// [popularity.asc, popularity.desc, release_date.asc, release_date.desc, revenue.asc, revenue.desc, primary_release_date.asc, primary_release_date.desc, original_title.asc, original_title.desc, vote_average.asc, vote_average.desc, vote_count.asc, vote_count.desc]
-
-// [sort_by, cert_country, cert, page, primary_release_date.gte, primary_release_date.lte, year, with_runtime.gte, with_runtime.lte]
