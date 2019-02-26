@@ -5,13 +5,15 @@ export const typeDefs = `
 		getGenre(genreID: Int!, page: Int = 1): [NowPlaying!]!
     getNowPlaying(page: Int = 1): [NowPlaying!]!
     exploreGenre(
-      genreID: Int!,
-      page: Int = 1,
       sort_by: String,
       certification_country: String,
       certification: String,
+      include_adult: Boolean = false,
+      include_video: Boolean = false,
+      page: Int = 1,
       primary_release_date_gte: String,
       primary_release_date_lte: String,
+      genreID: Int!,
       year: Int,
       with_runtime_gte: Int,
       with_runtime_lte: Int): [NowPlaying!]!

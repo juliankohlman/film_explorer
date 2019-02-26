@@ -83,13 +83,15 @@ export const filmDetails = (_, { filmID }) =>
 export const genreQuery = (
 	_,
 	{
-		genreID,
-		page,
 		sort_by,
 		certification_country,
 		certification,
+		include_adult,
+		include_video,
+		page,
 		primary_release_date_gte,
 		primary_release_date_lte,
+		genreID,
 		year,
 		with_runtime_gte,
 		with_runtime_lte
@@ -113,7 +115,38 @@ export const genreQuery = (
 	// * IF query arg is empty move onto the next
 	//  HARD CODE GENRE FROM client-side label somehow
 	console.log(sort_by);
+	// https://api.themoviedb.org/3/discover/movie?api_key=${API}&language=en-US
+	let queryArguments = [
+		sort_by,
+		certification_country,
+		certification,
+		include_adult,
+		include_video,
+		page,
+		primary_release_date_gte,
+		primary_release_date_lte,
+		genreID,
+		year,
+		with_runtime_gte,
+		with_runtime_lte
+	];
 
+	//Todo need to check for certification/argument argument and set country certification arg to US for both filter to work
+	let queryPropValues = [
+		`&sort_by=${sort_by}`,
+		`&certification_country=${certification_country}`,
+		`&certification=${certification}`,
+		'&include_adult=false&include_video=false',
+		`&page=${page}`,
+		`&primary_release_date.gte=${primary_release_date_gte}`,
+		`&primary_release_date.lte=${primary_release_date_lte}`,
+		`&with_genres=${genreID}`,
+		`&year=${year}`,
+		`&with_runtime.gte=${with_runtime_gte}`,
+		`&with_runtime.lte=${with_runtime_lte}`
+	];
+
+	let query = `https://api.themoviedb.org/3/discover/movie?api_key=${API}&language=en-US`;
 	return axios
 		.get(
 			`https://api.themoviedb.org/3/discover/movie?api_key=${API}&language=en-US&include_adult=false&include_video=false&page=${page}&with_genres=${genreID}`

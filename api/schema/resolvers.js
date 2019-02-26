@@ -38,26 +38,30 @@ export const resolvers = {
 		exploreGenre(
 			_,
 			{
-				genreID,
-				page,
 				sort_by,
 				certification_country,
 				certification,
+				include_adult,
+				include_video,
+				page,
 				primary_release_date_gte,
 				primary_release_date_lte,
+				genreID,
 				year,
 				with_runtime_gte,
 				with_runtime_lte
 			}
 		) {
 			return genreQuery(_, {
-				genreID,
-				page,
 				sort_by,
 				certification_country,
 				certification,
+				include_adult,
+				include_video,
+				page,
 				primary_release_date_gte,
 				primary_release_date_lte,
+				genreID,
 				year,
 				with_runtime_gte,
 				with_runtime_lte
