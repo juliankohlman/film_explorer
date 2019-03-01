@@ -104,6 +104,7 @@ export const genreQuery = (
 		with_runtime_lte
 	}
 ) => {
+	//* refactor query arrays into single object or import from external file
 	let queryArguments = [
 		sort_by,
 		certification_country,
