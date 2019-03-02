@@ -1,4 +1,5 @@
 // exploreGenre(sort_by: String): [NowPlaying!]!
+//todo convert to .graphql file extension
 export const typeDefs = `
 	type Query {
 		getFilmDetails(filmID: Int!): FilmDetails

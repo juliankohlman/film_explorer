@@ -105,6 +105,16 @@ export const genreQuery = (
 	}
 ) => {
 	//* refactor query arrays into single object or import from external file
+	//todo add enum type to replace explore genre arguments
+	/* enum LinkOrderByInput {
+  description_ASC
+  description_DESC
+  url_ASC
+  url_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+*/
 	let queryArguments = [
 		sort_by,
 		certification_country,
