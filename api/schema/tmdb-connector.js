@@ -6,7 +6,7 @@ import axios from 'axios';
 import dotenv from 'dotenv';
 dotenv.config();
 const { API } = process.env;
-
+//Todo use async functions?? What are the benefits and drawbacks?
 /**
  * nowPlaying: returns a list of films now playing in theaters
  */
