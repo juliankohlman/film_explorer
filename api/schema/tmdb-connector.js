@@ -73,6 +73,7 @@ export const filmDetails = (_, { filmID }) =>
 			const film = res.data;
 			//Todo format response with well-shaped data including the fields: credits, videos, similar, recommendations
 			//Todo write simple function to format runtime (mins) => hrs = mins/60 mins = mins % 60 return hrs and mins (Check for <= 60minute runtimes)
+			//* Film credits grab top billed cast, and from crew grab: casting director, music composer, costume designer, associate producers, editors, production designer, director of photography, executive producer, writers, director
 			// console.log(film.credits); [ cast: {8 props}, crew: {7 props}]
 			// console.log(film.videos);
 			// console.log(film.similar);
