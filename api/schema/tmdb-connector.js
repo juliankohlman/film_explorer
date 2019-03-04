@@ -11,6 +11,25 @@ const { API } = process.env;
 //* add logic to tweak shape of data based on the potential returned data.
 //Todo use async functions?? What are the benefits and drawbacks?
 /**
+ *
+ * @param {*} _
+ * @param {*} param1
+ * getPerson will be called under the explore genre function
+ * to allow users to filter genre results by an actor or directors name
+ */
+export const getPerson = (_, { queryString }) => {
+	axios
+		.get(
+			`https://api.themoviedb.org/3/search/person?api_key=${API}&language=en-US&query=${queryString}&page=1&include_adult=false`
+		)
+		.then(res => {
+			const person = res.data.results[0];
+			console.log(person);
+
+			return person.id;
+		});
+};
+/**
  * nowPlaying: returns a list of films now playing in theaters
  */
 
@@ -90,6 +109,8 @@ export const filmDetails = (_, { filmID }) =>
  * genreExplore
  */
 //Todo refactor code to import queryArg and prop arrays from a util file
+//Todo add withPeople field, and make that subquery to https://api.themoviedb.org/3/search/person?api_key=${apikey}&language=en-US&query=Ryan%20Reynolds&page=1&include_adult=false
+//* THEN attach results arrays first object id property
 export const genreQuery = (
 	_,
 	{

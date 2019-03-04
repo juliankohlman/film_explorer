@@ -1,5 +1,7 @@
 // exploreGenre(sort_by: String): [NowPlaying!]!
-//todo convert to .graphql file extension
+//Todo convert to .graphql file extension
+//Todo add with_release_type to query
+//* Look into https://developers.themoviedb.org/3/trending/get-trending
 export const typeDefs = `
 	type Query {
 		getFilmDetails(filmID: Int!): FilmDetails
