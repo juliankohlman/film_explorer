@@ -6,6 +6,9 @@ import axios from 'axios';
 import dotenv from 'dotenv';
 dotenv.config();
 const { API } = process.env;
+
+//TODO add open search bar on landing page using the 'multi search query' https://developers.themoviedb.org/3/search/multi-search
+//* add logic to tweak shape of data based on the potential returned data.
 //Todo use async functions?? What are the benefits and drawbacks?
 /**
  * nowPlaying: returns a list of films now playing in theaters
