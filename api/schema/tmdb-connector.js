@@ -10,6 +10,10 @@ const { API } = process.env;
 //TODO add open search bar on landing page using the 'multi search query' https://developers.themoviedb.org/3/search/multi-search
 //* add logic to tweak shape of data based on the potential returned data.
 //Todo use async functions?? What are the benefits and drawbacks?
+//* https://medium.com/@adityasingh_32512/how-to-use-async-await-with-axios-in-react-e07daac2905f
+/*
+The purpose of async/await functions is to simplify the behavior of using promises synchronously and to perform some behavior on a group of Promises. Just as Promises are similar to structured callbacks, async/await is similar to combining generators and promises.
+*/
 /**
  *
  * @param {*} _
