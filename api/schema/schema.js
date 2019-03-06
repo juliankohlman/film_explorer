@@ -2,44 +2,38 @@
 //Todo convert to .graphql file extension
 //Todo add with_release_type to query
 //* Look into https://developers.themoviedb.org/3/trending/get-trending
-/*
-sort_by: String,
-      certification_country: String,
-      certification: String,
-      include_adult: Boolean = false,
-      include_video: Boolean = false,
-      page: Int = 1,
-      primary_release_year: Int,
-      primary_release_date_gte: String,
-      primary_release_date_lte: String,
-      genreID: Int!,
-      year: Int,
-      with_runtime_gte: Int,
-      with_runtime_lte: Int
-*/
+
 export const typeDefs = `
 	type Query {
 		getFilmDetails(filmID: Int!): FilmDetails
 		getGenre(genreID: Int!, page: Int = 1): [NowPlaying!]!
     getNowPlaying(page: Int = 1): [NowPlaying!]!
-    exploreGenre(input: GenreInput
-      ): [NowPlaying!]!  
+    exploreGenre(input: GenreInput): [NowPlaying!]! 
+    searchPerson(queryString: String): [Person!]! 
   }
 
   input GenreInput {
     sort_by: String,
-      certification_country: String,
-      certification: String,
-      include_adult: Boolean = false,
-      include_video: Boolean = false,
-      page: Int = 1,
-      primary_release_year: Int,
-      primary_release_date_gte: String,
-      primary_release_date_lte: String,
-      genreID: Int!,
-      year: Int,
-      with_runtime_gte: Int,
-      with_runtime_lte: Int
+    certification_country: String,
+    certification: String,
+    include_adult: Boolean = false,
+    include_video: Boolean = false,
+    page: Int = 1,
+    primary_release_year: Int,
+    primary_release_date_gte: String,
+    primary_release_date_lte: String,
+    genreID: Int!,
+    with_people: String,
+    year: Int,
+    with_runtime_gte: Int,
+    with_runtime_lte: Int
+  }
+
+  type Person {
+    name: String!
+    popularity: Float!
+    id: ID!
+    profile_path: String
   }
 
 	type NowPlaying {
