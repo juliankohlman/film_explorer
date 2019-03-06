@@ -2,13 +2,8 @@
 //Todo convert to .graphql file extension
 //Todo add with_release_type to query
 //* Look into https://developers.themoviedb.org/3/trending/get-trending
-export const typeDefs = `
-	type Query {
-		getFilmDetails(filmID: Int!): FilmDetails
-		getGenre(genreID: Int!, page: Int = 1): [NowPlaying!]!
-    getNowPlaying(page: Int = 1): [NowPlaying!]!
-    exploreGenre(
-      sort_by: String,
+/*
+sort_by: String,
       certification_country: String,
       certification: String,
       include_adult: Boolean = false,
@@ -20,16 +15,33 @@ export const typeDefs = `
       genreID: Int!,
       year: Int,
       with_runtime_gte: Int,
-      with_runtime_lte: Int): [NowPlaying!]!
-    getActorDirector(queryString: String): [ActorOrDirector]
+      with_runtime_lte: Int
+*/
+export const typeDefs = `
+	type Query {
+		getFilmDetails(filmID: Int!): FilmDetails
+		getGenre(genreID: Int!, page: Int = 1): [NowPlaying!]!
+    getNowPlaying(page: Int = 1): [NowPlaying!]!
+    exploreGenre(input: GenreInput
+      ): [NowPlaying!]!  
   }
 
-  type ActorOrDirector {
-    id: ID!
-    popularity: Float
-    name: String
+  input GenreInput {
+    sort_by: String,
+      certification_country: String,
+      certification: String,
+      include_adult: Boolean = false,
+      include_video: Boolean = false,
+      page: Int = 1,
+      primary_release_year: Int,
+      primary_release_date_gte: String,
+      primary_release_date_lte: String,
+      genreID: Int!,
+      year: Int,
+      with_runtime_gte: Int,
+      with_runtime_lte: Int
   }
-  
+
 	type NowPlaying {
 		id: ID!
 		poster_path: String
@@ -45,12 +57,19 @@ export const typeDefs = `
 		overview: String!
 		popularity: Float!
 		poster_path: String
-		production_companies: String!
+		production_companies: [ProductionCompanies!]!
 		release_date: String!
 		revenue: Int!
 		runtime: String
 		status: String!
 		tagline: String
-		title: String!
+    title: String! 
+  }  
+
+  type ProductionCompanies {
+    name: String!
+    id: Int!
+    logo_path: String
+    origin_country: String!
   }
 `;

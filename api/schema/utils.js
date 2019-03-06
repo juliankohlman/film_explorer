@@ -61,3 +61,35 @@ const certifications = {
 		}
 	]
 };
+
+// export const queryArguments = [
+// 	sort_by,
+// 	certification_country,
+// 	certification,
+// 	include_adult,
+// 	include_video,
+// 	page,
+// 	primary_release_year,
+// 	primary_release_date_gte,
+// 	primary_release_date_lte,
+// 	genreID,
+// 	year,
+// 	with_runtime_gte,
+// 	with_runtime_lte
+// ];
+
+// export const queryPropValues = [
+// 	`&sort_by=${sort_by}`,
+// 	`&certification_country=${certification_country}`,
+// 	`&certification=${certification}`,
+// 	`&include_adult=${include_adult}`,
+// 	`&include_video=${include_video}`,
+// 	`&page=${page}`,
+// 	`&primary_release_year=${primary_release_year}`,
+// 	`&primary_release_date.gte=${primary_release_date_gte}`,
+// 	`&primary_release_date.lte=${primary_release_date_lte}`,
+// 	`&with_genres=${genreID}`,
+// 	`&year=${year}`,
+// 	`&with_runtime.gte=${with_runtime_gte}`,
+// 	`&with_runtime.lte=${with_runtime_lte}`
+// ];
