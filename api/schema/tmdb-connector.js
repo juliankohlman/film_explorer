@@ -23,7 +23,8 @@ export const getPerson = async (_, { queryString, page }) => {
 		);
 		const searchResults = res.data.results;
 		//Todo map over results and pull out [name, popularity, id] from results
-		console.log('Top result:', searchResults[0].name, searchResults[0].id);
+		//Todo need to handle the 'known for' property
+		// console.log('Top result:', searchResults[0].name, searchResults[0].id);
 		return searchResults;
 	} catch (error) {
 		console.log(error);
@@ -35,7 +36,14 @@ export const getFilm = async (_, { queryString, page }) => {
 		let res = await axios.get(
 			`https://api.themoviedb.org/3/search/movie?api_key=${API}&language=en-US&query=${queryString}&page=${page}&include_adult=false`
 		);
+
 		const filmSearchResults = res.data.results;
+		filmSearchResults.map(film => {
+			film.poster_path = `https://image.tmdb.org/t/p/w500${film.poster_path}`;
+			film.overview;
+		});
+		// console.log('# of pages:', res.data.total_pages);
+		// console.log('# of filmSearchResults:', res.data.total_results);
 		return filmSearchResults;
 	} catch (error) {
 		console.log(error);
@@ -45,29 +53,6 @@ export const getFilm = async (_, { queryString, page }) => {
 /**
  * nowPlaying: returns a list of films now playing in theaters
  */
-/* Promise based version of nowPlaying
-export const nowPlaying = (_, { page }) =>
-	axios
-		.get(
-			`https://api.themoviedb.org/3/movie/now_playing?api_key=${API}&language=en-US&page=${page}`
-		)
-		.then(res => {
-			console.log('# of pages:', res.data.total_pages);
-			console.log('# of movies:', res.data.total_results);
-
-			const movies = res.data.results;
-			movies.map(movie => {
-				movie.poster_path = `https://image.tmdb.org/t/p/w500${
-					movie.poster_path
-				}`;
-				movie.overview;
-			});
-
-			return movies;
-		})
-		.catch(err => console.error(err));
-*/
-
 export const nowPlaying = async (_, { page }) => {
 	try {
 		let res = await axios.get(
