@@ -21,6 +21,13 @@ export const typeDefs = `
       year: Int,
       with_runtime_gte: Int,
       with_runtime_lte: Int): [NowPlaying!]!
+    getActorDirector(queryString: String): [ActorOrDirector]
+  }
+
+  type ActorOrDirector {
+    id: ID!
+    popularity: Float
+    name: String
   }
   
 	type NowPlaying {

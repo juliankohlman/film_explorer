@@ -11,6 +11,7 @@ const { API } = process.env;
 //* add logic to tweak shape of data based on the potential returned data.
 //Todo use async functions?? What are the benefits and drawbacks?
 //* https://medium.com/@adityasingh_32512/how-to-use-async-await-with-axios-in-react-e07daac2905f
+//* https://hackernoon.com/6-reasons-why-javascripts-async-await-blows-promises-away-tutorial-c7ec10518dd9
 /*
 The purpose of async/await functions is to simplify the behavior of using promises synchronously and to perform some behavior on a group of Promises. Just as Promises are similar to structured callbacks, async/await is similar to combining generators and promises.
 */
@@ -21,22 +22,20 @@ The purpose of async/await functions is to simplify the behavior of using promis
  * getPerson will be called under the explore genre function
  * to allow users to filter genre results by an actor or directors name
  */
-export const getPerson = (_, { queryString }) => {
-	axios
-		.get(
-			`https://api.themoviedb.org/3/search/person?api_key=${API}&language=en-US&query=${queryString}&page=1&include_adult=false`
-		)
-		.then(res => {
-			const person = res.data.results[0];
-			console.log(person);
+// export const actorDirector = (_, { queryString }) => {
+// 	axios
+// 		.get(
+// 			`https://api.themoviedb.org/3/search/person?api_key=${API}&language=en-US&query=${queryString}&page=1&include_adult=false`
+// 		)
+// 		.then(res => {
+// 			return res.data.results;
+// 		});
+// };
 
-			return person.id;
-		});
-};
 /**
  * nowPlaying: returns a list of films now playing in theaters
  */
-
+/* Promise based version of nowPlaying
 export const nowPlaying = (_, { page }) =>
 	axios
 		.get(
@@ -57,32 +56,59 @@ export const nowPlaying = (_, { page }) =>
 			return movies;
 		})
 		.catch(err => console.error(err));
+*/
 
-/**
- * genreFilms: accepts genre ID and return list of films by genre
- * @param {*} _ root param ignored
- * @param {*} param1 genreID
- */
+export const nowPlaying = async (_, { page }) => {
+	try {
+		let res = await axios.get(
+			`https://api.themoviedb.org/3/movie/now_playing?api_key=${API}&language=en-US&page=${page}`
+		);
+		const movies = res.data.results;
+		movies.map(movie => {
+			movie.poster_path = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+			movie.overview;
+		});
+		console.log('# of pages:', res.data.total_pages);
+		console.log('# of movies:', res.data.total_results);
+		return movies;
+	} catch (error) {
+		console.log(error);
+	}
+};
 
-export const genreFilms = (_, { genreID, page }) =>
-	axios
-		.get(
+export const genreFilms = async (_, { genreID, page }) => {
+	try {
+		let res = await axios.get(
 			`https://api.themoviedb.org/3/discover/movie?api_key=${API}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreID}`
-		)
-		.then(res => {
-			// tie basic idea below to pagination and informative display info to user...now viewing <genre> page # blank of pages etc...
-			console.log(`Now viewing page ${page} of ${res.data.total_pages}`);
-			console.log('# of pages:', res.data.total_pages);
-			console.log('# of movies:', res.data.total_results);
+		);
+		console.log(`Now viewing page ${page} of ${res.data.total_pages}`);
+		console.log('# of pages:', res.data.total_pages);
+		console.log('# of movies:', res.data.total_results);
 
-			const genreFilms = res.data.results;
-			genreFilms.map(film => {
-				film.poster_path = `https://image.tmdb.org/t/p/w500${film.poster_path}`;
-				film.overview;
-			});
-			return genreFilms;
-		})
-		.catch(e => res.json('error', e));
+		const films = res.data.results;
+		films.map(film => {
+			film.poster_path = `https://image.tmdb.org/t/p/w500${film.poster_path}`;
+			film.overview;
+		});
+		return films;
+	} catch (error) {
+		console.log(error);
+	}
+};
+// .then(res => {
+// 	// the basic idea below is to use pagination too display informative info to the user...now viewing <genre> page # blank of pages etc...
+// 	console.log(`Now viewing page ${page} of ${res.data.total_pages}`);
+// 	console.log('# of pages:', res.data.total_pages);
+// 	console.log('# of movies:', res.data.total_results);
+
+// 	const genreFilms = res.data.results;
+// 	genreFilms.map(film => {
+// 		film.poster_path = `https://image.tmdb.org/t/p/w500${film.poster_path}`;
+// 		film.overview;
+// 	});
+// 	return genreFilms;
+// })
+// .catch(e => res.json('error', e));
 
 /**
  * filmDetails: returns a data specific to film with given ID

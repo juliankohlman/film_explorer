@@ -1,8 +1,9 @@
 import {
+	filmDetails,
 	nowPlaying,
 	genreFilms,
-	filmDetails,
 	genreQuery
+	// actorDirector
 } from './tmdb-connector';
 
 export const resolvers = {
@@ -10,7 +11,6 @@ export const resolvers = {
 		getNowPlaying(_, { page }) {
 			return nowPlaying(_, { page });
 		},
-
 		getGenre(_, { genreID, page }) {
 			return genreFilms(_, { genreID, page });
 		},
@@ -18,6 +18,9 @@ export const resolvers = {
 		getFilmDetails(_, { filmID }) {
 			return filmDetails(_, { filmID });
 		},
+		// getActorDirector(_, { queryString }) {
+		// 	return actorDirector(_, { queryString });
+		// },
 		exploreGenre(
 			_,
 			{
