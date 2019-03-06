@@ -16,15 +16,27 @@ const { API } = process.env;
  * getPerson will be called under the explore genre function
  * to allow users to filter genre results by an actor or directors name
  */
-export const getPerson = async (_, { queryString }) => {
+export const getPerson = async (_, { queryString, page }) => {
 	try {
 		let res = await axios.get(
-			`https://api.themoviedb.org/3/search/person?api_key=${API}&language=en-US&query=${queryString}&page=1&include_adult=false`
+			`https://api.themoviedb.org/3/search/person?api_key=${API}&language=en-US&query=${queryString}&page=${page}&include_adult=false`
 		);
 		const searchResults = res.data.results;
 		//Todo map over results and pull out [name, popularity, id] from results
 		console.log('Top result:', searchResults[0].name, searchResults[0].id);
 		return searchResults;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+export const getFilm = async (_, { queryString, page }) => {
+	try {
+		let res = await axios.get(
+			`https://api.themoviedb.org/3/search/movie?api_key=${API}&language=en-US&query=${queryString}&page=${page}&include_adult=false`
+		);
+		const filmSearchResults = res.data.results;
+		return filmSearchResults;
 	} catch (error) {
 		console.log(error);
 	}

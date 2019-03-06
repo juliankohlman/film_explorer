@@ -3,7 +3,8 @@ import {
 	genreFilms,
 	filmDetails,
 	genreQuery,
-	getPerson
+	getPerson,
+	getFilm
 	// actorDirector
 } from './tmdb-connector';
 
@@ -14,6 +15,9 @@ export const resolvers = {
 		},
 		searchPerson(_, { queryString }) {
 			return getPerson(_, { queryString });
+		},
+		searchFilm(_, { queryString }) {
+			return getFilm(_, { queryString });
 		},
 		getGenre(_, { genreID, page }) {
 			return genreFilms(_, { genreID, page });

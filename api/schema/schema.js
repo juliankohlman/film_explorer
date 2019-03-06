@@ -9,8 +9,8 @@ export const typeDefs = `
 		getGenre(genreID: Int!, page: Int = 1): [FilmBasic!]!
     getNowPlaying(page: Int = 1): [FilmBasic!]!
     exploreGenre(input: GenreInput): [FilmBasic!]! 
-    searchPerson(queryString: String): [Person!]!
-    searchFilm(queryString: String): [FilmBasic!]!
+    searchPerson(queryString: String, page: Int = 1): [Person!]!
+    searchFilm(queryString: String, page: Int = 1): [FilmBasic!]!
   }
 
   input GenreInput {
