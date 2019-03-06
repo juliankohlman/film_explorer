@@ -22,8 +22,8 @@ export const getPerson = async (_, { queryString }) => {
 			`https://api.themoviedb.org/3/search/person?api_key=${API}&language=en-US&query=${queryString}&page=1&include_adult=false`
 		);
 		const searchResults = res.data.results;
-		//Todo map over results and pull out names and ids from results
-		console.log(searchResults);
+		//Todo map over results and pull out [name, popularity, id] from results
+		console.log('Top result:', searchResults[0].name, searchResults[0].id);
 		return searchResults;
 	} catch (error) {
 		console.log(error);
@@ -151,8 +151,19 @@ export const genreQuery = async (_, { input }) => {
 	/* Checking for certifications existence to trigger setting of cert_country to US. per the tmdb api, these two params work in tandem so we need to check for a certification param then backtrack to set the country to the
 US for accurate filtering
 */
-	//Todo fetch /search/person => id, which the becomes with_people value
+	// Todo: fetch /search/person => id, which the becomes with_people value
+	// Todo: need to check frontend for value in search box
+	// if it exists then run the getPerson query with that string
+	// then set the with_people prop value to that return value
 
+	/*
+	if ('queryString from FE') {
+		try {
+			let personID = await getPerson(_, 'queryString from FE');
+			queryPropValues[10] = `&with_people=${personID}`;
+		} catch (error) {}
+	}
+  */
 	if (queryPropValues[2]) queryPropValues[1] = `&certification_country=US`;
 
 	queryPropValues.forEach((arg, idx) => {

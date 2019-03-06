@@ -6,10 +6,11 @@
 export const typeDefs = `
 	type Query {
 		getFilmDetails(filmID: Int!): FilmDetails
-		getGenre(genreID: Int!, page: Int = 1): [NowPlaying!]!
-    getNowPlaying(page: Int = 1): [NowPlaying!]!
-    exploreGenre(input: GenreInput): [NowPlaying!]! 
-    searchPerson(queryString: String): [Person!]! 
+		getGenre(genreID: Int!, page: Int = 1): [FilmBasic!]!
+    getNowPlaying(page: Int = 1): [FilmBasic!]!
+    exploreGenre(input: GenreInput): [FilmBasic!]! 
+    searchPerson(queryString: String): [Person!]!
+    searchFilm(queryString: String): [FilmBasic!]!
   }
 
   input GenreInput {
@@ -36,7 +37,7 @@ export const typeDefs = `
     profile_path: String
   }
 
-	type NowPlaying {
+	type FilmBasic {
 		id: ID!
 		poster_path: String
 		title: String!
