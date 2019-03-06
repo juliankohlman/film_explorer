@@ -131,37 +131,9 @@ export const filmDetails = async (_, { filmID }) => {
 /**
  * genreExplore
  */
-//Todo refactor code to import queryArg and prop arrays from a util file
 //Todo add withPeople field, and make that subquery to https://api.themoviedb.org/3/search/person?api_key=${apikey}&language=en-US&query=Ryan%20Reynolds&page=1&include_adult=false
 //* THEN attach results arrays first object id property
-export const genreQuery = (_, { input }) => {
-	//* refactor query arrays into single object or import from external file
-	//todo add enum type to replace explore genre arguments
-	/* enum LinkOrderByInput {
-  description_ASC
-  description_DESC
-  url_ASC
-  url_DESC
-  createdAt_ASC
-  createdAt_DESC
-}
-*/
-	// let queryArguments = [
-	// 	sort_by,
-	// 	certification_country,
-	// 	certification,
-	// 	include_adult,
-	// 	include_video,
-	// 	page,
-	// 	primary_release_year,
-	// 	primary_release_date_gte,
-	// 	primary_release_date_lte,
-	// 	genreID,
-	// 	year,
-	// 	with_runtime_gte,
-	// 	with_runtime_lte
-	// ];
-
+export const genreQuery = async (_, { input }) => {
 	let queryPropValues = [
 		`&sort_by=${input.sort_by}`,
 		`&certification_country=${input.certification_country}`,
@@ -179,41 +151,29 @@ export const genreQuery = (_, { input }) => {
 	];
 
 	let query = `https://api.themoviedb.org/3/discover/movie?api_key=${API}&language=en-US`;
-	//* Checking for certifications existence to trigger setting of cert_country to US. per the tmdb api, these two
-	//* params work in tandem so we need to check for a certification param then backtrack to set the country to the
-	//* US for accurate filtering
-	if (queryPropValues[2]) {
-		// now certification_country is no longer === undefined inside our loop
-		// queryPropValues[1] = 'US';
-		// replace cert_country value with needed string
-		queryPropValues[1] = `&certification_country=US`;
-	}
-	// console.log('certification country', queryArguments[1]);
+	/* Checking for certifications existence to trigger setting of cert_country to US. per the tmdb api, these two params work in tandem so we need to check for a certification param then backtrack to set the country to the
+US for accurate filtering
+*/
+	if (queryPropValues[2]) queryPropValues[1] = `&certification_country=US`;
 
 	queryPropValues.forEach((arg, idx) => {
-		console.log(input.arg);
-		console.log(arg.includes('undefined'));
-		// arg.includes('undefined') ? (query += queryPropValues[idx]) : null;
+		// console.log(input.arg);
+		// console.log(arg.includes('undefined'));
 		if (!arg.includes('undefined')) query += queryPropValues[idx];
 	});
-
-	// input.arg ? (query += queryPropValues[idx]) : null
-
 	console.log('dynamic query string', query);
+	try {
+		let res = await axios.get(query);
+		console.log('# of pages:', res.data.total_pages);
+		console.log('# of movies:', res.data.total_results);
 
-	return axios
-
-		.get(query)
-		.then(res => {
-			console.log('# of pages:', res.data.total_pages);
-			console.log('# of movies:', res.data.total_results);
-
-			const genreFilms = res.data.results;
-			genreFilms.map(film => {
-				film.poster_path = `https://image.tmdb.org/t/p/w500${film.poster_path}`;
-				film.overview;
-			});
-			return genreFilms;
-		})
-		.catch(e => res.json('error', e));
+		const genreFilms = res.data.results;
+		genreFilms.map(film => {
+			film.poster_path = `https://image.tmdb.org/t/p/w500${film.poster_path}`;
+			film.overview;
+		});
+		return genreFilms;
+	} catch (error) {
+		console.log(error);
+	}
 };
