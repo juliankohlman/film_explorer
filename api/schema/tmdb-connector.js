@@ -32,6 +32,8 @@ export const getPerson = async (_, { queryString, page }) => {
 };
 
 export const getFilm = async (_, { queryString, page }) => {
+	console.log(page);
+
 	try {
 		let res = await axios.get(
 			`https://api.themoviedb.org/3/search/movie?api_key=${API}&language=en-US&query=${queryString}&page=${page}&include_adult=false`

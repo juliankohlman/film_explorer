@@ -16,8 +16,8 @@ export const resolvers = {
 		searchPerson(_, { queryString }) {
 			return getPerson(_, { queryString });
 		},
-		searchFilm(_, { queryString }) {
-			return getFilm(_, { queryString });
+		searchFilm(_, { queryString, page }) {
+			return getFilm(_, { queryString, page });
 		},
 		getGenre(_, { genreID, page }) {
 			return genreFilms(_, { genreID, page });
