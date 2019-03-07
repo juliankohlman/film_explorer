@@ -5,7 +5,6 @@ import {
 	genreQuery,
 	getPerson,
 	getFilm
-	// actorDirector
 } from './tmdb-connector';
 
 export const resolvers = {

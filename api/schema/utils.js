@@ -1,5 +1,4 @@
 // * JUST FOR REFERENCE AND GENRE QUERY TESTS (WILL DELETE IN PROD)
-
 const genres = {
 	action: 28,
 	adventure: 12,
@@ -21,6 +20,24 @@ const genres = {
 	war: 10752,
 	western: 37
 };
+
+// default: popularity.desc
+const sortByOptions = [
+	popularity.asc,
+	popularity.desc,
+	release_date.asc,
+	release_date.desc,
+	revenue.asc,
+	revenue.desc,
+	primary_release_date.asc,
+	primary_release_date.desc,
+	original_title.asc,
+	original_title.desc,
+	vote_average.asc,
+	vote_average.desc,
+	vote_count.asc,
+	vote_count.desc
+];
 
 const certifications = {
 	US: [
@@ -61,35 +78,3 @@ const certifications = {
 		}
 	]
 };
-
-// export const queryArguments = [
-// 	sort_by,
-// 	certification_country,
-// 	certification,
-// 	include_adult,
-// 	include_video,
-// 	page,
-// 	primary_release_year,
-// 	primary_release_date_gte,
-// 	primary_release_date_lte,
-// 	genreID,
-// 	year,
-// 	with_runtime_gte,
-// 	with_runtime_lte
-// ];
-
-// export const queryPropValues = [
-// 	`&sort_by=${sort_by}`,
-// 	`&certification_country=${certification_country}`,
-// 	`&certification=${certification}`,
-// 	`&include_adult=${include_adult}`,
-// 	`&include_video=${include_video}`,
-// 	`&page=${page}`,
-// 	`&primary_release_year=${primary_release_year}`,
-// 	`&primary_release_date.gte=${primary_release_date_gte}`,
-// 	`&primary_release_date.lte=${primary_release_date_lte}`,
-// 	`&with_genres=${genreID}`,
-// 	`&year=${year}`,
-// 	`&with_runtime.gte=${with_runtime_gte}`,
-// 	`&with_runtime.lte=${with_runtime_lte}`
-// ];

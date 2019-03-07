@@ -32,8 +32,6 @@ export const getPerson = async (_, { queryString, page }) => {
 };
 
 export const getFilm = async (_, { queryString, page }) => {
-	console.log(page);
-
 	try {
 		let res = await axios.get(
 			`https://api.themoviedb.org/3/search/movie?api_key=${API}&language=en-US&query=${queryString}&page=${page}&include_adult=false`
@@ -151,10 +149,9 @@ export const genreQuery = async (_, { input }) => {
 US for accurate filtering
 */
 	// Todo: fetch /search/person => id, which the becomes with_people value
-	// Todo: need to check frontend for value in search box
-	// if it exists then run the getPerson query with that string
-	// then set the with_people prop value to that return value
-
+	//* Check on queryPropValues[with_people] field. If user entered a string THEN
+	//* run the getPerson query and set with_people field equal to first id of results array
+	//* then proceed with rest of genreQuery
 	/*
 	if ('queryString from FE') {
 		try {
