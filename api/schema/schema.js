@@ -27,7 +27,8 @@ export const typeDefs = `
     with_people: String,
     year: Int,
     with_runtime_gte: Int,
-    with_runtime_lte: Int
+    with_runtime_lte: Int,
+    personString: String
   }
 
   type Person {

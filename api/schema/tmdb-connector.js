@@ -126,6 +126,9 @@ export const filmDetails = async (_, { filmID }) => {
  */
 //Todo add withPeople field, and make that subquery to https://api.themoviedb.org/3/search/person?api_key=${apikey}&language=en-US&query=Ryan%20Reynolds&page=1&include_adult=false
 //* THEN attach results arrays first object id property
+/* Checking for certifications existence to trigger setting of cert_country to US. per the tmdb api, these two params work in tandem so we need to check for a certification param then backtrack to set the country to the
+US for accurate filtering
+*/
 export const genreQuery = async (_, { input }) => {
 	let queryPropValues = [
 		`&sort_by=${input.sort_by}`,
@@ -145,29 +148,34 @@ export const genreQuery = async (_, { input }) => {
 	];
 
 	let query = `https://api.themoviedb.org/3/discover/movie?api_key=${API}&language=en-US`;
-	/* Checking for certifications existence to trigger setting of cert_country to US. per the tmdb api, these two params work in tandem so we need to check for a certification param then backtrack to set the country to the
-US for accurate filtering
-*/
+
 	// Todo: fetch /search/person => id, which the becomes with_people value
 	//* Check on queryPropValues[with_people] field. If user entered a string THEN
 	//* run the getPerson query and set with_people field equal to first id of results array
 	//* then proceed with rest of genreQuery
-	/*
-	if ('queryString from FE') {
+	console.log('actor or director name', input.personString);
+
+	if (input.personString) {
 		try {
-			let personID = await getPerson(_, 'queryString from FE');
-			queryPropValues[10] = `&with_people=${personID}`;
-		} catch (error) {}
+			let res = await axios.get(
+				`https://api.themoviedb.org/3/search/person?api_key=${API}&language=en-US&query=${
+					input.personString
+				}&page=${input.page}&include_adult=false`
+			);
+			queryPropValues[10] = `&with_people=${res.data.results[0].id}`;
+			// input.with_people = res.data.results[0].id;
+		} catch (error) {
+			console.log(error);
+		}
 	}
-  */
+
 	if (queryPropValues[2]) queryPropValues[1] = `&certification_country=US`;
 
 	queryPropValues.forEach((arg, idx) => {
-		// console.log(input.arg);
-		// console.log(arg.includes('undefined'));
 		if (!arg.includes('undefined')) query += queryPropValues[idx];
 	});
 	console.log('dynamic query string', query);
+	console.log('actor or director', input.personString);
 	try {
 		let res = await axios.get(query);
 		// console.log('# of pages:', res.data.total_pages);
