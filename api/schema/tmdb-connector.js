@@ -153,7 +153,8 @@ export const genreQuery = async (_, { input }) => {
 	//* Check on queryPropValues[with_people] field. If user entered a string THEN
 	//* run the getPerson query and set with_people field equal to first id of results array
 	//* then proceed with rest of genreQuery
-	console.log('actor or director name', input.personString);
+
+	// console.log('actor or director name', input.personString);
 
 	if (input.personString) {
 		try {
@@ -163,7 +164,6 @@ export const genreQuery = async (_, { input }) => {
 				}&page=${input.page}&include_adult=false`
 			);
 			queryPropValues[10] = `&with_people=${res.data.results[0].id}`;
-			// input.with_people = res.data.results[0].id;
 		} catch (error) {
 			console.log(error);
 		}
