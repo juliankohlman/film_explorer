@@ -21,8 +21,9 @@ export default class Container extends Component {
 					<LandingNav />
 					<LandingSearch />
 				</header>
+
 				{/* pt6-7 */}
-				<Landing />
+				{/* <Landing /> */}
 			</div>
 		);
 	}

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import { gql } from 'apollo-boost';
+import LandingNav from './LandingNav';
+import Container from '../../components/Container';
 
 //Todo be sure to tune queries and only grab the fields you'll need. Nowplaying only really needs ids' and poster paths for example
 const GET_NOW_PLAYING = gql`
@@ -23,7 +25,7 @@ const NowPlaying = () => (
 
 			return data.getNowPlaying.map(movie => (
 				<div key={movie.id}>
-					<img src={movie.poster_path} alt="poster image" srcset="" />
+					<img src={movie.poster_path} alt="poster" srcSet="" />
 					{/* <p>{movie.poster_path}</p> */}
 				</div>
 			));
@@ -34,7 +36,8 @@ const NowPlaying = () => (
 export default class Landing extends Component {
 	render() {
 		return (
-			<div className="pt7">
+			<div>
+				<Container />
 				<NowPlaying />
 			</div>
 			// <div>
