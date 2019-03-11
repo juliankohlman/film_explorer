@@ -1,0 +1,213 @@
+import React, { Component } from 'react'
+
+export default class Landing extends Component {
+  render() {
+    return (
+      <div>
+        <main class="pt7 cf w-100">
+          <div class="fl w-50 w-third-m w-25-ns">
+            <div class="aspect-ratio aspect-ratio--16x9">
+              <div
+                style={{
+                  backgroundImage: 'url(http://mrmrs.github.io/images/0006.jpg)'
+                }}
+                class="bg-center cover aspect-ratio--object"
+              />
+            </div>
+          </div>
+          <div class="fl w-50 w-third-m w-25-ns">
+            <div class="aspect-ratio aspect-ratio--16x9">
+              <div
+                style={{
+                  backgroundImage: 'url(http://mrmrs.github.io/images/0002.jpg)'
+                }}
+                class="bg-center cover aspect-ratio--object"
+              />
+            </div>
+          </div>
+          <div class="fl w-50 w-third-m w-25-ns">
+            <div class="aspect-ratio aspect-ratio--16x9">
+              <div
+                style={{
+                  backgroundImage: 'url(http://mrmrs.github.io/images/0003.jpg)'
+                }}
+                class="bg-center cover aspect-ratio--object"
+              />
+            </div>
+          </div>
+          <div class="fl w-50 w-third-m w-25-ns">
+            <div class="aspect-ratio aspect-ratio--16x9">
+              <div
+                style={{
+                  backgroundImage: 'url(http://mrmrs.github.io/images/0004.jpg)'
+                }}
+                class="bg-center cover aspect-ratio--object"
+              />
+            </div>
+          </div>
+          <div class="fl w-50 w-third-m w-25-ns">
+            <div class="aspect-ratio aspect-ratio--16x9">
+              <div
+                style={{
+                  backgroundImage: 'url(http://mrmrs.github.io/images/0007.jpg)'
+                }}
+                class="bg-center cover aspect-ratio--object"
+              />
+            </div>
+          </div>
+          <div class="fl w-50 w-third-m w-25-ns">
+            <div class="aspect-ratio aspect-ratio--16x9">
+              <div
+                style={{
+                  backgroundImage: 'url(http://mrmrs.github.io/images/0008.jpg)'
+                }}
+                class="bg-center cover aspect-ratio--object"
+              />
+            </div>
+          </div>
+          <div class="fl w-50 w-third-m w-25-ns">
+            <div class="aspect-ratio aspect-ratio--16x9">
+              <div
+                style={{
+                  backgroundImage: 'url(http://mrmrs.github.io/images/0009.jpg)'
+                }}
+                class="bg-center cover aspect-ratio--object"
+              />
+            </div>
+          </div>
+          <div class="fl w-50 w-third-m w-25-ns">
+            <div class="aspect-ratio aspect-ratio--16x9">
+              <div
+                style={{
+                  backgroundImage: 'url(http://mrmrs.github.io/images/0010.jpg)'
+                }}
+                class="bg-center cover aspect-ratio--object"
+              />
+            </div>
+          </div>
+          <div class="fl w-50 w-third-m w-25-ns">
+            <div class="aspect-ratio aspect-ratio--16x9">
+              <div
+                style={{
+                  backgroundImage: 'url(http://mrmrs.github.io/images/0011.jpg)'
+                }}
+                class="bg-center cover aspect-ratio--object"
+              />
+            </div>
+          </div>
+          <div class="fl w-50 w-third-m w-25-ns">
+            <div class="aspect-ratio aspect-ratio--16x9">
+              <div
+                style={{
+                  backgroundImage: 'url(http://mrmrs.github.io/images/0012.jpg)'
+                }}
+                class="bg-center cover aspect-ratio--object"
+              />
+            </div>
+          </div>
+          <div class="fl w-50 w-third-m w-25-ns">
+            <div class="aspect-ratio aspect-ratio--16x9">
+              <div
+                style={{
+                  backgroundImage: 'url(http://mrmrs.github.io/images/0013.jpg)'
+                }}
+                class="bg-center cover aspect-ratio--object"
+              />
+            </div>
+          </div>
+          <div class="fl w-50 w-third-m w-25-ns">
+            <div class="aspect-ratio aspect-ratio--16x9">
+              <div
+                style={{
+                  backgroundImage: 'url(http://mrmrs.github.io/images/0014.jpg)'
+                }}
+                class="bg-center cover aspect-ratio--object"
+              />
+            </div>
+          </div>
+          <div class="fl w-50 w-third-m w-25-ns">
+            <div class="aspect-ratio aspect-ratio--16x9">
+              <div
+                style={{
+                  backgroundImage: 'url(http://mrmrs.github.io/images/0015.jpg)'
+                }}
+                class="bg-center cover aspect-ratio--object"
+              />
+            </div>
+          </div>
+          <div class="fl w-50 w-third-m w-25-ns">
+            <div class="aspect-ratio aspect-ratio--16x9">
+              <div
+                style={{
+                  backgroundImage: 'url(http://mrmrs.github.io/images/0016.jpg)'
+                }}
+                class="bg-center cover aspect-ratio--object"
+              />
+            </div>
+          </div>
+          <div class="fl w-50 w-third-m w-25-ns">
+            <div class="aspect-ratio aspect-ratio--16x9">
+              <div
+                style={{
+                  backgroundImage: 'url(http://mrmrs.github.io/images/0017.jpg)'
+                }}
+                class="bg-center cover aspect-ratio--object"
+              />
+            </div>
+          </div>
+          <div class="fl w-50 w-third-m w-25-ns">
+            <div class="aspect-ratio aspect-ratio--16x9">
+              <div
+                style={{
+                  backgroundImage: 'url(http://mrmrs.github.io/images/0018.jpg)'
+                }}
+                class="bg-center cover aspect-ratio--object"
+              />
+            </div>
+          </div>
+          <div class="fl w-50 w-third-m w-25-ns">
+            <div class="aspect-ratio aspect-ratio--16x9">
+              <div
+                style={{
+                  backgroundImage: 'url(http://mrmrs.github.io/images/0019.jpg)'
+                }}
+                class="bg-center cover aspect-ratio--object"
+              />
+            </div>
+          </div>
+          <div class="fl w-50 w-third-m w-25-ns">
+            <div class="aspect-ratio aspect-ratio--16x9">
+              <div
+                style={{
+                  backgroundImage: 'url(http://mrmrs.github.io/images/0020.jpg)'
+                }}
+                class="bg-center cover aspect-ratio--object"
+              />
+            </div>
+          </div>
+          <div class="fl w-50 w-third-m w-25-ns">
+            <div class="aspect-ratio aspect-ratio--16x9">
+              <div
+                style={{
+                  backgroundImage: 'url(http://mrmrs.github.io/images/0021.jpg)'
+                }}
+                class="bg-center cover aspect-ratio--object"
+              />
+            </div>
+          </div>
+          <div class="fl w-50 w-third-m w-25-ns">
+            <div class="aspect-ratio aspect-ratio--16x9">
+              <div
+                style={{
+                  backgroundImage: 'url(http://mrmrs.github.io/images/0022.jpg)'
+                }}
+                class="bg-center cover aspect-ratio--object"
+              />
+            </div>
+          </div>
+        </main>
+
+      </div>
+    )
+  }
+}
