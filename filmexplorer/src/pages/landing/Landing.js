@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import { gql } from 'apollo-boost';
 
+//Todo be sure to tune queries and only grab the fields you'll need. Nowplaying only really needs ids' and poster paths for example
 const GET_NOW_PLAYING = gql`
 	{
 		getNowPlaying {
 			id
 			poster_path
+			title
+			overview
 		}
 	}
 `;
