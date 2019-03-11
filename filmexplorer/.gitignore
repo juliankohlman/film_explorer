@@ -24,3 +24,6 @@ yarn-error.log*
 
 # internal project notes
 notes.md
+
+# API keys and ENV var's
+config.js
