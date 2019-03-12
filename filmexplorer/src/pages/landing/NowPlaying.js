@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import { gql } from 'apollo-boost';
 // import LandingNav from './LandingNav';
-import Header from '../../components/Header';
+// import Header from '../../components/Header';
 
 //Todo be sure to tune queries and only grab the fields you'll need. Nowplaying only really needs ids' and poster paths for example
 const GET_NOW_PLAYING = gql`
@@ -36,7 +36,7 @@ export default class Landing extends Component {
 	render() {
 		return (
 			<div>
-				<Header />
+				{/* <Header /> */}
 				<NowPlaying />
 			</div>
 			// <div>
