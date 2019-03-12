@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { ApolloProvider } from 'react-apollo';
 import ApolloClient from 'apollo-boost';
 
 // import './index.css';
-import Container from './components/Container';
-import Landing from './pages/landing/Landing';
+// import Header from './components/Header';
+// import Landing from './pages/landing/NowPlaying';
+import Main from './pages/landing/Main';
 
 // import * as serviceWorker from './serviceWorker';
 const client = new ApolloClient({ uri: 'http://localhost:4000' });
@@ -15,12 +16,8 @@ ReactDOM.render(
 	<Router>
 		<ApolloProvider client={client}>
 			<div>
-				<Route exact path="/" component={Container} />
-				<Route path="/nowplaying" component={Landing} />
-				<Link to="/nowplaying">Now Playing Card</Link>
+				<Route exact path="/" component={Main} />
 			</div>
-
-			{/* <Landing /> */}
 		</ApolloProvider>
 	</Router>,
 	document.getElementById('root')
