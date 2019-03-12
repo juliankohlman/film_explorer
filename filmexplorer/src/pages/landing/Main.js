@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Header from '../../components/Header';
-import NowPlaying from '../landing/NowPlaying';
+import { NowPlaying } from '../../modules/NowPlaying';
 
 export default class Main extends Component {
 	render() {
 		return (
 			<div>
 				<Header />
-
+				<NowPlaying />
 				{/* <Switch> */}
 				{/* <Route exact path="/nowplaying" component={NowPlaying} /> */}
 				{/* </Switch> */}
