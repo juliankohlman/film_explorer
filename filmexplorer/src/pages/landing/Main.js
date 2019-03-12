@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import NowPlaying from '../landing/NowPlaying';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 export default class Main extends Component {
 	render() {
 		return (
-			<Router>
+			<div>
 				<Header />
-				<div>
-					<Route path="/nowplaying" component={NowPlaying} />
-					<Link to="/nowplaying">Now Playing Card</Link>
-				</div>
-			</Router>
+				<Router>
+					<div className="pt7">
+						<ul>
+							<li>
+								<Link to="/nowplaying">Now Playing</Link>
+							</li>
+						</ul>
+						<Route path="/nowplaying" component={NowPlaying} />
+					</div>
+				</Router>
+			</div>
 		);
 	}
 }
