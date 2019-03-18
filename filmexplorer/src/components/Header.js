@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CallToAction from './CallToAction';
 import FilmSearch from './FilmSearch';
+//Todo logo should be it's own component
 const logo = require('../images/logo.png');
 
 export default class Header extends Component {
@@ -9,7 +10,7 @@ export default class Header extends Component {
 			<div className="dt-ns dt--fixed-ns">
 				{/* <header className="bg-black-90 fixed w-100 ph3 pv3 pv4-ns ph4-m ph5-l z-999"> */}
 				<header className="bg-black-90 fixed w-100 ph3 pv3 pv3 pv4-ns ph4-m ph5-l z-999">
-					<div className="dtc-ns tc pv4 bg-black-10">
+					<div className="dtc-ns tc pv4 bg-black-10 w-30">
 						{/* <a className="dtc v-mid mid-gray link dim fl" href="/" title="Home"> */}
 						<a className="dtc v-mid mid-gray link dim fl" href="/" title="Home">
 							<img
@@ -20,10 +21,10 @@ export default class Header extends Component {
 							/>
 						</a>
 					</div>
-					<div className="dtc-ns tc pv4 bg-black-05 v-mid">
+					<div className="dtc-ns tc pv4 bg-black-05 v-mid w-30">
 						<CallToAction callout="Welcome to the Film Explorer" />
 					</div>
-					<div className="dtc-ns tc pv4 bg-black-05 v-mid">
+					<div className="dtc-ns tc pv4 bg-black-05 v-mid w-30">
 						<FilmSearch />
 					</div>
 
