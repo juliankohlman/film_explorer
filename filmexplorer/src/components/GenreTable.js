@@ -7,9 +7,9 @@ import genres from '../utils/genres';
 export default class GenreTable extends Component {
 	render() {
 		return (
-			<section className="cf">
+			<section className="cf pt7">
 				{genres.map(genre => (
-					<GenreCard genre={genre} />
+					<GenreCard key={genre.toString()} genre={genre} />
 				))}
 			</section>
 		);

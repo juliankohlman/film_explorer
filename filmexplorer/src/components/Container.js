@@ -7,6 +7,7 @@ export default class Container extends Component {
 		return (
 			<div>
 				<Header />
+
 				<GenreTable />
 			</div>
 		);
