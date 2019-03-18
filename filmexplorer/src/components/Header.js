@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import CallToAction from './CallToAction';
+import FilmSearch from './FilmSearch';
 const logo = require('../images/logo.png');
 
 export default class Header extends Component {
@@ -14,7 +16,8 @@ export default class Header extends Component {
 						/>
 					</a>
 				</header>
-
+				<CallToAction callout="hello world" />
+				<FilmSearch />
 				{/* pt6-7 */}
 				{/* <Landing /> */}
 			</div>
