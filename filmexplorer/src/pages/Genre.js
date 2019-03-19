@@ -6,6 +6,7 @@ import FilterBy from '../components/FilterBy';
 import ActorSearch from '../components/ActorDirectorSearch';
 import Button from '../components/Button';
 import CallToAction from '../components/CallToAction';
+import FilmTable from '../components/FilmTable';
 
 export default class Genre extends Component {
 	render() {
@@ -19,6 +20,7 @@ export default class Genre extends Component {
 					<Button text="Explore" />
 					<Button text="Home" />
 				</Header>
+				<FilmTable />
 			</Container>
 		);
 	}
