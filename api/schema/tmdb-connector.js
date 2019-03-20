@@ -39,7 +39,13 @@ export const getFilm = async (_, { queryString, page }) => {
 
 		const filmSearchResults = res.data.results;
 		filmSearchResults.map(film => {
-			film.poster_path = `https://image.tmdb.org/t/p/w500${film.poster_path}`;
+			// film.poster_path = `https://image.tmdb.org/t/p/w500${film.poster_path}`;
+			if (!film.poster_path) {
+				film.poster_path =
+					'https://via.placeholder.com/300x500.png?text=Film+Poster+Not+Available';
+			} else {
+				film.poster_path = `https://image.tmdb.org/t/p/w500${film.poster_path}`;
+			}
 			film.overview;
 		});
 		// console.log('# of pages:', res.data.total_pages);
@@ -61,7 +67,15 @@ export const nowPlaying = async (_, { page }) => {
 		const movies = res.data.results;
 		movies.map(movie => {
 			movie.poster_path = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-			movie.overview;
+			if (!movie.poster_path) {
+				movie.poster_path =
+					'https://via.placeholder.com/300x500.png?text=movie+Poster+Not+Available';
+			} else {
+				movie.poster_path = `https://image.tmdb.org/t/p/w500${
+					movie.poster_path
+				}`;
+			}
+			// movie.overview;
 		});
 		// console.log('# of pages:', res.data.total_pages);
 		// console.log('# of movies:', res.data.total_results);
@@ -82,9 +96,15 @@ export const genreFilms = async (_, { genreID, page }) => {
 
 		const films = res.data.results;
 		films.map(film => {
-			film.poster_path = `https://image.tmdb.org/t/p/w500${film.poster_path}`;
-			film.overview;
+			if (!film.poster_path) {
+				film.poster_path =
+					'https://via.placeholder.com/300x500.png?text=Film+Poster+Not+Available';
+			} else {
+				film.poster_path = `https://image.tmdb.org/t/p/w500${film.poster_path}`;
+			}
 		});
+		// console.log(films[0].title);
+
 		return films;
 	} catch (error) {
 		console.log(error);
@@ -105,6 +125,8 @@ export const filmDetails = async (_, { filmID }) => {
 		const film = res.data;
 		//Todo format response with well-shaped data including the fields: credits, videos, similar, recommendations
 		//Todo write simple function to format runtime (mins) => hrs = mins/60 mins = mins % 60 return hrs and mins (Check for <= 60minute runtimes)
+		// console.log(film.backdrop_path);
+
 		//* Film credits grab top billed cast, and from crew grab: casting director, music composer, costume designer, associate producers, editors, production designer, director of photography, executive producer, writers, director
 		let cast = film.credits.cast;
 		let crew = film.credits.crew;
@@ -114,7 +136,35 @@ export const filmDetails = async (_, { filmID }) => {
 		// console.log(film.similar);
 		// console.log(film.recommendations);
 		// console.log(film);
+		if (!film.overview)
+			film.overview = 'Oops looks like there is no overview for this movie';
+		if (!film.poster_path) {
+			film.poster_path =
+				'https://via.placeholder.com/300x500.png?text=Film+Poster+Not+Available';
+		} else {
+			film.poster_path = `https://image.tmdb.org/t/p/w500${film.poster_path}`;
+		}
+		if (!film.backdrop_path)
+			film.backdrop_path =
+				'https://via.placeholder.com/728x90.png?text=Film+Backdrop+Not+Available';
 
+		film.genres = film.genres.map(genre => genre.name).join(',');
+		film.budget = `${film.budget.toLocaleString('en-US', {
+			style: 'currency',
+			currency: 'USD'
+		})}`;
+		if (film.runtime) {
+			const runTimeH = Math.floor(+film.runtime / 60);
+			const runTimeMin = +film.runtime % 60;
+			film.runtime = `${runTimeH}h ${runTimeMin}min`;
+		} else {
+			film.runtime = `N/A`;
+		}
+		// console.log(runTimeH);
+		// console.log(runTimeMin);
+		// Object.assign(film, {
+		// 	runtime: `${runTimeH}h ${runTimeMin}min`
+		// });
 		return film;
 	} catch (error) {
 		console.log(error);

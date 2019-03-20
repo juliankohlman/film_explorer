@@ -46,8 +46,8 @@ export const typeDefs = `
 	}
 
 	type FilmDetails {
-		backdrop_path: String
-		budget: Int!
+    backdrop_path: String
+		budget: String!
 		genres: String!
 		id: ID!
 		overview: String!
