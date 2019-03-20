@@ -148,7 +148,13 @@ export const filmDetails = async (_, { filmID }) => {
 			film.backdrop_path =
 				'https://via.placeholder.com/728x90.png?text=Film+Backdrop+Not+Available';
 
-		film.genres = film.genres.map(genre => genre.name).join(',');
+		film.production_companies = film.production_companies
+			.map(company => company.name)
+			.join(', ');
+
+		// release date
+		// console.log(new Date(film.release_date).toString().split(' ').slice(1, 4))
+		film.genres = film.genres.map(genre => genre.name).join(', ');
 		film.budget = `${film.budget.toLocaleString('en-US', {
 			style: 'currency',
 			currency: 'USD'
@@ -160,11 +166,10 @@ export const filmDetails = async (_, { filmID }) => {
 		} else {
 			film.runtime = `N/A`;
 		}
-		// console.log(runTimeH);
-		// console.log(runTimeMin);
-		// Object.assign(film, {
-		// 	runtime: `${runTimeH}h ${runTimeMin}min`
-		// });
+		film.revenue = `${film.revenue.toLocaleString('en-US', {
+			style: 'currency',
+			currency: 'USD'
+		})}`;
 		return film;
 	} catch (error) {
 		console.log(error);

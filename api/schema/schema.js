@@ -48,24 +48,26 @@ export const typeDefs = `
 	type FilmDetails {
     backdrop_path: String
 		budget: String!
-		genres: String!
+    genres: String!
 		id: ID!
 		overview: String!
 		popularity: Float!
-		poster_path: String
-		production_companies: [ProductionCompanies!]!
+    poster_path: String
+    production_companies: String!
 		release_date: String!
-		revenue: Int!
+		revenue: String!
 		runtime: String
 		status: String!
 		tagline: String
     title: String! 
   }  
+`;
 
-  type ProductionCompanies {
+/*
+type ProductionCompanies {
     name: String!
     id: Int!
     logo_path: String
     origin_country: String!
   }
-`;
+*/
