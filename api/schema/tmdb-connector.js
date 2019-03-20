@@ -125,8 +125,7 @@ export const filmDetails = async (_, { filmID }) => {
 		const film = res.data;
 		//Todo format response with well-shaped data including the fields: credits, videos, similar, recommendations
 		//Todo write simple function to format runtime (mins) => hrs = mins/60 mins = mins % 60 return hrs and mins (Check for <= 60minute runtimes)
-		// console.log(film.backdrop_path);
-
+		
 		//* Film credits grab top billed cast, and from crew grab: casting director, music composer, costume designer, associate producers, editors, production designer, director of photography, executive producer, writers, director
 		let cast = film.credits.cast;
 		let crew = film.credits.crew;
@@ -135,9 +134,12 @@ export const filmDetails = async (_, { filmID }) => {
 		// console.log(film.videos);
 		// console.log(film.similar);
 		// console.log(film.recommendations);
-		// console.log(film);
+		
 		if (!film.overview)
 			film.overview = 'Oops looks like there is no overview for this movie';
+
+		if (!film.tagline) film.tagline = 'Insert witty tagline here :)';
+
 		if (!film.poster_path) {
 			film.poster_path =
 				'https://via.placeholder.com/300x500.png?text=Film+Poster+Not+Available';

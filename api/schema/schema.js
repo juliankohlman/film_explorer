@@ -2,6 +2,7 @@
 //Todo convert to .graphql file extension
 //Todo add with_release_type to query
 //* Look into https://developers.themoviedb.org/3/trending/get-trending
+//Todo add cast and crew types
 
 export const typeDefs = `
 	type Query {
@@ -60,6 +61,7 @@ export const typeDefs = `
 		status: String!
 		tagline: String
     title: String! 
+    
   }  
 `;
 
