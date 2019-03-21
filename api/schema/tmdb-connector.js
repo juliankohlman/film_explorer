@@ -125,16 +125,26 @@ export const filmDetails = async (_, { filmID }) => {
 		const film = res.data;
 
 		//* Film credits grab top billed cast, and from crew grab: casting director, music composer, costume designer, associate producers, editors, production designer, director of photography, executive producer, writers, director
+		const crewATL = [
+			'Director',
+			'Original Music Composer',
+			'Casting',
+			'Director of Photography',
+			'Production Design',
+			'Editor',
+			'Associate Producer',
+			'Costume Design'
+		];
 
 		film.credits.cast = film.credits.cast.filter(member => member.order <= 20);
 
-		console.log(film.credits.cast);
-		//Todo Filter crew for relevant crew members by job or department
-		// let crew = film.credits.crew;
+		film.credits.crew = film.credits.crew.filter(
+			member => crewATL.includes(member.job) || member.department === 'Writing'
+		);
 
-		// console.log(cast[0]);
-		// console.log(crew[0]);
+		//TODO: need the id,key, and name from videos
 		// console.log(film.videos);
+		// ? Limit video amount to between 2-4
 		// console.log(film.similar);
 		// console.log(film.recommendations);
 
@@ -149,6 +159,7 @@ export const filmDetails = async (_, { filmID }) => {
 		} else {
 			film.poster_path = `https://image.tmdb.org/t/p/w500${film.poster_path}`;
 		}
+
 		if (!film.backdrop_path)
 			film.backdrop_path =
 				'https://via.placeholder.com/728x90.png?text=Film+Backdrop+Not+Available';
@@ -160,10 +171,12 @@ export const filmDetails = async (_, { filmID }) => {
 		// release date
 		// console.log(new Date(film.release_date).toString().split(' ').slice(1, 4))
 		film.genres = film.genres.map(genre => genre.name).join(', ');
+
 		film.budget = `${film.budget.toLocaleString('en-US', {
 			style: 'currency',
 			currency: 'USD'
 		})}`;
+
 		if (film.runtime) {
 			const runTimeH = Math.floor(+film.runtime / 60);
 			const runTimeMin = +film.runtime % 60;
@@ -171,10 +184,12 @@ export const filmDetails = async (_, { filmID }) => {
 		} else {
 			film.runtime = `N/A`;
 		}
+
 		film.revenue = `${film.revenue.toLocaleString('en-US', {
 			style: 'currency',
 			currency: 'USD'
 		})}`;
+
 		return film;
 	} catch (error) {
 		console.log(error);

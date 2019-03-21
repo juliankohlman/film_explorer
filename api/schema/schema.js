@@ -63,12 +63,3 @@ export const typeDefs = `
     title: String! 
   }  
 `;
-
-/*
-type ProductionCompanies {
-    name: String!
-    id: Int!
-    logo_path: String
-    origin_country: String!
-  }
-*/
