@@ -199,8 +199,7 @@ export const filmDetails = async (_, { filmID }) => {
 /**
  * genreExplore
  */
-//Todo add withPeople field, and make that subquery to https://api.themoviedb.org/3/search/person?api_key=${apikey}&language=en-US&query=Ryan%20Reynolds&page=1&include_adult=false
-//* THEN attach results arrays first object id property
+
 /* Checking for certifications existence to trigger setting of cert_country to US. per the tmdb api, these two params work in tandem so we need to check for a certification param then backtrack to set the country to the
 US for accurate filtering
 */
@@ -228,8 +227,6 @@ export const genreQuery = async (_, { input }) => {
 	//* Check on queryPropValues[with_people] field. If user entered a string THEN
 	//* run the getPerson query and set with_people field equal to first id of results array
 	//* then proceed with rest of genreQuery
-
-	// console.log('actor or director name', input.personString);
 
 	if (input.personString) {
 		try {
