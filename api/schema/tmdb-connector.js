@@ -123,18 +123,21 @@ export const filmDetails = async (_, { filmID }) => {
 			`https://api.themoviedb.org/3/movie/${filmID}?api_key=${API}&language=en-US&append_to_response=credits,videos,similar,recommendations`
 		);
 		const film = res.data;
-		//Todo format response with well-shaped data including the fields: credits, videos, similar, recommendations
-		//Todo write simple function to format runtime (mins) => hrs = mins/60 mins = mins % 60 return hrs and mins (Check for <= 60minute runtimes)
-		
+
 		//* Film credits grab top billed cast, and from crew grab: casting director, music composer, costume designer, associate producers, editors, production designer, director of photography, executive producer, writers, director
-		let cast = film.credits.cast;
-		let crew = film.credits.crew;
+
+		film.credits.cast = film.credits.cast.filter(member => member.order <= 20);
+
+		console.log(film.credits.cast);
+		//Todo Filter crew for relevant crew members by job or department
+		// let crew = film.credits.crew;
+
 		// console.log(cast[0]);
 		// console.log(crew[0]);
 		// console.log(film.videos);
 		// console.log(film.similar);
 		// console.log(film.recommendations);
-		
+
 		if (!film.overview)
 			film.overview = 'Oops looks like there is no overview for this movie';
 

@@ -44,8 +44,8 @@ export const typeDefs = `
 		poster_path: String
 		title: String!
 		overview: String!
-	}
-
+  }
+  
 	type FilmDetails {
     backdrop_path: String
 		budget: String!
@@ -61,7 +61,6 @@ export const typeDefs = `
 		status: String!
 		tagline: String
     title: String! 
-    
   }  
 `;
 
