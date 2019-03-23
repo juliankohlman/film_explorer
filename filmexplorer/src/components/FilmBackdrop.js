@@ -1,12 +1,15 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent } from 'react';
 
 export default class FilmBackdrop extends PureComponent {
-  render() {
-    return (
-      <div>
-        //todo: add banner of some sort from film data.
-        //todo: will conditionally render a placeholder banner if the film has no backdrop data.
-      </div>
-    )
-  }
+	render() {
+		return (
+			<div
+				class="vh-100 cover bg-center"
+				style={{
+					backgroundImage:
+						'url(https://image.tmdb.org/t/p/w500/amYkOxCwHiVTFKendcIW0rSrRlU.jpg)'
+				}}
+			/>
+		);
+	}
 }
