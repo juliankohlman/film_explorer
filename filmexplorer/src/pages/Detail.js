@@ -5,6 +5,8 @@ import CallToAction from '../components/CallToAction';
 import FilmBackdrop from '../components/FilmBackdrop';
 import Button from '../components/Button';
 import FilmPoster from '../components/FilmPoster';
+import FilmOverview from '../components/FilmOverview';
+import FilmCredits from '../components/FilmCredits';
 
 export default class Detail extends Component {
 	render() {
@@ -21,6 +23,8 @@ export default class Detail extends Component {
 					<FilmBackdrop />
 				</div>
 				<FilmPoster />
+				<FilmOverview />
+				<FilmCredits />
 			</Container>
 		);
 	}

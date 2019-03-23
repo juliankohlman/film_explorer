@@ -9,7 +9,7 @@ export default class FilmPoster extends PureComponent {
 				// class="grow aspect-ratio--4x6 "
 				style={{
 					background:
-						'url(https://s3-us-west-1.amazonaws.com/tachyonsio/img/primer.jpg) no-repeat center center',
+						'url(https://image.tmdb.org/t/p/w500/9SKDSFbaM6LuGqG1aPWN3wYGEyD.jpg) no-repeat center center',
 					backgroundSize: 'cover',
 					width: '330px',
 					height: '500px'
