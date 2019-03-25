@@ -22,6 +22,7 @@ const genres = [
 ];
 
 const genreIDs = {
+	nowplaying: 1,
 	action: 28,
 	adventure: 12,
 	animation: 16,
@@ -43,4 +44,4 @@ const genreIDs = {
 	western: 37
 };
 
-export default genres;
+module.exports = { genreIDs, genres };

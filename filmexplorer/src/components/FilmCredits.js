@@ -9,6 +9,7 @@ export default class FilmCredits extends PureComponent {
 				<article class="dt w-100 bb b--black-05 pb2 mt2" href="#0">
 					<div class="dtc w2 w3-ns v-mid">
 						<img
+							alt="thumbnail"
 							src="http://mrmrs.github.io/photos/p/2.jpg"
 							class="ba b--black-10 db br-100 w2 w3-ns h2 h3-ns"
 						/>
@@ -21,6 +22,7 @@ export default class FilmCredits extends PureComponent {
 				<article class="dt w-100 bb b--black-05 pb2 mt2" href="#0">
 					<div class="dtc w2 w3-ns v-mid">
 						<img
+							alt="thumbnail"
 							src="http://mrmrs.github.io/photos/p/3.jpg"
 							class="ba b--black-10 db br-100 w2 w3-ns h2 h3-ns"
 						/>
@@ -33,6 +35,7 @@ export default class FilmCredits extends PureComponent {
 				<article class="dt w-100 bb b--black-05 pb2 mt2" href="#0">
 					<div class="dtc w2 w3-ns v-mid">
 						<img
+							alt="thumbnail"
 							src="http://mrmrs.github.io/photos/p/4.jpg"
 							class="ba b--black-10 db br-100 w2 w3-ns h2 h3-ns"
 						/>
@@ -45,6 +48,7 @@ export default class FilmCredits extends PureComponent {
 				<article class="dt w-100 bb b--black-05 pb2 mt2" href="#0">
 					<div class="dtc w2 w3-ns v-mid">
 						<img
+							alt="thumbnail"
 							src="http://mrmrs.github.io/photos/p/5.jpg"
 							class="ba b--black-10 db br-100 w2 w3-ns h2 h3-ns"
 						/>
@@ -57,6 +61,7 @@ export default class FilmCredits extends PureComponent {
 				<article class="dt w-100 bb b--black-05 pb2 mt2" href="#0">
 					<div class="dtc w2 w3-ns v-mid">
 						<img
+							alt="thumbnail"
 							src="http://mrmrs.github.io/photos/p/6.jpg"
 							class="ba b--black-10 db br-100 w2 w3-ns h2 h3-ns"
 						/>
@@ -69,6 +74,7 @@ export default class FilmCredits extends PureComponent {
 				<article class="dt w-100 bb b--black-05 pb2 mt2" href="#0">
 					<div class="dtc w2 w3-ns v-mid">
 						<img
+							alt="thumbnail"
 							src="http://mrmrs.github.io/photos/p/7.jpg"
 							class="ba b--black-10 db br-100 w2 w3-ns h2 h3-ns"
 						/>
@@ -81,6 +87,7 @@ export default class FilmCredits extends PureComponent {
 				<article class="dt w-100 bb b--black-05 pb2 mt2" href="#0">
 					<div class="dtc w2 w3-ns v-mid">
 						<img
+							alt="thumbnail"
 							src="http://mrmrs.github.io/photos/p/10.jpg"
 							class="ba b--black-10 db br-100 w2 w3-ns h2 h3-ns"
 						/>
@@ -93,6 +100,7 @@ export default class FilmCredits extends PureComponent {
 				<article class="dt w-100 bb b--black-05 pb2 mt2" href="#0">
 					<div class="dtc w2 w3-ns v-mid">
 						<img
+							alt="thumbnail"
 							src="http://mrmrs.github.io/photos/p/11.jpg"
 							class="ba b--black-10 db br-100 w2 w3-ns h2 h3-ns"
 						/>

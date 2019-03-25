@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import CallToAction from '../components/CallToAction';
 import FilmSearch from '../components/FilmSearch';
 import GenreTable from '../components/GenreTable';
+// import { genreIDs, genres } from '../utils/genres';
 
 export default class Landing extends Component {
 	render() {

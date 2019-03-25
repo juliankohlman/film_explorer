@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ApolloProvider } from 'react-apollo';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import ApolloClient from 'apollo-boost';
 import Landing from './pages/Landing';
 import Genre from './pages/Genre';
@@ -13,9 +13,12 @@ const rootElement = document.getElementById('root');
 ReactDOM.render(
 	<Router>
 		<ApolloProvider client={client}>
-			<Route exact path="/" component={Landing} />
-			<Route path="/genre" component={Genre} />
-			<Route path="/detail" component={Detail} />
+			<Switch>
+				<Route exact path="/" component={Landing} />
+				<Route exact path="/genre/:key" component={Genre} />
+
+				<Route exact path="/detail/:id" component={Detail} />
+			</Switch>
 		</ApolloProvider>
 	</Router>,
 	rootElement

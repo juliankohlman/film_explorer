@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 //Todo logo should be it's own component
 //Todo think about using Context Api
 const logo = require('../images/logo.png');
