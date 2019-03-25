@@ -1,19 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ApolloProvider } from 'react-apollo';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import ApolloClient from 'apollo-boost';
 import Landing from './pages/Landing';
 import Genre from './pages/Genre';
 import Detail from './pages/Detail';
-
+// <Route path="comments" component={() => (<Comments myProp="value" />)}/>
 const client = new ApolloClient({ uri: 'http://localhost:4000' });
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(
 	<Router>
 		<ApolloProvider client={client}>
-			<Detail />
+			<Route exact path="/" component={Landing} />
+			<Route path="genres" component={Genre} />
+			<Route path="detail" component={Detail} />
 		</ApolloProvider>
 	</Router>,
 	rootElement
