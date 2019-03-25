@@ -14,8 +14,8 @@ ReactDOM.render(
 	<Router>
 		<ApolloProvider client={client}>
 			<Route exact path="/" component={Landing} />
-			<Route path="genres" component={Genre} />
-			<Route path="detail" component={Detail} />
+			<Route path="/genre" component={Genre} />
+			<Route path="/detail" component={Detail} />
 		</ApolloProvider>
 	</Router>,
 	rootElement
