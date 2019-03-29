@@ -31,6 +31,7 @@ export const getPerson = async (_, { queryString, page }) => {
 	}
 };
 
+//Todo what will you render if the search returns no movies???
 export const getFilm = async (_, { queryString, page }) => {
 	try {
 		let res = await axios.get(
