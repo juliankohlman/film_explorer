@@ -2,6 +2,7 @@ import { queryType } from 'nexus/dist';
 import axios from 'axios';
 import { defaultFieldResolver } from 'graphql';
 
+// Nexus-style query
 export const NowPlaying = queryType({
 	name: 'NowPlaying',
 	description: 'Movies now playing in theaters',
