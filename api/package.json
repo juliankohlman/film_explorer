@@ -13,7 +13,8 @@
 		"dotenv": "^6.2.0",
 		"esm": "^3.2.4",
 		"graphql": "^14.1.1",
-		"graphql-yoga": "^1.17.4"
+		"graphql-yoga": "^1.17.4",
+		"justwatch-api": "^1.0.4"
 	},
 	"devDependencies": {
 		"nodemon": "^1.18.9"

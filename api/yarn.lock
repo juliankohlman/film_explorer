@@ -1430,6 +1430,11 @@ jmespath@0.15.0:
   resolved "https://registry.yarnpkg.com/jmespath/-/jmespath-0.15.0.tgz#a3f222a9aae9f966f5d27c796510e28091764217"
   integrity sha1-o/Iiqarp+Wb10nx5ZRDigJF2Qhc=
 
+justwatch-api@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/justwatch-api/-/justwatch-api-1.0.4.tgz#cacc362b6434a2050ccd2d0cc29cfcdbbd315a71"
+  integrity sha512-8YsfgtJ40MJNG1eYiJxfbFcQpQ8eY2knKCGEND0BkIS/4SKFcQkgcMT/xEcd5wMDtAE/c8JQCZXlfSxbaHzybg==
+
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
@@ -1641,13 +1646,6 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
   integrity sha1-KzJxhOiZIQEXeyhWP7XnECrNDKk=
-
-nexus@^0.9.9:
-  version "0.9.11"
-  resolved "https://registry.yarnpkg.com/nexus/-/nexus-0.9.11.tgz#a8be516885566adcf177a35cbf363c5d05b0ae6c"
-  integrity sha512-MgIQihnNv7pdPyHgtDu1HETMNQZCe3olNb4TjPwf1RNatcHbcJgD4z96Xc1oROW88Cgvzn06M30DDI5tTGP2IQ==
-  dependencies:
-    tslib "^1.9.3"
 
 node-pre-gyp@^0.10.0:
   version "0.10.3"
