@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "filmexplorer": {
+      "schemaPath": "api/schema/schema.graphql",
+      "extensions": {
+        "endpoints": {
+          "dev": {
+            "url": "http://localhost:4000/"
+          }
+        }
+      }
+    }
+  }
+}
