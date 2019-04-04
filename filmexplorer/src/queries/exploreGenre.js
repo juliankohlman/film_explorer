@@ -2,7 +2,7 @@ import { gql } from 'apollo-boost';
 
 export const exploreGenre = gql`
 	query($input: GenreInput) {
-		FilmBasic {
+		exploreGenre(input: $input) {
 			id
 			poster_path
 			title

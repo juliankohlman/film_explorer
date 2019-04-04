@@ -2,7 +2,7 @@ import { gql } from 'apollo-boost';
 
 export const searchPerson = gql`
 	query($queryString: String, $page: Int = 1) {
-		Person {
+		searchPerson(queryString: $queryString, page: $page) {
 			name
 			popularity
 			id
