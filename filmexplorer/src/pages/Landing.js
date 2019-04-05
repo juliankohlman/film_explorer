@@ -14,10 +14,11 @@ export default class Landing extends Component {
 					<div className="dtc-ns tc pv4 bg-black-05 v-mid w-30">
 						<CallToAction callout="Welcome to the Film Explorer" />
 					</div>
-					<div className="dtc-ns tc pv4 bg-black-05 v-mid w-30">
+					{/* <div className="dtc-ns tc pv4 bg-black-05 v-mid w-30">
 						<FilmSearch />
-					</div>
+					</div> */}
 				</Header>
+				{/* If search gets run render filmSearch component */}
 				<GenreTable />
 			</Container>
 		);
