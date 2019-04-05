@@ -3,8 +3,8 @@ import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 //Todo be sure to tune queries and only grab the fields you'll need. Nowplaying only really needs ids' and poster paths for example
 const GET_NOW_PLAYING = gql`
-	{
-		getNowPlaying {
+	query($page: Int = 1) {
+		getNowPlaying(page: $page) {
 			id
 			poster_path
 			title
