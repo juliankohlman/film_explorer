@@ -249,7 +249,7 @@ export const genreQuery = async (_, { input }) => {
 	queryPropValues.forEach((arg, idx) => {
 		if (!arg.includes('undefined')) query += queryPropValues[idx];
 	});
-	console.log('dynamic query string', query);
+	// console.log('dynamic query string', query);
 	console.log('actor or director', input.personString);
 	try {
 		let res = await axios.get(query);
