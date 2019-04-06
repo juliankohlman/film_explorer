@@ -16,6 +16,11 @@ ReactDOM.render(
 			<Switch>
 				<Route exact path="/" component={Landing} />
 				<Route exact path="/genre/:key" component={Genre} />
+				{/* <Route
+					exact
+					path="/genre/:key"
+					component={() => <Genre genreID="value" />}
+				/> */}
 				<Route exact path="/detail/:id" component={Detail} />
 			</Switch>
 		</ApolloProvider>

@@ -7,6 +7,11 @@ import GenreTable from '../components/GenreTable';
 // import { genreIDs, genres } from '../utils/genres';
 
 export default class Landing extends Component {
+	state = {
+		selectedGenre: '',
+		query: '',
+		results: []
+	};
 	render() {
 		return (
 			<Container>
