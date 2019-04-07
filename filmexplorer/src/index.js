@@ -15,8 +15,8 @@ ReactDOM.render(
 		<ApolloProvider client={client}>
 			<Switch>
 				<Route exact path="/" component={Landing} />
+				{/* <Route exact path="/nowplaying" component={NowPlaying} /> */}
 				<Route exact path="/genre/:key" component={Genre} />
-				<Route exact path="/nowplaying" component={NowPlaying} />
 
 				<Route exact path="/detail/:id" component={Detail} />
 			</Switch>

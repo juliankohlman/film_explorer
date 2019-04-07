@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Query, graphql } from 'react-apollo';
 import { Link } from 'react-router-dom';
 import { GET_GENRE } from '../queries/getGenre';
+import NowPlayingFilms from './NowPlayingFilms';
 
 class GenreFilms extends Component {
 	render() {
 		console.log(this.props.id);
-
 		const GenrePosters = () => (
 			<Query query={GET_GENRE} variables={{ genreID: this.props.id }}>
 				{({ loading, error, data }) => {
@@ -39,7 +39,8 @@ class GenreFilms extends Component {
 				}}
 			</Query>
 		);
-		return <GenrePosters />;
+		return this.props.id === 1 ? <NowPlayingFilms /> : <GenrePosters />;
+		// return <GenrePosters />;
 	}
 }
 

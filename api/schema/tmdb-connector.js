@@ -66,8 +66,10 @@ export const nowPlaying = async (_, { page }) => {
 			`https://api.themoviedb.org/3/movie/now_playing?api_key=${API}&language=en-US&page=${page}`
 		);
 		const movies = res.data.results;
+		//Todo clean-up logic around building up poster_path string
 		movies.map(movie => {
-			movie.poster_path = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+			// movie.poster_path = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+			movie.poster_path = `${movie.poster_path}`;
 			if (!movie.poster_path) {
 				movie.poster_path =
 					'https://via.placeholder.com/300x500.png?text=movie+Poster+Not+Available';

@@ -6,6 +6,7 @@ import FilterBy from '../components/FilterBy';
 import ActorSearch from '../components/ActorDirectorSearch';
 import Button from '../components/Button';
 import CallToAction from '../components/CallToAction';
+import NowPlayingFilms from '../components/NowPlayingFilms';
 
 export default class NowPlaying extends Component {
 	render() {
@@ -22,6 +23,7 @@ export default class NowPlaying extends Component {
 				{/* <FilmTable />
 				 */}
 				{/* ADD NOWPLAYING QUERY COMPONENT HERE */}
+				<NowPlayingFilms />
 			</Container>
 		);
 	}

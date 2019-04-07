@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-//todo clean up component make it more flexible/responsive ready
+//todo clean up component make it more flexible/responsive ready for FilmDetail components
 export default class FilmPoster extends PureComponent {
 	render() {
 		return (

@@ -6,7 +6,7 @@ import FilterBy from '../components/FilterBy';
 import ActorSearch from '../components/ActorDirectorSearch';
 import Button from '../components/Button';
 import CallToAction from '../components/CallToAction';
-// import FilmTable from '../components/FilmTable';
+
 import GenreFilms from '../components/GenreFilms';
 import { genreIDs } from '../utils/genres';
 
@@ -22,8 +22,7 @@ export default class Genre extends Component {
 					<Button text="Explore" />
 					<Button text="Home" />
 				</Header>
-				{/* <FilmTable />
-				 */}
+
 				<GenreFilms id={genreIDs[this.props.match.params.key]} />
 			</Container>
 		);
