@@ -10,7 +10,7 @@ export default class GenreTable extends Component {
 		return (
 			<section className="cf pt7">
 				{Object.keys(genreIDs).map(genre => (
-					// TODO ADD LOGIC TO HANDLE NOWPLAYING/TRENDING SELECTION BY USER
+					// TODO ADD LOGIC TO HANDLE NOWPLAYING/TRENDING SELECTION BY USER `if genre === 'nowplaying' || 'trending' etc...
 					<Link to={`/genre/${genre}`} key={genre}>
 						{/* Remove now playing from table */}
 						{/* Add tabs or different pages for nowPlaying, trending etc.... */}

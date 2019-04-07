@@ -1,6 +1,6 @@
 import { gql } from 'apollo-boost';
 
-export const getNowPlaying = gql`
+export const GET_NOW_PLAYING = gql`
 	query($page: Int = 1) {
 		getNowPlaying(page: $page) {
 			id
