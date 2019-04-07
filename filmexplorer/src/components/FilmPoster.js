@@ -1,15 +1,18 @@
 import React, { PureComponent } from 'react';
 
+//todo clean up component make it more flexible/responsive ready
 export default class FilmPoster extends PureComponent {
+	constructor(props) {
+		super(props);
+	}
 	render() {
 		return (
 			<div
 				role="img"
-				aria-label="Primer movie"
+				aria-label={this.props.title}
 				// class="grow aspect-ratio--4x6 "
 				style={{
-					background:
-						'url(https://image.tmdb.org/t/p/w500/9SKDSFbaM6LuGqG1aPWN3wYGEyD.jpg) no-repeat center center',
+					background: `${this.props.poster_path}`,
 					backgroundSize: 'cover',
 					width: '330px',
 					height: '500px'

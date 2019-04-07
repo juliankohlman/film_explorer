@@ -1,6 +1,6 @@
 //! Temporary tachyons placeholder component
 import React from 'react';
-
+//todo convert to reuseable component via props
 export default function FilmCard() {
 	return (
 		<article style={{ paddingTop: '342px' }}>
