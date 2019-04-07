@@ -2,7 +2,7 @@ import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 import GenreTable from '../components/GenreTable';
 
-const GET_GENRE = gql`
+export const GET_GENRE = gql`
 	query($genreID: Int!, $page: Int = 1) {
 		getGenre(genreID: $genreID, page: $page) {
 			id
@@ -13,7 +13,7 @@ const GET_GENRE = gql`
 	}
 `;
 
-class filmGenre extends Component {}
+// class filmGenre extends Component {}
 // Todo: finish query below and move into class component
 // need to pull needed query id from props.
 
