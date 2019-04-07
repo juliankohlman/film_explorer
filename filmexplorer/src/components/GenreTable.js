@@ -10,11 +10,10 @@ export default class GenreTable extends Component {
 		return (
 			<section className="cf pt7">
 				{Object.keys(genreIDs).map(genre => (
+					// TODO ADD LOGIC TO HANDLE NOWPLAYING/TRENDING SELECTION BY USER
 					<Link to={`/genre/${genre}`} key={genre}>
 						{/* Remove now playing from table */}
 						{/* Add tabs or different pages for nowPlaying, trending etc.... */}
-						{/* Should link to the getGenre query pass needed props genreID into getGenre for query */}
-						{/* <GetGenre /> */}
 						<GenreCard key={genreIDs[genre]} genre={genre} />
 					</Link>
 				))}
