@@ -3,15 +3,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import GenreCard from './GenreCard';
 import { genreIDs } from '../utils/genres';
-import { GetGenre } from '../queries/getGenre';
 
 //Todo iterate over genres creating cards which are links to genre specific routes/pages
 export default class GenreTable extends Component {
-	// <Route path="comments" component={() => (<Comments myProp="value" />)}/>
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		return (
 			<section className="cf pt7">

@@ -2,17 +2,12 @@ import React, { Component } from 'react';
 import { Query, graphql } from 'react-apollo';
 import { Link } from 'react-router-dom';
 import { GET_GENRE } from '../queries/getGenre';
-import FilmPoster from './FilmPoster';
 
 class GenreFilms extends Component {
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		console.log(this.props.id);
 
-		const GenrePosters = ({ genreID }) => (
+		const GenrePosters = () => (
 			<Query query={GET_GENRE} variables={{ genreID: this.props.id }}>
 				{({ loading, error, data }) => {
 					if (loading) return <p>loading...</p>;
@@ -24,6 +19,7 @@ class GenreFilms extends Component {
 								<Link
 									to={`/detail/:id`}
 									className="fl w-50 w-25-l link overflow-hidden"
+									key={film.id}
 								>
 									<div
 										role="img"

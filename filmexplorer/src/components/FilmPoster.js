@@ -2,9 +2,6 @@ import React, { PureComponent } from 'react';
 
 //todo clean up component make it more flexible/responsive ready
 export default class FilmPoster extends PureComponent {
-	constructor(props) {
-		super(props);
-	}
 	render() {
 		return (
 			<div
