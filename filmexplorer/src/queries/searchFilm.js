@@ -1,3 +1,5 @@
+import React, { Component } from 'react';
+import { ApolloConsumer } from 'react-apollo';
 import { gql } from 'apollo-boost';
 
 export const searchFilm = gql`
