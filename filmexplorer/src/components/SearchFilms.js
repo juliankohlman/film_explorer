@@ -6,9 +6,6 @@ import { SEARCH_FILM } from '../queries/searchFilm';
 //TODO know difference between withApollo vs graphql()
 
 class SearchFilms extends Component {
-	constructor(props) {
-		super(props);
-	}
 	render() {
 		const FilmSearchPosters = ({ query }) => (
 			<Query query={SEARCH_FILM} variables={{ queryString: this.props.query }}>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import GenreCard from './GenreCard';
-import NowPlaying from '../pages/NowPlaying';
 import { genreIDs } from '../utils/genres';
 
 //Todo iterate over genres creating cards which are links to genre specific routes/pages
