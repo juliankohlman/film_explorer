@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
-import { ApolloConsumer } from 'react-apollo';
 import { gql } from 'apollo-boost';
 
-export const searchFilm = gql`
+export const SEARCH_FILM = gql`
 	query($queryString: String, $page: Int = 1) {
 		searchFilm(queryString: $queryString, page: $page) {
 			id
