@@ -37,6 +37,7 @@ export default class Landing extends Component {
 		return (
 			<Container>
 				<Header>
+					{/* Extract into another component??? */}
 					<div className="dtc-ns tc pv4 bg-black-05 v-mid w-30">
 						<CallToAction callout="Welcome to the Film Explorer" />
 					</div>
