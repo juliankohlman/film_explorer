@@ -16,6 +16,9 @@ export default class Genre extends Component {
 			<Container>
 				<Header>
 					<CallToAction callout="Now exploring the <genre name> genre..." />
+					{/* Extract components sortby,filterby,actorsearch, and buttons to new component
+              figure out how to pass id so it can inform the query along with rest of input data
+          */}
 					<SortBy />
 					<FilterBy />
 					<ActorSearch />
