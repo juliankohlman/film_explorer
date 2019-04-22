@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import GenreCard from './GenreCard';
 import { genreIDs, genres } from '../utils/genres';
 
-//Todo iterate over genres creating cards which are links to genre specific routes/pages
 export default class GenreTable extends Component {
 	render() {
 		return (
