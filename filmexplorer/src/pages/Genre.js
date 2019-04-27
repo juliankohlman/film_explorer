@@ -19,13 +19,14 @@ export default class Genre extends Component {
 					{/* Extract components sortby,filterby,actorsearch, and buttons to new component
               figure out how to pass id so it can inform the query along with rest of input data
           */}
-					<SortBy />
+					{/* <SortBy /> */}
 					<FilterBy />
 					<ActorSearch />
 					<Button text="Explore" />
 					<Button text="Home" />
 				</Header>
-
+				{/* If explore options are empty render GenreFilms if an option is present render ExploreFilms component */}
+				{/* Component is mounting b/f the id is there */}
 				<GenreFilms id={genreIDs[this.props.match.params.key].id} />
 			</Container>
 		);

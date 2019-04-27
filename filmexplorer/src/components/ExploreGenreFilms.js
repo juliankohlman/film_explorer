@@ -7,6 +7,7 @@ class ExploreGenreFilms extends Component {
 	render() {
 		console.log(this.props.id);
 		const GenrePosters = () => (
+			// Todo pass options into variables as input parameter
 			<Query query={EXPLORE_GENRE} variables={{ genreID: this.props.id }}>
 				{({ loading, error, data }) => {
 					if (loading) return <p>loading...</p>;
