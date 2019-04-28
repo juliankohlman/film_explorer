@@ -11,6 +11,7 @@ import GenreFilms from '../components/GenreFilms';
 import { genreIDs } from '../utils/genres';
 
 export default class Genre extends Component {
+	//todo Add state here for explore options that will get passed into GenreExplore component. Conditionally render based on presence of input in any of the fields => Sort, Release Year, Rating, Runtime, Actor/Director
 	render() {
 		return (
 			<Container>
