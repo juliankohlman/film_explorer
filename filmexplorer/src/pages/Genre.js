@@ -33,15 +33,19 @@ export default class Genre extends Component {
 	};
 
 	handleSubmit = e => {
-		alert(`Options selected: ${JSON.stringify(this.state)}`);
-		let runQuery = Object.values(this.state).slice(0, 5);
+		let runQuery = Object.values(this.state)
+			.slice(0, 5)
+			.every(field => field === '');
 		// if true don't run query.. if false run query
-		console.log(runQuery.every(field => field !== ''));
-		if (runQuery) {
+		// console.log(Object.fromEntries(Object.entries(this.state).slice(0, 6)));
+		// console.log(runQuery.every(field => field === ''));
+		if (!runQuery) {
 			this.setState(state => ({
-				runQuery: !state.runQuery
+				runQuery: !state.runQuery,
+				input: Object.fromEntries(Object.entries(this.state).slice(0, 6))
 			}));
 		}
+		alert(`Options selected: ${JSON.stringify(this.state)}`);
 		e.preventDefault();
 	};
 
@@ -121,7 +125,10 @@ export default class Genre extends Component {
 								onChange={this.handleChange}
 							/>
 						</label>
-						<button className="dtc-ns tc bg-black-05">
+						<button
+							className="dtc-ns tc bg-black-05"
+							onClick={this.handleSubmit}
+						>
 							<a className="f6 link dim ph3 pv2 mb2 dib white bg-dark-blue">
 								Explore
 							</a>
@@ -135,6 +142,7 @@ export default class Genre extends Component {
 				{/* <ExploreGenreFilms id={genreIDs[this.props.match.params.key].id}/> */}
 				{/* Todo copy needed state props and pass to query as a single object */}
 				{/* if runQuery && <ExploreGenreFilms input={this.state.slice(0,6)} /> */}
+
 				<GenreFilms id={this.state.genreID} />
 			</Container>
 		);
