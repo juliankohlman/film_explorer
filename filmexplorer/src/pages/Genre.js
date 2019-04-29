@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Container from '../components/Container';
 import Header from '../components/Header';
-import SortBy from '../components/SortBy';
+// import SortBy from '../components/SortBy';
 import FilterBy from '../components/FilterBy';
-import ActorSearch from '../components/ActorDirectorSearch';
+// import ActorSearch from '../components/ActorDirectorSearch';
 import Button from '../components/Button';
 import CallToAction from '../components/CallToAction';
 

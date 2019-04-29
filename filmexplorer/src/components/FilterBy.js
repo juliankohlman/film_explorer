@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 class FilterBy extends Component {
 	constructor(props) {
 		super(props);
+		// add key that holds props for input query
+		// then you can check if Object.values has any null values
+		// to render explore component or genre component
+		// or set a flag variable exploreQuery to false and toggle it to true once a field gets set. then conditionally render based on that value.
 		this.state = {
 			sort_by: null,
 			year: null,
