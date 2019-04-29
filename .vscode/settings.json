@@ -2,5 +2,5 @@
 	"workbench.editor.enablePreview": false,
 	"workbench.colorCustomizations": {
 		"titleBar.activeBackground": "#537a92"
-	}
+  }
 }
