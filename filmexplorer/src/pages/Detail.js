@@ -46,6 +46,13 @@ class Detail extends Component {
 							/>
 							<FilmOverview overview={data.getFilmDetails.overview} />
 							<FilmCredits cast={data.getFilmDetails.cast} />
+							<ul>
+								<li>Revenue: {data.getFilmDetails.revenue}</li>
+								<li>Budget: {data.getFilmDetails.budget}</li>
+								<li>Runtime: {data.getFilmDetails.runtime}</li>
+								<li>Status: {data.getFilmDetails.status}</li>
+								<li>Tagline: {data.getFilmDetails.tagline}</li>
+							</ul>
 						</Container>
 					);
 				}}
