@@ -58,3 +58,23 @@ type FilmDetails {
 	tagline: String
 	title: String!
 }
+# { CAST DATA
+#    cast_id: 31,
+#    character: 'The Fish',
+#    credit_id: '5983e6cc9251410d98003cb4',
+#    gender: 0,
+#    id: 1292258,
+#    name: 'Jack Kesy',
+#    order: 5,
+#    profile_path: '/2BjaGPVBIC2EKoPaEWj06JpRQMh.jpg'
+# }
+
+#  { CREW DATA
+#       "credit_id": "56380f0cc3a3681b5c0200be",
+#       "department": "Writing",
+#       "gender": 0,
+#       "id": 7469,
+#       "job": "Screenplay",
+#       "name": "Jim Uhls",
+#       "profile_path": null
+#  }
