@@ -8,10 +8,9 @@ import ExploreGenreFilms from '../components/ExploreGenreFilms';
 import { genreIDs } from '../utils/genres';
 
 export default class Genre extends Component {
-	//todo Add state here for explore options that will get passed into GenreExplore component. Conditionally render based on presence of input in any of the fields => Sort, Release Year, Rating, Runtime, Actor/Director
 	constructor(props) {
 		super(props);
-		// set a flag variable exploreQuery to false and toggle it to true once a field gets set. then conditionally render based on that value.
+
 		this.state = {
 			sort_by: 'undefined',
 			year: 'undefined',
@@ -24,6 +23,7 @@ export default class Genre extends Component {
 		};
 	}
 
+	//todo user should be able to run 'explore' by pressing enter
 	handleChange = e => {
 		const target = e.target;
 		const name = target.name;
@@ -32,25 +32,12 @@ export default class Genre extends Component {
 	};
 
 	handleSubmit = e => {
-		// let runQuery = Object.values(this.state)
-		// 	.slice(0, 5)
-		//   .every(field => field === '');
-
 		let runQuery = Object.values(this.state)
 			.slice(0, 6)
-			.filter(field => field !== 'undefined');
+			.filter(field => field !== 'undefined' || field !== '');
 
-		// if true don't run query.. if false run query
-		// console.log(Object.fromEntries(Object.entries(this.state).slice(0, 6)));
-		// console.log(runQuery.every(field => field === ''));
 		console.log(`query fields with input entered by user: ${runQuery.length}`);
-		// console.log(
-		// 	Object.fromEntries(
-		// 		Object.entries(this.state)
-		// 			.slice(0, 6)
-		// 			.filter(f => f[1] !== 'undefined')
-		// 	)
-		// );
+
 		if (runQuery.length >= 2) {
 			this.setState(state => ({
 				runQuery: !state.runQuery,
@@ -61,12 +48,13 @@ export default class Genre extends Component {
 				)
 			}));
 		} else {
+			//TODO fix how state gets updated this is not clean code
+			// need to adjust state for when runQuery will not be executed and state needs to be reset
 			this.setState(state => ({
 				runQuery: false,
 				input: {}
 			}));
 		}
-		// need to adjust state for when runQuery will not be executed and state needs to be reset
 		alert(`Options selected: ${JSON.stringify(this.state)}`);
 		e.preventDefault();
 	};
@@ -85,6 +73,7 @@ export default class Genre extends Component {
 							onChange={this.handleChange}
 							name="sort_by"
 						>
+							{/* rename popularity.asc and popularity.desc labels */}
 							<option value="">Sort Films</option>
 							<option value="popularity.asc">Most popular</option>
 							<option value="popularity.desc">Least popular</option>
@@ -125,6 +114,7 @@ export default class Genre extends Component {
 							Film Runtime:
 							<input
 								placeholder="Runtime in minutes..."
+								//? type number instead
 								type="text"
 								name="with_runtime_gte"
 								value={this.state.value}
@@ -153,13 +143,14 @@ export default class Genre extends Component {
 					</form>
 					<Button text="Home" />
 				</Header>
-				{/* If explore options are empty render GenreFilms if an option is present render ExploreFilms component */}
+
 				{/* Component is mounting b/f the id is there */}
-				{/* Todo copy needed state props and pass to query as a single object */}
-				{/* if runQuery && <ExploreGenreFilms input={this.state.input} /> */}
 				{/* {console.log(this.state.input)} */}
-				{this.state.runQuery && <ExploreGenreFilms input={this.state.input} />}
-				<GenreFilms id={this.state.genreID} />
+				{this.state.runQuery ? (
+					<ExploreGenreFilms input={this.state.input} />
+				) : (
+					<GenreFilms id={this.state.genreID} />
+				)}
 			</Container>
 		);
 	}
