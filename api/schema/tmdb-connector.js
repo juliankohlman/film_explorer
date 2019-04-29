@@ -40,12 +40,14 @@ export const getFilm = async (_, { queryString, page }) => {
 
 		const filmSearchResults = res.data.results;
 		filmSearchResults.map(film => {
-			// film.poster_path = `https://image.tmdb.org/t/p/w500${film.poster_path}`;
+			// film.poster_path = `https://image.tmdb.org/t/p/original${film.poster_path}`;
 			if (!film.poster_path) {
 				film.poster_path =
 					'https://via.placeholder.com/300x500.png?text=Film+Poster+Not+Available';
 			} else {
-				film.poster_path = `https://image.tmdb.org/t/p/w500${film.poster_path}`;
+				film.poster_path = `https://image.tmdb.org/t/p/original${
+					film.poster_path
+				}`;
 			}
 			film.overview;
 		});
@@ -68,13 +70,13 @@ export const nowPlaying = async (_, { page }) => {
 		const movies = res.data.results;
 		//Todo clean-up logic around building up poster_path string
 		movies.map(movie => {
-			// movie.poster_path = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+			// movie.poster_path = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
 			movie.poster_path = `${movie.poster_path}`;
 			if (!movie.poster_path) {
 				movie.poster_path =
 					'https://via.placeholder.com/300x500.png?text=movie+Poster+Not+Available';
 			} else {
-				movie.poster_path = `https://image.tmdb.org/t/p/w500${
+				movie.poster_path = `https://image.tmdb.org/t/p/original${
 					movie.poster_path
 				}`;
 			}
@@ -103,7 +105,9 @@ export const genreFilms = async (_, { genreID, page }) => {
 				film.poster_path =
 					'https://via.placeholder.com/300x500.png?text=Film+Poster+Not+Available';
 			} else {
-				film.poster_path = `https://image.tmdb.org/t/p/w500${film.poster_path}`;
+				film.poster_path = `https://image.tmdb.org/t/p/original${
+					film.poster_path
+				}`;
 			}
 		});
 		// console.log(films[0].title);
@@ -140,10 +144,11 @@ export const filmDetails = async (_, { filmID }) => {
 		];
 
 		//TODO: handle null cases for profile path of cast and crew members
-		film.credits.cast = film.credits.cast.filter(member => member.order <= 20);
+		film.cast = film.credits.cast.filter(member => member.order <= 20);
+
 		console.log(film.credits.cast.slice(0, 6));
 
-		film.credits.crew = film.credits.crew.filter(
+		film.crew = film.credits.crew.filter(
 			member => crewATL.includes(member.job) || member.department === 'Writing'
 		);
 
@@ -162,7 +167,9 @@ export const filmDetails = async (_, { filmID }) => {
 			film.poster_path =
 				'https://via.placeholder.com/300x500.png?text=Film+Poster+Not+Available';
 		} else {
-			film.poster_path = `https://image.tmdb.org/t/p/w500${film.poster_path}`;
+			film.poster_path = `https://image.tmdb.org/t/p/original${
+				film.poster_path
+			}`;
 		}
 
 		if (!film.backdrop_path)
@@ -260,7 +267,9 @@ export const genreQuery = async (_, { input }) => {
 
 		const genreFilms = res.data.results;
 		genreFilms.map(film => {
-			film.poster_path = `https://image.tmdb.org/t/p/w500${film.poster_path}`;
+			film.poster_path = `https://image.tmdb.org/t/p/original${
+				film.poster_path
+			}`;
 			film.overview;
 		});
 		return genreFilms;
