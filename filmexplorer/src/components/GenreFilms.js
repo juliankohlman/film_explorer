@@ -17,7 +17,7 @@ class GenreFilms extends Component {
 						<article style={{ paddingTop: '342px' }}>
 							{data.getGenre.map(film => (
 								<Link
-									to={`/detail/:id`}
+									to={`/detail/${film.id}`}
 									className="fl w-50 w-25-l link overflow-hidden"
 									key={film.id}
 								>
