@@ -22,8 +22,8 @@ export default class Genre extends Component {
           */}
 					{/* <SortBy /> */}
 					<FilterBy />
-					<ActorSearch />
-					<Button text="Explore" />
+					{/* <ActorSearch /> */}
+					{/* <Button text="Explore" /> */}
 					<Button text="Home" />
 				</Header>
 				{/* If explore options are empty render GenreFilms if an option is present render ExploreFilms component */}
