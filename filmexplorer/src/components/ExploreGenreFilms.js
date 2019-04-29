@@ -6,13 +6,13 @@ import { EXPLORE_GENRE } from '../queries/exploreGenre';
 class ExploreGenreFilms extends Component {
 	render() {
 		console.log(this.props.input);
-		const GenrePosters = () => (
-			// Todo pass options into variables as input parameter
+		const ExplorePosters = () => (
 			<Query query={EXPLORE_GENRE} variables={{ input: this.props.input }}>
 				{({ loading, error, data }) => {
 					if (loading) return <p>loading...</p>;
 					if (error) return <p>error :(</p>;
 					console.log(data.exploreGenre);
+
 					return (
 						<article style={{ paddingTop: '342px' }}>
 							{data.exploreGenre.map(film => (
@@ -39,8 +39,7 @@ class ExploreGenreFilms extends Component {
 				}}
 			</Query>
 		);
-		return this.props.id === 1 ? <NowPlayingFilms /> : <GenrePosters />;
-		// return <GenrePosters />;
+		return <ExplorePosters />;
 	}
 }
 

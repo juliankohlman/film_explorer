@@ -33,7 +33,7 @@ export default class Landing extends Component {
 	};
 
 	render() {
-		console.log(this.state.useSearch);
+		// console.log(this.state.useSearch);
 		return (
 			<Container>
 				<Header>

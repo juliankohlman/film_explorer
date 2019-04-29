@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import Container from '../components/Container';
 import Header from '../components/Header';
-// import FilterBy from '../components/FilterBy';
 import Button from '../components/Button';
 import CallToAction from '../components/CallToAction';
 import GenreFilms from '../components/GenreFilms';
-// import ExploreGenreFilms from '../components/ExploreGenreFilms';
+import ExploreGenreFilms from '../components/ExploreGenreFilms';
 import { genreIDs } from '../utils/genres';
 
 export default class Genre extends Component {
@@ -14,11 +13,11 @@ export default class Genre extends Component {
 		super(props);
 		// set a flag variable exploreQuery to false and toggle it to true once a field gets set. then conditionally render based on that value.
 		this.state = {
-			sort_by: '',
-			year: '',
-			certification: '',
-			with_runtime_gte: '',
-			personString: '',
+			sort_by: 'undefined',
+			year: 'undefined',
+			certification: 'undefined',
+			with_runtime_gte: 'undefined',
+			personString: 'undefined',
 			genreID: genreIDs[this.props.match.params.key].id,
 			runQuery: false,
 			input: null
@@ -28,23 +27,46 @@ export default class Genre extends Component {
 	handleChange = e => {
 		const target = e.target;
 		const name = target.name;
-		const value = target.value;
+		const value = name === 'year' ? +target.value : target.value;
 		this.setState({ [name]: value });
 	};
 
 	handleSubmit = e => {
+		// let runQuery = Object.values(this.state)
+		// 	.slice(0, 5)
+		//   .every(field => field === '');
+
 		let runQuery = Object.values(this.state)
-			.slice(0, 5)
-			.every(field => field === '');
+			.slice(0, 6)
+			.filter(field => field !== 'undefined');
+
 		// if true don't run query.. if false run query
 		// console.log(Object.fromEntries(Object.entries(this.state).slice(0, 6)));
 		// console.log(runQuery.every(field => field === ''));
-		if (!runQuery) {
+		console.log(`query fields with input entered by user: ${runQuery.length}`);
+		// console.log(
+		// 	Object.fromEntries(
+		// 		Object.entries(this.state)
+		// 			.slice(0, 6)
+		// 			.filter(f => f[1] !== 'undefined')
+		// 	)
+		// );
+		if (runQuery.length >= 2) {
 			this.setState(state => ({
 				runQuery: !state.runQuery,
-				input: Object.fromEntries(Object.entries(this.state).slice(0, 6))
+				input: Object.fromEntries(
+					Object.entries(this.state)
+						.slice(0, 6)
+						.filter(f => f[1] !== 'undefined' || f[1] === '')
+				)
+			}));
+		} else {
+			this.setState(state => ({
+				runQuery: false,
+				input: {}
 			}));
 		}
+		// need to adjust state for when runQuery will not be executed and state needs to be reset
 		alert(`Options selected: ${JSON.stringify(this.state)}`);
 		e.preventDefault();
 	};
@@ -54,11 +76,6 @@ export default class Genre extends Component {
 			<Container>
 				<Header>
 					<CallToAction callout={genreIDs[this.props.match.params.key].label} />
-					{/* Extract components sortby,filterby,actorsearch, and buttons to new component
-              figure out how to pass id so it can inform the query along with rest of input data
-          */}
-					{/* <SortBy /> */}
-					{/* <FilterBy /> */}
 					<form
 						className="dtc-ns tc pv4 bg-black-05 v-mid"
 						onSubmit={this.handleSubmit}
@@ -83,7 +100,7 @@ export default class Genre extends Component {
 							Release Year:
 							<input
 								placeholder="ex...1984"
-								type="text"
+								type="number"
 								name="year"
 								value={this.state.value}
 								onChange={this.handleChange}
@@ -134,15 +151,14 @@ export default class Genre extends Component {
 							</a>
 						</button>
 					</form>
-
 					<Button text="Home" />
 				</Header>
 				{/* If explore options are empty render GenreFilms if an option is present render ExploreFilms component */}
 				{/* Component is mounting b/f the id is there */}
-				{/* <ExploreGenreFilms id={genreIDs[this.props.match.params.key].id}/> */}
 				{/* Todo copy needed state props and pass to query as a single object */}
-				{/* if runQuery && <ExploreGenreFilms input={this.state.slice(0,6)} /> */}
-
+				{/* if runQuery && <ExploreGenreFilms input={this.state.input} /> */}
+				{/* {console.log(this.state.input)} */}
+				{this.state.runQuery && <ExploreGenreFilms input={this.state.input} />}
 				<GenreFilms id={this.state.genreID} />
 			</Container>
 		);
