@@ -14,24 +14,34 @@ export default class Genre extends Component {
 		super(props);
 		// set a flag variable exploreQuery to false and toggle it to true once a field gets set. then conditionally render based on that value.
 		this.state = {
-			sort_by: null,
-			year: null,
-			certification: null,
-			with_runtime_gte: null,
-			personString: null,
-			genreID: genreIDs[this.props.match.params.key].id
+			sort_by: '',
+			year: '',
+			certification: '',
+			with_runtime_gte: '',
+			personString: '',
+			genreID: genreIDs[this.props.match.params.key].id,
+			runQuery: false,
+			input: null
 		};
 	}
 
 	handleChange = e => {
 		const target = e.target;
 		const name = target.name;
-
-		this.setState({ [name]: target.value });
+		const value = target.value;
+		this.setState({ [name]: value });
 	};
 
 	handleSubmit = e => {
 		alert(`Options selected: ${JSON.stringify(this.state)}`);
+		let runQuery = Object.values(this.state).slice(0, 5);
+		// if true don't run query.. if false run query
+		console.log(runQuery.every(field => field !== ''));
+		if (runQuery) {
+			this.setState(state => ({
+				runQuery: !state.runQuery
+			}));
+		}
 		e.preventDefault();
 	};
 
@@ -118,15 +128,14 @@ export default class Genre extends Component {
 						</button>
 					</form>
 
-					{/* <ActorSearch /> */}
-					{/* <Button text="Explore" /> */}
 					<Button text="Home" />
 				</Header>
 				{/* If explore options are empty render GenreFilms if an option is present render ExploreFilms component */}
 				{/* Component is mounting b/f the id is there */}
 				{/* <ExploreGenreFilms id={genreIDs[this.props.match.params.key].id}/> */}
+				{/* Todo copy needed state props and pass to query as a single object */}
+				{/* if runQuery && <ExploreGenreFilms input={this.state.slice(0,6)} /> */}
 				<GenreFilms id={this.state.genreID} />
-				{/* <GenreFilms id={genreIDs[this.props.match.params.key].id} /> */}
 			</Container>
 		);
 	}

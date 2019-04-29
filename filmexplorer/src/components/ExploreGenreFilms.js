@@ -5,10 +5,10 @@ import { EXPLORE_GENRE } from '../queries/exploreGenre';
 
 class ExploreGenreFilms extends Component {
 	render() {
-		console.log(this.props.id);
+		console.log(this.props.input);
 		const GenrePosters = () => (
 			// Todo pass options into variables as input parameter
-			<Query query={EXPLORE_GENRE} variables={{ GenreInput: this.props.id }}>
+			<Query query={EXPLORE_GENRE} variables={{ input: this.props.input }}>
 				{({ loading, error, data }) => {
 					if (loading) return <p>loading...</p>;
 					if (error) return <p>error :(</p>;
