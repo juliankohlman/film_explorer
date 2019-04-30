@@ -155,10 +155,10 @@ export const filmDetails = async (_, { filmID }) => {
 		// console.log(film.videos.results);
 		film.videos = film.videos.results;
 
-		console.log(film.similar.results.slice(0, 4));
+		// console.log(film.similar.results.slice(0, 4));
 		film.similar = film.similar.results;
 
-		console.log(film.recommendations.results.slice(0, 4));
+		// console.log(film.recommendations.results.slice(0, 4));
 		film.recommendations = film.recommendations.results;
 
 		if (!film.overview)

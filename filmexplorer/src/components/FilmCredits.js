@@ -4,8 +4,9 @@ import React, { PureComponent } from 'react';
 export default class FilmCredits extends PureComponent {
 	render() {
 		return (
+			// Todo map over this.props and render out cast component then do the same for crew
 			<main className="mw6 center">
-				<p>{this.props.credits}</p>
+				<p>{console.log(this.props)}</p>
 				<h1>Cast or Crew</h1>
 				<article className="dt w-100 bb b--black-05 pb2 mt2" href="#0">
 					<div className="dtc w2 w3-ns v-mid">

@@ -18,7 +18,7 @@ class SearchFilms extends Component {
 						<article style={{ paddingTop: '342px' }}>
 							{data.searchFilm.map(film => (
 								<Link
-									to={`/detail/:id`}
+									to={`/detail/${film.id}`}
 									className="fl w-50 w-25-l link overflow-hidden"
 									key={film.id}
 								>
@@ -45,4 +45,3 @@ class SearchFilms extends Component {
 }
 
 export default graphql(SEARCH_FILM)(SearchFilms);
-// export default withApollo(SearchFilms);

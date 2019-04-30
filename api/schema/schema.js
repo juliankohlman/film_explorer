@@ -52,7 +52,7 @@ export const typeDefs = `
   }
 
   type CrewMember {
-    credit_id: Int!
+    credit_id: String!
     department: String!
     gender: Int
     id: Int!
@@ -91,6 +91,6 @@ export const typeDefs = `
     crew: [CrewMember!]!
     videos: [Video!]!
     similar: [FilmBasic!]!
-    recommendation: [FilmBasic!]!
+    recommendation: [FilmBasic]
   }  
 `;
