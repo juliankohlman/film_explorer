@@ -90,5 +90,7 @@ export const typeDefs = `
     cast: [CastMember!]!
     crew: [CrewMember!]!
     videos: [Video!]!
+    similar: [FilmBasic!]!
+    recommendation: [FilmBasic!]!
   }  
 `;

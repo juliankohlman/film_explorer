@@ -144,23 +144,22 @@ export const filmDetails = async (_, { filmID }) => {
 		];
 
 		//TODO: handle null cases for profile path of cast and crew members
-		// film.cast = film.credits.cast
-		// 	.filter(member => member.order <= 20)
-		// 	.join(', ');
 		film.cast = film.credits.cast.filter(member => member.order <= 20);
-
-		// console.log(film.credits.cast.slice(0, 6));
 
 		film.crew = film.credits.crew.filter(
 			member => crewATL.includes(member.job) || member.department === 'Writing'
 		);
 
 		//TODO: need the id,key, and name from videos
+		// ? Limit video amount to between 2-4
 		// console.log(film.videos.results);
 		film.videos = film.videos.results;
-		// ? Limit video amount to between 2-4
-		console.log(film.similar);
-		// console.log(film.recommendations);
+
+		console.log(film.similar.results.slice(0, 4));
+		film.similar = film.similar.results;
+
+		console.log(film.recommendations.results.slice(0, 4));
+		film.recommendations = film.recommendations.results;
 
 		if (!film.overview)
 			film.overview = 'Oops looks like there is no overview for this movie';
