@@ -156,9 +156,10 @@ export const filmDetails = async (_, { filmID }) => {
 		);
 
 		//TODO: need the id,key, and name from videos
-		// console.log(film.videos);
+		// console.log(film.videos.results);
+		film.videos = film.videos.results;
 		// ? Limit video amount to between 2-4
-		// console.log(film.similar);
+		console.log(film.similar);
 		// console.log(film.recommendations);
 
 		if (!film.overview)

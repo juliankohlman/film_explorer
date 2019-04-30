@@ -61,6 +61,17 @@ export const typeDefs = `
     profile_path: String
   }
 
+  type Video {
+    id: String!
+    iso_639_1: String!
+    iso_3166_1: String!
+    key: String!
+    name: String!
+    site: String!
+    size: Int!
+    type: String!
+  }
+
 	type FilmDetails {
     backdrop_path: String
 		budget: String!
@@ -78,5 +89,6 @@ export const typeDefs = `
     title: String! 
     cast: [CastMember!]!
     crew: [CrewMember!]!
+    videos: [Video!]!
   }  
 `;
