@@ -43,6 +43,7 @@ class Detail extends Component {
 							/>
 							<FilmOverview overview={data.getFilmDetails.overview} />
 							<FilmCredits cast={data.getFilmDetails.cast} />
+							{/* Create new component for crew */}
 							<ul>
 								<li>Revenue: {data.getFilmDetails.revenue}</li>
 								<li>Budget: {data.getFilmDetails.budget}</li>
