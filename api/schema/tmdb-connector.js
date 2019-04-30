@@ -144,11 +144,14 @@ export const filmDetails = async (_, { filmID }) => {
 		];
 
 		//TODO: handle null cases for profile path of cast and crew members
-		film.credits.cast = film.credits.cast.filter(member => member.order <= 20);
+		// film.cast = film.credits.cast
+		// 	.filter(member => member.order <= 20)
+		// 	.join(', ');
+		film.cast = film.credits.cast.filter(member => member.order <= 20);
 
-		console.log(film.credits.cast.slice(0, 6));
+		// console.log(film.credits.cast.slice(0, 6));
 
-		film.credits.crew = film.credits.crew.filter(
+		film.crew = film.credits.crew.filter(
 			member => crewATL.includes(member.job) || member.department === 'Writing'
 		);
 

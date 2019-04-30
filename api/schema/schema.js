@@ -40,6 +40,27 @@ export const typeDefs = `
 		overview: String!
   }
   
+  type CastMember {
+    cast_id: Int!
+    character: String!
+    credit_id: String!
+    gender: Int
+    id: Int!
+    name: String!
+    order: Int!
+    profile_path: String
+  }
+
+  type CrewMember {
+    credit_id: Int!
+    department: String!
+    gender: Int
+    id: Int!
+    job: String!
+    name: String!
+    profile_path: String
+  }
+
 	type FilmDetails {
     backdrop_path: String
 		budget: String!
@@ -55,5 +76,7 @@ export const typeDefs = `
 		status: String!
 		tagline: String
     title: String! 
+    cast: [CastMember!]!
+    crew: [CrewMember!]!
   }  
 `;
