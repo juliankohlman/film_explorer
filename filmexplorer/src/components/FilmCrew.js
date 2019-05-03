@@ -2,17 +2,18 @@ import React, { PureComponent } from 'react';
 
 export default class FilmCrew extends PureComponent {
 	render() {
+		const crew = Array.from(new Set(this.props.crew));
 		return (
 			<main className="mw6 center">
-				<p>{console.log(this.props)}</p>
+				<p>{console.log(crew.sort((c, n) => n.department > c.department))}</p>
 				<h1>Crew</h1>
 
-				{this.props.crew.map(crewMember => (
+				{crew.map(crewMember => (
 					//TODO href will become links to cast/crew profile pages
 					<article
 						className="dt w-100 bb b--black-05 pb2 mt2"
 						href="#0"
-						key={crewMember.id}
+						key={crewMember.credit_id}
 					>
 						<div className="dtc w2 w3-ns v-mid">
 							<img
