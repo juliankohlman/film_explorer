@@ -10,6 +10,7 @@ import FilmCast from '../components/FilmCast';
 import FilmCrew from '../components/FilmCrew';
 import { GET_FILM_DETAILS } from '../queries/getFilmDetails';
 import { Query, graphql } from 'react-apollo';
+import FilmTrailer from '../components/FilmTrailer';
 
 class Detail extends Component {
 	render() {
@@ -52,16 +53,17 @@ class Detail extends Component {
 								<li>Runtime: {data.getFilmDetails.runtime}</li>
 								<li>Status: {data.getFilmDetails.status}</li>
 								<li>Tagline: {data.getFilmDetails.tagline}</li>
-								{/* Todo must iterate over similar and recommended films array and render USE seperate component(s) */}
-								{/* Check for existence of recommendations if so render out list otherwise render message */}
 								<li>Similar: {data.getFilmDetails.similar[0].title}</li>
 								<li>
+									{/* Todo must iterate over similar and recommended films array and render USE seperate component(s) */}
+									{/* Check for existence of recommendations if so render out list otherwise render message */}
 									Recommendation:{' '}
 									{data.getFilmDetails.recommendation
 										? data.getFilmDetails.recommendation[0].title
 										: 'No current Recommendations'}
 								</li>
 							</ul>
+							<FilmTrailer videos={data.getFilmDetails.videos} />
 						</Container>
 					);
 				}}
