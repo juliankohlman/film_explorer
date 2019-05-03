@@ -1,13 +1,13 @@
 import React, { PureComponent } from 'react';
 
 //Todo accepts film.credits.cast prop and accesses: character/name/profile_path
-export default class FilmCredits extends PureComponent {
+export default class FilmCast extends PureComponent {
 	render() {
 		return (
 			// Todo map over this.props and render out cast component then do the same for crew
 			<main className="mw6 center">
 				<p>{console.log(this.props)}</p>
-				<h1>Cast or Crew</h1>
+				<h1>Cast</h1>
 
 				{this.props.cast.map(castMember => (
 					//todo href will become links to cast/crew profile pages

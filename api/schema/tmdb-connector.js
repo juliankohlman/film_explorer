@@ -150,6 +150,8 @@ export const filmDetails = async (_, { filmID }) => {
 			member => crewATL.includes(member.job) || member.department === 'Writing'
 		);
 
+		console.log(new Set(film.crew));
+
 		//TODO: need the id,key, and name from videos
 		// ? Limit video amount to between 2-4
 		// console.log(film.videos.results);

@@ -6,7 +6,8 @@ import FilmBackdrop from '../components/FilmBackdrop';
 import Button from '../components/Button';
 import FilmPoster from '../components/FilmPoster';
 import FilmOverview from '../components/FilmOverview';
-import FilmCredits from '../components/FilmCredits';
+import FilmCast from '../components/FilmCast';
+import FilmCrew from '../components/FilmCrew';
 import { GET_FILM_DETAILS } from '../queries/getFilmDetails';
 import { Query, graphql } from 'react-apollo';
 
@@ -42,8 +43,9 @@ class Detail extends Component {
 								title={data.getFilmDetails.title}
 							/>
 							<FilmOverview overview={data.getFilmDetails.overview} />
-							<FilmCredits cast={data.getFilmDetails.cast} />
+							<FilmCast cast={data.getFilmDetails.cast} />
 							{/* Create new component for crew */}
+							<FilmCrew crew={data.getFilmDetails.crew} />
 							<ul>
 								<li>Revenue: {data.getFilmDetails.revenue}</li>
 								<li>Budget: {data.getFilmDetails.budget}</li>
