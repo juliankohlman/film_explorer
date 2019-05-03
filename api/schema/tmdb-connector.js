@@ -146,9 +146,26 @@ export const filmDetails = async (_, { filmID }) => {
 		//TODO: handle null cases for profile path of cast and crew members
 		film.cast = film.credits.cast.filter(member => member.order <= 20);
 
-		film.crew = film.credits.crew.filter(
-			member => crewATL.includes(member.job) || member.department === 'Writing'
-		);
+		//Todo replace with random thumbnail images
+		film.crew = film.credits.crew
+			.filter(
+				member =>
+					crewATL.includes(member.job) || member.department === 'Writing'
+			)
+			.map(crewMember =>
+				crewMember.profile_path === null
+					? Object.assign(
+							crewMember,
+							(crewMember.profile_path =
+								'https://via.placeholder.com/300x500.png?text=Film+Poster+Not+Available')
+					  )
+					: Object.assign(
+							crewMember,
+							(crewMember.profile_path = `https://image.tmdb.org/t/p/original${
+								crewMember.profile_path
+							}`)
+					  )
+			);
 
 		//TODO: need the id,key, and name from videos
 		// ? Limit video amount to between 2-4

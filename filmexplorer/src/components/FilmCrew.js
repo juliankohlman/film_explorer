@@ -5,7 +5,7 @@ export default class FilmCrew extends PureComponent {
 		const crew = Array.from(new Set(this.props.crew));
 		return (
 			<main className="mw6 center">
-				<p>{console.log(crew.sort((c, n) => n.department > c.department))}</p>
+				<p>{console.log(crew)}</p>
 				<h1>Crew</h1>
 
 				{crew.map(crewMember => (
@@ -18,9 +18,7 @@ export default class FilmCrew extends PureComponent {
 						<div className="dtc w2 w3-ns v-mid">
 							<img
 								alt="thumbnail"
-								src={`https://image.tmdb.org/t/p/original${
-									crewMember.profile_path
-								}`}
+								src={crewMember.profile_path}
 								className="ba b--black-10 db br-100 w2 w3-ns h2 h3-ns"
 							/>
 						</div>

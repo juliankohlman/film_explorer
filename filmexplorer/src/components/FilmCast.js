@@ -3,13 +3,14 @@ import React, { PureComponent } from 'react';
 //Todo accepts film.credits.cast prop and accesses: character/name/profile_path
 export default class FilmCast extends PureComponent {
 	render() {
+		const cast = this.props.cast;
 		return (
 			// Todo map over this.props and render out cast component then do the same for crew
 			<main className="mw6 center">
-				<p>{console.log(this.props)}</p>
+				<p>{console.log(cast)}</p>
 				<h1>Cast</h1>
 
-				{this.props.cast.map(castMember => (
+				{cast.map(castMember => (
 					//todo href will become links to cast/crew profile pages
 					<article
 						className="dt w-100 bb b--black-05 pb2 mt2"
@@ -18,6 +19,7 @@ export default class FilmCast extends PureComponent {
 					>
 						<div className="dtc w2 w3-ns v-mid">
 							<img
+								//Todo build string on server-side like crewMember
 								alt="thumbnail"
 								src={`https://image.tmdb.org/t/p/original${
 									castMember.profile_path
