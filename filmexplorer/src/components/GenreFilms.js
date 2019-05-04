@@ -39,8 +39,8 @@ class GenreFilms extends Component {
 				}}
 			</Query>
 		);
+
 		return this.props.id === 1 ? <NowPlayingFilms /> : <GenrePosters />;
-		// return <GenrePosters />;
 	}
 }
 
