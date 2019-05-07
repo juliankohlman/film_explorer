@@ -14,9 +14,9 @@ export default class NowPlaying extends Component {
 			<Container>
 				<Header>
 					<CallToAction callout="Now exploring the <genre name> genre..." />
-					<SortBy />
+					{/* <SortBy />
 					<FilterBy />
-					<ActorSearch />
+					<ActorSearch /> */}
 					<Button text="Explore" />
 					<Button text="Home" />
 				</Header>
