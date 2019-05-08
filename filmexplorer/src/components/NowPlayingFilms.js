@@ -66,30 +66,6 @@ class NowPlayingFilms extends Component {
 							/>
 						</div>
 					);
-					// return (
-					// 	<article style={{ paddingTop: '342px' }}>
-					// 		<button onClick={nextPage}>Next page</button>
-					// 		{data.getNowPlaying.map(film => (
-					// 			<Link
-					// 				to={`/detail/${film.id}`}
-					// 				className="fl w-50 w-25-l link overflow-hidden"
-					// 				key={film.id}
-					// 			>
-					// 				<div
-					// 					role="img"
-					// 					aria-label={film.title}
-					// 					className="grow aspect-ratio--4x6 "
-					// 					style={{
-					// 						background: `url(${
-					// 							film.poster_path
-					// 						}) no-repeat center center`,
-					// 						backgroundSize: 'cover'
-					// 					}}
-					// 				/>
-					// 			</Link>
-					// 		))}
-					// 	</article>
-					// );
 				}}
 			</Query>
 		);

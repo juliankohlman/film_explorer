@@ -8,6 +8,7 @@ import ExploreGenreFilms from '../components/ExploreGenreFilms';
 import { genreIDs } from '../utils/genres';
 
 export default class Genre extends Component {
+	//Todo fix explore submission handling, state not always updating on subsequent searches causing the query to be run twice to update the films
 	constructor(props) {
 		super(props);
 
@@ -18,6 +19,7 @@ export default class Genre extends Component {
 			with_runtime_gte: 'undefined',
 			personString: 'undefined',
 			genreID: genreIDs[this.props.match.params.key].id,
+			page: 1,
 			runQuery: false,
 			input: null
 		};
@@ -33,7 +35,7 @@ export default class Genre extends Component {
 
 	handleSubmit = e => {
 		let runQuery = Object.values(this.state)
-			.slice(0, 6)
+			.slice(0, 7)
 			.filter(field => field !== 'undefined' || field !== '');
 
 		console.log(`query fields with input entered by user: ${runQuery.length}`);
@@ -43,7 +45,7 @@ export default class Genre extends Component {
 				runQuery: !state.runQuery,
 				input: Object.fromEntries(
 					Object.entries(this.state)
-						.slice(0, 6)
+						.slice(0, 7)
 						.filter(f => f[1] !== 'undefined' || f[1] === '')
 				)
 			}));
