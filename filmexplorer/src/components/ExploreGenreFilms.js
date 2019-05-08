@@ -41,25 +41,26 @@ class ExploreGenreFilms extends Component {
 									})
 								}
 								// Todo debug page boundary error.
-								// lastPage={() =>
-								// 	fetchMore({
-								// 		variables: {
-								// 			page: this.setState(state => {
-								// 				return state.page === 1
-								// 					? { page: state.page }
-								// 					: {
-								// 							page: (state.page -= 1)
-								// 					  };
-								// 			})
-								// 		},
-								// 		updateQuery: (prevPage, { fetchMoreResult }) => {
-								// 			if (!fetchMoreResult) return prevPage;
-								// 			return {
-								// 				exploreGenre: [...fetchMoreResult.exploreGenre]
-								// 			};
-								// 		}
-								// 	})
-								// }
+								lastPage={() =>
+									fetchMore({
+										variables: {
+											input:
+												this.props.input === 1
+													? Object.assign({}, this.props.input, {
+															page: this.props.input.page
+													  })
+													: Object.assign({}, this.props.input, {
+															page: (this.props.input.page -= 1)
+													  })
+										},
+										updateQuery: (prevPage, { fetchMoreResult }) => {
+											if (!fetchMoreResult) return prevPage;
+											return {
+												exploreGenre: [...fetchMoreResult.exploreGenre]
+											};
+										}
+									})
+								}
 							/>
 						</div>
 
