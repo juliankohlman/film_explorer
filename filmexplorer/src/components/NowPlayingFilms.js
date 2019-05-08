@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import { Query, graphql } from 'react-apollo';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { GET_NOW_PLAYING } from '../queries/getNowPlaying';
 import FilmPage from './FilmPage';
 
 class NowPlayingFilms extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			page: 1
+		};
+	}
 	render() {
 		const NowPlayingPosters = () => (
 			<Query
 				query={GET_NOW_PLAYING}
-				variables={{ page: 1 }}
+				variables={{ page: this.state.page }}
 				// fetchPolicy={'cache-and-network'}
 				notifyOnNetworkStatusChange={true}
 			>
@@ -17,15 +23,16 @@ class NowPlayingFilms extends Component {
 					if (loading) return 'Loading...';
 					if (error) return `Error! ${error.message}`;
 					console.log(data.getNowPlaying);
+					console.log(this.state.page);
 
 					return (
 						<div>
 							<FilmPage
-								films={data.getNowPlaying}
+								films={data.getNowPlaying || []}
 								nextPage={() =>
 									fetchMore({
 										variables: {
-											page: (this.page += 1)
+											page: this.state.page++
 										},
 										updateQuery: (lastPage, { fetchMoreResult }) => {
 											if (!fetchMoreResult) return lastPage;

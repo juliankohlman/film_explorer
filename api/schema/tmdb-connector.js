@@ -68,6 +68,8 @@ export const nowPlaying = async (_, { page }) => {
 			`https://api.themoviedb.org/3/movie/now_playing?api_key=${API}&language=en-US&page=${page}`
 		);
 		const movies = res.data.results;
+		// console.log(movies.length);
+
 		//Todo clean-up logic around building up poster_path string
 		movies.map(movie => {
 			// movie.poster_path = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
