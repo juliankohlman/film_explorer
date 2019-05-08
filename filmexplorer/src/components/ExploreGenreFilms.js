@@ -2,13 +2,20 @@ import React, { Component } from 'react';
 import { Query, graphql } from 'react-apollo';
 import { Link } from 'react-router-dom';
 import { EXPLORE_GENRE } from '../queries/exploreGenre';
+// import FilmPage from './FilmPage';
 
 class ExploreGenreFilms extends Component {
+	// constructor(props) {
+	// 	super(props);
+	// 	this.state = {
+	// 		page: 1
+	// 	};
+	// }
 	render() {
 		console.log(this.props.input);
 		const ExplorePosters = () => (
 			<Query query={EXPLORE_GENRE} variables={{ input: this.props.input }}>
-				{({ loading, error, data }) => {
+				{({ loading, error, data, fetchMore }) => {
 					if (loading) return <p>loading...</p>;
 					if (error) return <p>error :(</p>;
 					console.log(data.exploreGenre);

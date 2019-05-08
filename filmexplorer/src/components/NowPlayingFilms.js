@@ -3,7 +3,7 @@ import { Query, graphql } from 'react-apollo';
 // import { Link } from 'react-router-dom';
 import { GET_NOW_PLAYING } from '../queries/getNowPlaying';
 import FilmPage from './FilmPage';
-
+//Todo all query components can be D.R.Y pass in query component and query name as props example: GET_NOW_PLAYING, getNowPlaying
 class NowPlayingFilms extends Component {
 	constructor(props) {
 		super(props);
@@ -16,7 +16,6 @@ class NowPlayingFilms extends Component {
 			<Query
 				query={GET_NOW_PLAYING}
 				variables={{ page: this.state.page }}
-				// fetchPolicy={'cache-and-network'}
 				notifyOnNetworkStatusChange={true}
 			>
 				{({ loading, error, data, fetchMore }) => {
@@ -34,8 +33,22 @@ class NowPlayingFilms extends Component {
 										variables: {
 											page: this.state.page++
 										},
-										updateQuery: (lastPage, { fetchMoreResult }) => {
-											if (!fetchMoreResult) return lastPage;
+										updateQuery: (prevPage, { fetchMoreResult }) => {
+											if (!fetchMoreResult) return prevPage;
+											return {
+												getNowPlaying: [...fetchMoreResult.getNowPlaying]
+											};
+										}
+									})
+								}
+								// Todo debug page boundary error.
+								lastPage={() =>
+									fetchMore({
+										variables: {
+											page: this.state.page--
+										},
+										updateQuery: (prevPage, { fetchMoreResult }) => {
+											if (!fetchMoreResult) return prevPage;
 											return {
 												getNowPlaying: [...fetchMoreResult.getNowPlaying]
 											};

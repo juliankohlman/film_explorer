@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const FilmPage = ({ films = [], nextPage }) => {
+const FilmPage = ({ films = [], nextPage, lastPage }) => {
 	if (films && films.length) {
 		return (
 			<article style={{ paddingTop: '342px' }}>
+				<button onClick={lastPage}>Last page</button>
 				<button onClick={nextPage}>Next page</button>
 				{films.map(film => (
 					<Link
