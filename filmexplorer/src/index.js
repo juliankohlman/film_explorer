@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { ApolloProvider } from 'react-apollo';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+
 import ApolloClient from 'apollo-boost';
 import Landing from './pages/Landing';
 import Genre from './pages/Genre';

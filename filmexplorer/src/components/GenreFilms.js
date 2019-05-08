@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Query, graphql } from 'react-apollo';
-// import { Link } from 'react-router-dom';
 import { GET_GENRE } from '../queries/getGenre';
 import NowPlayingFilms from './NowPlayingFilms';
 import FilmPage from './FilmPage';
@@ -13,7 +12,7 @@ class GenreFilms extends Component {
 		};
 	}
 	render() {
-		console.log(this.props.id);
+		console.log(this.props);
 		const GenrePosters = () => (
 			<Query
 				query={GET_GENRE}
@@ -63,28 +62,6 @@ class GenreFilms extends Component {
 								}
 							/>
 						</div>
-						// <article style={{ paddingTop: '342px' }}>
-						// 	<button>Next page</button>
-						// 	{data.getGenre.map(film => (
-						// 		<Link
-						// 			to={`/detail/${film.id}`}
-						// 			className="fl w-50 w-25-l link overflow-hidden"
-						// 			key={film.id}
-						// 		>
-						// 			<div
-						// 				role="img"
-						// 				aria-label={film.title}
-						// 				className="grow aspect-ratio--4x6 "
-						// 				style={{
-						// 					background: `url(${
-						// 						film.poster_path
-						// 					}) no-repeat center center`,
-						// 					backgroundSize: 'cover'
-						// 				}}
-						// 			/>
-						// 		</Link>
-						// 	))}
-						// </article>
 					);
 				}}
 			</Query>

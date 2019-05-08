@@ -140,13 +140,9 @@ export default class Genre extends Component {
 								onClick={this.handleSubmit}
 							>
 								Explore
-								{/* <a className="f6 link dim ph3 pv2 mb2 dib white bg-dark-blue">
-								</a> */}
 							</button>
 						</form>
 						<Button text="Home" href="/" />
-
-						{/* NEXT PAGE */}
 					</Header>
 				) : (
 					<Header>

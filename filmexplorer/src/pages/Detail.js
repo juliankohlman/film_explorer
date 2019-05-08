@@ -11,7 +11,6 @@ import FilmCrew from '../components/FilmCrew';
 import { GET_FILM_DETAILS } from '../queries/getFilmDetails';
 import { Query, graphql } from 'react-apollo';
 import FilmTrailer from '../components/FilmTrailer';
-// import { genreIDs } from '../utils/genres';
 
 class Detail extends Component {
 	render() {
@@ -27,21 +26,18 @@ class Detail extends Component {
 
 					return (
 						<Container>
-							{console.log(this.props.match.params.id)}
-							{/* this.props.history.go
-              Back */}
-							{console.log(this.props.history)}
+							{console.log(this.props)}
 
 							<Header>
 								<div className="dtc-ns tc pv4 bg-black-05 v-mid w-30">
 									<CallToAction callout="The Film Explorer" />
 								</div>
 								<Button text="Home" href="/" />
-								<Button
-									text="Back to Genre"
-									//TODO debug and use react router history
-									// href={}
-								/>
+								<button onClick={this.props.history.goBack}>
+									BACK TO GENRE
+								</button>
+								{/* <Button text="Back to Genre" href="" />
+								 */}
 							</Header>
 							<div style={{ paddingTop: '274px' }}>
 								<FilmBackdrop
@@ -62,7 +58,12 @@ class Detail extends Component {
 								<li>Runtime: {data.getFilmDetails.runtime}</li>
 								<li>Status: {data.getFilmDetails.status}</li>
 								<li>Tagline: {data.getFilmDetails.tagline}</li>
-								<li>Similar: {data.getFilmDetails.similar[0].title}</li>
+								<li>
+									Similar:{' '}
+									{data.getFilmDetails.similar.length
+										? data.getFilmDetails.similar[0].title
+										: 'No similar films found'}
+								</li>
 								<li>
 									{/* Todo must iterate over similar and recommended films array and render USE seperate component(s) */}
 									{/* Check for existence of recommendations if so render out list otherwise render message */}

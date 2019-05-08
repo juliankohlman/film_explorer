@@ -68,7 +68,7 @@ export const nowPlaying = async (_, { page }) => {
 			`https://api.themoviedb.org/3/movie/now_playing?api_key=${API}&language=en-US&page=${page}`
 		);
 		const movies = res.data.results;
-		// console.log(movies.length);
+		// console.log(res.data.total_pages);
 
 		//Todo clean-up logic around building up poster_path string
 		movies.map(movie => {
@@ -176,6 +176,7 @@ export const filmDetails = async (_, { filmID }) => {
 
 		// console.log(film.similar.results.slice(0, 4));
 		film.similar = film.similar.results;
+		// console.log(film.similar);
 
 		// console.log(film.recommendations.results.slice(0, 4));
 		film.recommendations = film.recommendations.results;
