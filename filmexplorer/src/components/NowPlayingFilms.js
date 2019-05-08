@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Query, graphql } from 'react-apollo';
-// import { Link } from 'react-router-dom';
 import { GET_NOW_PLAYING } from '../queries/getNowPlaying';
 import FilmPage from './FilmPage';
 //Todo all query components can be D.R.Y pass in query component and query name as props example: GET_NOW_PLAYING, getNowPlaying

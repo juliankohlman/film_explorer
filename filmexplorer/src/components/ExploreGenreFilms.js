@@ -5,12 +5,6 @@ import { EXPLORE_GENRE } from '../queries/exploreGenre';
 import FilmPage from './FilmPage';
 
 class ExploreGenreFilms extends Component {
-	// constructor(props) {
-	// 	super(props);
-	// 	this.state = {
-	// 		page: 1
-	// 	};
-	// }
 	render() {
 		console.log(this.props.input);
 		console.log(this.props.input.page);
@@ -63,28 +57,6 @@ class ExploreGenreFilms extends Component {
 								}
 							/>
 						</div>
-
-						// <article style={{ paddingTop: '342px' }}>
-						// 	{data.exploreGenre.map(film => (
-						// 		<Link
-						// 			to={`/detail/${film.id}`}
-						// 			className="fl w-50 w-25-l link overflow-hidden"
-						// 			key={film.id}
-						// 		>
-						// 			<div
-						// 				role="img"
-						// 				aria-label={film.title}
-						// 				className="grow aspect-ratio--4x6 "
-						// 				style={{
-						// 					background: `url(${
-						// 						film.poster_path
-						// 					}) no-repeat center center`,
-						// 					backgroundSize: 'cover'
-						// 				}}
-						// 			/>
-						// 		</Link>
-						// 	))}
-						// </article>
 					);
 				}}
 			</Query>

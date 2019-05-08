@@ -6,6 +6,7 @@ import { SEARCH_FILM } from '../queries/searchFilm';
 //TODO know difference between withApollo vs graphql()
 
 class SearchFilms extends Component {
+	// Todo add pagination, which will get refactored to be more D.R.Y later
 	render() {
 		const FilmSearchPosters = ({ query }) => (
 			<Query query={SEARCH_FILM} variables={{ queryString: this.props.query }}>
