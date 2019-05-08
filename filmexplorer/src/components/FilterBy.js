@@ -96,11 +96,11 @@ class FilterBy extends Component {
 						onChange={this.handleChange}
 					/>
 				</label>
-				<button className="dtc-ns tc bg-black-05">
+				{/* <button className="dtc-ns tc bg-black-05">
 					<a className="f6 link dim ph3 pv2 mb2 dib white bg-dark-blue">
 						Explore
 					</a>
-				</button>
+				</button> */}
 			</form>
 		);
 	}

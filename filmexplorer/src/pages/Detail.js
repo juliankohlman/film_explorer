@@ -11,7 +11,7 @@ import FilmCrew from '../components/FilmCrew';
 import { GET_FILM_DETAILS } from '../queries/getFilmDetails';
 import { Query, graphql } from 'react-apollo';
 import FilmTrailer from '../components/FilmTrailer';
-import { genreIDs } from '../utils/genres';
+// import { genreIDs } from '../utils/genres';
 
 class Detail extends Component {
 	render() {

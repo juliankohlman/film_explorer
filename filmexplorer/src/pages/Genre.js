@@ -136,12 +136,12 @@ export default class Genre extends Component {
 								/>
 							</label>
 							<button
-								className="dtc-ns tc bg-black-05"
+								className="f6 link dim ph3 pv2 mb2 dib white bg-dark-blue"
 								onClick={this.handleSubmit}
 							>
-								<a className="f6 link dim ph3 pv2 mb2 dib white bg-dark-blue">
-									Explore
-								</a>
+								Explore
+								{/* <a className="f6 link dim ph3 pv2 mb2 dib white bg-dark-blue">
+								</a> */}
 							</button>
 						</form>
 						<Button text="Home" href="/" />

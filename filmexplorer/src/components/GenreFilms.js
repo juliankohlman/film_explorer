@@ -31,7 +31,9 @@ class GenreFilms extends Component {
 								nextPage={() =>
 									fetchMore({
 										variables: {
-											page: this.state.page++
+											page: this.setState(state => {
+												return { page: (state.page += 1) };
+											})
 										},
 										updateQuery: (prevPage, { fetchMoreResult }) => {
 											if (!fetchMoreResult) return prevPage;
@@ -45,7 +47,9 @@ class GenreFilms extends Component {
 								lastPage={() =>
 									fetchMore({
 										variables: {
-											page: this.state.page--
+											page: this.setState(state => {
+												return { page: (state.page -= 1) };
+											})
 										},
 										updateQuery: (prevPage, { fetchMoreResult }) => {
 											if (!fetchMoreResult) return prevPage;

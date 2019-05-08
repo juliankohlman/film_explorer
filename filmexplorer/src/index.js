@@ -6,7 +6,7 @@ import ApolloClient from 'apollo-boost';
 import Landing from './pages/Landing';
 import Genre from './pages/Genre';
 import Detail from './pages/Detail';
-import NowPlaying from './pages/NowPlaying';
+// import NowPlaying from './pages/NowPlaying';
 
 const client = new ApolloClient({ uri: 'http://localhost:4000' });
 
