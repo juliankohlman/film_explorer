@@ -48,7 +48,9 @@ class GenreFilms extends Component {
 									fetchMore({
 										variables: {
 											page: this.setState(state => {
-												return { page: (state.page -= 1) };
+												return state.page === 1
+													? { page: state.page }
+													: { page: (state.page -= 1) };
 											})
 										},
 										updateQuery: (prevPage, { fetchMoreResult }) => {
