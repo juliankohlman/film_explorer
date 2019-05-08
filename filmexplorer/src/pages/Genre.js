@@ -144,7 +144,8 @@ export default class Genre extends Component {
 								</a>
 							</button>
 						</form>
-						<Button text="Home" />
+						<Button text="Home" href="/" />
+
 						{/* NEXT PAGE */}
 					</Header>
 				) : (
@@ -155,9 +156,8 @@ export default class Genre extends Component {
 						{/* <SortBy />
 					<FilterBy />
 					<ActorSearch /> */}
-						<Button text="Explore" />
-						<Button text="Home" />
-						{/* <button>Next Page</button> */}
+						{/* <Button text="Explore" /> */}
+						<Button text="Home" href="/" />
 					</Header>
 				)}
 

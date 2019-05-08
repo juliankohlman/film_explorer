@@ -11,6 +11,7 @@ import FilmCrew from '../components/FilmCrew';
 import { GET_FILM_DETAILS } from '../queries/getFilmDetails';
 import { Query, graphql } from 'react-apollo';
 import FilmTrailer from '../components/FilmTrailer';
+import { genreIDs } from '../utils/genres';
 
 class Detail extends Component {
 	render() {
@@ -27,12 +28,20 @@ class Detail extends Component {
 					return (
 						<Container>
 							{console.log(this.props.match.params.id)}
+							{/* this.props.history.go
+              Back */}
+							{console.log(this.props.history)}
+
 							<Header>
 								<div className="dtc-ns tc pv4 bg-black-05 v-mid w-30">
 									<CallToAction callout="The Film Explorer" />
 								</div>
-								<Button text="Home" />
-								<Button text="Back to Genre" />
+								<Button text="Home" href="/" />
+								<Button
+									text="Back to Genre"
+									//TODO debug and use react router history
+									// href={}
+								/>
 							</Header>
 							<div style={{ paddingTop: '274px' }}>
 								<FilmBackdrop

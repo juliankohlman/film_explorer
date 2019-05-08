@@ -1,4 +1,5 @@
 import React from 'react';
+
 //Todo logo should be it's own component
 //Todo think about using Context Api
 const logo = require('../images/logo.png');
@@ -10,6 +11,7 @@ function Header(props) {
 			<header className="bg-black-90 fixed w-100 ph3 pv3 pv3 pv4-ns ph4-m ph5-l z-999">
 				<div className="dtc-ns tc pv4 bg-black-10 w-20">
 					{/* <a className="dtc v-mid mid-gray link dim fl" href="/" title="Home"> */}
+
 					<a className="dtc v-mid mid-gray link dim fl" href="/" title="Home">
 						<img
 							src={logo}
