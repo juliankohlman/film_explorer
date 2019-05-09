@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import CallToAction from '../components/CallToAction';
 import GenreTable from '../components/GenreTable';
 import SearchFilms from '../components/SearchFilms';
+import Button from '../components/Button';
 
 //TODO need to render a back to genre button in header when in 'search mode'
 export default class Landing extends Component {
@@ -50,18 +51,14 @@ export default class Landing extends Component {
 									value={this.state.query}
 									onChange={this.handleInputChange}
 								/>
-								<button
-									type="submit"
-									// onClick={this.onSearch}
-								>
-									Search
-								</button>
+								<button type="submit">Search</button>
 							</form>
 						</div>
-						<button>Back to genres</button>
+						{this.state.useSearch ? <Button text="Home" href="/" /> : null}
 					</div>
 				</Header>
-				{/* If search gets run render filmSearch component */}
+
+				{/* If search occures then render the filmSearch component */}
 				{this.state.useSearch ? (
 					<SearchFilms query={this.state.query} />
 				) : (
