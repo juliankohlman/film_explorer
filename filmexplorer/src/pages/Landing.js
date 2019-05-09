@@ -43,14 +43,22 @@ export default class Landing extends Component {
 					</div>
 					<div className="dtc-ns tc pv4 bg-black-05 v-mid w-30">
 						<div className="white v-mid">
-							<input
-								type="text"
-								placeholder="Film Search..."
-								value={this.state.query}
-								onChange={this.handleInputChange}
-							/>
-							<button onClick={this.onSearch}>Search</button>
+							<form onSubmit={this.onSearch}>
+								<input
+									type="text"
+									placeholder="Film Search..."
+									value={this.state.query}
+									onChange={this.handleInputChange}
+								/>
+								<button
+									type="submit"
+									// onClick={this.onSearch}
+								>
+									Search
+								</button>
+							</form>
 						</div>
+						<button>Back to genres</button>
 					</div>
 				</Header>
 				{/* If search gets run render filmSearch component */}
