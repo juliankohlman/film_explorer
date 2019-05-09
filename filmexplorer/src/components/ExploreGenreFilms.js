@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Query, graphql } from 'react-apollo';
-import { Link } from 'react-router-dom';
+
 import { EXPLORE_GENRE } from '../queries/exploreGenre';
 import FilmPage from './FilmPage';
 

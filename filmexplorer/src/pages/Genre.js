@@ -80,6 +80,7 @@ export default class Genre extends Component {
 							>
 								{/* rename popularity.asc and popularity.desc labels */}
 								<option value="">Sort Films</option>
+								{/* Rename more clearly results are asc */}
 								<option value="popularity.asc">Most popular</option>
 								<option value="popularity.desc">Least popular</option>
 								<option value="release_date.asc">Newest Releases</option>
@@ -138,8 +139,9 @@ export default class Genre extends Component {
 								/>
 							</label>
 							<button
+								type="submit"
 								className="f6 link dim ph3 pv2 mb2 dib white bg-dark-blue"
-								onClick={this.handleSubmit}
+								// onClick={this.handleSubmit}
 							>
 								Explore
 							</button>
