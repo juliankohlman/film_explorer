@@ -113,7 +113,7 @@ export const genreFilms = async (_, { genreID, page }) => {
 			}
 		});
 		// console.log(films[0].title);
-
+		//Todo return an array [films, total_pages, total_results]: then unpack array[0] => films as usual and then you can access query page/result information
 		return films;
 	} catch (error) {
 		console.log(error);
