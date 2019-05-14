@@ -8,6 +8,7 @@ import FilmPage from './FilmPage';
 
 class SearchFilms extends Component {
 	// Todo add pagination, which will get refactored to be more D.R.Y later
+	//TODO since page will always default to 1 maybe remove it from state so the fetchmore code can become reusable
 	constructor(props) {
 		super(props);
 		this.state = {
