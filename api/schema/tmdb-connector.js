@@ -38,41 +38,24 @@ export const getFilm = async (_, { queryString, page }) => {
 			`https://api.themoviedb.org/3/search/movie?api_key=${API}&language=en-US&query=${queryString}&page=${page}&include_adult=false`
 		);
 
-		const filmSearchResults = res.data.results.filter(f => f.poster_path);
+		const filmSearchResults = res.data.results;
 
 		filmSearchResults.map(film => {
-			// film.poster_path = `https://image.tmdb.org/t/p/original${film.poster_path}`;
+			//Todo extract into a helper function
 			if (!film.poster_path) {
-				console.log(film.poster_path);
-
-				film.poster_path = `https://via.placeholder.com/300x500.png?text=${
-					film.title
-				}`;
+				let posterText = film.title.split(' ').join('+');
+				film.poster_path = `https://via.placeholder.com/300x500.png?text=${posterText}`;
 			} else {
 				film.poster_path = `https://image.tmdb.org/t/p/original${
 					film.poster_path
 				}`;
 			}
+			//Todo lines 45 - 52 null posterPath helper
 			film.overview;
 			film.total_results = res.data.total_results;
 			film.total_pages = res.data.total_pages;
 		});
 
-		// filmSearchResults.map(film => {
-		// 	// film.poster_path = `https://image.tmdb.org/t/p/original${film.poster_path}`;
-		// 	if (!film.poster_path) {
-		// 		film.poster_path = `https://via.placeholder.com/300x500.png?text=${
-		// 			film.title
-		// 		}`;
-		// 	} else {
-		// 		film.poster_path = `https://image.tmdb.org/t/p/original${
-		// 			film.poster_path
-		// 		}`;
-		// 	}
-		// 	film.overview;
-		// 	film.total_results = res.data.total_results;
-		// 	film.total_pages = res.data.total_pages;
-		// });
 		console.log('# of pages:', res.data.total_pages);
 		console.log('# of filmSearchResults:', res.data.total_results);
 		return filmSearchResults;

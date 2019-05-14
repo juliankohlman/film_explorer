@@ -25,19 +25,18 @@ class SearchFilms extends Component {
 					if (loading) return 'Loading...';
 					if (error) return `Error! ${error.message}`;
 					console.log(data.searchFilm);
-
+					let page = this.state.page;
 					return (
 						<div>
 							<FilmPage
 								films={data.searchFilm || []}
+								currentPage={page}
 								nextPage={() =>
 									fetchMore({
 										variables: {
 											page: this.setState(state => {
 												return {
-													page: (state.page += 1
-														? (state.page += 1)
-														: state.page)
+													page: (state.page += 1)
 												};
 											})
 										},
