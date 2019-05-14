@@ -50,9 +50,11 @@ export const getFilm = async (_, { queryString, page }) => {
 				}`;
 			}
 			film.overview;
+			film.total_results = res.data.total_results;
+			film.total_pages = res.data.total_pages;
 		});
-		// console.log('# of pages:', res.data.total_pages);
-		// console.log('# of filmSearchResults:', res.data.total_results);
+		console.log('# of pages:', res.data.total_pages);
+		console.log('# of filmSearchResults:', res.data.total_results);
 		return filmSearchResults;
 	} catch (error) {
 		console.log(error);

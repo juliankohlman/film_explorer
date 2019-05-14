@@ -40,6 +40,8 @@ type FilmBasic {
 	poster_path: String
 	title: String!
 	overview: String!
+	total_results: Int
+	total_pages: Int
 }
 
 type CastMember {

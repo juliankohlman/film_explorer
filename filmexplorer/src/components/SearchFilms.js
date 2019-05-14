@@ -19,6 +19,7 @@ class SearchFilms extends Component {
 			<Query
 				query={SEARCH_FILM}
 				variables={{ queryString: this.props.query, page: this.state.page }}
+				notifyOnNetworkStatusChange={true}
 			>
 				{({ loading, error, data, fetchMore }) => {
 					if (loading) return 'Loading...';

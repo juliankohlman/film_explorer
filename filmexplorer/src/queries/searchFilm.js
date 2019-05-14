@@ -7,6 +7,8 @@ export const SEARCH_FILM = gql`
 			poster_path
 			title
 			overview
+			total_results
+			total_pages
 		}
 	}
 `;

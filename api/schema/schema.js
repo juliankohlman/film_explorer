@@ -37,7 +37,10 @@ export const typeDefs = `
 		id: ID!
 		poster_path: String
 		title: String!
-		overview: String!
+    overview: String!
+    total_results: Int
+    total_pages: Int
+
   }
   
   type CastMember {
