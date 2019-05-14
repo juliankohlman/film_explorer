@@ -23,10 +23,12 @@ class GenreFilms extends Component {
 					if (loading) return <p>loading...</p>;
 					if (error) return <p>error :(</p>;
 					console.log(data.getGenre);
+					let page = this.state.page;
 					return (
 						<div>
 							<FilmPage
 								films={data.getGenre || []}
+								currentPage={page}
 								nextPage={() =>
 									fetchMore({
 										variables: {

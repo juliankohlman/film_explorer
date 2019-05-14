@@ -22,11 +22,12 @@ class NowPlayingFilms extends Component {
 					if (error) return `Error! ${error.message}`;
 					console.log(data.getNowPlaying);
 					console.log(this.state.page);
-
+					let page = this.state.page;
 					return (
 						<div>
 							<FilmPage
 								films={data.getNowPlaying || []}
+								currentPage={page}
 								nextPage={() =>
 									fetchMore({
 										variables: {

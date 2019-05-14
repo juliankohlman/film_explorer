@@ -7,6 +7,8 @@ export const EXPLORE_GENRE = gql`
 			poster_path
 			title
 			overview
+			total_results
+			total_pages
 		}
 	}
 `;

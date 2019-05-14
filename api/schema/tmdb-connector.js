@@ -87,6 +87,9 @@ export const nowPlaying = async (_, { page }) => {
 					movie.poster_path
 				}`;
 			}
+
+			movie.total_results = res.data.total_results;
+			movie.total_pages = res.data.total_pages;
 			// movie.overview;
 		});
 		// console.log('# of pages:', res.data.total_pages);
@@ -116,9 +119,12 @@ export const genreFilms = async (_, { genreID, page }) => {
 					film.poster_path
 				}`;
 			}
+			film.total_results = res.data.total_results;
+			film.total_pages = res.data.total_pages;
 		});
 		// console.log(films[0].title);
 		//Todo return an array [films, total_pages, total_results]: then unpack array[0] => films as usual and then you can access query page/result information
+
 		return films;
 	} catch (error) {
 		console.log(error);
@@ -298,6 +304,8 @@ export const genreQuery = async (_, { input }) => {
 			film.poster_path = `https://image.tmdb.org/t/p/original${
 				film.poster_path
 			}`;
+			film.total_results = res.data.total_results;
+			film.total_pages = res.data.total_pages;
 			film.overview;
 		});
 		return genreFilms;

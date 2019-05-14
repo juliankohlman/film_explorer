@@ -14,11 +14,12 @@ class ExploreGenreFilms extends Component {
 					if (loading) return <p>loading...</p>;
 					if (error) return <p>error :(</p>;
 					console.log(data.exploreGenre);
-
+					let page = this.props.input.page;
 					return (
 						<div>
 							<FilmPage
 								films={data.exploreGenre || []}
+								currentPage={page}
 								nextPage={() =>
 									fetchMore({
 										variables: {
