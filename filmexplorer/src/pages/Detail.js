@@ -23,7 +23,7 @@ class Detail extends Component {
 					if (loading) return <p>loading...</p>;
 					if (error) return <p>error :(</p>;
 					// console.log(data.getFilmDetails);
-
+					//Todo Back to search results if user reached the detail page via a search query
 					return (
 						<Container>
 							{console.log(this.props)}
