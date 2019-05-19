@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { Query, graphql } from 'react-apollo';
-import { Link } from 'react-router-dom';
 import { SEARCH_FILM } from '../queries/searchFilm';
 import FilmPage from './FilmPage';
-
-//TODO know difference between withApollo vs graphql()
 
 class SearchFilms extends Component {
 	// Todo add pagination, which will get refactored to be more D.R.Y later

@@ -1,6 +1,9 @@
 import React, { PureComponent } from 'react';
 
 export default class FilmBackdrop extends PureComponent {
+	// Todo handle abscence of backdrop here and render a random image from assets
+	// *need to create a set of placeholder backdrops when one is not present for the film
+
 	render() {
 		return (
 			<div
