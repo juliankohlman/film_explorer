@@ -29,6 +29,7 @@ class SearchFilms extends Component {
 							<FilmPage
 								films={data.searchFilm || []}
 								currentPage={page}
+								//! Use config.props to refactor (https://www.apollographql.com/docs/react/api/react-apollo#graphql-config-props)
 								nextPage={() =>
 									fetchMore({
 										variables: {
