@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Query, graphql } from 'react-apollo';
-import { GET_NOW_PLAYING } from '../queries/getNowPlaying';
+//Todo query will come from props now
+// import { GET_NOW_PLAYING } from '../queries/getNowPlaying';
 import FilmPage from './FilmPage';
 //Todo all query components can be D.R.Y pass in query component and query name as props example: GET_NOW_PLAYING, getNowPlaying
-class NowPlayingFilms extends Component {
+class FilmQuery extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -11,21 +12,23 @@ class NowPlayingFilms extends Component {
 		};
 	}
 	render() {
-		const NowPlayingPosters = () => (
+		const QueryResults = () => (
 			<Query
-				query={GET_NOW_PLAYING}
+				query={this.props.query}
 				variables={{ page: this.state.page }}
 				notifyOnNetworkStatusChange={true}
 			>
 				{({ loading, error, data, fetchMore }) => {
 					if (loading) return 'Loading...';
 					if (error) return `Error! ${error.message}`;
+					// data.this.props.resolver ?????
 					console.log(data.getNowPlaying);
 					console.log(this.state.page);
 					let page = this.state.page;
 					return (
 						<div>
 							<FilmPage
+								// films={data.this.props.resolver || []}
 								films={data.getNowPlaying || []}
 								currentPage={page}
 								// page skip
@@ -41,6 +44,7 @@ class NowPlayingFilms extends Component {
 										updateQuery: (prevPage, { fetchMoreResult }) => {
 											if (!fetchMoreResult) return prevPage;
 											return {
+												// making this reusable by making getNowPlaying dynamic
 												getNowPlaying: [...fetchMoreResult.getNowPlaying]
 											};
 										}
@@ -61,6 +65,7 @@ class NowPlayingFilms extends Component {
 										updateQuery: (prevPage, { fetchMoreResult }) => {
 											if (!fetchMoreResult) return prevPage;
 											return {
+												// making this reusable by making getNowPlaying dynamic
 												getNowPlaying: [...fetchMoreResult.getNowPlaying]
 											};
 										}
@@ -72,7 +77,7 @@ class NowPlayingFilms extends Component {
 				}}
 			</Query>
 		);
-		return <NowPlayingPosters />;
+		return <QueryResults />;
 	}
 }
 
