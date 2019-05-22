@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Query, graphql } from 'react-apollo';
 import { GET_GENRE } from '../queries/getGenre';
+import { GET_NOW_PLAYING } from '../queries/getNowPlaying';
 import NowPlayingFilms from './NowPlayingFilms';
 import FilmPage from './FilmPage';
 import FilmQuery from './FilmQuery';
@@ -70,7 +71,11 @@ class GenreFilms extends Component {
 			</Query>
 		);
 
-		return this.props.id === 1 ? <FilmQuery /> : <GenrePosters />;
+		return this.props.id === 1 ? (
+			<FilmQuery query={GET_NOW_PLAYING} resolver={'getNowPlaying'} />
+		) : (
+			<GenrePosters />
+		);
 		// return this.props.id === 1 ? <NowPlayingFilms /> : <GenrePosters />;
 	}
 }

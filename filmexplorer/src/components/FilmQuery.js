@@ -1,51 +1,69 @@
 import React, { Component } from 'react';
-import { Query, graphql } from 'react-apollo';
-//Todo query will come from props now
+import { Query, graphql, compose } from 'react-apollo';
 import { GET_NOW_PLAYING } from '../queries/getNowPlaying';
+
 import FilmPage from './FilmPage';
-//Todo all query components can be D.R.Y pass in query component and query name as props example: GET_NOW_PLAYING, getNowPlaying
+import { GET_GENRE } from '../queries/getGenre';
+
 class FilmQuery extends Component {
 	constructor(props) {
 		super(props);
-		// this.state = {
-		// 	page: 1
-		// };
+		this.state = {
+			page: 1
+		};
 	}
 	render() {
-		const QueryResults = ({ nextPage, lastPage }) => (
+		const { query, resolver } = this.props;
+		console.log(query, resolver);
+
+		const QueryResults = () => (
 			<Query
-				query={GET_NOW_PLAYING}
-				variables={{ page: 1, offset: 0, limit: 20 }}
+				query={query}
+				variables={{ page: this.state.page }}
 				notifyOnNetworkStatusChange={true}
 			>
 				{({ loading, error, data, fetchMore }) => {
 					if (loading) return 'Loading...';
 					if (error) return `Error! ${error.message}`;
-					//* data.this.props.resolver ?????
-					console.log(data.getNowPlaying);
-					console.log(data);
 
-					// console.log(this.state.page);
-					let i = 1;
+					let page = this.state.page;
 					//* page skip
 					//* add an input field between last and next buttons
 					//* gives user ability to jump to a page < last page and > 1
 					return (
 						<div>
 							<FilmPage
-								// films={data.this.props.resolver || []}
-								films={data.getNowPlaying || []}
-								currentPage={i}
+								//* films={data.this.props.resolver || []}
+								films={data[`${resolver}`] || []}
+								currentPage={page}
 								nextPage={() =>
 									fetchMore({
 										variables: {
-											offset: data.getNowPlaying.length,
-											page: (i += 1)
+											page: this.setState(state => {
+												return { page: (state.page += 1) };
+											})
 										},
 										updateQuery: (prevPage, { fetchMoreResult }) => {
 											if (!fetchMoreResult) return prevPage;
 											return {
-												getNowPlaying: [...fetchMoreResult.getNowPlaying]
+												resolver: [...fetchMoreResult.resolver]
+											};
+										}
+									})
+								}
+								lastPage={() =>
+									fetchMore({
+										variables: {
+											page: this.setState(state => {
+												return state.page === 1
+													? { page: state.page }
+													: { page: (state.page -= 1) };
+											})
+										},
+										updateQuery: (prevPage, { fetchMoreResult }) => {
+											if (!fetchMoreResult) return prevPage;
+											return {
+												resolver: [...fetchMoreResult.resolver]
 											};
 										}
 									})
@@ -60,4 +78,9 @@ class FilmQuery extends Component {
 	}
 }
 
-export default graphql(GET_NOW_PLAYING)(FilmQuery);
+export default compose(
+	graphql(GET_NOW_PLAYING, { skip: props => !props.getNowPlaying }),
+	graphql(GET_GENRE, { skip: props => props.getGenre })
+)(FilmQuery);
+
+// export default graphql(query)(FilmQuery);

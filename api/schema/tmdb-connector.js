@@ -67,7 +67,7 @@ export const getFilm = async (_, { queryString, page }) => {
 /**
  * nowPlaying: returns a list of films now playing in theaters
  */
-export const nowPlaying = async (_, { page, offset, limit }) => {
+export const nowPlaying = async (_, { page }) => {
 	try {
 		let res = await axios.get(
 			`https://api.themoviedb.org/3/movie/now_playing?api_key=${API}&language=en-US&page=${page}`

@@ -9,8 +9,8 @@ import {
 
 export const resolvers = {
 	Query: {
-		getNowPlaying(_, { page, offset, limit }) {
-			return nowPlaying(_, { page, offset, limit });
+		getNowPlaying(_, { page }) {
+			return nowPlaying(_, { page });
 		},
 		searchPerson(_, { queryString }) {
 			return getPerson(_, { queryString });
