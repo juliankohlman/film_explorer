@@ -7,6 +7,7 @@ import Header from '../components/Header';
 import Button from '../components/Button';
 import CallToAction from '../components/CallToAction';
 import NowPlayingFilms from '../components/NowPlayingFilms';
+import FilmQuery from '../components/FilmQuery';
 
 export default class NowPlaying extends Component {
 	render() {
@@ -23,7 +24,8 @@ export default class NowPlaying extends Component {
 				{/* <FilmTable />
 				 */}
 				{/* ADD NOWPLAYING QUERY COMPONENT HERE */}
-				<NowPlayingFilms />
+				{/* <NowPlayingFilms /> */}
+				{/* <FilmQuery /> */}
 			</Container>
 		);
 	}

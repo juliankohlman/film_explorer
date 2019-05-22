@@ -2,7 +2,7 @@ export const typeDefs = `
 	type Query {
 		getFilmDetails(filmID: Int!): FilmDetails
 		getGenre(genreID: Int!, page: Int = 1): [FilmBasic!]!
-    getNowPlaying(page: Int = 1): [FilmBasic!]!
+    getNowPlaying(page: Int = 1, offset: Int = 0, limit: Int = 20): [FilmBasic!]!
     exploreGenre(input: GenreInput): [FilmBasic!]! 
     searchPerson(queryString: String, page: Int = 1): [Person!]!
     searchFilm(queryString: String, page: Int = 1): [FilmBasic!]!

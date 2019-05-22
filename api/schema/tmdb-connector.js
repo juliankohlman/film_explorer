@@ -67,14 +67,13 @@ export const getFilm = async (_, { queryString, page }) => {
 /**
  * nowPlaying: returns a list of films now playing in theaters
  */
-export const nowPlaying = async (_, { page }) => {
+export const nowPlaying = async (_, { page, offset, limit }) => {
 	try {
 		let res = await axios.get(
 			`https://api.themoviedb.org/3/movie/now_playing?api_key=${API}&language=en-US&page=${page}`
 		);
 		const movies = res.data.results;
 		// console.log(res.data.total_pages);
-
 		//Todo clean-up logic around building up poster_path string
 		movies.map(movie => {
 			// movie.poster_path = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
