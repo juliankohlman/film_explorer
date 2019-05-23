@@ -16,8 +16,7 @@ export const backdropCheck = (backdropPath, film) => {
 	if (!backdropPath) {
 		let backdropText = film.title.split(' ').join('+');
 		backdropPath = `https://via.placeholder.com/728x90.png?text=${backdropText}`;
-	} else {
-		backdropPath = `https://image.tmdb.org/t/p/original${backdropPath}`;
 	}
+
 	return backdropPath;
 };
