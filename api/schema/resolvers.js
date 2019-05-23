@@ -1,31 +1,24 @@
-import {
-	nowPlaying,
-	genreFilms,
-	filmDetails,
-	genreQuery,
-	getPerson,
-	getFilm
-} from './tmdb-connector';
+import { connectors } from './tmdbConnectors';
 
 export const resolvers = {
 	Query: {
 		getNowPlaying(_, { page }) {
-			return nowPlaying(_, { page });
+			return connectors.nowPlaying(_, { page });
 		},
 		searchPerson(_, { queryString }) {
-			return getPerson(_, { queryString });
+			return connectors.getPerson(_, { queryString });
 		},
 		searchFilm(_, { queryString, page }) {
-			return getFilm(_, { queryString, page });
+			return connectors.getFilm(_, { queryString, page });
 		},
 		getGenre(_, { genreID, page }) {
-			return genreFilms(_, { genreID, page });
+			return connectors.genreFilms(_, { genreID, page });
 		},
 		getFilmDetails(_, { filmID }) {
-			return filmDetails(_, { filmID });
+			return connectors.filmDetails(_, { filmID });
 		},
 		exploreGenre(_, { input }) {
-			return genreQuery(_, {
+			return connectors.genreQuery(_, {
 				input
 			});
 		}

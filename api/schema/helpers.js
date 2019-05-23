@@ -20,7 +20,4 @@ export const backdropCheck = (backdropPath, film) => {
 		backdropPath = `https://image.tmdb.org/t/p/original${backdropPath}`;
 	}
 	return backdropPath;
-	// if (!film.backdrop_path)
-	// 	film.backdrop_path =
-	// 		'https://via.placeholder.com/728x90.png?text=Film+Backdrop+Not+Available';
 };
