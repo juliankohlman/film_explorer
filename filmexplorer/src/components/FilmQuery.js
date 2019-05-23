@@ -30,6 +30,7 @@ class FilmQuery extends Component {
 					//* page skip
 					//* add an input field between last and next buttons
 					//* gives user ability to jump to a page < last page and > 1
+					//* UI example at https://semantic-ui.com/elements/input.html
 					return (
 						<div>
 							<FilmPage
@@ -40,7 +41,9 @@ class FilmQuery extends Component {
 									fetchMore({
 										variables: {
 											page: this.setState(state => {
-												return { page: (state.page += 1) };
+												return {
+													page: (state.page += 1)
+												};
 											})
 										},
 										updateQuery: (prevPage, { fetchMoreResult }) => {
@@ -56,8 +59,12 @@ class FilmQuery extends Component {
 										variables: {
 											page: this.setState(state => {
 												return state.page === 1
-													? { page: state.page }
-													: { page: (state.page -= 1) };
+													? {
+															page: state.page
+													  }
+													: {
+															page: (state.page -= 1)
+													  };
 											})
 										},
 										updateQuery: (prevPage, { fetchMoreResult }) => {

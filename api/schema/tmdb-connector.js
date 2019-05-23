@@ -6,25 +6,26 @@ import axios from 'axios';
 import dotenv from 'dotenv';
 dotenv.config();
 const { API } = process.env;
+import { posterImageCheck, backdropCheck } from './helpers';
 
 //TODO add open search bar on landing page using the 'multi search query' https://developers.themoviedb.org/3/search/multi-search
 //Todo add justWatch api for streaming availabilty of each film
+//!Need to handle films that are in production. On front end they are showing up as blank space. Either filter them out or use helpers to catch those instances and render something helpful out on the client-side
 /**
  *
  * @param {*} _
- * @param {*} param1
+ * @param {*} variableObject
  * getPerson will be called under the explore genre function
  * to allow users to filter genre results by an actor or directors name
  */
 export const getPerson = async (_, { queryString, page }) => {
 	try {
-		let res = await axios.get(
+		const res = await axios.get(
 			`https://api.themoviedb.org/3/search/person?api_key=${API}&language=en-US&query=${queryString}&page=${page}&include_adult=false`
 		);
 		const searchResults = res.data.results;
 		//Todo map over results and pull out [name, popularity, id] from results
 		//Todo need to handle the 'known for' property
-		// console.log('Top result:', searchResults[0].name, searchResults[0].id);
 		return searchResults;
 	} catch (error) {
 		console.log(error);
@@ -34,23 +35,14 @@ export const getPerson = async (_, { queryString, page }) => {
 //Todo what will you render if the search returns no movies???
 export const getFilm = async (_, { queryString, page }) => {
 	try {
-		let res = await axios.get(
+		const res = await axios.get(
 			`https://api.themoviedb.org/3/search/movie?api_key=${API}&language=en-US&query=${queryString}&page=${page}&include_adult=false`
 		);
 
 		const filmSearchResults = res.data.results;
 
 		filmSearchResults.map(film => {
-			//Todo extract into a helper function
-			if (!film.poster_path) {
-				let posterText = film.title.split(' ').join('+');
-				film.poster_path = `https://via.placeholder.com/300x500.png?text=${posterText}`;
-			} else {
-				film.poster_path = `https://image.tmdb.org/t/p/original${
-					film.poster_path
-				}`;
-			}
-			//Todo lines 45 - 52 null posterPath helper
+			film.poster_path = posterImageCheck(film.poster_path, film);
 			film.overview;
 			film.total_results = res.data.total_results;
 			film.total_pages = res.data.total_pages;
@@ -69,30 +61,18 @@ export const getFilm = async (_, { queryString, page }) => {
  */
 export const nowPlaying = async (_, { page }) => {
 	try {
-		let res = await axios.get(
+		const res = await axios.get(
 			`https://api.themoviedb.org/3/movie/now_playing?api_key=${API}&language=en-US&page=${page}`
 		);
 		const movies = res.data.results;
-		// console.log(res.data.total_pages);
-		//Todo clean-up logic around building up poster_path string
+
 		movies.map(movie => {
-			// movie.poster_path = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
-			movie.poster_path = `${movie.poster_path}`;
-			if (!movie.poster_path) {
-				movie.poster_path =
-					'https://via.placeholder.com/300x500.png?text=movie+Poster+Not+Available';
-			} else {
-				movie.poster_path = `https://image.tmdb.org/t/p/original${
-					movie.poster_path
-				}`;
-			}
+			movie.poster_path = posterImageCheck(movie.poster_path, movie);
 
 			movie.total_results = res.data.total_results;
 			movie.total_pages = res.data.total_pages;
-			// movie.overview;
 		});
-		// console.log('# of pages:', res.data.total_pages);
-		// console.log('# of movies:', res.data.total_results);
+
 		return movies;
 	} catch (error) {
 		console.log(error);
@@ -101,28 +81,16 @@ export const nowPlaying = async (_, { page }) => {
 
 export const genreFilms = async (_, { genreID, page }) => {
 	try {
-		let res = await axios.get(
+		const res = await axios.get(
 			`https://api.themoviedb.org/3/discover/movie?api_key=${API}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreID}`
 		);
-		// console.log(`Now viewing page ${page} of ${res.data.total_pages}`);
-		// console.log('# of pages:', res.data.total_pages);
-		// console.log('# of movies:', res.data.total_results);
 
 		const films = res.data.results;
 		films.map(film => {
-			if (!film.poster_path) {
-				film.poster_path =
-					'https://via.placeholder.com/300x500.png?text=Film+Poster+Not+Available';
-			} else {
-				film.poster_path = `https://image.tmdb.org/t/p/original${
-					film.poster_path
-				}`;
-			}
+			film.poster_path = posterImageCheck(film.poster_path, film);
 			film.total_results = res.data.total_results;
 			film.total_pages = res.data.total_pages;
 		});
-		// console.log(films[0].title);
-		//Todo return an array [films, total_pages, total_results]: then unpack array[0] => films as usual and then you can access query page/result information
 
 		return films;
 	} catch (error) {
@@ -196,18 +164,12 @@ export const filmDetails = async (_, { filmID }) => {
 
 		if (!film.tagline) film.tagline = 'Insert witty tagline here :)';
 
-		if (!film.poster_path) {
-			film.poster_path =
-				'https://via.placeholder.com/300x500.png?text=Film+Poster+Not+Available';
-		} else {
-			film.poster_path = `https://image.tmdb.org/t/p/original${
-				film.poster_path
-			}`;
-		}
+		film.poster_path = posterImageCheck(film.poster_path, film);
 
-		if (!film.backdrop_path)
-			film.backdrop_path =
-				'https://via.placeholder.com/728x90.png?text=Film+Backdrop+Not+Available';
+		film.backdrop_path = backdropCheck(film.backdrop_path, film);
+		// if (!film.backdrop_path)
+		// 	film.backdrop_path =
+		// 		'https://via.placeholder.com/728x90.png?text=Film+Backdrop+Not+Available';
 
 		film.production_companies = film.production_companies
 			.map(company => company.name)
@@ -294,15 +256,11 @@ export const genreQuery = async (_, { input }) => {
 	// console.log('dynamic query string', query);
 	console.log('actor or director', input.personString);
 	try {
-		let res = await axios.get(query);
-		// console.log('# of pages:', res.data.total_pages);
-		// console.log('# of movies:', res.data.total_results);
+		const res = await axios.get(query);
 
 		const genreFilms = res.data.results;
 		genreFilms.map(film => {
-			film.poster_path = `https://image.tmdb.org/t/p/original${
-				film.poster_path
-			}`;
+			film.poster_path = posterImageCheck(film.poster_path, film);
 			film.total_results = res.data.total_results;
 			film.total_pages = res.data.total_pages;
 			film.overview;
