@@ -1,13 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const FilmPage = ({ films = [], currentPage, nextPage, lastPage }) => {
+const FilmPage = ({
+	films = [],
+	currentPage,
+	nextPage,
+	lastPage,
+	
+}) => {
 	if (films && films.length) {
 		return (
 			<article style={{ paddingTop: '342px' }}>
 				<h4>{`Page ${currentPage} of ${films[0].total_pages}`}</h4>
 				<h3>{films[0].total_results} Total Films To Explore</h3>
 				<button onClick={lastPage}>Last page</button>
+				{/* <button onClick={jumpPage}>
+					Jump Page:
+					<input type="number" name="jumpPage" id="" />
+				</button> */}
 				<button onClick={nextPage}>Next page</button>
 				{films.map(film => (
 					<Link

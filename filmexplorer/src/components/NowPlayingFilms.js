@@ -28,9 +28,11 @@ class NowPlayingFilms extends Component {
 							<FilmPage
 								films={data.getNowPlaying || []}
 								currentPage={page}
+								//Todo see lifting state up section of react docs
 								// page skip
 								// add an input field between last and next buttons
 								// gives user ability to jump to a page < last page and > 1
+
 								nextPage={() =>
 									fetchMore({
 										variables: {
