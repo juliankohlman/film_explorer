@@ -1,15 +1,6 @@
 import axios from 'axios';
-// Access to environment variables
-import dotenv from 'dotenv';
-dotenv.config();
-const { API } = process.env;
+import { API } from '.';
 import { posterImageCheck, backdropCheck } from '../helpers';
-
-/**
- * filmDetails: returns a data specific to film with given ID
- * @param {*} _ root param ignored
- * @param {*} param1 filmID
- */
 
 export const filmDetails = async (_, { filmID }) => {
 	try {

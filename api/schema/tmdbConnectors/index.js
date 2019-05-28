@@ -1,3 +1,8 @@
+// Access to environment variables
+import dotenv from 'dotenv';
+dotenv.config();
+export const { API } = process.env;
+
 /**
  * TMDB axios connector functions (data-fetching)
  */

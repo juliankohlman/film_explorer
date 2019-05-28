@@ -1,8 +1,5 @@
 import axios from 'axios';
-// Access to environment variables
-import dotenv from 'dotenv';
-dotenv.config();
-const { API } = process.env;
+import { API } from '.';
 
 /**
  *
