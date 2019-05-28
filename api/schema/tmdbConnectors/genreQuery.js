@@ -3,12 +3,12 @@ import { API } from '.';
 import { posterImageCheck } from '../helpers';
 
 /**
- * genreExplore
+ *
+ * @param {*} _
+ * @param {*} input set of inputs used to construct query
+ * @returns a resolved promise (an array of genre films based on query inputs)
  */
 
-/* Checking for certifications existence to trigger setting of cert_country to US. per the tmdb api, these two params work in tandem so we need to check for a certification param then backtrack to set the country to the
-US for accurate filtering
-*/
 export const genreQuery = async (_, { input }) => {
 	let queryPropValues = [
 		`&sort_by=${input.sort_by}`,
@@ -47,13 +47,16 @@ export const genreQuery = async (_, { input }) => {
 		}
 	}
 
+	/* Checking for certifications existence to trigger setting of cert_country to US. per the tmdb api, these two params work in tandem so we need to check for a certification param then backtrack to set the country to the
+US for accurate filtering
+*/
 	if (queryPropValues[2]) queryPropValues[1] = `&certification_country=US`;
 
 	queryPropValues.forEach((arg, idx) => {
 		if (!arg.includes('undefined')) query += queryPropValues[idx];
 	});
 	// console.log('dynamic query string', query);
-	console.log('actor or director', input.personString);
+	// console.log('actor or director', input.personString);
 	try {
 		const res = await axios.get(query);
 

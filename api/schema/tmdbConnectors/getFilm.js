@@ -2,6 +2,13 @@ import axios from 'axios';
 import { API } from '.';
 import { posterImageCheck } from '../helpers';
 
+/**
+ *
+ * @param {*} _
+ * @param {*} args query string and page arguments
+ * @returns a resolved promise (an array of genre films based on search query results)
+ */
+
 //Todo what will you render if the search returns no movies???
 export const getFilm = async (_, { queryString, page }) => {
 	try {

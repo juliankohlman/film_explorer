@@ -1,8 +1,12 @@
 import axios from 'axios';
 import { API } from '.';
 import { posterImageCheck } from '../helpers';
+
 /**
- * nowPlaying: returns a list of films now playing in theaters
+ *
+ * @param {*} _
+ * @param {*} args page property representing page of result being viewed
+ * @returns a resolved promise (an array of films based on the nowPlaying query)
  */
 
 export const nowPlaying = async (_, { page }) => {

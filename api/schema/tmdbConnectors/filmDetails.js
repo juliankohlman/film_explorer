@@ -2,6 +2,13 @@ import axios from 'axios';
 import { API } from '.';
 import { posterImageCheck, backdropCheck } from '../helpers';
 
+/**
+ *
+ * @param {*} _
+ * @param {*} filmID film ID used to access correct film details
+ * @returns a resolved promise (film object)
+ */
+
 export const filmDetails = async (_, { filmID }) => {
 	try {
 		let res = await axios.get(
@@ -47,7 +54,7 @@ export const filmDetails = async (_, { filmID }) => {
 
 		//TODO: need the id,key, and name from videos
 		// ? Limit video amount to between 2-4
-		console.log(film.videos.results);
+		// console.log(film.videos.results);
 		film.videos = film.videos.results;
 
 		// console.log(film.similar.results.slice(0, 4));

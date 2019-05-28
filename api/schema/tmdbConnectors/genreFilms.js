@@ -2,6 +2,13 @@ import axios from 'axios';
 import { API } from '.';
 import { posterImageCheck } from '../helpers';
 
+/**
+ *
+ * @param {*} _
+ * @param {*} args genreID and page number of genre results
+ * @returns a resolved promise (array of film objects)
+ */
+
 export const genreFilms = async (_, { genreID, page }) => {
 	try {
 		const res = await axios.get(

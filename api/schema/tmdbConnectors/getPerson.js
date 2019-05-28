@@ -8,6 +8,7 @@ import { API } from '.';
  * getPerson will be called under the explore genre function
  * to allow users to filter genre results by an actor or directors name
  */
+
 export const getPerson = async (_, { queryString, page }) => {
 	try {
 		const res = await axios.get(
