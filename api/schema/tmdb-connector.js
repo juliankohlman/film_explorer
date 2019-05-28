@@ -1,3 +1,4 @@
+//! Deprecated see tmdbConnectors folder for connector functions
 /**
  * TMDB axios connector functions (data-fetching)
  */
