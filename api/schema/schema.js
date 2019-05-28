@@ -7,7 +7,7 @@ export const typeDefs = `
     searchPerson(queryString: String, page: Int = 1): [Person!]!
     searchFilm(queryString: String, page: Int = 1): [FilmBasic!]!
   }
-
+  
   input GenreInput {
     sort_by: String,
     certification_country: String,

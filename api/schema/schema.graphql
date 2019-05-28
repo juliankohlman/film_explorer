@@ -1,6 +1,7 @@
 # Todo: add with_release_type to query
 # Todo: Look into https://developers.themoviedb.org/3/trending/get-trending
 
+# Set of querys driving the application
 type Query {
 	getFilmDetails(filmID: Int!): FilmDetails
 	getGenre(genreID: Int!, page: Int = 1): [FilmBasic!]!
@@ -10,6 +11,7 @@ type Query {
 	searchFilm(queryString: String, page: Int = 1): [FilmBasic!]!
 }
 
+# GenreInput type collects several types to build up dynamic searches of a specific film genre
 input GenreInput {
 	sort_by: String
 	certification_country: String
@@ -28,6 +30,7 @@ input GenreInput {
 	personString: String
 }
 
+# Person type represents an actor or director
 type Person {
 	name: String!
 	popularity: Float!
@@ -35,6 +38,7 @@ type Person {
 	profile_path: String
 }
 
+# FilmBasic type provides base level information that can be passed along to a Film Detail information for more 'details' on a specific film
 type FilmBasic {
 	id: ID!
 	poster_path: String
@@ -44,6 +48,7 @@ type FilmBasic {
 	total_pages: Int
 }
 
+# Cast Member type represents a cast member from a film
 type CastMember {
 	cast_id: Int!
 	character: String!
@@ -55,6 +60,7 @@ type CastMember {
 	profile_path: String
 }
 
+# Crew Member type represents a cast member from a film
 type CrewMember {
 	credit_id: Int!
 	department: String!
@@ -65,6 +71,7 @@ type CrewMember {
 	profile_path: String
 }
 
+# Video type associated with a film. Includes trailers, tv spots, etc...
 type Video {
 	id: String!
 	iso_639_1: String!
@@ -76,6 +83,7 @@ type Video {
 	type: String!
 }
 
+# Film Details type includes more in depth information about a film
 type FilmDetails {
 	backdrop_path: String
 	budget: String!
