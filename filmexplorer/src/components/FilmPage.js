@@ -1,25 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import FilmList from './FilmList';
+import FilmListData from './FilmListData';
 
-const FilmPage = ({
-	films = [],
-	currentPage,
-	nextPage,
-	lastPage,
-	
-}) => {
+// import { Link } from 'react-router-dom';
+
+const FilmPage = ({ films = [], currentPage, nextPage, lastPage }) => {
 	if (films && films.length) {
 		return (
 			<article style={{ paddingTop: '342px' }}>
-				<h4>{`Page ${currentPage} of ${films[0].total_pages}`}</h4>
-				<h3>{films[0].total_results} Total Films To Explore</h3>
+				<FilmListData currentPage={currentPage} films={films} />
+				{/* <h4>{`Page ${currentPage} of ${films[0].total_pages}`}</h4>
+				<h3>{films[0].total_results} Total Films To Explore</h3> */}
 				<button onClick={lastPage}>Last page</button>
+				<button onClick={nextPage}>Next page</button>
 				{/* <button onClick={jumpPage}>
 					Jump Page:
 					<input type="number" name="jumpPage" id="" />
 				</button> */}
-				<button onClick={nextPage}>Next page</button>
-				{films.map(film => (
+				<FilmList filmList={films} />
+				{/* {films.map(film => (
 					<Link
 						to={`/detail/${film.id}`}
 						className="fl w-50 w-25-l link overflow-hidden"
@@ -35,7 +34,7 @@ const FilmPage = ({
 							}}
 						/>
 					</Link>
-				))}
+				))} */}
 			</article>
 		);
 	}
