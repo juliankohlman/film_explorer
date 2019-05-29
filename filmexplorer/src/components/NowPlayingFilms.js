@@ -10,6 +10,7 @@ class NowPlayingFilms extends Component {
 			page: 1
 		};
 	}
+
 	render() {
 		const NowPlayingPosters = () => (
 			<Query
@@ -20,9 +21,10 @@ class NowPlayingFilms extends Component {
 				{({ loading, error, data, fetchMore }) => {
 					if (loading) return 'Loading...';
 					if (error) return `Error! ${error.message}`;
-					console.log(data.getNowPlaying);
-					console.log(this.state.page);
+					// console.log(data.getNowPlaying);
+					// console.log(this.state.page);
 					let page = this.state.page;
+
 					return (
 						<div>
 							<FilmPage
