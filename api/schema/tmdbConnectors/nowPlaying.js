@@ -9,7 +9,7 @@ import { posterImageCheck } from '../helpers';
  * @returns a resolved promise (an array of films based on the nowPlaying query)
  */
 
-export const nowPlaying = async (_, { page }) => {
+export const nowPlaying = async (_, { page, jumpTo }) => {
 	try {
 		const res = await axios.get(
 			`https://api.themoviedb.org/3/movie/now_playing?api_key=${API}&language=en-US&page=${page}`

@@ -7,7 +7,7 @@ class FilmPage extends Component {
 		super(props);
 	}
 	render() {
-		const { films, currentPage, nextPage, lastPage } = this.props;
+		const { films, currentPage, nextPage, lastPage, handler } = this.props;
 
 		if (films && films.length) {
 			return (
@@ -15,7 +15,7 @@ class FilmPage extends Component {
 					<FilmListData currentPage={currentPage} films={films} />
 
 					<button onClick={lastPage}>Last page</button>
-
+					<button onClick={handler}>Jump Page!!!</button>
 					<button onClick={nextPage}>Next page</button>
 
 					<FilmList filmList={films} />
