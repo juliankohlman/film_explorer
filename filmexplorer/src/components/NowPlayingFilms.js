@@ -16,7 +16,7 @@ class NowPlayingFilms extends Component {
 		const NowPlayingPosters = () => (
 			<Query
 				query={GET_NOW_PLAYING}
-				variables={{ page: this.state.page }}
+				variables={{ page: this.state.page, jumpTo: this.state.jumpTo }}
 				notifyOnNetworkStatusChange={true}
 			>
 				{({ loading, error, data, fetchMore }) => {
