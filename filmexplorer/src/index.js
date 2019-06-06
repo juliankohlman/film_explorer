@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import { ApolloProvider } from 'react-apollo';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 
@@ -9,7 +10,10 @@ import Genre from './pages/Genre';
 import Detail from './pages/Detail';
 // import NowPlaying from './pages/NowPlaying';
 
-const client = new ApolloClient({ uri: 'http://localhost:4000' });
+const client = new ApolloClient({
+	uri: 'http://localhost:4000',
+	fetch: fetch
+});
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(

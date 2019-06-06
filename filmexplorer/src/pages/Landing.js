@@ -4,7 +4,7 @@ import Header from '../components/UI/Header';
 import CallToAction from '../components/UI/CallToAction';
 import GenreTable from '../components/UI/GenreTable';
 import SearchFilms from '../components/Query/SearchFilms';
-import Button from '../components/UI/Button';
+// import Button from '../components/UI/Button';
 
 //TODO need to render a back to genre button in header when in 'search mode'
 export default class Landing extends Component {
@@ -56,7 +56,8 @@ export default class Landing extends Component {
 								<button type="submit">Search</button>
 							</form>
 						</div>
-						{this.state.useSearch ? <Button text="Home" href="/" /> : null}
+						{/* No need for this now that 'home page will render if search field is cleared' */}
+						{/* {this.state.useSearch ? <Button text="Home" href="/" /> : null} */}
 					</div>
 				</Header>
 

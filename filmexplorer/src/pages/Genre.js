@@ -62,6 +62,7 @@ export default class Genre extends Component {
 	};
 
 	render() {
+		let id = this.state.genreID;
 		return (
 			<Container>
 				{this.state.genreID !== 1 ? (
@@ -166,7 +167,7 @@ export default class Genre extends Component {
 				{this.state.runQuery ? (
 					<ExploreGenreFilms input={this.state.input} />
 				) : (
-					<GenreFilms id={this.state.genreID} />
+					<GenreFilms id={id} />
 				)}
 			</Container>
 		);
