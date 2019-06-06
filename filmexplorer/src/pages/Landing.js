@@ -12,13 +12,15 @@ export default class Landing extends Component {
 		super(props);
 		this.state = {
 			query: '',
-			useSearch: false
+			useSearch: false,
+			inputEntered: false
 		};
 	}
 
 	handleInputChange = e => {
 		this.setState({
-			query: e.target.value
+			query: e.target.value,
+			inputEntered: !!e.target.value
 		});
 	};
 
@@ -58,8 +60,8 @@ export default class Landing extends Component {
 					</div>
 				</Header>
 
-				{/* If search occures then render the filmSearch component */}
-				{this.state.useSearch ? (
+				{/* If search occurs then render the filmSearch component */}
+				{this.state.useSearch && this.state.inputEntered ? (
 					<SearchFilms query={this.state.query} />
 				) : (
 					<GenreTable />
