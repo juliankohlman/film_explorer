@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Query, graphql } from 'react-apollo';
 
-import { EXPLORE_GENRE } from '../queries/exploreGenre';
-import FilmPage from './FilmPage';
+import { EXPLORE_GENRE } from '../../queries/exploreGenre';
+import FilmPage from '../UI/FilmPage';
 
 class ExploreGenreFilms extends Component {
 	render() {

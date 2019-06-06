@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Query, graphql } from 'react-apollo';
-import { GET_NOW_PLAYING } from '../queries/getNowPlaying';
-import FilmPage from './FilmPage';
+import { GET_NOW_PLAYING } from '../../queries/getNowPlaying';
+import FilmPage from '../UI/FilmPage';
 
 class NowPlayingFilms extends Component {
 	constructor(props) {

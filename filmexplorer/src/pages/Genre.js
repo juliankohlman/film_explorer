@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Container from '../components/Container';
-import Header from '../components/Header';
-import Button from '../components/Button';
-import CallToAction from '../components/CallToAction';
-import GenreFilms from '../components/GenreFilms';
-import ExploreGenreFilms from '../components/ExploreGenreFilms';
+import Container from '../components/UI/Container';
+import Header from '../components/UI/Header';
+import Button from '../components/UI/Button';
+import CallToAction from '../components/UI/CallToAction';
+import GenreFilms from '../components/Query/GenreFilms';
+import ExploreGenreFilms from '../components/Query/ExploreGenreFilms';
 import { genreIDs } from '../utils/genres';
 
 export default class Genre extends Component {

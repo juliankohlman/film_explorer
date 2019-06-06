@@ -3,8 +3,8 @@ import Container from '../components/UI/Container';
 import Header from '../components/UI/Header';
 import CallToAction from '../components/UI/CallToAction';
 import GenreTable from '../components/UI/GenreTable';
-import SearchFilms from '../components/SearchFilms';
-import Button from '../components/Button';
+import SearchFilms from '../components/Query/SearchFilms';
+import Button from '../components/UI/Button';
 
 //TODO need to render a back to genre button in header when in 'search mode'
 export default class Landing extends Component {

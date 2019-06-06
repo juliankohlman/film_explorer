@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import Container from '../components/Container';
-import Header from '../components/Header';
-import CallToAction from '../components/CallToAction';
-import FilmBackdrop from '../components/FilmBackdrop';
-import Button from '../components/Button';
-import FilmPoster from '../components/FilmPoster';
-import FilmOverview from '../components/FilmOverview';
-import FilmCast from '../components/FilmCast';
-import FilmCrew from '../components/FilmCrew';
+import Container from '../components/UI/Container';
+import Header from '../components/UI/Header';
+import CallToAction from '../components/UI/CallToAction';
+import FilmBackdrop from '../components/UI/FilmBackdrop';
+import Button from '../components/UI/Button';
+import FilmPoster from '../components/UI/FilmPoster';
+import FilmOverview from '../components/UI/FilmOverview';
+import FilmCast from '../components/UI/FilmCast';
+import FilmCrew from '../components/UI/FilmCrew';
 import { GET_FILM_DETAILS } from '../queries/getFilmDetails';
 import { Query, graphql } from 'react-apollo';
-import FilmTrailer from '../components/FilmTrailer';
+import FilmTrailer from '../components/UI/FilmTrailer';
 
 class Detail extends Component {
 	render() {

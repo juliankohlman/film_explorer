@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Query, graphql, compose } from 'react-apollo';
-import { GET_NOW_PLAYING } from '../queries/getNowPlaying';
+import { Query, graphql } from 'react-apollo';
+import { SEARCH_FILM } from '../../queries/searchFilm';
+import FilmPage from '../UI/FilmPage';
 
-import FilmPage from './FilmPage';
-import { GET_GENRE } from '../queries/getGenre';
-
-class FilmQuery extends Component {
+class SearchFilms extends Component {
+	// Todo add pagination, which will get refactored to be more D.R.Y later
+	//TODO since page will always default to 1 maybe remove it from state so the fetchmore code can become reusable
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -13,30 +13,23 @@ class FilmQuery extends Component {
 		};
 	}
 	render() {
-		const { query, resolver } = this.props;
-		console.log(query, resolver);
-
-		const QueryResults = () => (
+		const FilmSearchPosters = () => (
 			<Query
-				query={query}
-				variables={{ page: this.state.page }}
+				query={SEARCH_FILM}
+				variables={{ queryString: this.props.query, page: this.state.page }}
 				notifyOnNetworkStatusChange={true}
 			>
 				{({ loading, error, data, fetchMore }) => {
 					if (loading) return 'Loading...';
 					if (error) return `Error! ${error.message}`;
-
+					console.log(data.searchFilm);
 					let page = this.state.page;
-					//* page skip
-					//* add an input field between last and next buttons
-					//* gives user ability to jump to a page < last page and > 1
-					//* UI example at https://semantic-ui.com/elements/input.html
 					return (
 						<div>
 							<FilmPage
-								//* films={data.this.props.resolver || []}
-								films={data[`${resolver}`] || []}
+								films={data.searchFilm || []}
 								currentPage={page}
+								//! Use config.props to refactor (https://www.apollographql.com/docs/react/api/react-apollo#graphql-config-props)
 								nextPage={() =>
 									fetchMore({
 										variables: {
@@ -49,7 +42,7 @@ class FilmQuery extends Component {
 										updateQuery: (prevPage, { fetchMoreResult }) => {
 											if (!fetchMoreResult) return prevPage;
 											return {
-												resolver: [...fetchMoreResult.resolver]
+												searchFilm: [...fetchMoreResult.searchFilm]
 											};
 										}
 									})
@@ -59,9 +52,7 @@ class FilmQuery extends Component {
 										variables: {
 											page: this.setState(state => {
 												return state.page === 1
-													? {
-															page: state.page
-													  }
+													? { page: state.page }
 													: {
 															page: (state.page -= 1)
 													  };
@@ -70,7 +61,7 @@ class FilmQuery extends Component {
 										updateQuery: (prevPage, { fetchMoreResult }) => {
 											if (!fetchMoreResult) return prevPage;
 											return {
-												resolver: [...fetchMoreResult.resolver]
+												searchFilm: [...fetchMoreResult.searchFilm]
 											};
 										}
 									})
@@ -81,13 +72,8 @@ class FilmQuery extends Component {
 				}}
 			</Query>
 		);
-		return <QueryResults />;
+		return <FilmSearchPosters />;
 	}
 }
 
-export default compose(
-	graphql(GET_NOW_PLAYING, { skip: props => !props.getNowPlaying }),
-	graphql(GET_GENRE, { skip: props => props.getGenre })
-)(FilmQuery);
-
-// export default graphql(query)(FilmQuery);
+export default graphql(SEARCH_FILM)(SearchFilms);
