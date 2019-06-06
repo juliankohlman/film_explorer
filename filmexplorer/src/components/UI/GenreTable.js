@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import GenreCard from './GenreCard';
-import { genreIDs, genres } from '../utils/genres';
+import { genreIDs, genres } from '../../utils/genres';
 
 export default class GenreTable extends Component {
 	render() {

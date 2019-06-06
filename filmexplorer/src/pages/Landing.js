@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Container from '../components/Container';
-import Header from '../components/Header';
-import CallToAction from '../components/CallToAction';
-import GenreTable from '../components/GenreTable';
+import Container from '../components/UI/Container';
+import Header from '../components/UI/Header';
+import CallToAction from '../components/UI/CallToAction';
+import GenreTable from '../components/UI/GenreTable';
 import SearchFilms from '../components/SearchFilms';
 import Button from '../components/Button';
 
