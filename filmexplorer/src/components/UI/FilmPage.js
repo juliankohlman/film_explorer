@@ -4,17 +4,23 @@ import FilmListData from './FilmListData';
 
 class FilmPage extends Component {
 	render() {
-		const { films, currentPage, nextPage, lastPage, handler } = this.props;
+		const { films, currentPage, nextPage, lastPage } = this.props;
 
 		if (films && films.length) {
 			return (
 				<article style={{ paddingTop: '342px' }}>
 					<FilmListData currentPage={currentPage} films={films} />
 
-					<button onClick={lastPage}>Last page</button>
-					<button onClick={handler}>Jump Page!!!</button>
-					<button onClick={nextPage}>Next page</button>
+					{currentPage > 1 && currentPage < films[0].total_pages ? (
+						<>
+							<button onClick={lastPage}>Last page</button>{' '}
+							<button onClick={nextPage}>Next page</button>{' '}
+						</>
+					) : (
+						<button onClick={nextPage}>Next page</button>
+					)}
 
+					{/* <button onClick={handler}>Jump Page!!!</button> */}
 					<FilmList filmList={films} />
 				</article>
 			);

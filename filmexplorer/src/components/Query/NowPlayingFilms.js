@@ -35,21 +35,6 @@ class NowPlayingFilms extends Component {
 								// page skip
 								// add an input field between last and next buttons
 								// gives user ability to jump to a page < last page and > 1
-								handler={() =>
-									fetchMore({
-										variables: {
-											page: this.setState(state => {
-												return { page: (state.page += 1) };
-											})
-										},
-										updateQuery: (prevPage, { fetchMoreResult }) => {
-											if (!fetchMoreResult) return prevPage;
-											return {
-												getNowPlaying: [...fetchMoreResult.getNowPlaying]
-											};
-										}
-									})
-								}
 								nextPage={() =>
 									fetchMore({
 										variables: {
