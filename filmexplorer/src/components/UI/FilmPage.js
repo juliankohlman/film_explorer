@@ -25,6 +25,7 @@ class FilmPage extends Component {
 				</article>
 			);
 		}
+		// Todo create a nice end-of-results error page to render in this condition
 		return (
 			<div>
 				<h2 style={{ paddingTop: '25%' }}>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+// ! Deprecated only for use a reference
 class FilterBy extends Component {
 	constructor(props) {
 		super(props);

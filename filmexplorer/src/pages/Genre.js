@@ -154,10 +154,7 @@ export default class Genre extends Component {
 						<CallToAction
 							callout={genreIDs[this.props.match.params.key].label}
 						/>
-						{/* <SortBy />
-					<FilterBy />
-					<ActorSearch /> */}
-						{/* <Button text="Explore" /> */}
+
 						<Button text="Home" href="/" />
 					</Header>
 				)}
