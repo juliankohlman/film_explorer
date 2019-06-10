@@ -40,12 +40,12 @@ class FilterBy extends Component {
 					name="sort_by"
 				>
 					<option value="">Sort Films</option>
-					<option value="popularity.asc">Most popular</option>
-					<option value="popularity.desc">Least popular</option>
-					<option value="release_date.asc">Newest Releases</option>
-					<option value="release_date.desc">Oldest Releases</option>
-					<option value="revenue.asc">Highest Grossing</option>
-					<option value="revenue.desc">Lowest Grossing</option>
+					<option value="popularity.asc">Least popular</option>
+					<option value="popularity.desc">Most popular</option>
+					<option value="release_date.asc">Oldest Releases</option>
+					<option value="release_date.desc">Newest Releases</option>
+					<option value="revenue.asc">Lowest Grossing</option>
+					<option value="revenue.desc">Highest Grossing</option>
 					<option value="original_title.asc">Title A-Z</option>
 					<option value="original_title.desc">Title Z-A</option>
 				</select>

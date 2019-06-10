@@ -82,14 +82,14 @@ export default class Genre extends Component {
 								{/* rename popularity.asc and popularity.desc labels */}
 								<option value="">Sort Films</option>
 								{/* Rename more clearly results are asc */}
-								<option value="popularity.asc">Most popular</option>
-								<option value="popularity.desc">Least popular</option>
-								<option value="release_date.asc">Newest Releases</option>
-								<option value="release_date.desc">Oldest Releases</option>
-								<option value="revenue.asc">Highest Grossing</option>
-								<option value="revenue.desc">Lowest Grossing</option>
-								<option value="original_title.asc">Title A-Z</option>
-								<option value="original_title.desc">Title Z-A</option>
+								<option value="popularity.desc">Most popular</option>
+								<option value="popularity.asc">Least popular</option>
+								<option value="release_date.desc">Newest Releases</option>
+								<option value="release_date.asc">Oldest Releases</option>
+								<option value="revenue.desc">Highest Grossing</option>
+								<option value="revenue.asc">Lowest Grossing</option>
+								<option value="original_title.desc">Title A-Z</option>
+								<option value="original_title.asc">Title Z-A</option>
 							</select>
 
 							<label style={{ color: 'white' }}>

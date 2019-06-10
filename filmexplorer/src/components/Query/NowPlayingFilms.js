@@ -25,16 +25,12 @@ class NowPlayingFilms extends Component {
 					// console.log(data.getNowPlaying);
 					// console.log(this.state.page);
 					let page = this.state.page;
-
+					let jumpTo = this.state.jumpTo;
 					return (
 						<div>
 							<FilmPage
 								films={data.getNowPlaying || []}
-								currentPage={page}
-								//Todo see lifting state up section of react docs
-								// page skip
-								// add an input field between last and next buttons
-								// gives user ability to jump to a page < last page and > 1
+								currentPage={jumpTo}
 								nextPage={() =>
 									fetchMore({
 										variables: {
@@ -50,7 +46,6 @@ class NowPlayingFilms extends Component {
 										}
 									})
 								}
-								// Todo debug page boundary error.
 								lastPage={() =>
 									fetchMore({
 										variables: {
