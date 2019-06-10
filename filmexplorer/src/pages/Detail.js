@@ -36,8 +36,6 @@ class Detail extends Component {
 								<button onClick={this.props.history.goBack}>
 									BACK TO GENRE
 								</button>
-								{/* <Button text="Back to Genre" href="" />
-								 */}
 							</Header>
 							<div style={{ paddingTop: '274px' }}>
 								<FilmBackdrop
