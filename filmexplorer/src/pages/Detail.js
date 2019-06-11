@@ -33,6 +33,7 @@ class Detail extends Component {
 									<CallToAction callout="The Film Explorer" />
 								</div>
 								<Button text="Home" href="/" />
+								{/* Conditional render here: if user got here via a search on landing button should say back to genre(S)/ if user got here via a genre selection go back to genre */}
 								<button onClick={this.props.history.goBack}>
 									BACK TO GENRE
 								</button>
