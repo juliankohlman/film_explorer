@@ -71,13 +71,8 @@ class GenreFilms extends Component {
 			</Query>
 		);
 
-		// return this.props.id === 1 ? (
-		// 	<FilmQuery query={GET_NOW_PLAYING} resolver={'getNowPlaying'} />
-		// ) : (
-		// 	<GenrePosters />
-		// );
-		return this.props.id === 1 ? <ManualNowPlaying /> : <GenrePosters />;
-		// return this.props.id === 1 ? <NowPlayingFilms /> : <GenrePosters />;
+		// return this.props.id === 1 ? <ManualNowPlaying /> : <GenrePosters />;
+		return this.props.id === 1 ? <NowPlayingFilms /> : <GenrePosters />;
 	}
 }
 

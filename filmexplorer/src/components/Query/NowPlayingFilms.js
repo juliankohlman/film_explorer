@@ -33,7 +33,9 @@ class NowPlayingFilms extends Component {
 									fetchMore({
 										variables: {
 											page: this.setState(state => {
-												return { page: (state.page += 1) };
+												return {
+													page: (state.page += 1)
+												};
 											})
 										},
 										updateQuery: (prevPage, { fetchMoreResult }) => {

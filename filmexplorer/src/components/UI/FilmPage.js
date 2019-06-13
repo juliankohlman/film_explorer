@@ -5,7 +5,6 @@ import FilmListData from './FilmListData';
 class FilmPage extends Component {
 	render() {
 		const { films, currentPage, nextPage, lastPage } = this.props;
-
 		if (films && films.length) {
 			return (
 				<article style={{ paddingTop: '342px' }}>
@@ -19,8 +18,6 @@ class FilmPage extends Component {
 					) : (
 						<button onClick={nextPage}>Next page</button>
 					)}
-
-					{/* <button onClick={handler}>Jump Page!!!</button> */}
 					<FilmList filmList={films} />
 				</article>
 			);
