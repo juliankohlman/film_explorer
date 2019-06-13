@@ -1,7 +1,7 @@
 # Todo: add with_release_type to query
 # Todo: Look into https://developers.themoviedb.org/3/trending/get-trending
 
-# Set of querys driving the application
+# Set of querys driving the application: Entry points into the schema
 type Query {
 	getFilmDetails(filmID: Int!): FilmDetails
 	getGenre(genreID: Int!, page: Int = 1): [FilmBasic!]!
