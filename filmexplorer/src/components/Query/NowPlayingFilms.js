@@ -7,8 +7,7 @@ class NowPlayingFilms extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			page: 1,
-			jumpTo: 1
+			page: 1
 		};
 	}
 
@@ -16,7 +15,7 @@ class NowPlayingFilms extends Component {
 		const NowPlayingPosters = () => (
 			<Query
 				query={GET_NOW_PLAYING}
-				variables={{ page: this.state.page, jumpTo: this.state.jumpTo }}
+				variables={{ page: this.state.page }}
 				notifyOnNetworkStatusChange={true}
 			>
 				{({ loading, error, data, fetchMore }) => {
@@ -25,12 +24,11 @@ class NowPlayingFilms extends Component {
 					// console.log(data.getNowPlaying);
 					// console.log(this.state.page);
 					let page = this.state.page;
-					let jumpTo = this.state.jumpTo;
 					return (
 						<div>
 							<FilmPage
 								films={data.getNowPlaying || []}
-								currentPage={jumpTo}
+								currentPage={page}
 								nextPage={() =>
 									fetchMore({
 										variables: {
