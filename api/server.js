@@ -5,9 +5,21 @@ import { typeDefs } from './schema/schema';
 import { resolvers } from './schema/resolvers';
 
 const port = process.env.PORT || 4000;
-const server = new GraphQLServer({ typeDefs, resolvers });
+const opts = {
+	port,
+	cors: {
+		credentials: true,
+		origin: ['http://localhost:3000']
+	}
+};
+const context = req => ({
+	req: req.request
+});
+const server = new GraphQLServer({ typeDefs, resolvers, context });
 
 //Todo add options object and configure cors
-server.start(() =>
-	console.log(`Server is running on http://localhost:${port}`)
+
+server.start(
+	(opts,
+	({ port }) => console.log(`Server is running on http://localhost:${port}`))
 );
