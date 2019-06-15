@@ -7,6 +7,7 @@ import { resolvers } from './schema/resolvers';
 const port = process.env.PORT || 4000;
 const server = new GraphQLServer({ typeDefs, resolvers });
 
+//Todo add options object and configure cors
 server.start(() =>
 	console.log(`Server is running on http://localhost:${port}`)
 );
