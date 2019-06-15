@@ -2,7 +2,7 @@ import { connectors } from './tmdbConnectors';
 
 export const resolvers = {
 	Query: {
-		getNowPlaying(_, { page, jumpTo }) {
+		getNowPlaying(_, { page }) {
 			return connectors.nowPlaying(_, { page });
 		},
 		searchPerson(_, { queryString }) {

@@ -12,22 +12,45 @@ class GenreFilms extends Component {
 			page: 1
 		};
 	}
-	render() {
-		console.log(this.props);
 
+	jumpPage = e => {
+		this.setState({
+			page: +e.target.value
+		});
+		e.preventDefault();
+	};
+
+	render() {
+		const id = this.props.id;
 		const GenrePosters = () => (
 			<Query
 				query={GET_GENRE}
-				variables={{ genreID: this.props.id, page: this.state.page }}
+				variables={{ genreID: id, page: this.state.page }}
 				notifyOnNetworkStatusChange={true}
 			>
-				{({ loading, error, data, fetchMore }) => {
+				{({ loading, error, data, fetchMore, refetch }) => {
 					if (loading) return <p>loading...</p>;
 					if (error) return <p>error :(</p>;
 					console.log(data.getGenre);
 					let page = this.state.page;
 					return (
 						<div>
+							<label for="jump">{`Jump to page less than ${
+								data.getGenre[0].total_pages
+							}`}</label>
+							<input
+								name="jump"
+								style={{ marginTop: '350px', height: '50px' }}
+								type="number"
+								// onChange={this.jumpPage}
+							/>
+							{/* <button
+								style={{ paddingTop: '350px' }}
+								onClick={() => refetch({ page: this.state.page })}
+							>
+								Refetch
+							</button> */}
+
 							<FilmPage
 								films={data.getGenre || []}
 								currentPage={page}
