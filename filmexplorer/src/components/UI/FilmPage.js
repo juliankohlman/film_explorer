@@ -15,6 +15,8 @@ class FilmPage extends Component {
 							<button onClick={lastPage}>Last page</button>{' '}
 							<button onClick={nextPage}>Next page</button>{' '}
 						</>
+					) : currentPage === films[0].total_pages ? (
+						<button onClick={lastPage}>Last page</button>
 					) : (
 						<button onClick={nextPage}>Next page</button>
 					)}

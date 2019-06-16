@@ -11,6 +11,13 @@ class NowPlayingFilms extends Component {
 		};
 	}
 
+	jumpPage = e => {
+		e.preventDefault();
+		this.setState({
+			page: +this.input.value
+		});
+	};
+
 	render() {
 		const NowPlayingPosters = () => (
 			<Query
@@ -26,6 +33,18 @@ class NowPlayingFilms extends Component {
 					let page = this.state.page;
 					return (
 						<div>
+							<div style={{ marginTop: '350px' }}>
+								<label htmlFor="jump">{`Jump to page less than ${
+									data.getNowPlaying[0].total_pages
+								}`}</label>
+								<form onSubmit={this.jumpPage}>
+									<input
+										type="number"
+										name="jump"
+										ref={input => (this.input = input)}
+									/>
+								</form>
+							</div>
 							<FilmPage
 								films={data.getNowPlaying || []}
 								currentPage={page}

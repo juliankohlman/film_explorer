@@ -3,7 +3,7 @@ import { Query, graphql } from 'react-apollo';
 import { GET_GENRE } from '../../queries/getGenre';
 import NowPlayingFilms from './NowPlayingFilms';
 import FilmPage from '../UI/FilmPage';
-import ManualNowPlaying from './ManualNowPlaying';
+// import ManualNowPlaying from './ManualNowPlaying';
 
 class GenreFilms extends Component {
 	constructor(props) {
@@ -14,10 +14,10 @@ class GenreFilms extends Component {
 	}
 
 	jumpPage = e => {
-		this.setState({
-			page: +e.target.value
-		});
 		e.preventDefault();
+		this.setState({
+			page: +this.input.value
+		});
 	};
 
 	render() {
@@ -28,26 +28,32 @@ class GenreFilms extends Component {
 				variables={{ genreID: id, page: this.state.page }}
 				notifyOnNetworkStatusChange={true}
 			>
-				{({ loading, error, data, fetchMore, refetch }) => {
+				{({ loading, error, data, fetchMore }) => {
 					if (loading) return <p>loading...</p>;
 					if (error) return <p>error :(</p>;
 					console.log(data.getGenre);
 					let page = this.state.page;
 					return (
 						<div>
-							<label for="jump">{`Jump to page less than ${
-								data.getGenre[0].total_pages
-							}`}</label>
-							<input
+							<div style={{ marginTop: '350px' }}>
+								<label htmlFor="jump">{`Jump to page less than ${
+									data.getGenre[0].total_pages
+								}`}</label>
+								<form onSubmit={this.jumpPage}>
+									<input
+										type="number"
+										name="jump"
+										ref={input => (this.input = input)}
+									/>
+								</form>
+							</div>
+							{/* <input
 								name="jump"
 								style={{ marginTop: '350px', height: '50px' }}
 								type="number"
 								// onChange={this.jumpPage}
 							/>
-							{/* <button
-								style={{ paddingTop: '350px' }}
-								onClick={() => refetch({ page: this.state.page })}
-							>
+							<button style={{ paddingTop: '350px' }} onClick={this.jumpPage}>
 								Refetch
 							</button> */}
 
