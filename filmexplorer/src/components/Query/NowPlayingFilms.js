@@ -41,6 +41,8 @@ class NowPlayingFilms extends Component {
 									<input
 										type="number"
 										name="jump"
+										min="1"
+										max={data.getNowPlaying[0].total_pages}
 										ref={input => (this.input = input)}
 									/>
 								</form>

@@ -9,6 +9,8 @@ import { genreIDs } from '../utils/genres';
 
 export default class Genre extends Component {
 	//Todo fix explore submission handling, state not always updating on subsequent searches causing the query to be run twice to update the films
+
+	//* May have to remove page from state here, and adjust schema separating page from user input options
 	constructor(props) {
 		super(props);
 

@@ -40,6 +40,8 @@ class SearchFilms extends Component {
 									<input
 										type="number"
 										name="jump"
+										min="1"
+										max={data.searchFilm[0].total_pages}
 										ref={input => (this.input = input)}
 									/>
 								</form>

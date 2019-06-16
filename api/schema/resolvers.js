@@ -17,9 +17,10 @@ export const resolvers = {
 		getFilmDetails(_, { filmID }) {
 			return connectors.filmDetails(_, { filmID });
 		},
-		exploreGenre(_, { input }) {
+		exploreGenre(_, { input, page }) {
 			return connectors.genreQuery(_, {
-				input
+				input,
+				page
 			});
 		}
 	}

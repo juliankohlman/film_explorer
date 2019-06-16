@@ -9,14 +9,15 @@ import { posterImageCheck } from '../helpers';
  * @returns a resolved promise (an array of genre films based on query inputs)
  */
 
-export const genreQuery = async (_, { input }) => {
+export const genreQuery = async (_, { input, page }) => {
 	let queryPropValues = [
 		`&sort_by=${input.sort_by}`,
 		`&certification_country=${input.certification_country}`,
 		`&certification=${input.certification}`,
 		`&include_adult=${input.include_adult}`,
 		`&include_video=${input.include_video}`,
-		`&page=${input.page}`,
+		`&page=${page}`,
+		// `&page=${input.page}`,
 		`&primary_release_year=${input.primary_release_year}`,
 		`&primary_release_date.gte=${input.primary_release_date_gte}`,
 		`&primary_release_date.lte=${input.primary_release_date_lte}`,
@@ -36,10 +37,11 @@ export const genreQuery = async (_, { input }) => {
 
 	if (input.personString) {
 		try {
+			//! change page back to input.page line #44
 			let res = await axios.get(
 				`https://api.themoviedb.org/3/search/person?api_key=${API}&language=en-US&query=${
 					input.personString
-				}&page=${input.page}&include_adult=false`
+				}&page=${page}&include_adult=false`
 			);
 			queryPropValues[10] = `&with_people=${res.data.results[0].id}`;
 		} catch (error) {
