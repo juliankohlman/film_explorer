@@ -3,7 +3,6 @@ import { Query, graphql } from 'react-apollo';
 import { GET_GENRE } from '../../queries/getGenre';
 import NowPlayingFilms from './NowPlayingFilms';
 import FilmPage from '../UI/FilmPage';
-// import ManualNowPlaying from './ManualNowPlaying';
 
 class GenreFilms extends Component {
 	constructor(props) {
@@ -49,15 +48,6 @@ class GenreFilms extends Component {
 									/>
 								</form>
 							</div>
-							{/* <input
-								name="jump"
-								style={{ marginTop: '350px', height: '50px' }}
-								type="number"
-								// onChange={this.jumpPage}
-							/>
-							<button style={{ paddingTop: '350px' }} onClick={this.jumpPage}>
-								Refetch
-							</button> */}
 
 							<FilmPage
 								films={data.getGenre || []}
@@ -102,7 +92,6 @@ class GenreFilms extends Component {
 			</Query>
 		);
 
-		// return this.props.id === 1 ? <ManualNowPlaying /> : <GenrePosters />;
 		return this.props.id === 1 ? <NowPlayingFilms /> : <GenrePosters />;
 	}
 }
