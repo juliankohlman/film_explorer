@@ -33,6 +33,7 @@ class NowPlayingFilms extends Component {
 					let page = this.state.page;
 					return (
 						<div>
+							{/* className pageJump */}
 							<div style={{ marginTop: '350px' }}>
 								<label htmlFor="jump">{`Jump to page less than ${
 									data.getNowPlaying[0].total_pages

@@ -8,9 +8,12 @@ export default class GenreTable extends Component {
 		return (
 			<section className="cf pt7">
 				{Object.keys(genreIDs).map((genre, idx) => (
-					<Link to={`/genre/${genre}`} key={genre}>
-						<GenreCard key={genreIDs.genre} genre={genres[idx]} />
-					</Link>
+					// <article className="fl w-100-l w-50-m w-25-ns pa1 pv6-ns" key={genre}>
+					<article key={genre}>
+						<Link to={`/genre/${genre}`}>
+							<GenreCard key={genreIDs.genre} genre={genres[idx]} />
+						</Link>
+					</article>
 				))}
 			</section>
 		);

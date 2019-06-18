@@ -17,7 +17,7 @@ function Header(props) {
 							src={logo}
 							// className="dib w2 h2 w3 h3 w4 h4 br-100"
 							className="dib w2 h2 w3 h3 w4 h4 br-100 v-mid"
-							alt="Site Name"
+							alt="The Film Explorer"
 						/>
 					</a>
 				</div>
