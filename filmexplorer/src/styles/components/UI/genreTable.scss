@@ -1,0 +1,9 @@
+.genreTable {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	//* adding enough margin to get out from under header for now
+	margin-top: 288px;
+	background: $darkGray;
+}
