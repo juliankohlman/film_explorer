@@ -10,28 +10,19 @@ export default class GenreTable extends Component {
 			// <section className="cf pt7">
 			<section className="genreTable">
 				{Object.keys(genreIDs).map((genre, idx) => (
-					// <article className="fl w-100-l w-50-m w-25-ns pa1 pv6-ns" key={genre}>
 					<Link
 						to={`/genre/${genre}`}
 						key={genre}
 						style={{
 							margin: '25px',
-							background: '#8c8c8c',
+							background: '#fff',
 							borderRadius: '10px',
-							textDecoration: 'none',
-							color: '#d9d9d9'
+							textDecoration: 'none'
+							// color: 'red'
 						}}
 					>
-						<GenreCard
-							key={genreIDs.genre}
-							genre={genres[idx]}
-							// activeClassName="genreContainer"
-						/>
+						<GenreCard key={genreIDs.genre} genre={genres[idx]} />
 					</Link>
-					// <div className="genreContainer">
-					// </div>
-					// <article key={genre}>
-					// </article>
 				))}
 			</section>
 		);
