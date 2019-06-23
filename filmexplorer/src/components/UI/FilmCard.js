@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+//* Convert to function component
 export default class FilmCard extends Component {
 	render() {
 		return (

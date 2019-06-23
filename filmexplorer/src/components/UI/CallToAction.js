@@ -9,9 +9,12 @@ import React from 'react';
 // 	);
 // }
 const CallToAction = props => {
+	const { callout } = props;
+	// classNames = ['style1', 'style2', etc...]
+	// could even pass prop into component to inform styling via the classNames variable
 	return (
 		<div className="dtc-ns tc pv4 bg-black-05 white v-mid">
-			<h3>{props.callout}</h3>
+			<h3>{callout}</h3>
 		</div>
 	);
 };
