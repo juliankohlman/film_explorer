@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Button(props) {
+const Button = props => {
 	return (
 		<div className="ph3 dtc-ns tc pv4 bg-black-05">
 			<a
@@ -11,4 +11,6 @@ export default function Button(props) {
 			</a>
 		</div>
 	);
-}
+};
+
+export default Button;
