@@ -22,7 +22,7 @@ class Detail extends Component {
 				{({ loading, error, data }) => {
 					if (loading) return <p>loading...</p>;
 					if (error) return <p>error :(</p>;
-					// console.log(data.getFilmDetails);
+					console.log(data.getFilmDetails);
 					//Todo Back to search results if user reached the detail page via a search query
 					return (
 						<Container>
@@ -57,6 +57,8 @@ class Detail extends Component {
 								<li>Runtime: {data.getFilmDetails.runtime}</li>
 								<li>Status: {data.getFilmDetails.status}</li>
 								<li>Tagline: {data.getFilmDetails.tagline}</li>
+								{/* Look into more readable date format */}
+								<li>Release Date: {data.getFilmDetails.release_date}</li>
 								<li>
 									Similar:{' '}
 									{data.getFilmDetails.similar.length
