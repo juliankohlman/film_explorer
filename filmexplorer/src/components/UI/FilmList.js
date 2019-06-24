@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function FilmList(props) {
+const FilmList = props => {
 	return (
 		<div>
 			{props.filmList.map(film => (
@@ -23,4 +23,6 @@ export default function FilmList(props) {
 			))}
 		</div>
 	);
-}
+};
+
+export default FilmList;
