@@ -1,10 +1,9 @@
 import React from 'react';
 
 //Todo logo should be it's own component
-//Todo think about using Context Api
 const logo = require('../../images/logo.png');
 
-function Header(props) {
+const Header = props => {
 	return (
 		<div className="dt-ns dt--fixed-ns">
 			{/* <header className="bg-black-90 fixed w-100 ph3 pv3 pv4-ns ph4-m ph5-l z-999"> */}
@@ -25,6 +24,6 @@ function Header(props) {
 			</header>
 		</div>
 	);
-}
+};
 
 export default Header;
