@@ -67,7 +67,6 @@ class GenreFilms extends Component {
 										}
 									})
 								}
-								// Todo debug page boundary error.
 								lastPage={() =>
 									fetchMore({
 										variables: {
