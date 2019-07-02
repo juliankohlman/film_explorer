@@ -49,11 +49,19 @@ export default class Landing extends Component {
 							<form onSubmit={this.onSearch}>
 								<input
 									type="text"
-									placeholder="Film Search..."
+									placeholder="Film Search...🔎"
 									value={this.state.query}
 									onChange={this.handleInputChange}
+									// style={{ borderRadius: '20px' }}
 								/>
-								<button type="submit">Search</button>
+								<button
+									type="submit"
+									// Todo create classname for search input and button
+									style={{ background: 'transparent', border: 'none' }}
+								>
+									🔎
+								</button>
+								{/* <button type="submit">Search 🔎</button> */}
 							</form>
 						</div>
 						{/* No need for this now that 'home page will render if search field is cleared' */}
