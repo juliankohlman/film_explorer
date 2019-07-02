@@ -49,15 +49,29 @@ export default class Landing extends Component {
 							<form onSubmit={this.onSearch}>
 								<input
 									type="text"
-									placeholder="Film Search...🔎"
+									placeholder="Film Search..."
 									value={this.state.query}
 									onChange={this.handleInputChange}
-									// style={{ borderRadius: '20px' }}
+									// Todo create classname for search input and button
+									style={{
+										borderTopLeftRadius: '80rem',
+										borderBottomLeftRadius: '80rem',
+										border: 'none',
+										padding: '8px',
+										fontFamily: 'Menlo',
+										outline: 'none'
+									}}
 								/>
 								<button
 									type="submit"
 									// Todo create classname for search input and button
-									style={{ background: 'transparent', border: 'none' }}
+									style={{
+										background: '#fff',
+										borderTopRightRadius: '80rem',
+										borderBottomRightRadius: '80rem',
+										border: 'none',
+										padding: '8px'
+									}}
 								>
 									🔎
 								</button>
