@@ -12,7 +12,8 @@ import Detail from './pages/Detail';
 // import NowPlaying from './pages/NowPlaying';
 
 const client = new ApolloClient({
-	uri: 'http://localhost:4000',
+	// uri: 'http://localhost:4000',
+	uri: 'http://localhost:9000/.netlify/functions/graphql',
 	fetch: fetch
 });
 
