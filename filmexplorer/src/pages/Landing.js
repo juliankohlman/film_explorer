@@ -73,7 +73,7 @@ export default class Landing extends Component {
 										padding: '8px'
 									}}
 								>
-									🔎
+									<span>🔎</span>
 								</button>
 								{/* <button type="submit">Search 🔎</button> */}
 							</form>
