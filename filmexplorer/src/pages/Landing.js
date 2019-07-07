@@ -5,6 +5,9 @@ import CallToAction from '../components/UI/CallToAction';
 import GenreTable from '../components/UI/GenreTable';
 import SearchFilms from '../components/Query/SearchFilms';
 // import Button from '../components/UI/Button';
+import { GoSearch } from 'react-icons/go';
+
+const logo = require('../images/logo.png');
 
 //TODO need to render a back to genre button in header when in 'search mode'
 export default class Landing extends Component {
@@ -41,50 +44,43 @@ export default class Landing extends Component {
 			<Container>
 				<Header>
 					{/* Extract into another component??? */}
-					<div className="dtc-ns tc pv4 bg-black-05 v-mid w-30">
-						<CallToAction callout="Welcome to the Film Explorer" />
-					</div>
-					<div className="dtc-ns tc pv4 bg-black-05 v-mid w-30">
+					{/* <div className="dtc-ns tc pv4 bg-black-05 v-mid w-30" /> */}
+					<a className="logoLink" href="/" title="home">
+						<img src={logo} className="logoDisplay" alt="The Film Explorer" />
+					</a>
+					{/* <a className="dtc v-mid mid-gray link dim fl" href="/" title="Home">
+						<img
+							src={logo}
+							className="dib w2 h2 w3 h3 w4 h4 br-100 v-mid"
+							alt="The Film Explorer"
+						/>
+					</a> */}
+					<header className="headerWelcome">
+						Welcome to the Film Explorer
+					</header>
+					{/* <CallToAction callout="Welcome to the Film Explorer" /> */}
+					<form onSubmit={this.onSearch} className="searchForm">
+						<input
+							className="searchInput"
+							type="text"
+							placeholder="e.g. The Thing"
+							value={this.state.query}
+							onChange={this.handleInputChange}
+						/>
+						<button className="searchButton" type="submit">
+							<GoSearch
+								style={{
+									padding: '0 8px',
+									color: 'white'
+								}}
+							/>
+						</button>
+					</form>
+					{/* <div className="dtc-ns tc pv4 bg-black-05 v-mid w-30">
 						<div className="white v-mid">
-							<form onSubmit={this.onSearch}>
-								<input
-									className="searchInput"
-									type="text"
-									placeholder="Film Search..."
-									value={this.state.query}
-									onChange={this.handleInputChange}
-									// // Todo create classname for search input and button
-									// style={{
-									// 	borderTopLeftRadius: '80rem',
-									// 	borderBottomLeftRadius: '80rem',
-									// 	border: 'none',
-									// 	padding: '8px',
-									// 	fontFamily: 'Menlo',
-									// 	outline: 'none'
-									// }}
-								/>
-								<button
-									className="searchButton"
-									type="submit"
-									// // Todo create classname for search input and button
-									// style={{
-									// 	background: '#fff',
-									// 	borderTopRightRadius: '80rem',
-									// 	borderBottomRightRadius: '80rem',
-									// 	borderStyle: 'none',
-									// 	padding: '8px',
-									// 	cursor: 'pointer'
-									// }}
-								>
-									{' '}
-									<span>🔎</span>
-								</button>
-								{/* <button type="submit">Search 🔎</button> */}
-							</form>
 						</div>
-						{/* No need for this now that 'home page will render if search field is cleared' */}
-						{/* {this.state.useSearch ? <Button text="Home" href="/" /> : null} */}
-					</div>
+						
+					</div> */}
 				</Header>
 
 				{/* If search occurs then render the filmSearch component */}

@@ -1,38 +1,80 @@
 .header {
 	position: fixed;
 	top: 0;
+	width: 100%;
+	background: $solidBlack;
+	padding: $sm;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+
+	.logoLink {
+		align-self: center;
+		.logoDisplay {
+			width: 5rem;
+			height: 5rem;
+		}
+	}
+
+	.headerWelcome {
+		color: $offWhite;
+		align-self: center;
+	}
+
+	.searchForm {
+		align-self: center;
+	}
 
 	.searchInput {
 		border-top-left-radius: 80rem;
 		border-bottom-left-radius: 80rem;
-		border: medium solid red;
+		border: medium solid $offWhite;
 		border-right: none;
 		padding: 8px;
 		font-family: $lato;
 		outline: none;
+		width: 80%;
+		background: $darkGray;
+		color: #fff;
 	}
 	.searchButton {
-		background: #fff;
+		background: linear-gradient(
+			to right,
+			#e52d27 0%,
+			#b31217 51%,
+			#e52d27 100%
+		);
 		border-top-right-radius: 80rem;
 		border-bottom-right-radius: 80rem;
-		border: medium solid red;
+		border: medium solid $offWhite;
 		border-left: none;
-		padding: 8px;
+		padding: 7px;
 		cursor: pointer;
+		&:hover {
+			background-position: right center;
+		}
 	}
+
 	@include respond-to(mobile) {
 		font-size: $mb;
+		flex-direction: column;
 	}
 
 	@include respond-to(tablet) {
 		font-size: $sm;
+		flex-direction: column;
 	}
 
 	@include respond-to(desktop) {
 		font-size: $smid;
+		flex-direction: row;
 	}
 
 	@include respond-to(wide) {
 		font-size: $mid;
+		flex-direction: row;
+		.headerWelcome {
+			font-size: $lg;
+		}
 	}
 }
