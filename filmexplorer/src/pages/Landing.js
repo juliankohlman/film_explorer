@@ -40,6 +40,7 @@ export default class Landing extends Component {
 
 	render() {
 		// console.log(this.state.useSearch);
+		// Todo continue tweaking header responsiveness
 		return (
 			<Container>
 				<Header>
