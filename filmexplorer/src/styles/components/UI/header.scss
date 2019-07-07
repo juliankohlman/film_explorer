@@ -1,0 +1,38 @@
+.header {
+	position: fixed;
+	top: 0;
+
+	.searchInput {
+		border-top-left-radius: 80rem;
+		border-bottom-left-radius: 80rem;
+		border: medium solid red;
+		border-right: none;
+		padding: 8px;
+		font-family: $lato;
+		outline: none;
+	}
+	.searchButton {
+		background: #fff;
+		border-top-right-radius: 80rem;
+		border-bottom-right-radius: 80rem;
+		border: medium solid red;
+		border-left: none;
+		padding: 8px;
+		cursor: pointer;
+	}
+	@include respond-to(mobile) {
+		font-size: $mb;
+	}
+
+	@include respond-to(tablet) {
+		font-size: $sm;
+	}
+
+	@include respond-to(desktop) {
+		font-size: $smid;
+	}
+
+	@include respond-to(wide) {
+		font-size: $mid;
+	}
+}

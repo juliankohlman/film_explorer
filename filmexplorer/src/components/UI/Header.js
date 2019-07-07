@@ -5,7 +5,8 @@ const logo = require('../../images/logo.png');
 
 const Header = props => {
 	return (
-		<div className="dt-ns dt--fixed-ns">
+		// <div className="dt-ns dt--fixed-ns">
+		<div className="header">
 			{/* <header className="bg-black-90 fixed w-100 ph3 pv3 pv4-ns ph4-m ph5-l z-999"> */}
 			<header className="bg-black-90 fixed w-100 ph3 pv3 pv3 pv4-ns ph4-m ph5-l z-999">
 				<div className="dtc-ns tc pv4 bg-black-10 w-20">

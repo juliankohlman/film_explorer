@@ -48,30 +48,33 @@ export default class Landing extends Component {
 						<div className="white v-mid">
 							<form onSubmit={this.onSearch}>
 								<input
+									className="searchInput"
 									type="text"
 									placeholder="Film Search..."
 									value={this.state.query}
 									onChange={this.handleInputChange}
-									// Todo create classname for search input and button
-									style={{
-										borderTopLeftRadius: '80rem',
-										borderBottomLeftRadius: '80rem',
-										border: 'none',
-										padding: '8px',
-										fontFamily: 'Menlo',
-										outline: 'none'
-									}}
+									// // Todo create classname for search input and button
+									// style={{
+									// 	borderTopLeftRadius: '80rem',
+									// 	borderBottomLeftRadius: '80rem',
+									// 	border: 'none',
+									// 	padding: '8px',
+									// 	fontFamily: 'Menlo',
+									// 	outline: 'none'
+									// }}
 								/>
 								<button
+									className="searchButton"
 									type="submit"
-									// Todo create classname for search input and button
-									style={{
-										background: '#fff',
-										borderTopRightRadius: '80rem',
-										borderBottomRightRadius: '80rem',
-										border: 'none',
-										padding: '8px'
-									}}
+									// // Todo create classname for search input and button
+									// style={{
+									// 	background: '#fff',
+									// 	borderTopRightRadius: '80rem',
+									// 	borderBottomRightRadius: '80rem',
+									// 	borderStyle: 'none',
+									// 	padding: '8px',
+									// 	cursor: 'pointer'
+									// }}
 								>
 									{' '}
 									<span>🔎</span>
