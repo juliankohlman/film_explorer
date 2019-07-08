@@ -3,7 +3,20 @@
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
-	//* adding enough margin to get out from under header for now
-	margin-top: 288px;
-	// background: $darkGray;
+
+	@include respond-to(mobile) {
+		padding-top: 235px;
+	}
+
+	@include respond-to(tablet) {
+		padding-top: 235px;
+	}
+
+	@include respond-to(desktop) {
+		padding-top: 175px;
+	}
+
+	@include respond-to(wide) {
+		padding-top: 175px;
+	}
 }
