@@ -1,7 +1,6 @@
 .genreCard {
 	display: flex;
 	justify-content: center;
-	// min-width: 255px;
 	min-height: 150px;
 	font-family: $expletus;
 	font-size: $mid;
@@ -19,17 +18,21 @@
 
 	@include respond-to(mobile) {
 		min-width: 200px;
+		min-height: 75px;
 	}
 
 	@include respond-to(tablet) {
 		min-width: 255px;
+		min-height: 150px;
 	}
 
 	@include respond-to(desktop) {
 		min-width: 255px;
+		min-height: 150px;
 	}
 
 	@include respond-to(wide) {
 		min-width: 255px;
+		min-height: 150px;
 	}
 }

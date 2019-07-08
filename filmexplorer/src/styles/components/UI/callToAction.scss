@@ -1,0 +1,25 @@
+.ctaMessage {
+	color: $offWhite;
+	align-self: center;
+	margin-left: 2rem;
+	.genrePop {
+		color: $coolRed;
+		font-family: $lalezar;
+	}
+
+	@include respond-to(mobile) {
+		font-size: $mb;
+	}
+
+	@include respond-to(tablet) {
+		font-size: $mid;
+	}
+
+	@include respond-to(desktop) {
+		font-size: $lg;
+	}
+
+	@include respond-to(wide) {
+		font-size: $xl;
+	}
+}

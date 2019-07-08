@@ -64,19 +64,22 @@ export default class Genre extends Component {
 	};
 
 	render() {
+		//Todo Need to adjust how callout message is built so a unique style can be applied to to genre to make it standout in header.
 		let id = this.state.genreID;
 		return (
 			<Container>
 				{this.state.genreID !== 1 ? (
-					<Header>
+					<Header style="genreHeader">
 						<CallToAction
 							callout={genreIDs[this.props.match.params.key].label}
 						/>
 						<form
-							className="dtc-ns tc pv4 bg-black-05 v-mid"
+							// className="dtc-ns tc pv4 bg-black-05 v-mid"
+							className="searchForm"
 							onSubmit={this.handleSubmit}
 						>
 							<select
+								className="searchInput"
 								value={this.state.value}
 								onChange={this.handleChange}
 								name="sort_by"
@@ -97,6 +100,7 @@ export default class Genre extends Component {
 							<label style={{ color: 'white' }}>
 								Release Year:
 								<input
+									className="searchInput"
 									placeholder="ex...1984"
 									type="number"
 									name="year"
@@ -106,6 +110,7 @@ export default class Genre extends Component {
 							</label>
 
 							<select
+								className="searchInput"
 								value={this.state.value}
 								onChange={this.handleChange}
 								name="certification"
@@ -122,6 +127,7 @@ export default class Genre extends Component {
 							<label style={{ color: 'white' }}>
 								Film Runtime:
 								<input
+									className="searchInput"
 									placeholder="Runtime in minutes..."
 									//? type number instead
 									type="text"
@@ -134,6 +140,7 @@ export default class Genre extends Component {
 							<label style={{ color: 'white' }}>
 								Actor or Director:
 								<input
+									className="searchInput"
 									placeholder="Actor or Director..."
 									type="text"
 									name="personString"
@@ -143,7 +150,7 @@ export default class Genre extends Component {
 							</label>
 							<button
 								type="submit"
-								className="f6 link dim ph3 pv2 mb2 dib white bg-dark-blue"
+								className="searchButton"
 								// onClick={this.handleSubmit}
 							>
 								Explore

@@ -5,15 +5,11 @@
 	justify-content: space-evenly;
 	padding: 3rem;
 
-	/* Grid Implementation */
+	/* Grid Implementation test */
 	// display: grid;
 	// grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 	/* ------------------- */
-	// display: grid;
-	// grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
-	// grid-gap: 1rem;
-	// width: 100%;
-	// margin: auto;
+
 	@include respond-to(mobile) {
 		padding-top: 235px;
 	}
