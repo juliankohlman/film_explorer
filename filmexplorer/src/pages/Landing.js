@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Container from '../components/UI/Container';
 import Header from '../components/UI/Header';
-import CallToAction from '../components/UI/CallToAction';
+// import CallToAction from '../components/UI/CallToAction';
 import GenreTable from '../components/UI/GenreTable';
 import SearchFilms from '../components/Query/SearchFilms';
 // import Button from '../components/UI/Button';
@@ -40,26 +40,17 @@ export default class Landing extends Component {
 
 	render() {
 		// console.log(this.state.useSearch);
-		// Todo continue tweaking header responsiveness
 		return (
 			<Container>
 				<Header>
-					{/* Extract into another component??? */}
-					{/* <div className="dtc-ns tc pv4 bg-black-05 v-mid w-30" /> */}
 					<a className="logoLink" href="/" title="home">
 						<img src={logo} className="logoDisplay" alt="The Film Explorer" />
 					</a>
-					{/* <a className="dtc v-mid mid-gray link dim fl" href="/" title="Home">
-						<img
-							src={logo}
-							className="dib w2 h2 w3 h3 w4 h4 br-100 v-mid"
-							alt="The Film Explorer"
-						/>
-					</a> */}
+
 					<header className="headerWelcome">
 						Welcome to the Film Explorer
 					</header>
-					{/* <CallToAction callout="Welcome to the Film Explorer" /> */}
+
 					<form onSubmit={this.onSearch} className="searchForm">
 						<input
 							className="searchInput"
@@ -77,11 +68,6 @@ export default class Landing extends Component {
 							/>
 						</button>
 					</form>
-					{/* <div className="dtc-ns tc pv4 bg-black-05 v-mid w-30">
-						<div className="white v-mid">
-						</div>
-						
-					</div> */}
 				</Header>
 
 				{/* If search occurs then render the filmSearch component */}

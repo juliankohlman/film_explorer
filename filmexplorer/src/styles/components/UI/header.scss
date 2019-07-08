@@ -5,6 +5,7 @@
 	background: $solidBlack;
 	padding: $smid;
 	display: flex;
+
 	justify-content: space-around;
 	flex-wrap: wrap;
 
@@ -19,6 +20,8 @@
 	.headerWelcome {
 		color: $offWhite;
 		align-self: center;
+		padding: 1rem;
+		// margin-left: 0.75rem;
 	}
 
 	.searchForm {
@@ -60,7 +63,7 @@
 	@include respond-to(mobile) {
 		font-size: $mb;
 		flex-direction: column;
-		padding-bottom: 20px;
+
 		.searchForm {
 			font-size: $sm;
 			width: $formWidth - 105px;
@@ -87,7 +90,7 @@
 		font-size: $mid;
 		flex-direction: row;
 		.headerWelcome {
-			font-size: $lg;
+			font-size: $xl;
 		}
 	}
 }
