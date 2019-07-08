@@ -64,7 +64,7 @@ export default class Genre extends Component {
 	};
 
 	render() {
-		//Todo Need to adjust how callout message is built so a unique style can be applied to to genre to make it standout in header.
+		//! Todo must break form out from header and add home button to top right corner (should be coupled with logo--callout--home btn)
 		let id = this.state.genreID;
 		return (
 			<Container>
