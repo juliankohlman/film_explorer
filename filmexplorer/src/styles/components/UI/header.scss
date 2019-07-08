@@ -23,6 +23,7 @@
 
 	.searchForm {
 		align-self: center;
+		width: $formWidth;
 	}
 
 	.searchInput {
@@ -50,6 +51,7 @@
 		border-left: none;
 		padding: 7px;
 		cursor: pointer;
+
 		&:hover {
 			background-position: right center;
 		}
@@ -58,11 +60,22 @@
 	@include respond-to(mobile) {
 		font-size: $mb;
 		flex-direction: column;
+		padding-bottom: 20px;
+		.searchForm {
+			font-size: $sm;
+			width: $formWidth - 105px;
+			.searchButton {
+				width: 45px;
+			}
+		}
 	}
 
 	@include respond-to(tablet) {
 		font-size: $sm;
 		flex-direction: column;
+		.searchForm {
+			width: $formWidth - 35px;
+		}
 	}
 
 	@include respond-to(desktop) {
