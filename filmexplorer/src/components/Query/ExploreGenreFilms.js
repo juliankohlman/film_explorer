@@ -33,6 +33,7 @@ class ExploreGenreFilms extends Component {
 					console.log(data.exploreGenre);
 					let page = this.state.page;
 					return (
+						// ! MUST HANDLE CONDITION WHERE (data.exploreGenre[0].total_pages) returns null, handle this condition and render out a nice page for the user
 						<div>
 							<div style={{ marginTop: '350px' }}>
 								<label htmlFor="jump">{`Jump to page less than ${

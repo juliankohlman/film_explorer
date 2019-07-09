@@ -6,7 +6,7 @@ const FilmPage = props => {
 	const { films, currentPage, nextPage, lastPage } = props;
 
 	return films && films.length ? (
-		<article style={{ paddingTop: '342px' }}>
+		<article style={{ paddingTop: '25px' }}>
 			<FilmListData currentPage={currentPage} films={films} />
 			{/* Pagination logic, current page determines what ui buttons to render */}
 			{currentPage > 1 && currentPage < films[0].total_pages ? (

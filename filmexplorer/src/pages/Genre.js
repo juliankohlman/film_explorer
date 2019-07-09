@@ -27,11 +27,13 @@ export default class Genre extends Component {
 		};
 	}
 
-	//todo user should be able to run 'explore' by pressing enter
 	handleChange = e => {
 		const target = e.target;
 		const name = target.name;
-		const value = name === 'year' ? +target.value : target.value;
+		const value =
+			name === 'year' || name === 'with_runtime_gte'
+				? +target.value
+				: target.value;
 		this.setState({ [name]: value });
 	};
 
@@ -69,17 +71,57 @@ export default class Genre extends Component {
 		return (
 			<Container>
 				{this.state.genreID !== 1 ? (
-					<Header style="genreHeader">
-						<CallToAction
-							callout={genreIDs[this.props.match.params.key].label}
-						/>
+					<>
+						<Header style="genreHeader">
+							<CallToAction
+								callout={genreIDs[this.props.match.params.key].label}
+							/>
+						</Header>
 						<form
 							// className="dtc-ns tc pv4 bg-black-05 v-mid"
-							className="searchForm"
+							className="explorerForm"
 							onSubmit={this.handleSubmit}
 						>
+							<label style={{ color: 'white' }}>
+								{/* Actor or Director: */}
+								<input
+									className="searchInput"
+									placeholder="Actor or Director..."
+									type="text"
+									name="personString"
+									value={this.state.value}
+									onChange={this.handleChange}
+								/>
+							</label>
+
+							<label style={{ color: 'white' }}>
+								{/* Release Year: */}
+								<input
+									className="searchInput"
+									placeholder="ex...1984"
+									type="number"
+									min="1900"
+									name="year"
+									value={this.state.value}
+									onChange={this.handleChange}
+								/>
+							</label>
+
+							<label style={{ color: 'white' }}>
+								{/* Film Runtime: */}
+								<input
+									className="searchInput"
+									placeholder="Runtime in minutes..."
+									//? type number instead
+									//* Review API to confirm number entered will filter for films with a longer or shorter runtime than users input
+									type="text"
+									name="with_runtime_gte"
+									value={this.state.value}
+									onChange={this.handleChange}
+								/>
+							</label>
 							<select
-								className="searchInput"
+								className="selectInput"
 								value={this.state.value}
 								onChange={this.handleChange}
 								name="sort_by"
@@ -97,20 +139,8 @@ export default class Genre extends Component {
 								<option value="original_title.asc">Title Z-A</option>
 							</select>
 
-							<label style={{ color: 'white' }}>
-								Release Year:
-								<input
-									className="searchInput"
-									placeholder="ex...1984"
-									type="number"
-									name="year"
-									value={this.state.value}
-									onChange={this.handleChange}
-								/>
-							</label>
-
 							<select
-								className="searchInput"
+								className="selectInput"
 								value={this.state.value}
 								onChange={this.handleChange}
 								name="certification"
@@ -124,30 +154,6 @@ export default class Genre extends Component {
 								<option value="NR">NR</option>
 							</select>
 
-							<label style={{ color: 'white' }}>
-								Film Runtime:
-								<input
-									className="searchInput"
-									placeholder="Runtime in minutes..."
-									//? type number instead
-									type="text"
-									name="with_runtime_gte"
-									value={this.state.value}
-									onChange={this.handleChange}
-								/>
-							</label>
-
-							<label style={{ color: 'white' }}>
-								Actor or Director:
-								<input
-									className="searchInput"
-									placeholder="Actor or Director..."
-									type="text"
-									name="personString"
-									value={this.state.value}
-									onChange={this.handleChange}
-								/>
-							</label>
 							<button
 								type="submit"
 								className="searchButton"
@@ -156,9 +162,10 @@ export default class Genre extends Component {
 								Explore
 							</button>
 						</form>
-						<Button text="Home" href="/" />
-					</Header>
+					</>
 				) : (
+					// {/* <Button text="Home" href="/" /> */}
+					// {/* </Header> */}
 					<Header>
 						<CallToAction
 							callout={genreIDs[this.props.match.params.key].label}

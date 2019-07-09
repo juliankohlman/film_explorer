@@ -1,0 +1,94 @@
+.explorerForm {
+	display: flex;
+	flex-wrap: row;
+	justify-content: space-evenly;
+	position: fixed;
+	top: 0;
+	margin-top: 138px;
+	width: 100%;
+	background: $solidBlack;
+	padding: 25px 20px;
+	border-top: solid $coolRed;
+
+	.searchInput {
+		// border-top-left-radius: 80rem;
+		// border-bottom-left-radius: 80rem;
+		// border-top-right-radius: 80rem;
+		// border-bottom-right-radius: 80rem;
+		border: thin solid $offWhite;
+		padding: 6px;
+		margin-left: 5px;
+		font-family: $lato;
+		outline: none;
+		background: $darkGray;
+		color: #fff;
+		font-size: $mb;
+	}
+
+	.selectInput {
+		border: thin solid $Zima-Blue;
+		// padding: 6px;
+		// margin-left: 5px;
+		font-family: $lato;
+		// outline: none;
+		background: $darkGray;
+		color: #fff;
+		font-size: $mb;
+		width: 115px;
+	}
+
+	.searchButton {
+		background: $shinyRed;
+		border-top-left-radius: 80rem;
+		border-bottom-left-radius: 80rem;
+		border-top-right-radius: 80rem;
+		border-bottom-right-radius: 80rem;
+		border: thin solid $offWhite;
+		color: $offWhite;
+		width: 5rem;
+		// margin: auto;
+		font-size: $mb;
+		padding: 6px;
+		cursor: pointer;
+
+		&:hover {
+			background-position: right center;
+		}
+	}
+
+	@include respond-to(mobile) {
+		font-size: $mb;
+		flex-direction: column;
+		margin-top: 155px;
+		.searchInput {
+			padding: 2px;
+		}
+	}
+
+	@include respond-to(tablet) {
+		font-size: $mb;
+		flex-direction: column;
+		margin-top: 165px;
+		.searchInput {
+			padding: 4px;
+		}
+	}
+
+	@include respond-to(desktop) {
+		font-size: $sm;
+		flex-direction: column;
+		// width: $formWidth - 35px;
+		padding: $smid;
+
+		margin-top: 138px;
+		.searchInput {
+			padding: 5px;
+		}
+	}
+
+	@include respond-to(wide) {
+		font-size: $smid;
+		flex-direction: row;
+		margin-top: 138px;
+	}
+}
