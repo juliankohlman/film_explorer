@@ -4,7 +4,7 @@
 	justify-content: space-evenly;
 	position: fixed;
 	top: 0;
-	margin-top: 138px;
+	// margin-top: 438px;
 	width: 100%;
 	background: $solidBlack;
 	padding: 25px 20px;
@@ -64,7 +64,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		margin-top: 155px;
+		margin-top: 438px;
 		.searchInput,
 		.selectInput {
 			padding: 2px;
@@ -81,7 +81,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		margin-top: 165px;
+		margin-top: 453px;
 
 		.searchInput,
 		.selectInput {
@@ -102,7 +102,7 @@
 
 		padding: $smid;
 
-		margin-top: 138px;
+		margin-top: 250px;
 		.searchInput,
 		.selectInput {
 			padding: 5px;
@@ -116,7 +116,7 @@
 	@include respond-to(wide) {
 		font-size: $smid;
 		flex-direction: row;
-		margin-top: 138px;
+		margin-top: 248px;
 		.searchInput,
 		.selectInput {
 			padding: 5px;

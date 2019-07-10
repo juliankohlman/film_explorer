@@ -3,6 +3,7 @@ import { Query, graphql } from 'react-apollo';
 import { GET_GENRE } from '../../queries/getGenre';
 import NowPlayingFilms from './NowPlayingFilms';
 import FilmPage from '../UI/FilmPage';
+import { GoRocket } from 'react-icons/go';
 
 class GenreFilms extends Component {
 	constructor(props) {
@@ -32,20 +33,50 @@ class GenreFilms extends Component {
 					if (error) return <p>error :(</p>;
 					console.log(data.getGenre);
 					let page = this.state.page;
+					let films = data.getGenre;
 					return (
-						<div>
-							<label htmlFor="jump">
-								{`Jump to page less than ${data.getGenre[0].total_pages}`}{' '}
-							</label>
-							<form onSubmit={this.jumpPage}>
-								<input
-									type="number"
-									name="jump"
-									min="1"
-									max={data.getGenre[0].total_pages}
-									ref={input => (this.input = input)}
-								/>
-							</form>
+						<>
+							<div className="paginationData">
+								<span className="paginationText">
+									{films[0].total_results} Total Films To Explore
+								</span>
+								<span className="paginationText">{`Now viewing Page ${page} of ${
+									films[0].total_pages
+								}`}</span>
+								{/* <h3>{films[0].total_results} Total Films To Explore</h3>
+								<h3>{`Now viewing Page ${page} of ${films[0].total_pages}`}</h3> */}
+								<form onSubmit={this.jumpPage}>
+									<label htmlFor="jump">
+										Page Jump <GoRocket style={{ verticalAlign: 'middle' }} />
+									</label>
+									<input
+										type="number"
+										name="jump"
+										min="1"
+										max={films[0].total_pages}
+										ref={input => (this.input = input)}
+									/>
+								</form>
+								{/* <div className="pageControls">
+								</div> */}
+							</div>
+							{/* <div>
+								<label htmlFor="jump">
+									{`Jump to page less than ${
+										data.getGenre[0].total_pages
+									}`}{' '}
+								</label>
+								<form onSubmit={this.jumpPage}>
+									<input
+										type="number"
+										name="jump"
+										min="1"
+										max={data.getGenre[0].total_pages}
+										ref={input => (this.input = input)}
+									/>
+								</form>
+              </div> */}
+
 							{/* <div style={{ marginTop: '350px' }}>
 							</div> */}
 
@@ -85,7 +116,7 @@ class GenreFilms extends Component {
 									})
 								}
 							/>
-						</div>
+						</>
 					);
 				}}
 			</Query>
