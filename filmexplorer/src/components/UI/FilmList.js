@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const FilmList = props => {
 	return (
-		<div>
+		<div style={{ marginTop: '60px' }}>
 			{props.filmList.map(film => (
 				<Link
 					to={`/detail/${film.id}`}
@@ -13,7 +13,8 @@ const FilmList = props => {
 					<div
 						role="img"
 						aria-label={film.title}
-						className="grow aspect-ratio--4x6 "
+						// removed grow from below classname
+						className="aspect-ratio--4x6 "
 						style={{
 							background: `url(${film.poster_path}) no-repeat center center`,
 							backgroundSize: 'cover'

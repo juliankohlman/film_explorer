@@ -1,3 +1,14 @@
-// Will style the pageJump Div across query components
-// Div < Label < Form < input
-// should share similarities and styling with next-last page buttons
+.paginationContainer {
+	position: fixed;
+	top: 0;
+	display: flex;
+	flex-direction: row;
+	font-family: $lato;
+	font-size: $smid;
+	padding: 15px;
+	width: 100%;
+	background: $darkGray;
+	margin-top: 139px;
+	// margin-bottom: 150px;
+	color: $offWhite;
+}

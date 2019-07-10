@@ -34,20 +34,20 @@ class GenreFilms extends Component {
 					let page = this.state.page;
 					return (
 						<div>
-							<div style={{ marginTop: '350px' }}>
-								<label htmlFor="jump">{`Jump to page less than ${
-									data.getGenre[0].total_pages
-								}`}</label>
-								<form onSubmit={this.jumpPage}>
-									<input
-										type="number"
-										name="jump"
-										min="1"
-										max={data.getGenre[0].total_pages}
-										ref={input => (this.input = input)}
-									/>
-								</form>
-							</div>
+							<label htmlFor="jump">
+								{`Jump to page less than ${data.getGenre[0].total_pages}`}{' '}
+							</label>
+							<form onSubmit={this.jumpPage}>
+								<input
+									type="number"
+									name="jump"
+									min="1"
+									max={data.getGenre[0].total_pages}
+									ref={input => (this.input = input)}
+								/>
+							</form>
+							{/* <div style={{ marginTop: '350px' }}>
+							</div> */}
 
 							<FilmPage
 								films={data.getGenre || []}

@@ -66,7 +66,6 @@ export default class Genre extends Component {
 	};
 
 	render() {
-		//! Todo must break form out from header and add home button to top right corner (should be coupled with logo--callout--home btn)
 		let id = this.state.genreID;
 		return (
 			<Container>
@@ -164,19 +163,14 @@ export default class Genre extends Component {
 						</form>
 					</>
 				) : (
-					// {/* <Button text="Home" href="/" /> */}
-					// {/* </Header> */}
-					<Header>
+					<Header style="genreHeader">
 						<CallToAction
 							callout={genreIDs[this.props.match.params.key].label}
 						/>
 
-						<Button text="Home" href="/" />
+						{/* <Button text="Home" href="/" /> */}
 					</Header>
 				)}
-
-				{/* Component is mounting b/f the id is there */}
-				{/* {console.log(this.state.input)} */}
 				{this.state.runQuery ? (
 					<ExploreGenreFilms input={this.state.input} />
 				) : (

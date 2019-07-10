@@ -31,22 +31,26 @@ class NowPlayingFilms extends Component {
 					// console.log(data.getNowPlaying);
 					// console.log(this.state.page);
 					let page = this.state.page;
+					let films = data.getNowPlaying;
 					return (
-						<div>
-							{/* className pageJump */}
-							<div style={{ marginTop: '350px' }}>
-								<label htmlFor="jump">{`Jump to page less than ${
-									data.getNowPlaying[0].total_pages
-								}`}</label>
+						<>
+							<div className="paginationContainer">
+								<label htmlFor="jump">
+									{`Jump to page less than ${films[0].total_pages}`}
+								</label>
 								<form onSubmit={this.jumpPage}>
 									<input
 										type="number"
 										name="jump"
 										min="1"
-										max={data.getNowPlaying[0].total_pages}
+										max={films[0].total_pages}
 										ref={input => (this.input = input)}
 									/>
 								</form>
+								<h4>{`Page ${page} of ${films[0].total_pages}`}</h4>
+								<h3>{films[0].total_results} Total Films To Explore</h3>
+								{/* <div className="pageControls">
+								</div> */}
 							</div>
 							<FilmPage
 								films={data.getNowPlaying || []}
@@ -88,7 +92,7 @@ class NowPlayingFilms extends Component {
 									})
 								}
 							/>
-						</div>
+						</>
 					);
 				}}
 			</Query>
