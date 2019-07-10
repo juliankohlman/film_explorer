@@ -26,7 +26,7 @@
 	}
 
 	.selectInput {
-		border: thin solid $Zima-Blue;
+		border: thin solid $offWhite;
 		// padding: 6px;
 		// margin-left: 5px;
 		font-family: $lato;
@@ -59,29 +59,42 @@
 	@include respond-to(mobile) {
 		font-size: $mb;
 		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		margin-top: 155px;
-		.searchInput {
+		.searchInput,
+		.selectInput {
 			padding: 2px;
+			width: 125px;
 		}
 	}
 
 	@include respond-to(tablet) {
 		font-size: $mb;
+
 		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		margin-top: 165px;
-		.searchInput {
+
+		.searchInput,
+		.selectInput {
 			padding: 4px;
+			width: 150px;
 		}
 	}
 
 	@include respond-to(desktop) {
 		font-size: $sm;
-		flex-direction: column;
-		// width: $formWidth - 35px;
+		flex-direction: row;
+		justify-content: space-evenly;
+		// align-content: center;
+
 		padding: $smid;
 
 		margin-top: 138px;
-		.searchInput {
+		.searchInput,
+		.selectInput {
 			padding: 5px;
 		}
 	}
