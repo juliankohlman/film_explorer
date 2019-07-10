@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Query, graphql } from 'react-apollo';
 import { SEARCH_FILM } from '../../queries/searchFilm';
 import FilmPage from '../UI/FilmPage';
+import { GoRocket } from 'react-icons/go';
 
 class SearchFilms extends Component {
 	constructor(props) {
@@ -30,18 +31,27 @@ class SearchFilms extends Component {
 					if (error) return `Error! ${error.message}`;
 					console.log(data.searchFilm);
 					let page = this.state.page;
+					let films = data.searchFilm;
 					return (
-						<div>
-							<div style={{ marginTop: '350px' }}>
-								<label htmlFor="jump">{`Jump to page less than ${
-									data.searchFilm[0].total_pages
-								}`}</label>
+						<>
+							<div className="paginationData">
+								<span className="paginationText">
+									{films[0].total_results} Total Films To Explore
+								</span>
+								<span className="paginationText">{`Now viewing Page ${page} of ${
+									films[0].total_pages
+								}`}</span>
+								{/* <h3>{films[0].total_results} Total Films To Explore</h3>
+								<h3>{`Now viewing Page ${page} of ${films[0].total_pages}`}</h3> */}
 								<form onSubmit={this.jumpPage}>
+									<label htmlFor="jump">
+										Page Jump <GoRocket style={{ verticalAlign: 'middle' }} />
+									</label>
 									<input
 										type="number"
 										name="jump"
 										min="1"
-										max={data.searchFilm[0].total_pages}
+										max={films[0].total_pages}
 										ref={input => (this.input = input)}
 									/>
 								</form>
@@ -87,7 +97,7 @@ class SearchFilms extends Component {
 									})
 								}
 							/>
-						</div>
+						</>
 					);
 				}}
 			</Query>
