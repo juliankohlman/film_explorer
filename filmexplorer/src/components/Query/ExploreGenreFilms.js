@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Query, graphql } from 'react-apollo';
-
 import { EXPLORE_GENRE } from '../../queries/exploreGenre';
 import FilmPage from '../UI/FilmPage';
+import { GoRocket } from 'react-icons/go';
 
 class ExploreGenreFilms extends Component {
 	constructor(props) {
@@ -32,24 +32,32 @@ class ExploreGenreFilms extends Component {
 					if (error) return <p>error :(</p>;
 					console.log(data.exploreGenre);
 					let page = this.state.page;
+					let films = data.exploreGenre;
 					return (
 						// ! MUST HANDLE CONDITION WHERE (data.exploreGenre[0].total_pages) returns null, handle this condition and render out a nice page for the user
-						<div>
-							<div style={{ marginTop: '350px' }}>
-								<label htmlFor="jump">{`Jump to page less than ${
-									data.exploreGenre[0].total_pages
-								}`}</label>
+						<>
+							<div className="paginationData">
+								<span className="paginationText">
+									{films[0].total_results} Total Films To Explore
+								</span>
+								<span className="paginationText">{`Now viewing Page ${page} of ${
+									films[0].total_pages
+								}`}</span>
+
 								<form onSubmit={this.jumpPage}>
+									<label htmlFor="jump">
+										Page Jump <GoRocket style={{ verticalAlign: 'middle' }} />
+									</label>
 									<input
-										// onChange={this.jumpPage}
 										type="number"
 										name="jump"
 										min="1"
-										max={data.exploreGenre[0].total_pages}
+										max={films[0].total_pages}
 										ref={input => (this.input = input)}
 									/>
 								</form>
 							</div>
+
 							<FilmPage
 								films={data.exploreGenre || []}
 								currentPage={page}
@@ -90,7 +98,7 @@ class ExploreGenreFilms extends Component {
 									})
 								}
 							/>
-						</div>
+						</>
 					);
 				}}
 			</Query>

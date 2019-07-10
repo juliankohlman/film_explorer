@@ -57,28 +57,7 @@ class GenreFilms extends Component {
 										ref={input => (this.input = input)}
 									/>
 								</form>
-								{/* <div className="pageControls">
-								</div> */}
 							</div>
-							{/* <div>
-								<label htmlFor="jump">
-									{`Jump to page less than ${
-										data.getGenre[0].total_pages
-									}`}{' '}
-								</label>
-								<form onSubmit={this.jumpPage}>
-									<input
-										type="number"
-										name="jump"
-										min="1"
-										max={data.getGenre[0].total_pages}
-										ref={input => (this.input = input)}
-									/>
-								</form>
-              </div> */}
-
-							{/* <div style={{ marginTop: '350px' }}>
-							</div> */}
 
 							<FilmPage
 								films={data.getGenre || []}

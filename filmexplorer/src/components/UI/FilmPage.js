@@ -1,24 +1,33 @@
 import React from 'react';
 import FilmList from './FilmList';
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
 const FilmPage = props => {
 	const { films, currentPage, nextPage, lastPage } = props;
 
 	return films && films.length ? (
-		<div style={{ marginTop: '270px' }}>
-			{/* Pagination logic, current page determines what ui buttons to render */}
-			{currentPage > 1 && currentPage < films[0].total_pages ? (
-				<>
-					<button onClick={lastPage}>Last page</button>{' '}
-					<button onClick={nextPage}>Next page</button>{' '}
-				</>
-			) : currentPage === films[0].total_pages ? (
-				<button onClick={lastPage}>Last page</button>
-			) : (
-				<button onClick={nextPage}>Next page</button>
-			)}
-			<FilmList filmList={films} />
-		</div>
+		<>
+			<div className="pageControls">
+				{/* Pagination logic, current page determines what ui buttons to render */}
+				{currentPage > 1 && currentPage < films[0].total_pages ? (
+					<>
+						<MdChevronLeft onClick={lastPage} className="chevron" />
+
+						<MdChevronRight onClick={nextPage} className="chevron" />
+					</>
+				) : currentPage === films[0].total_pages ? (
+					<MdChevronLeft onClick={lastPage} className="chevron" />
+				) : (
+					<MdChevronRight onClick={nextPage} className="chevron" />
+				)}
+			</div>
+			<FilmList
+				filmList={films}
+				current={currentPage}
+				next={nextPage}
+				last={lastPage}
+			/>
+		</>
 	) : (
 		// Todo create a nice end-of-results error page to render in this condition
 		<div>

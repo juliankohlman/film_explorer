@@ -6,9 +6,10 @@
 	top: 0;
 	// margin-top: 438px;
 	width: 100%;
-	background: $solidBlack;
+	background: $darkGray;
 	padding: 25px 20px;
-	border-top: solid $coolRed;
+	border-top: medium solid $coolRed;
+	border-bottom: medium solid $coolRed;
 
 	.searchInput {
 		// border-top-left-radius: 80rem;
@@ -64,7 +65,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		margin-top: 438px;
+		margin-top: 359px;
 		.searchInput,
 		.selectInput {
 			padding: 2px;
@@ -81,7 +82,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		margin-top: 453px;
+		margin-top: 332px;
 
 		.searchInput,
 		.selectInput {
@@ -102,7 +103,7 @@
 
 		padding: $smid;
 
-		margin-top: 250px;
+		margin-top: 237px;
 		.searchInput,
 		.selectInput {
 			padding: 5px;
@@ -116,7 +117,7 @@
 	@include respond-to(wide) {
 		font-size: $smid;
 		flex-direction: row;
-		margin-top: 248px;
+		margin-top: 235px;
 		.searchInput,
 		.selectInput {
 			padding: 5px;
