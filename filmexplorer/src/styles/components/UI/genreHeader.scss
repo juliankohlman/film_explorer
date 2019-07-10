@@ -6,11 +6,12 @@
 	padding: $smid;
 	display: flex;
 	flex-flow: row;
-	// justify-content: space-evenly;
+	justify-content: space-around;
 	flex-wrap: wrap;
 
 	.logoLink {
 		align-self: center;
+
 		.logoDisplay {
 			width: 5rem;
 			height: 5rem;
