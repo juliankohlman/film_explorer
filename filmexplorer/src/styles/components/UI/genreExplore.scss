@@ -23,6 +23,7 @@
 		background: $darkGray;
 		color: #fff;
 		font-size: $mb;
+		width: 165px;
 	}
 
 	.selectInput {
@@ -38,7 +39,7 @@
 	}
 
 	.searchButton {
-		background: $shinyRed;
+		background: $coolRed;
 		border-top-left-radius: 80rem;
 		border-bottom-left-radius: 80rem;
 		border-top-right-radius: 80rem;
@@ -47,10 +48,12 @@
 		color: $offWhite;
 		width: 5rem;
 		// margin: auto;
+		font-family: $lalezar;
 		font-size: $mb;
+
 		padding: 6px;
 		cursor: pointer;
-
+		//* Adjust this hover effect since, the gradient is no longer applied to this version of the button
 		&:hover {
 			background-position: right center;
 		}
@@ -65,13 +68,16 @@
 		.searchInput,
 		.selectInput {
 			padding: 2px;
-			width: 125px;
+			width: 175px;
+			margin: 0.25rem;
+		}
+		.searchButton {
+			margin-top: 15px;
 		}
 	}
 
 	@include respond-to(tablet) {
 		font-size: $mb;
-
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
@@ -80,7 +86,11 @@
 		.searchInput,
 		.selectInput {
 			padding: 4px;
-			width: 150px;
+			width: 350px;
+			margin: 0.25rem;
+		}
+		.searchButton {
+			margin-top: 15px;
 		}
 	}
 
@@ -96,6 +106,10 @@
 		.searchInput,
 		.selectInput {
 			padding: 5px;
+			width: 165px;
+		}
+		.searchButton {
+			margin-top: 0;
 		}
 	}
 
@@ -103,5 +117,13 @@
 		font-size: $smid;
 		flex-direction: row;
 		margin-top: 138px;
+		.searchInput,
+		.selectInput {
+			padding: 5px;
+			width: 160px;
+		}
+		.searchButton {
+			margin-top: 0;
+		}
 	}
 }
