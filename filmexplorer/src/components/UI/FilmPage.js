@@ -5,7 +5,7 @@ const FilmPage = props => {
 	const { films, currentPage, nextPage, lastPage } = props;
 
 	return films && films.length ? (
-		<>
+		<div style={{ marginTop: '270px' }}>
 			{/* Pagination logic, current page determines what ui buttons to render */}
 			{currentPage > 1 && currentPage < films[0].total_pages ? (
 				<>
@@ -18,7 +18,7 @@ const FilmPage = props => {
 				<button onClick={nextPage}>Next page</button>
 			)}
 			<FilmList filmList={films} />
-		</>
+		</div>
 	) : (
 		// Todo create a nice end-of-results error page to render in this condition
 		<div>

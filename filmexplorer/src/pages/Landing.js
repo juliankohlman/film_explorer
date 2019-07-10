@@ -62,8 +62,10 @@ export default class Landing extends Component {
 						<button className="searchButton" type="submit">
 							<GoSearch
 								style={{
-									padding: '0 8px',
-									color: 'white'
+									// padding: '0 7px',
+									// padding: '5px',
+									color: 'white',
+									verticalAlign: 'middle'
 								}}
 							/>
 						</button>

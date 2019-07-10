@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Query, graphql } from 'react-apollo';
 import { GET_NOW_PLAYING } from '../../queries/getNowPlaying';
 import FilmPage from '../UI/FilmPage';
+import { GoRocket } from 'react-icons/go';
 
 class NowPlayingFilms extends Component {
 	constructor(props) {
@@ -34,11 +35,14 @@ class NowPlayingFilms extends Component {
 					let films = data.getNowPlaying;
 					return (
 						<>
-							<div className="paginationContainer">
-								<label htmlFor="jump">
-									{`Jump to page less than ${films[0].total_pages}`}
-								</label>
+							<div className="paginationData">
+								<h3>{films[0].total_results} Total Films To Explore</h3>
+								<h3>{`Now viewing Page ${page} of ${films[0].total_pages}`}</h3>
 								<form onSubmit={this.jumpPage}>
+									<label htmlFor="jump">
+										{/* {`Page Jump ${films[0].total_pages}`} */}
+										Page Jump <GoRocket style={{ verticalAlign: 'middle' }} />
+									</label>
 									<input
 										type="number"
 										name="jump"
@@ -47,8 +51,6 @@ class NowPlayingFilms extends Component {
 										ref={input => (this.input = input)}
 									/>
 								</form>
-								<h4>{`Page ${page} of ${films[0].total_pages}`}</h4>
-								<h3>{films[0].total_results} Total Films To Explore</h3>
 								{/* <div className="pageControls">
 								</div> */}
 							</div>

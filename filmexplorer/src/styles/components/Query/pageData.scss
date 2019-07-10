@@ -1,4 +1,4 @@
-.paginationContainer {
+.paginationData {
 	position: fixed;
 	top: 0;
 	display: flex;
@@ -11,4 +11,15 @@
 	margin-top: 139px;
 	// margin-bottom: 150px;
 	color: $offWhite;
+	align-items: center;
+	justify-content: space-between;
+
+	input {
+		margin-left: $mb;
+		width: 75px;
+	}
+
+	label {
+		font-family: $lato;
+	}
 }
