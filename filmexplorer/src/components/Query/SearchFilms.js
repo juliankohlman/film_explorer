@@ -67,49 +67,51 @@ class SearchFilms extends Component {
 								</form>
 								{page > 1 && page < films[0].total_pages ? (
 									<>
-										<MdChevronLeft
-											onClick={() =>
-												fetchMore({
-													variables: {
-														page: this.setState(state => {
-															return state.page === 1
-																? { page: state.page }
-																: {
-																		page: (state.page -= 1)
-																  };
-														})
-													},
-													updateQuery: (prevPage, { fetchMoreResult }) => {
-														if (!fetchMoreResult) return prevPage;
-														return {
-															searchFilm: [...fetchMoreResult.searchFilm]
-														};
-													}
-												})
-											}
-											className={this.props.chevron}
-										/>
-
-										<MdChevronRight
-											onClick={() =>
-												fetchMore({
-													variables: {
-														page: this.setState(state => {
+										<span>
+											<MdChevronLeft
+												onClick={() =>
+													fetchMore({
+														variables: {
+															page: this.setState(state => {
+																return state.page === 1
+																	? { page: state.page }
+																	: {
+																			page: (state.page -= 1)
+																	  };
+															})
+														},
+														updateQuery: (prevPage, { fetchMoreResult }) => {
+															if (!fetchMoreResult) return prevPage;
 															return {
-																page: (state.page += 1)
+																searchFilm: [...fetchMoreResult.searchFilm]
 															};
-														})
-													},
-													updateQuery: (prevPage, { fetchMoreResult }) => {
-														if (!fetchMoreResult) return prevPage;
-														return {
-															searchFilm: [...fetchMoreResult.searchFilm]
-														};
-													}
-												})
-											}
-											className={this.props.chevron}
-										/>
+														}
+													})
+												}
+												className={this.props.chevron}
+											/>
+
+											<MdChevronRight
+												onClick={() =>
+													fetchMore({
+														variables: {
+															page: this.setState(state => {
+																return {
+																	page: (state.page += 1)
+																};
+															})
+														},
+														updateQuery: (prevPage, { fetchMoreResult }) => {
+															if (!fetchMoreResult) return prevPage;
+															return {
+																searchFilm: [...fetchMoreResult.searchFilm]
+															};
+														}
+													})
+												}
+												className={this.props.chevron}
+											/>
+										</span>
 									</>
 								) : page === films[0].total_pages ? (
 									<MdChevronLeft

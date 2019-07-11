@@ -75,7 +75,7 @@ export default class Genre extends Component {
 							<CallToAction
 								callout={genreIDs[this.props.match.params.key].label}
 							/>
-							<Button text="Home" href="/" />
+							{/* <Button text="Home" href="/" /> */}
 						</Header>
 						<form
 							// className="dtc-ns tc pv4 bg-black-05 v-mid"
@@ -169,7 +169,7 @@ export default class Genre extends Component {
 							callout={genreIDs[this.props.match.params.key].label}
 						/>
 
-						<Button text="Home" href="/" />
+						{/* <Button text="Home" href="/" /> */}
 					</Header>
 				)}
 				{this.state.runQuery ? (
