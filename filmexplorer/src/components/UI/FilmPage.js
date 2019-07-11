@@ -2,7 +2,7 @@ import React from 'react';
 import FilmList from './FilmList';
 
 const FilmPage = props => {
-	const { films, currentPage, lastPage } = props;
+	const { films, currentPage, lastPage, style } = props;
 
 	return films && films.length ? (
 		<>
@@ -24,6 +24,7 @@ const FilmPage = props => {
 				filmList={films}
 				// This component now only needs the films
 				current={currentPage}
+				style={style}
 				// next={nextPage}
 				// last={lastPage}
 			/>

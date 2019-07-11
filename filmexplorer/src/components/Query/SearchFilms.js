@@ -160,6 +160,7 @@ class SearchFilms extends Component {
 							<FilmPage
 								films={data.searchFilm || []}
 								currentPage={page}
+								style={'searchContainer'}
 								//! Use config.props to refactor (https://www.apollographql.com/docs/react/api/react-apollo#graphql-config-props)
 							/>
 						</>

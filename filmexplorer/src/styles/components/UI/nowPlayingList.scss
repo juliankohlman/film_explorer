@@ -1,0 +1,100 @@
+.nowPlayingContainer {
+	// margin-top: 60px;
+	padding: $mid;
+	.grow {
+		-moz-osx-font-smoothing: grayscale;
+		backface-visibility: hidden;
+		z-index: 0;
+		transform: translateZ();
+		transition: transform 0.25s ease-out;
+		// * Tweak this value to adjust poster size 150% is the default
+		padding-bottom: 150%;
+		// padding-bottom: 125%;
+		&:hover,
+		&:focus {
+			transform: scale(1.05);
+		}
+
+		&:active {
+			transform: scale(0.9);
+		}
+	}
+	/*
+  .aspect-ratio--4x6 {
+    padding-bottom: 150%;
+}
+
+.fl {
+    float: left;
+    _display: inline;
+}
+
+.link {
+    text-decoration: none;
+    transition: color .15s ease-in;
+}
+
+.link:link, .link:visited {
+    transition: color .15s ease-in;
+}
+
+.link:hover {
+    transition: color .15s ease-in;
+}
+
+.link:active {
+    transition: color .15s ease-in;
+}
+
+.link:focus {
+    transition: color .15s ease-in;
+    outline: 1px dotted currentColor;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+
+
+.grow:hover, .grow:focus {
+    transform: scale(1.05);
+}
+
+.grow:active {
+    transform: scale(.9);
+}
+
+@media screen and (min-width: 60em) {
+    .w-25-l {
+        width: 25%;
+    }
+}
+  */
+	// .posterLink {
+	// }
+
+	// .poster {
+
+	// }
+
+	@include respond-to(mobile) {
+		margin-top: 390px;
+	}
+
+	@include respond-to(tablet) {
+		margin-top: 355px;
+	}
+
+	@include respond-to(desktop) {
+		margin-top: 255px;
+	}
+
+	@include respond-to(wide) {
+		margin-top: 255px;
+	}
+}

@@ -144,7 +144,11 @@ class NowPlayingFilms extends Component {
 									/>
 								)}
 							</div>
-							<FilmPage films={data.getNowPlaying || []} currentPage={page} />
+							<FilmPage
+								films={data.getNowPlaying || []}
+								currentPage={page}
+								style={'nowPlayingContainer'}
+							/>
 						</>
 					);
 				}}
