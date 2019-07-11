@@ -1,15 +1,13 @@
 import React from 'react';
 import FilmList from './FilmList';
-import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
-//Todo film page needs to accept 2 classnames as props for query specific pageControls and chevron styling
 const FilmPage = props => {
-	const { films, currentPage, nextPage, lastPage, controls, chevron } = props;
+	const { films, currentPage, lastPage } = props;
 
 	return films && films.length ? (
 		<>
-			<div className={controls}>
-				{/* Pagination logic, current page determines what ui buttons to render */}
+			{/* Pagination logic, current page determines what ui buttons to render */}
+			{/* <div className={controls}>
 				{currentPage > 1 && currentPage < films[0].total_pages ? (
 					<>
 						<MdChevronLeft onClick={lastPage} className={chevron} />
@@ -21,16 +19,18 @@ const FilmPage = props => {
 				) : (
 					<MdChevronRight onClick={nextPage} className={chevron} />
 				)}
-			</div>
+			</div> */}
 			<FilmList
 				filmList={films}
+				// This component now only needs the films
 				current={currentPage}
-				next={nextPage}
-				last={lastPage}
+				// next={nextPage}
+				// last={lastPage}
 			/>
 		</>
 	) : (
 		// Todo create a nice end-of-results error page to render in this condition
+		//* May not even need this now with how pagination controls are rendered. Because when a user is viewing the last page of search results no 'next' button will be rendered
 		<div>
 			<h2 style={{ paddingTop: '25%' }}>
 				Looks like you've reached the end of the results for this search

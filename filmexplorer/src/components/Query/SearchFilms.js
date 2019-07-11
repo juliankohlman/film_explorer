@@ -3,6 +3,7 @@ import { Query, graphql } from 'react-apollo';
 import { SEARCH_FILM } from '../../queries/searchFilm';
 import FilmPage from '../UI/FilmPage';
 import { GoRocket } from 'react-icons/go';
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
 class SearchFilms extends Component {
 	constructor(props) {
@@ -32,7 +33,17 @@ class SearchFilms extends Component {
 					console.log(data.searchFilm);
 					let page = this.state.page;
 					let films = data.searchFilm;
-					return (
+					{
+						/* Pagination logic, current page determines what ui buttons to render */
+					}
+					{
+						/* MUST ADD CODE HERE TO HANDLE A SEARCH THAT DOES NOT TURN UP RESULTS RENDER AN ERROR PAGE WITH USUAL HEADER */
+					}
+					return films.length === 0 ? (
+						<div style={{ marginTop: '400px' }}>
+							<h2>Sorry that search returned 0 results please try again.</h2>
+						</div>
+					) : (
 						<>
 							<div className="searchPaginationData">
 								<span className="searchPaginationText">
@@ -54,49 +65,102 @@ class SearchFilms extends Component {
 										ref={input => (this.input = input)}
 									/>
 								</form>
+								{page > 1 && page < films[0].total_pages ? (
+									<>
+										<MdChevronLeft
+											onClick={() =>
+												fetchMore({
+													variables: {
+														page: this.setState(state => {
+															return state.page === 1
+																? { page: state.page }
+																: {
+																		page: (state.page -= 1)
+																  };
+														})
+													},
+													updateQuery: (prevPage, { fetchMoreResult }) => {
+														if (!fetchMoreResult) return prevPage;
+														return {
+															searchFilm: [...fetchMoreResult.searchFilm]
+														};
+													}
+												})
+											}
+											className={this.props.chevron}
+										/>
+
+										<MdChevronRight
+											onClick={() =>
+												fetchMore({
+													variables: {
+														page: this.setState(state => {
+															return {
+																page: (state.page += 1)
+															};
+														})
+													},
+													updateQuery: (prevPage, { fetchMoreResult }) => {
+														if (!fetchMoreResult) return prevPage;
+														return {
+															searchFilm: [...fetchMoreResult.searchFilm]
+														};
+													}
+												})
+											}
+											className={this.props.chevron}
+										/>
+									</>
+								) : page === films[0].total_pages ? (
+									<MdChevronLeft
+										onClick={() =>
+											fetchMore({
+												variables: {
+													page: this.setState(state => {
+														return state.page === 1
+															? { page: state.page }
+															: {
+																	page: (state.page -= 1)
+															  };
+													})
+												},
+												updateQuery: (prevPage, { fetchMoreResult }) => {
+													if (!fetchMoreResult) return prevPage;
+													return {
+														searchFilm: [...fetchMoreResult.searchFilm]
+													};
+												}
+											})
+										}
+										className={this.props.chevron}
+									/>
+								) : (
+									<MdChevronRight
+										onClick={() =>
+											fetchMore({
+												variables: {
+													page: this.setState(state => {
+														return {
+															page: (state.page += 1)
+														};
+													})
+												},
+												updateQuery: (prevPage, { fetchMoreResult }) => {
+													if (!fetchMoreResult) return prevPage;
+													return {
+														searchFilm: [...fetchMoreResult.searchFilm]
+													};
+												}
+											})
+										}
+										className={this.props.chevron}
+									/>
+								)}
 							</div>
 							<FilmPage
-								controls={'searchControls'}
-								chevron={'searchChevron'}
 								films={data.searchFilm || []}
 								currentPage={page}
 								//! Use config.props to refactor (https://www.apollographql.com/docs/react/api/react-apollo#graphql-config-props)
-								nextPage={() =>
-									fetchMore({
-										variables: {
-											page: this.setState(state => {
-												return {
-													page: (state.page += 1)
-												};
-											})
-										},
-										updateQuery: (prevPage, { fetchMoreResult }) => {
-											if (!fetchMoreResult) return prevPage;
-											return {
-												searchFilm: [...fetchMoreResult.searchFilm]
-											};
-										}
-									})
-								}
-								lastPage={() =>
-									fetchMore({
-										variables: {
-											page: this.setState(state => {
-												return state.page === 1
-													? { page: state.page }
-													: {
-															page: (state.page -= 1)
-													  };
-											})
-										},
-										updateQuery: (prevPage, { fetchMoreResult }) => {
-											if (!fetchMoreResult) return prevPage;
-											return {
-												searchFilm: [...fetchMoreResult.searchFilm]
-											};
-										}
-									})
-								}
 							/>
 						</>
 					);

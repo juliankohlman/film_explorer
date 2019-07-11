@@ -1,7 +1,12 @@
-//* refer to paginationData class
 .searchControls {
-	background: $coolRed;
+	position: fixed;
+	top: 0;
+	display: flex;
+	width: 100%;
+	background: $darkGray;
 	color: white;
+	justify-content: space-between;
+	padding: 0.2rem;
 
 	.searchChevron {
 		vertical-align: middle;

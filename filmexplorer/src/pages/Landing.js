@@ -7,7 +7,7 @@ import SearchFilms from '../components/Query/SearchFilms';
 // import Button from '../components/UI/Button';
 import { GoSearch } from 'react-icons/go';
 
-const logo = require('../images/logo.png');
+// const logo = require('../images/logo.png');
 
 //TODO need to render a back to genre button in header when in 'search mode'
 export default class Landing extends Component {
@@ -74,7 +74,14 @@ export default class Landing extends Component {
 
 				{/* If search occurs then render the filmSearch component */}
 				{this.state.useSearch && this.state.inputEntered ? (
-					<SearchFilms query={this.state.query} />
+					<SearchFilms
+						query={this.state.query}
+						controls={'searchControls'}
+						chevron={'searchChevron'}
+						currentPage={'currentPage'}
+						nextPage={'nextPage'}
+						lastPage={'lastPage'}
+					/>
 				) : (
 					<GenreTable />
 				)}
