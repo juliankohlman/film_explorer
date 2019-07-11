@@ -2,23 +2,24 @@ import React from 'react';
 import FilmList from './FilmList';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
+//Todo film page needs to accept 2 classnames as props for query specific pageControls and chevron styling
 const FilmPage = props => {
-	const { films, currentPage, nextPage, lastPage } = props;
+	const { films, currentPage, nextPage, lastPage, controls, chevron } = props;
 
 	return films && films.length ? (
 		<>
-			<div className="pageControls">
+			<div className={controls}>
 				{/* Pagination logic, current page determines what ui buttons to render */}
 				{currentPage > 1 && currentPage < films[0].total_pages ? (
 					<>
-						<MdChevronLeft onClick={lastPage} className="chevron" />
+						<MdChevronLeft onClick={lastPage} className={chevron} />
 
-						<MdChevronRight onClick={nextPage} className="chevron" />
+						<MdChevronRight onClick={nextPage} className={chevron} />
 					</>
 				) : currentPage === films[0].total_pages ? (
-					<MdChevronLeft onClick={lastPage} className="chevron" />
+					<MdChevronLeft onClick={lastPage} className={chevron} />
 				) : (
-					<MdChevronRight onClick={nextPage} className="chevron" />
+					<MdChevronRight onClick={nextPage} className={chevron} />
 				)}
 			</div>
 			<FilmList

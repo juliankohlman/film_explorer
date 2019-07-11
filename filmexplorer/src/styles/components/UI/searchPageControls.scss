@@ -1,0 +1,33 @@
+//* refer to paginationData class
+.searchControls {
+	background: $coolRed;
+	color: white;
+
+	.searchChevron {
+		vertical-align: middle;
+		cursor: pointer;
+		&:hover {
+			color: $coolRed;
+		}
+	}
+
+	@include respond-to(mobile) {
+		margin-top: 317px;
+		font-size: $mb;
+	}
+
+	@include respond-to(tablet) {
+		margin-top: 278px;
+		font-size: $mid;
+	}
+
+	@include respond-to(desktop) {
+		margin-top: 214px;
+		font-size: $lg;
+	}
+
+	@include respond-to(wide) {
+		margin-top: 218px;
+		font-size: $xl;
+	}
+}

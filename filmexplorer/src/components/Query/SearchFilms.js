@@ -34,15 +34,14 @@ class SearchFilms extends Component {
 					let films = data.searchFilm;
 					return (
 						<>
-							<div className="paginationData">
-								<span className="paginationText">
+							<div className="searchPaginationData">
+								<span className="searchPaginationText">
 									{films[0].total_results} Total Films To Explore
 								</span>
-								<span className="paginationText">{`Now viewing Page ${page} of ${
+								<span className="searchPaginationText">{`Now viewing Page ${page} of ${
 									films[0].total_pages
 								}`}</span>
-								{/* <h3>{films[0].total_results} Total Films To Explore</h3>
-								<h3>{`Now viewing Page ${page} of ${films[0].total_pages}`}</h3> */}
+
 								<form onSubmit={this.jumpPage}>
 									<label htmlFor="jump">
 										Page Jump <GoRocket style={{ verticalAlign: 'middle' }} />
@@ -57,6 +56,8 @@ class SearchFilms extends Component {
 								</form>
 							</div>
 							<FilmPage
+								controls={'searchControls'}
+								chevron={'searchChevron'}
 								films={data.searchFilm || []}
 								currentPage={page}
 								//! Use config.props to refactor (https://www.apollographql.com/docs/react/api/react-apollo#graphql-config-props)
