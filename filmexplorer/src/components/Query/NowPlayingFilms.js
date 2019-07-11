@@ -3,6 +3,7 @@ import { Query, graphql } from 'react-apollo';
 import { GET_NOW_PLAYING } from '../../queries/getNowPlaying';
 import FilmPage from '../UI/FilmPage';
 import { GoRocket } from 'react-icons/go';
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
 class NowPlayingFilms extends Component {
 	constructor(props) {
@@ -51,49 +52,99 @@ class NowPlayingFilms extends Component {
 										ref={input => (this.input = input)}
 									/>
 								</form>
-								{/* <div className="pageControls">
-								</div> */}
+								{page > 1 && page < films[0].total_pages ? (
+									<>
+										<MdChevronLeft
+											onClick={() =>
+												fetchMore({
+													variables: {
+														page: this.setState(state => {
+															return state.page === 1
+																? { page: state.page }
+																: {
+																		page: (state.page -= 1)
+																  };
+														})
+													},
+													updateQuery: (prevPage, { fetchMoreResult }) => {
+														if (!fetchMoreResult) return prevPage;
+														return {
+															searchFilm: [...fetchMoreResult.searchFilm]
+														};
+													}
+												})
+											}
+											className={this.props.chevron}
+										/>
+
+										<MdChevronRight
+											onClick={() =>
+												fetchMore({
+													variables: {
+														page: this.setState(state => {
+															return {
+																page: (state.page += 1)
+															};
+														})
+													},
+													updateQuery: (prevPage, { fetchMoreResult }) => {
+														if (!fetchMoreResult) return prevPage;
+														return {
+															searchFilm: [...fetchMoreResult.searchFilm]
+														};
+													}
+												})
+											}
+											className={this.props.chevron}
+										/>
+									</>
+								) : page === films[0].total_pages ? (
+									<MdChevronLeft
+										onClick={() =>
+											fetchMore({
+												variables: {
+													page: this.setState(state => {
+														return state.page === 1
+															? { page: state.page }
+															: {
+																	page: (state.page -= 1)
+															  };
+													})
+												},
+												updateQuery: (prevPage, { fetchMoreResult }) => {
+													if (!fetchMoreResult) return prevPage;
+													return {
+														searchFilm: [...fetchMoreResult.searchFilm]
+													};
+												}
+											})
+										}
+										className={this.props.chevron}
+									/>
+								) : (
+									<MdChevronRight
+										onClick={() =>
+											fetchMore({
+												variables: {
+													page: this.setState(state => {
+														return {
+															page: (state.page += 1)
+														};
+													})
+												},
+												updateQuery: (prevPage, { fetchMoreResult }) => {
+													if (!fetchMoreResult) return prevPage;
+													return {
+														searchFilm: [...fetchMoreResult.searchFilm]
+													};
+												}
+											})
+										}
+										className={this.props.chevron}
+									/>
+								)}
 							</div>
-							<FilmPage
-								films={data.getNowPlaying || []}
-								currentPage={page}
-								nextPage={() =>
-									fetchMore({
-										variables: {
-											page: this.setState(state => {
-												return {
-													page: (state.page += 1)
-												};
-											})
-										},
-										updateQuery: (prevPage, { fetchMoreResult }) => {
-											if (!fetchMoreResult) return prevPage;
-											return {
-												getNowPlaying: [...fetchMoreResult.getNowPlaying]
-											};
-										}
-									})
-								}
-								lastPage={() =>
-									fetchMore({
-										variables: {
-											page: this.setState(state => {
-												return state.page === 1
-													? { page: state.page }
-													: {
-															page: (state.page -= 1)
-													  };
-											})
-										},
-										updateQuery: (prevPage, { fetchMoreResult }) => {
-											if (!fetchMoreResult) return prevPage;
-											return {
-												getNowPlaying: [...fetchMoreResult.getNowPlaying]
-											};
-										}
-									})
-								}
-							/>
+							<FilmPage films={data.getNowPlaying || []} currentPage={page} />
 						</>
 					);
 				}}

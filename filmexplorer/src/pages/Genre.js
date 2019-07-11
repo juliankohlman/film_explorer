@@ -173,9 +173,9 @@ export default class Genre extends Component {
 					</Header>
 				)}
 				{this.state.runQuery ? (
-					<ExploreGenreFilms input={this.state.input} />
+					<ExploreGenreFilms input={this.state.input} chevron={'chevron'} />
 				) : (
-					<GenreFilms id={id} />
+					<GenreFilms id={id} chevron={'chevron'} />
 				)}
 			</Container>
 		);
