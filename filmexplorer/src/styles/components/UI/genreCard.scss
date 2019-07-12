@@ -1,8 +1,12 @@
 .genreCard {
 	display: flex;
+	// Todo experiment with background colors maybe subtle gradient
+	background: $pWhite;
 	justify-content: center;
 	min-height: 150px;
-	font-family: $expletus;
+	// Todo experiment with fonts as well
+	// font-family: $expletus;
+	font-family: $lato;
 	font-size: $mid;
 	color: $solidBlack;
 	border-radius: 10px;
