@@ -6,6 +6,7 @@ import React from 'react';
 const FilmBackdrop = props => {
 	return props.backdrop_path ? (
 		<div
+			// Todo adjust this class to resize backdrop and replace tachyons class with custom class
 			className="vh-100 cover bg-center"
 			style={{
 				backgroundImage: `url(https://image.tmdb.org/t/p/original/${
@@ -13,6 +14,7 @@ const FilmBackdrop = props => {
 				})`,
 				backgroundPosition: 'center',
 				backgroundSize: 'cover',
+				// objectFit: 'cover',
 				backgroundRepeat: 'no-repeat'
 			}}
 		/>

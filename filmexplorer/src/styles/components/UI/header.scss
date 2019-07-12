@@ -8,6 +8,7 @@
 	z-index: 999;
 	justify-content: space-around;
 	flex-wrap: wrap;
+	border-bottom: medium solid $coolRed;
 
 	.logoLink {
 		align-self: center;
@@ -22,6 +23,7 @@
 		color: $offWhite;
 		align-self: center;
 		padding: 1rem;
+		// margin: auto;
 		// margin-left: 0.75rem;
 	}
 

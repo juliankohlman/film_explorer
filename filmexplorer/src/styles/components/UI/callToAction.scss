@@ -1,7 +1,10 @@
 .ctaMessage {
 	color: $offWhite;
+	// text-justify: newspaper;
+	justify-content: flex-end;
 	align-self: center;
-	margin-left: 2rem;
+	// margin-left: 2rem;
+	// margin: auto;
 
 	.genrePop {
 		color: $coolRed;
@@ -9,18 +12,22 @@
 	}
 
 	@include respond-to(mobile) {
+		margin: 6px auto;
 		font-size: $mb;
 	}
 
 	@include respond-to(tablet) {
+		margin: 6px auto;
 		font-size: $mid;
 	}
 
 	@include respond-to(desktop) {
+		margin: auto;
 		font-size: $lg;
 	}
 
 	@include respond-to(wide) {
+		margin: auto;
 		font-size: $xl;
 	}
 }

@@ -1,0 +1,15 @@
+.filmBackdrop {
+	margin-top: 200px;
+
+	@include respond-to(mobile) {
+	}
+
+	@include respond-to(tablet) {
+	}
+
+	@include respond-to(desktop) {
+	}
+
+	@include respond-to(wide) {
+	}
+}
