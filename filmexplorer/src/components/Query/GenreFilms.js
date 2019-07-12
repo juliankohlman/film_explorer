@@ -54,6 +54,7 @@ class GenreFilms extends Component {
 										type="number"
 										name="jump"
 										min="1"
+										//! Todo max must be 1000
 										max={films[0].total_pages}
 										ref={input => (this.input = input)}
 									/>

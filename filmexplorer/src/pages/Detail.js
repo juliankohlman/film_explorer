@@ -11,6 +11,7 @@ import FilmCrew from '../components/UI/FilmCrew';
 import { GET_FILM_DETAILS } from '../queries/getFilmDetails';
 import { Query, graphql } from 'react-apollo';
 import FilmTrailer from '../components/UI/FilmTrailer';
+// import { spawn } from 'child_process';
 
 class Detail extends Component {
 	render() {
@@ -28,11 +29,18 @@ class Detail extends Component {
 						<Container>
 							{console.log(this.props)}
 
-							<Header>
-								<div className="dtc-ns tc pv4 bg-black-05 v-mid w-30">
-									<CallToAction callout="The Film Explorer" />
+							<Header style="header">
+								<div className="ctaMessage">
+									{/* {data.getFilmDetails.title} */}
+									<span className="genrePop">
+										{data.getFilmDetails.tagline}
+									</span>
 								</div>
-								<Button text="Home" href="/" />
+
+								{/* <div className="dtc-ns tc pv4 bg-black-05 v-mid w-30">
+									<CallToAction callout="The Film Explorer" />
+								</div> */}
+								{/* <Button text="Home" href="/" /> */}
 								{/* Conditional render here: if user got here via a search on landing button should say back to genre(S)/ if user got here via a genre selection go back to genre */}
 								<button onClick={this.props.history.goBack}>
 									BACK TO GENRE

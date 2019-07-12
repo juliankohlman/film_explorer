@@ -46,7 +46,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		margin-top: 275px;
+		margin-top: 159px;
 		.chevron {
 			float: left;
 			margin-top: 6px;
@@ -65,7 +65,7 @@
 		justify-content: space-evenly;
 		// justify-content: center;
 		align-items: center;
-		margin-top: 290px;
+		margin-top: 175px;
 		.chevron {
 			margin-top: 0;
 		}
@@ -81,7 +81,7 @@
 		font-size: $sm;
 		flex-direction: row;
 		justify-content: space-evenly;
-		margin-top: 162px;
+		margin-top: 139px;
 		.chevron {
 			margin-top: 0;
 		}
@@ -96,7 +96,7 @@
 	@include respond-to(wide) {
 		font-size: $sm;
 		flex-direction: row;
-		margin-top: 160px;
+		margin-top: 138px;
 		.chevron {
 			display: flex;
 			flex-direction: row;
