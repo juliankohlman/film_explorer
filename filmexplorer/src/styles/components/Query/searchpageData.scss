@@ -8,14 +8,14 @@
 	padding: 10px;
 	width: 100%;
 	z-index: 999;
-	background: #2953a0;
+	background: $darkGray;
 	// margin-top: 139px;
 	// margin-bottom: 150px;
 	color: $offWhite;
 	align-items: center;
 	justify-content: space-around;
 	border-top: medium solid $coolRed;
-	// border-bottom: solid $coolRed;
+	border-bottom: solid $coolRed;
 	.searchPaginationText {
 		font-family: $lato;
 		font-weight: 700;
@@ -46,6 +46,10 @@
 		justify-content: center;
 		align-items: center;
 		margin-top: 233px;
+		.searchChevron {
+			font-size: $smid;
+			margin-top: 0;
+		}
 		.searchPaginationText {
 			font-family: $lato;
 			font-weight: 700;
@@ -60,6 +64,10 @@
 		justify-content: center;
 		align-items: center;
 		margin-top: 237px;
+		.searchChevron {
+			font-size: $mid;
+			margin-top: 0;
+		}
 		.searchPaginationText {
 			font-family: $lato;
 			font-weight: 700;
@@ -73,6 +81,10 @@
 		flex-direction: row;
 		justify-content: space-evenly;
 		margin-top: 139px;
+		.searchChevron {
+			font-size: $mid;
+			margin-top: 0;
+		}
 		.searchPaginationText {
 			font-family: $lato;
 			font-weight: 700;
@@ -85,6 +97,10 @@
 		font-size: $sm;
 		flex-direction: row;
 		margin-top: 143px;
+		.searchChevron {
+			font-size: $mid;
+			margin-top: 0;
+		}
 		.searchPaginationText {
 			font-family: $lato;
 			font-weight: 700;

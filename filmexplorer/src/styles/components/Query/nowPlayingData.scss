@@ -1,4 +1,4 @@
-.paginationData {
+.nowPlayingPaginationData {
 	position: fixed;
 	top: 0;
 	display: flex;
@@ -15,7 +15,7 @@
 	align-items: center;
 	justify-content: space-around;
 	border-top: medium solid $coolRed;
-	// border-bottom: solid $coolRed;
+	border-bottom: medium solid $coolRed;
 	.paginationText {
 		font-family: $lato;
 		font-weight: 700;

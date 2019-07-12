@@ -36,7 +36,7 @@ class NowPlayingFilms extends Component {
 					let films = data.getNowPlaying;
 					return (
 						<>
-							<div className="paginationData">
+							<div className="nowPlayingPaginationData">
 								<h3>{films[0].total_results} Total Films To Explore</h3>
 								<h3>{`Now viewing Page ${page} of ${films[0].total_pages}`}</h3>
 								<form onSubmit={this.jumpPage}>

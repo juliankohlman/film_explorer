@@ -20,68 +20,6 @@
 			transform: scale(0.9);
 		}
 	}
-	/*
-  .aspect-ratio--4x6 {
-    padding-bottom: 150%;
-}
-
-.fl {
-    float: left;
-    _display: inline;
-}
-
-.link {
-    text-decoration: none;
-    transition: color .15s ease-in;
-}
-
-.link:link, .link:visited {
-    transition: color .15s ease-in;
-}
-
-.link:hover {
-    transition: color .15s ease-in;
-}
-
-.link:active {
-    transition: color .15s ease-in;
-}
-
-.link:focus {
-    transition: color .15s ease-in;
-    outline: 1px dotted currentColor;
-}
-
-.w-50 {
-    width: 50%;
-}
-
-.overflow-hidden {
-    overflow: hidden;
-}
-
-
-
-.grow:hover, .grow:focus {
-    transform: scale(1.05);
-}
-
-.grow:active {
-    transform: scale(.9);
-}
-
-@media screen and (min-width: 60em) {
-    .w-25-l {
-        width: 25%;
-    }
-}
-  */
-	// .posterLink {
-	// }
-
-	// .poster {
-
-	// }
 
 	@include respond-to(mobile) {
 		margin-top: 325px;
@@ -92,10 +30,10 @@
 	}
 
 	@include respond-to(desktop) {
-		margin-top: 220px;
+		margin-top: 215px;
 	}
 
 	@include respond-to(wide) {
-		margin-top: 228px;
+		margin-top: 215px;
 	}
 }
