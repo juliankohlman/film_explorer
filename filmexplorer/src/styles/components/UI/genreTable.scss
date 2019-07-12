@@ -4,6 +4,8 @@
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 	padding: 3rem;
+	// margin-top: 145px;
+	border-top: medium solid $coolRed;
 
 	/* Grid Implementation test */
 	// display: grid;
@@ -11,18 +13,22 @@
 	/* ------------------- */
 
 	@include respond-to(mobile) {
-		padding-top: 235px;
+		margin-top: 235px;
+		padding-top: 25px;
 	}
 
 	@include respond-to(tablet) {
-		padding-top: 235px;
+		margin-top: 238px;
+		padding-top: 25px;
 	}
 
 	@include respond-to(desktop) {
-		padding-top: 175px;
+		margin-top: 140px;
+		padding-top: 25px;
 	}
 
 	@include respond-to(wide) {
-		padding-top: 175px;
+		margin-top: 145px;
+		padding-top: 25px;
 	}
 }

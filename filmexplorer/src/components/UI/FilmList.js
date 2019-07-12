@@ -16,10 +16,12 @@ const FilmList = props => {
 						// removed grow from below classname
 						// className="grow aspect-ratio--4x6"
 						className="grow"
+						//! Todo move this into class in filmList.scss
 						style={{
 							background: `url(${film.poster_path}) no-repeat center center`,
 							backgroundSize: 'cover',
-							zIndex: '0'
+							zIndex: '0',
+							margin: '1.15rem'
 						}}
 					/>
 				</Link>
