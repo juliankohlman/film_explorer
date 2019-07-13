@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Container from '../components/UI/Container';
 import Header from '../components/UI/Header';
-import CallToAction from '../components/UI/CallToAction';
+// import CallToAction from '../components/UI/CallToAction';
 import FilmBackdrop from '../components/UI/FilmBackdrop';
-import Button from '../components/UI/Button';
+// import Button from '../components/UI/Button';
 import FilmPoster from '../components/UI/FilmPoster';
 import FilmOverview from '../components/UI/FilmOverview';
 import FilmCast from '../components/UI/FilmCast';
@@ -11,7 +11,6 @@ import FilmCrew from '../components/UI/FilmCrew';
 import { GET_FILM_DETAILS } from '../queries/getFilmDetails';
 import { Query, graphql } from 'react-apollo';
 import FilmTrailer from '../components/UI/FilmTrailer';
-// import { spawn } from 'child_process';
 
 class Detail extends Component {
 	render() {
@@ -29,7 +28,7 @@ class Detail extends Component {
 						<Container>
 							{console.log(this.props)}
 
-							<Header style="header">
+							<Header style={`header`}>
 								<div className="ctaMessage">
 									{/* {data.getFilmDetails.title} */}
 									<span className="genrePop">

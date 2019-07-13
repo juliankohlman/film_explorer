@@ -6,10 +6,12 @@
 	// width: 100%;
 	// height: 500px;
 	// object-fit: cover;
+	display: flex;
+	justify-content: center;
 
 	.backdropImage {
 		// width: 100%;
-		// height: 20%;
+
 		object-fit: cover;
 	}
 	// vertical-align: middle;

@@ -33,17 +33,16 @@ class SearchFilms extends Component {
 					console.log(data.searchFilm);
 					let page = this.state.page;
 					let films = data.searchFilm;
-					{
-						/* Pagination logic, current page determines what ui buttons to render */
-					}
-					{
-						/* MUST ADD CODE HERE TO HANDLE A SEARCH THAT DOES NOT TURN UP RESULTS RENDER AN ERROR PAGE WITH USUAL HEADER */
-					}
+
+					//* MUST ADD CODE HERE TO HANDLE A SEARCH THAT DOES NOT TURN UP RESULTS RENDER AN ERROR PAGE WITH USUAL HEADER */
+
 					return films.length === 0 ? (
 						<div style={{ marginTop: '400px' }}>
 							<h2>Sorry that search returned 0 results please try again.</h2>
 						</div>
 					) : (
+						//* Pagination logic, current page determines what ui buttons to render */
+
 						<>
 							<div className="searchPaginationData">
 								<span className="searchPaginationText">
@@ -162,7 +161,7 @@ class SearchFilms extends Component {
 							<FilmPage
 								films={data.searchFilm || []}
 								currentPage={page}
-								style={'searchContainer'}
+								style={`searchContainer`}
 								//! Use config.props to refactor (https://www.apollographql.com/docs/react/api/react-apollo#graphql-config-props)
 							/>
 						</>

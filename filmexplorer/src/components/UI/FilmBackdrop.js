@@ -22,19 +22,13 @@ const FilmBackdrop = props => {
 		</div>
 	) : (
 		//* Think about how a fallback detail page will look that does not have a backdrop image. Render a placeholder?, Render a different page layout?
-		<div
-			className="filmBackdrop"
-			style={{
-				// backgroundImage: `${props.title}`,
-				color: 'white',
-				fontSize: '100px',
-				backgroundPosition: 'center',
-				backgroundSize: 'cover',
-				// objectFit: 'cover',
-				backgroundRepeat: 'no-repeat'
-			}}
-		>
-			{props.title}
+		<div className="filmBackdrop">
+			<img
+				className="backdropImage"
+				src={`https://images.unsplash.com/photo-1518043129420-ed9d4efcdcc9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1054&q=80`}
+				title={props.title}
+				alt={props.title}
+			/>
 		</div>
 	);
 	// null;

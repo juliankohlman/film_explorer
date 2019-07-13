@@ -157,7 +157,7 @@ class GenreFilms extends Component {
 							<FilmPage
 								films={data.getGenre || []}
 								currentPage={page}
-								style={'listContainer'}
+								style={`listContainer`}
 							/>
 						</>
 					);

@@ -153,7 +153,7 @@ class ExploreGenreFilms extends Component {
 							<FilmPage
 								films={data.exploreGenre || []}
 								currentPage={page}
-								style={'listContainer'}
+								style={`listContainer`}
 							/>
 						</>
 					);

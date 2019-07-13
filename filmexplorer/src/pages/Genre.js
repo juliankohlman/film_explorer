@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Container from '../components/UI/Container';
 import Header from '../components/UI/Header';
-import Button from '../components/UI/Button';
+// import Button from '../components/UI/Button';
 import CallToAction from '../components/UI/CallToAction';
 import GenreFilms from '../components/Query/GenreFilms';
 import ExploreGenreFilms from '../components/Query/ExploreGenreFilms';
@@ -71,7 +71,7 @@ export default class Genre extends Component {
 			<Container>
 				{this.state.genreID !== 1 ? (
 					<>
-						<Header style="genreHeader">
+						<Header style={`genreHeader`}>
 							<CallToAction
 								callout={genreIDs[this.props.match.params.key].label}
 							/>
@@ -164,7 +164,7 @@ export default class Genre extends Component {
 						</form>
 					</>
 				) : (
-					<Header style="genreHeader">
+					<Header style={`genreHeader`}>
 						<CallToAction
 							callout={genreIDs[this.props.match.params.key].label}
 						/>

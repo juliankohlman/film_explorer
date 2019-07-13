@@ -149,7 +149,7 @@ class NowPlayingFilms extends Component {
 							<FilmPage
 								films={data.getNowPlaying || []}
 								currentPage={page}
-								style={'nowPlayingContainer'}
+								style={`nowPlayingContainer`}
 							/>
 						</>
 					);
