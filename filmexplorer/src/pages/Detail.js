@@ -62,11 +62,12 @@ class Detail extends Component {
 								</button>
 							</Header>
 							{/* <div style={{ paddingTop: '274px' }}> */}
-							<div className="filmBackdrop">
-								<FilmBackdrop
-									backdrop_path={data.getFilmDetails.backdrop_path}
-								/>
-							</div>
+							<FilmBackdrop
+								backdrop_path={data.getFilmDetails.backdrop_path}
+								title={data.getFilmDetails.title}
+							/>
+							{/* <div className="filmBackdrop">
+							</div> */}
 							<FilmPoster
 								poster_path={data.getFilmDetails.poster_path}
 								title={data.getFilmDetails.title}

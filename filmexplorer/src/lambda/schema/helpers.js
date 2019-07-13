@@ -25,7 +25,7 @@ export const posterImageCheck = (posterPath, film) => {
  * @returns {String} a dynamic backdrop image url or a placeholder url
  */
 export const backdropCheck = (backdropPath, film) => {
-	if (!backdropPath) {
+	if (backdropPath === null) {
 		let backdropText = film.title.split(' ').join('+');
 		backdropPath = `https://via.placeholder.com/728x90.png?text=${backdropText}`;
 	}

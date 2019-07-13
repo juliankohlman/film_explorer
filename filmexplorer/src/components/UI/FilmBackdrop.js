@@ -4,22 +4,40 @@ import React from 'react';
 // *need to create a set of placeholder backdrops when one is not present for the film
 
 const FilmBackdrop = props => {
-	return props.backdrop_path ? (
+	return !props.backdrop_path.includes('placeholder') ? (
+		// <div
+		// 	className="filmBackdrop"
+		// 	style={{
+		// 		backgroundImage: `url(https://image.tmdb.org/t/p/original/${
+		// 			props.backdrop_path
+		// 		})`
+		// 	}}
+		// />
+		<div className="filmBackdrop">
+			<img
+				className="backdropImage"
+				src={`https://image.tmdb.org/t/p/original/${props.backdrop_path}`}
+				alt=""
+			/>
+		</div>
+	) : (
+		//* Think about how a fallback detail page will look that does not have a backdrop image. Render a placeholder?, Render a different page layout?
 		<div
-			// Todo adjust this class to resize backdrop and replace tachyons class with custom class
-			className="vh-100 cover bg-center"
+			className="filmBackdrop"
 			style={{
-				backgroundImage: `url(https://image.tmdb.org/t/p/original/${
-					props.backdrop_path
-				})`,
+				// backgroundImage: `${props.title}`,
+				color: 'white',
+				fontSize: '100px',
 				backgroundPosition: 'center',
 				backgroundSize: 'cover',
 				// objectFit: 'cover',
 				backgroundRepeat: 'no-repeat'
 			}}
-		/>
-	) : //* Think about how a fallback detail page will look that does not have a backdrop image. Render a placeholder?, Render a different page layout?
-	null;
+		>
+			{props.title}
+		</div>
+	);
+	// null;
 };
 
 export default FilmBackdrop;
