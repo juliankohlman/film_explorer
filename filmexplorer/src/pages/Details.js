@@ -61,45 +61,50 @@ class Details extends Component {
 								title={data.getFilmDetails.title}
 							/>
 							<div className="detailContainer">
+								<div>
+									{/* <h3>Film Overview</h3> */}
+									<h2 style={{ marginTop: '0px' }}>
+										{data.getFilmDetails.title} (
+										{data.getFilmDetails.release_date.split('-')[0]})
+									</h2>
+									<p>{data.getFilmDetails.overview}</p>
+									{/* <FilmTrailer videos={data.getFilmDetails.videos} /> */}
+								</div>
 								<FilmPoster
 									poster_path={data.getFilmDetails.poster_path}
 									title={data.getFilmDetails.title}
 								/>
 								<div style={{ marginLeft: '10px' }}>
-									<h2 style={{ marginTop: '0px' }}>
+									{/* <h2 style={{ marginTop: '0px' }}>
 										{data.getFilmDetails.title} (
 										{data.getFilmDetails.release_date.split('-')[0]})
-									</h2>
+									</h2> */}
 									<FilmTrailer videos={data.getFilmDetails.videos} />
+									<FilmMetaData
+										revenue={data.getFilmDetails.revenue}
+										budget={data.getFilmDetails.budget}
+										runtime={data.getFilmDetails.runtime}
+										status={data.getFilmDetails.status}
+										tagline={data.getFilmDetails.tagline}
+										release_date={data.getFilmDetails.release_date}
+										similar={
+											data.getFilmDetails.similar.length
+												? data.getFilmDetails.similar[0].title
+												: 'No similar films found'
+										}
+										recommendation={
+											data.getFilmDetails.recommendation
+												? data.getFilmDetails.recommendation[0].title
+												: 'No current Recommendations'
+										}
+									/>
 								</div>
-								<div>
-									<h3>Film Overview</h3>
-									<p>{data.getFilmDetails.overview}</p>
-									{/* <FilmTrailer videos={data.getFilmDetails.videos} /> */}
-								</div>
+
 								{/* <FilmOverview overview={data.getFilmDetails.overview} /> */}
 								<FilmCast cast={data.getFilmDetails.cast} />
 								{/* Create new component for crew */}
 								{/* Look into more readable date format */}
 								<FilmCrew crew={data.getFilmDetails.crew} />
-								<FilmMetaData
-									revenue={data.getFilmDetails.revenue}
-									budget={data.getFilmDetails.budget}
-									runtime={data.getFilmDetails.runtime}
-									status={data.getFilmDetails.status}
-									tagline={data.getFilmDetails.tagline}
-									release_date={data.getFilmDetails.release_date}
-									similar={
-										data.getFilmDetails.similar.length
-											? data.getFilmDetails.similar[0].title
-											: 'No similar films found'
-									}
-									recommendation={
-										data.getFilmDetails.recommendation
-											? data.getFilmDetails.recommendation[0].title
-											: 'No current Recommendations'
-									}
-								/>
 							</div>
 						</Container>
 					);

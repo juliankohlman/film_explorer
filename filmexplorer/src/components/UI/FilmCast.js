@@ -9,7 +9,9 @@ const FilmCast = props => {
 			<p>{console.log(cast)}</p>
 			<h1>Cast</h1>
 
-			{cast.map(castMember => (
+			{/* {cast.map(castMember => ( */}
+			{/* reducing results */}
+			{cast.slice(0, 10).map(castMember => (
 				//todo href will become links to cast/crew profile pages
 				<article
 					className="dt w-100 bb b--black-05 pb2 mt2"

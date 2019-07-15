@@ -7,7 +7,9 @@ const FilmCrew = props => {
 			<p>{console.log(crew)}</p>
 			<h1>Crew</h1>
 
-			{crew.map(crewMember => (
+			{/* {crew.map(crewMember => ( */}
+			{/* reducing results to 5 max */}
+			{crew.slice(0, 10).map(crewMember => (
 				//TODO href will become links to cast/crew profile pages
 				<article
 					className="dt w-100 bb b--black-05 pb2 mt2"
