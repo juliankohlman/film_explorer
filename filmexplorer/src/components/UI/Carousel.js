@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-import ReactDom from 'react-dom';
-import Flickity from 'flickity';
-import 'flickity/dist/flickity.min.css';
-
-export default class Carousel extends Component {
-	render() {
-		return <div />;
-	}
-}
+import ReactDOM from 'react-dom';
+//! Todo delete flickity package
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import Carousel from 'react-responsive-carousel';

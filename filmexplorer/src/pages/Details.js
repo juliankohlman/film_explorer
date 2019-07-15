@@ -101,9 +101,10 @@ class Details extends Component {
 								</div>
 
 								{/* <FilmOverview overview={data.getFilmDetails.overview} /> */}
-								<FilmCast cast={data.getFilmDetails.cast} />
 								{/* Create new component for crew */}
 								{/* Look into more readable date format */}
+								<FilmCast cast={data.getFilmDetails.cast} />
+
 								<FilmCrew crew={data.getFilmDetails.crew} />
 							</div>
 						</Container>
