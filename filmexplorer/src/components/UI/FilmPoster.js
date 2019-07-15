@@ -12,7 +12,7 @@ const FilmPoster = props => {
 			style={{
 				background: `url(${poster_path}) no-repeat center center`,
 				backgroundSize: 'cover',
-				width: '330px',
+				width: '350px',
 				height: '500px'
 			}}
 		/>

@@ -11,8 +11,9 @@ import FilmCrew from '../components/UI/FilmCrew';
 import { GET_FILM_DETAILS } from '../queries/getFilmDetails';
 import { Query, graphql } from 'react-apollo';
 import FilmTrailer from '../components/UI/FilmTrailer';
+import FilmMetaData from '../components/UI/FilmMetaData';
 
-class Detail extends Component {
+class Details extends Component {
 	render() {
 		const Details = () => (
 			<Query
@@ -60,39 +61,45 @@ class Detail extends Component {
 								title={data.getFilmDetails.title}
 							/>
 							<div className="detailContainer">
-								<h2>{data.getFilmDetails.title}</h2>
 								<FilmPoster
 									poster_path={data.getFilmDetails.poster_path}
 									title={data.getFilmDetails.title}
 								/>
-								<FilmOverview overview={data.getFilmDetails.overview} />
-								<FilmTrailer videos={data.getFilmDetails.videos} />
+								<div style={{ marginLeft: '10px' }}>
+									<h2 style={{ marginTop: '0px' }}>
+										{data.getFilmDetails.title} (
+										{data.getFilmDetails.release_date.split('-')[0]})
+									</h2>
+									<FilmTrailer videos={data.getFilmDetails.videos} />
+								</div>
+								<div>
+									<h3>Film Overview</h3>
+									<p>{data.getFilmDetails.overview}</p>
+									{/* <FilmTrailer videos={data.getFilmDetails.videos} /> */}
+								</div>
+								{/* <FilmOverview overview={data.getFilmDetails.overview} /> */}
 								<FilmCast cast={data.getFilmDetails.cast} />
 								{/* Create new component for crew */}
+								{/* Look into more readable date format */}
 								<FilmCrew crew={data.getFilmDetails.crew} />
-								<ul className="detailContainer">
-									<li>Revenue: {data.getFilmDetails.revenue}</li>
-									<li>Budget: {data.getFilmDetails.budget}</li>
-									<li>Runtime: {data.getFilmDetails.runtime}</li>
-									<li>Status: {data.getFilmDetails.status}</li>
-									<li>Tagline: {data.getFilmDetails.tagline}</li>
-									{/* Look into more readable date format */}
-									<li>Release Date: {data.getFilmDetails.release_date}</li>
-									<li>
-										Similar:{' '}
-										{data.getFilmDetails.similar.length
+								<FilmMetaData
+									revenue={data.getFilmDetails.revenue}
+									budget={data.getFilmDetails.budget}
+									runtime={data.getFilmDetails.runtime}
+									status={data.getFilmDetails.status}
+									tagline={data.getFilmDetails.tagline}
+									release_date={data.getFilmDetails.release_date}
+									similar={
+										data.getFilmDetails.similar.length
 											? data.getFilmDetails.similar[0].title
-											: 'No similar films found'}
-									</li>
-									<li>
-										{/* Todo must iterate over similar and recommended films array and render USE seperate component(s) */}
-										{/* Check for existence of recommendations if so render out list otherwise render message */}
-										Recommendation:{' '}
-										{data.getFilmDetails.recommendation
+											: 'No similar films found'
+									}
+									recommendation={
+										data.getFilmDetails.recommendation
 											? data.getFilmDetails.recommendation[0].title
-											: 'No current Recommendations'}
-									</li>
-								</ul>
+											: 'No current Recommendations'
+									}
+								/>
 							</div>
 						</Container>
 					);
@@ -103,4 +110,4 @@ class Detail extends Component {
 	}
 }
 
-export default graphql(GET_FILM_DETAILS)(Detail);
+export default graphql(GET_FILM_DETAILS)(Details);
