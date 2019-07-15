@@ -74,6 +74,8 @@ class Details extends Component {
 									poster_path={data.getFilmDetails.poster_path}
 									title={data.getFilmDetails.title}
 								/>
+								<FilmCast cast={data.getFilmDetails.cast} />
+								<FilmCrew crew={data.getFilmDetails.crew} />
 								<div style={{ marginLeft: '10px' }}>
 									{/* <h2 style={{ marginTop: '0px' }}>
 										{data.getFilmDetails.title} (
@@ -103,9 +105,6 @@ class Details extends Component {
 								{/* <FilmOverview overview={data.getFilmDetails.overview} /> */}
 								{/* Create new component for crew */}
 								{/* Look into more readable date format */}
-								<FilmCast cast={data.getFilmDetails.cast} />
-
-								<FilmCrew crew={data.getFilmDetails.crew} />
 							</div>
 						</Container>
 					);
