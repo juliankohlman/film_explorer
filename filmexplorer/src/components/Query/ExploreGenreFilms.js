@@ -35,7 +35,7 @@ class ExploreGenreFilms extends Component {
 					let page = this.state.page;
 					let films = data.exploreGenre;
 					return (
-						// ! MUST HANDLE CONDITION WHERE (data.exploreGenre[0].total_pages) returns null, handle this condition and render out a nice page for the user
+						// ! MUST HANDLE CONDITION WHERE (data.exploreGenre[0].total_pages) returns null, handle this condition and render out a nice page for the user [See SearchFilms component]
 						<>
 							<div className="paginationData">
 								<span className="paginationText">

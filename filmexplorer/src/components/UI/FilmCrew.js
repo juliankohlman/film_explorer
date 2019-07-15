@@ -22,7 +22,7 @@ const FilmCrew = props => {
 						/>
 					</div>
 					<div className="dtc v-mid pl3">
-						<h1 className="f6 f5-ns fw6 lh-title black mv0">
+						<h1 className="f6 f5-ns fw6 lh-title black mv0 white">
 							{crewMember.job} - {crewMember.name}
 						</h1>
 					</div>

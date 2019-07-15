@@ -27,7 +27,7 @@ const FilmCast = props => {
 						/>
 					</div>
 					<div className="dtc v-mid pl3">
-						<h1 className="f6 f5-ns fw6 lh-title black mv0">
+						<h1 className="f6 f5-ns fw6 lh-title black mv0 white">
 							Starring {castMember.name} as {castMember.character}
 						</h1>
 						{/* <h2 className="f6 fw4 mt0 mb0 black-60">@yg</h2> */}
