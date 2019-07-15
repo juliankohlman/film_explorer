@@ -8,11 +8,14 @@ import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import ApolloClient from 'apollo-boost';
 import Landing from './pages/Landing';
 import Genre from './pages/Genre';
-import Detail from './pages/Detail';
+// import Detail from './pages/Detail';
+//* Test Details component
+import Details from './pages/Details';
 // import NowPlaying from './pages/NowPlaying';
 
 const client = new ApolloClient({
-	uri: 'http://localhost:4000',
+	// uri: 'http://localhost:4000',
+	uri: 'http://localhost:9000/.netlify/functions/graphql',
 	fetch: fetch
 });
 
@@ -25,7 +28,7 @@ ReactDOM.render(
 
 				<Route exact path="/genre/:key" component={Genre} />
 
-				<Route exact path="/detail/:id" component={Detail} />
+				<Route exact path="/detail/:id" component={Details} />
 			</Switch>
 		</ApolloProvider>
 	</Router>,

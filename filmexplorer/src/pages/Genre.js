@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Container from '../components/UI/Container';
 import Header from '../components/UI/Header';
-import Button from '../components/UI/Button';
+// import Button from '../components/UI/Button';
 import CallToAction from '../components/UI/CallToAction';
 import GenreFilms from '../components/Query/GenreFilms';
 import ExploreGenreFilms from '../components/Query/ExploreGenreFilms';
@@ -27,11 +27,13 @@ export default class Genre extends Component {
 		};
 	}
 
-	//todo user should be able to run 'explore' by pressing enter
 	handleChange = e => {
 		const target = e.target;
 		const name = target.name;
-		const value = name === 'year' ? +target.value : target.value;
+		const value =
+			name === 'year' || name === 'with_runtime_gte'
+				? +target.value
+				: target.value;
 		this.setState({ [name]: value });
 	};
 
@@ -68,15 +70,58 @@ export default class Genre extends Component {
 		return (
 			<Container>
 				{this.state.genreID !== 1 ? (
-					<Header>
-						<CallToAction
-							callout={genreIDs[this.props.match.params.key].label}
-						/>
+					<>
+						<Header style={`genreHeader`}>
+							<CallToAction
+								callout={genreIDs[this.props.match.params.key].label}
+							/>
+							{/* <Button text="Home" href="/" /> */}
+						</Header>
 						<form
-							className="dtc-ns tc pv4 bg-black-05 v-mid"
+							// className="dtc-ns tc pv4 bg-black-05 v-mid"
+							className="explorerForm"
 							onSubmit={this.handleSubmit}
 						>
+							<label style={{ color: 'white' }}>
+								{/* Actor or Director: */}
+								<input
+									className="searchInput"
+									placeholder="Actor or Director..."
+									type="text"
+									name="personString"
+									value={this.state.value}
+									onChange={this.handleChange}
+								/>
+							</label>
+
+							<label style={{ color: 'white' }}>
+								{/* Release Year: */}
+								<input
+									className="searchInput"
+									placeholder="ex...1984"
+									type="number"
+									min="1900"
+									name="year"
+									value={this.state.value}
+									onChange={this.handleChange}
+								/>
+							</label>
+
+							<label style={{ color: 'white' }}>
+								{/* Film Runtime: */}
+								<input
+									className="searchInput"
+									placeholder="Runtime in minutes..."
+									//? type number instead
+									//* Review API to confirm number entered will filter for films with a longer or shorter runtime than users input
+									type="text"
+									name="with_runtime_gte"
+									value={this.state.value}
+									onChange={this.handleChange}
+								/>
+							</label>
 							<select
+								className="selectInput"
 								value={this.state.value}
 								onChange={this.handleChange}
 								name="sort_by"
@@ -94,18 +139,8 @@ export default class Genre extends Component {
 								<option value="original_title.asc">Title Z-A</option>
 							</select>
 
-							<label style={{ color: 'white' }}>
-								Release Year:
-								<input
-									placeholder="ex...1984"
-									type="number"
-									name="year"
-									value={this.state.value}
-									onChange={this.handleChange}
-								/>
-							</label>
-
 							<select
+								className="selectInput"
 								value={this.state.value}
 								onChange={this.handleChange}
 								name="certification"
@@ -119,54 +154,28 @@ export default class Genre extends Component {
 								<option value="NR">NR</option>
 							</select>
 
-							<label style={{ color: 'white' }}>
-								Film Runtime:
-								<input
-									placeholder="Runtime in minutes..."
-									//? type number instead
-									type="text"
-									name="with_runtime_gte"
-									value={this.state.value}
-									onChange={this.handleChange}
-								/>
-							</label>
-
-							<label style={{ color: 'white' }}>
-								Actor or Director:
-								<input
-									placeholder="Actor or Director..."
-									type="text"
-									name="personString"
-									value={this.state.value}
-									onChange={this.handleChange}
-								/>
-							</label>
 							<button
 								type="submit"
-								className="f6 link dim ph3 pv2 mb2 dib white bg-dark-blue"
+								className="searchButton"
 								// onClick={this.handleSubmit}
 							>
 								Explore
 							</button>
 						</form>
-						<Button text="Home" href="/" />
-					</Header>
+					</>
 				) : (
-					<Header>
+					<Header style={`genreHeader`}>
 						<CallToAction
 							callout={genreIDs[this.props.match.params.key].label}
 						/>
 
-						<Button text="Home" href="/" />
+						{/* <Button text="Home" href="/" /> */}
 					</Header>
 				)}
-
-				{/* Component is mounting b/f the id is there */}
-				{/* {console.log(this.state.input)} */}
 				{this.state.runQuery ? (
-					<ExploreGenreFilms input={this.state.input} />
+					<ExploreGenreFilms input={this.state.input} chevron={'chevron'} />
 				) : (
-					<GenreFilms id={id} />
+					<GenreFilms id={id} chevron={'chevron'} />
 				)}
 			</Container>
 		);

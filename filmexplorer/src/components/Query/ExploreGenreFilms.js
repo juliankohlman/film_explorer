@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Query, graphql } from 'react-apollo';
-
 import { EXPLORE_GENRE } from '../../queries/exploreGenre';
 import FilmPage from '../UI/FilmPage';
+import { GoRocket } from 'react-icons/go';
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
 class ExploreGenreFilms extends Component {
 	constructor(props) {
@@ -32,64 +33,129 @@ class ExploreGenreFilms extends Component {
 					if (error) return <p>error :(</p>;
 					console.log(data.exploreGenre);
 					let page = this.state.page;
+					let films = data.exploreGenre;
 					return (
-						<div>
-							<div style={{ marginTop: '350px' }}>
-								<label htmlFor="jump">{`Jump to page less than ${
-									data.exploreGenre[0].total_pages
-								}`}</label>
+						// ! MUST HANDLE CONDITION WHERE (data.exploreGenre[0].total_pages) returns null, handle this condition and render out a nice page for the user [See SearchFilms component]
+						<>
+							<div className="paginationData">
+								<span className="paginationText">
+									{films[0].total_results} Total Films To Explore
+								</span>
+								<span className="paginationText">{`Now viewing Page ${page} of ${
+									films[0].total_pages
+								}`}</span>
+
 								<form onSubmit={this.jumpPage}>
+									<label htmlFor="jump">
+										Page Jump <GoRocket style={{ verticalAlign: 'middle' }} />
+									</label>
 									<input
-										// onChange={this.jumpPage}
 										type="number"
 										name="jump"
 										min="1"
-										max={data.exploreGenre[0].total_pages}
+										max={films[0].total_pages}
 										ref={input => (this.input = input)}
 									/>
 								</form>
+								{page > 1 && page < films[0].total_pages ? (
+									<>
+										<MdChevronLeft
+											onClick={() =>
+												fetchMore({
+													variables: {
+														page: this.setState(state => {
+															return state.page === 1
+																? { page: state.page }
+																: {
+																		page: (state.page -= 1)
+																  };
+														})
+													},
+													updateQuery: (prevPage, { fetchMoreResult }) => {
+														if (!fetchMoreResult) return prevPage;
+														return {
+															searchFilm: [...fetchMoreResult.searchFilm]
+														};
+													}
+												})
+											}
+											className={this.props.chevron}
+										/>
+
+										<MdChevronRight
+											onClick={() =>
+												fetchMore({
+													variables: {
+														page: this.setState(state => {
+															return {
+																page: (state.page += 1)
+															};
+														})
+													},
+													updateQuery: (prevPage, { fetchMoreResult }) => {
+														if (!fetchMoreResult) return prevPage;
+														return {
+															searchFilm: [...fetchMoreResult.searchFilm]
+														};
+													}
+												})
+											}
+											className={this.props.chevron}
+										/>
+									</>
+								) : page === films[0].total_pages ? (
+									<MdChevronLeft
+										onClick={() =>
+											fetchMore({
+												variables: {
+													page: this.setState(state => {
+														return state.page === 1
+															? { page: state.page }
+															: {
+																	page: (state.page -= 1)
+															  };
+													})
+												},
+												updateQuery: (prevPage, { fetchMoreResult }) => {
+													if (!fetchMoreResult) return prevPage;
+													return {
+														searchFilm: [...fetchMoreResult.searchFilm]
+													};
+												}
+											})
+										}
+										className={this.props.chevron}
+									/>
+								) : (
+									<MdChevronRight
+										onClick={() =>
+											fetchMore({
+												variables: {
+													page: this.setState(state => {
+														return {
+															page: (state.page += 1)
+														};
+													})
+												},
+												updateQuery: (prevPage, { fetchMoreResult }) => {
+													if (!fetchMoreResult) return prevPage;
+													return {
+														searchFilm: [...fetchMoreResult.searchFilm]
+													};
+												}
+											})
+										}
+										className={this.props.chevron}
+									/>
+								)}
 							</div>
+
 							<FilmPage
 								films={data.exploreGenre || []}
 								currentPage={page}
-								nextPage={() =>
-									fetchMore({
-										variables: {
-											page: this.setState(state => {
-												return {
-													page: (state.page += 1)
-												};
-											})
-										},
-										updateQuery: (prevPage, { fetchMoreResult }) => {
-											if (!fetchMoreResult) return prevPage;
-											return {
-												getNowPlaying: [...fetchMoreResult.getNowPlaying]
-											};
-										}
-									})
-								}
-								lastPage={() =>
-									fetchMore({
-										variables: {
-											page: this.setState(state => {
-												return state.page === 1
-													? { page: state.page }
-													: {
-															page: (state.page -= 1)
-													  };
-											})
-										},
-										updateQuery: (prevPage, { fetchMoreResult }) => {
-											if (!fetchMoreResult) return prevPage;
-											return {
-												getNowPlaying: [...fetchMoreResult.getNowPlaying]
-											};
-										}
-									})
-								}
+								style={`listContainer`}
 							/>
-						</div>
+						</>
 					);
 				}}
 			</Query>

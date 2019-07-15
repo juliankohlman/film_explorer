@@ -1,3 +1,16 @@
+/** Example of reusable input component
+ * function Input ({ callback, type = 'text', disabled = false, readOnly = false, placeholder = '' }) {
+  return (
+    <input
+      type={type}
+      disabled={disabled}
+      readOnly={readOnly}
+      placeholder={placeholder}
+      onChange={({ target: { value } }) => callback(value)}
+    />
+  );
+}
+ */
 import React, { Component } from 'react';
 // ! Deprecated only for use a reference
 class FilterBy extends Component {

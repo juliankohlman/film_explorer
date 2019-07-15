@@ -1,0 +1,94 @@
+.header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background: $solidBlack;
+	padding: $smid;
+	display: flex;
+	z-index: 999;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	border-bottom: medium solid $coolRed;
+
+	.logoLink {
+		align-self: center;
+
+		.logoDisplay {
+			width: 5rem;
+			height: 5rem;
+		}
+	}
+
+	.headerWelcome {
+		color: $offWhite;
+		align-self: center;
+		padding: 1rem;
+		// margin: auto;
+		// margin-left: 0.75rem;
+	}
+
+	.searchForm {
+		align-self: center;
+		width: $formWidth;
+	}
+
+	.searchInput {
+		border-top-left-radius: 80rem;
+		border-bottom-left-radius: 80rem;
+		border: medium solid $offWhite;
+		border-right: none;
+		padding: 8px 8px 7px;
+		font-family: $lato;
+		outline: none;
+		width: 80%;
+		background: $darkGray;
+		color: #fff;
+	}
+	.searchButton {
+		background: $shinyRed;
+		border-top-right-radius: 80rem;
+		border-bottom-right-radius: 80rem;
+		border: medium solid $offWhite;
+		border-left: none;
+		padding: 9px 2px 6.73px;
+		cursor: pointer;
+
+		&:hover {
+			background-position: right center;
+		}
+	}
+
+	@include respond-to(mobile) {
+		font-size: $mb;
+		flex-direction: column;
+
+		.searchForm {
+			font-size: $sm;
+			width: $formWidth - 105px;
+			.searchButton {
+				width: 45px;
+			}
+		}
+	}
+
+	@include respond-to(tablet) {
+		font-size: $sm;
+		flex-direction: column;
+		.searchForm {
+			width: $formWidth - 35px;
+		}
+	}
+
+	@include respond-to(desktop) {
+		font-size: $smid;
+		flex-direction: row;
+	}
+
+	@include respond-to(wide) {
+		font-size: $mid;
+		flex-direction: row;
+		.headerWelcome {
+			font-size: $xl;
+		}
+	}
+}

@@ -1,0 +1,47 @@
+.filmBackdrop {
+	// margin-top: 150px;
+	// background-repeat: no-repeat;
+	// background-size: contain;
+	// background-position: center;
+	// width: 100%;
+	// height: 500px;
+	// object-fit: cover;
+	display: flex;
+	justify-content: center;
+
+	.backdropImage {
+		// width: 100%;
+
+		object-fit: cover;
+	}
+	// vertical-align: middle;
+	// max-width: 100%;
+	// height: 50vh;
+	// max-height: 100%;
+	// height: 75vh;
+
+	@include respond-to(mobile) {
+		margin-top: 11rem;
+		// margin-top: 1rem;
+		// height: 100vh;
+	}
+
+	@include respond-to(tablet) {
+		margin-top: 12rem;
+		// margin-top: 1rem;
+		// height: 100vh;
+	}
+
+	@include respond-to(desktop) {
+		margin-top: 6.5rem;
+		// margin-top: 0.55rem;
+		// height: 100vh;
+	}
+
+	@include respond-to(wide) {
+		margin-top: 7rem;
+		// height: 100vh;
+		// width: 1900px;
+		// height: 500px;
+	}
+}

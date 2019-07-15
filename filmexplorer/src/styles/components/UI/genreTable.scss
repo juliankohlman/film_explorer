@@ -3,7 +3,32 @@
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
-	//* adding enough margin to get out from under header for now
-	margin-top: 288px;
-	// background: $darkGray;
+	padding: 3rem;
+	// margin-top: 145px;
+	// border-top: medium solid $coolRed;
+
+	/* Grid Implementation test */
+	// display: grid;
+	// grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	/* ------------------- */
+
+	@include respond-to(mobile) {
+		margin-top: 235px;
+		padding-top: 25px;
+	}
+
+	@include respond-to(tablet) {
+		margin-top: 238px;
+		padding-top: 25px;
+	}
+
+	@include respond-to(desktop) {
+		margin-top: 140px;
+		padding-top: 25px;
+	}
+
+	@include respond-to(wide) {
+		margin-top: 145px;
+		padding-top: 25px;
+	}
 }

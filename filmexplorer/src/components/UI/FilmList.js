@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const FilmList = props => {
 	return (
-		<div>
+		<div className={props.style}>
 			{props.filmList.map(film => (
 				<Link
 					to={`/detail/${film.id}`}
@@ -13,10 +13,15 @@ const FilmList = props => {
 					<div
 						role="img"
 						aria-label={film.title}
-						className="grow aspect-ratio--4x6 "
+						// removed grow from below classname
+						// className="grow aspect-ratio--4x6"
+						className="grow"
+						//! Todo move this into class in filmList.scss
 						style={{
 							background: `url(${film.poster_path}) no-repeat center center`,
-							backgroundSize: 'cover'
+							backgroundSize: 'cover',
+							zIndex: '0',
+							margin: '1.15rem'
 						}}
 					/>
 				</Link>
