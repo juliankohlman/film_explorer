@@ -42,7 +42,7 @@ export const filmDetails = async (_, { filmID }) => {
 					? Object.assign(
 							crewMember,
 							(crewMember.profile_path =
-								'https://via.placeholder.com/300x500.png?text=Film+Poster+Not+Available')
+								'https://via.placeholder.com/300x450.png?text=Crew+Member+Image+Not+Available')
 					  )
 					: Object.assign(
 							crewMember,

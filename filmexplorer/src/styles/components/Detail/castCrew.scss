@@ -1,0 +1,45 @@
+.sliderContainer {
+	width: 22rem;
+	font-size: $mb;
+	.control-dots,
+	.thumbs,
+	.animated {
+		padding: 0;
+	}
+
+	li.thumb.selected {
+		border: 3px solid $coolRed;
+	}
+	.memberImage {
+		// width: 200px;
+		// height: 550px;
+	}
+
+	.memberName {
+		margin: 2rem;
+		font-family: $montserrat;
+		font-size: $sm;
+
+		p.memberPop {
+			// margin: 1rem;
+			font-family: $expletus;
+			color: $coolRed;
+		}
+	}
+
+	@include respond-to(mobile) {
+		margin: auto;
+	}
+
+	@include respond-to(tablet) {
+		margin: auto;
+	}
+
+	@include respond-to(desktop) {
+		margin: auto;
+	}
+
+	@include respond-to(wide) {
+		margin: auto;
+	}
+}
