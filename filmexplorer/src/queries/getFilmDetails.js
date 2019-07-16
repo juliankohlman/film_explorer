@@ -52,7 +52,7 @@ export const GET_FILM_DETAILS = gql`
 				title
 				overview
 			}
-			recommendation {
+			recommendations {
 				id
 				poster_path
 				title

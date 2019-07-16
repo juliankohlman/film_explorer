@@ -87,9 +87,9 @@ class Detail extends Component {
 									<li>
 										{/* Todo must iterate over similar and recommended films array and render USE seperate component(s) */}
 										{/* Check for existence of recommendations if so render out list otherwise render message */}
-										Recommendation:{' '}
-										{data.getFilmDetails.recommendation
-											? data.getFilmDetails.recommendation[0].title
+										Recommendations:{' '}
+										{data.getFilmDetails.recommendations
+											? data.getFilmDetails.recommendations[0].title
 											: 'No current Recommendations'}
 									</li>
 								</ul>

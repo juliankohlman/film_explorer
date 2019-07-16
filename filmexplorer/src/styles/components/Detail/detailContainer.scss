@@ -24,8 +24,8 @@
 	p {
 		font-family: $lato;
 		font-weight: 500;
-		width: 50%;
-		text-align: justify;
+		// width: 50%;
+		// text-align: justify;
 	}
 
 	@include respond-to(mobile) {
@@ -47,7 +47,7 @@
 		}
 		p {
 			font-size: $mb;
-			width: 50%;
+			width: 75%;
 		}
 	}
 
@@ -93,8 +93,8 @@
 			font-size: $lg;
 		}
 		p {
-			font-size: $sm;
-			width: 55%;
+			font-size: $smid - 0.2rem;
+			width: 65%;
 		}
 	}
 

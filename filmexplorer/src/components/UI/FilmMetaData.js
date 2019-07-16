@@ -9,7 +9,7 @@ const FilmMetaData = props => {
 
 		release_date,
 		similar,
-		recommendation
+		recommendations
 	} = props;
 	return (
 		<ul className="metaData">
@@ -30,16 +30,11 @@ const FilmMetaData = props => {
 				<label className="metaLabel">Release Date:</label> {release_date}
 			</li>
 			<li>
-				<label className="metaLabel">Similar:</label>
-				{similar.length ? similar[0].title : 'No similar films found'}
+				<label className="metaLabel">Similar:</label> {similar || 'Not found'}
 			</li>
 			<li>
-				{/* Todo must iterate over similar and recommended films array and render USE seperate component(s) */}
-				{/* Check for existence of recommendations if so render out list otherwise render message */}
 				<label className="metaLabel">Recommendations:</label>
-				{recommendation
-					? recommendation[0].title
-					: 'No current Recommendations'}
+				{recommendations || 'Not found'}
 			</li>
 		</ul>
 	);

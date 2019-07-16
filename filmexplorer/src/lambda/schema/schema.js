@@ -94,6 +94,6 @@ export const typeDefs = `
     crew: [CrewMember!]!
     videos: [Video!]!
     similar: [FilmBasic!]!
-    recommendation: [FilmBasic]
+    recommendations: [FilmBasic]
   }  
 `;

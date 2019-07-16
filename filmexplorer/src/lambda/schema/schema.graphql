@@ -103,7 +103,7 @@ type FilmDetails {
 	crew: [CrewMember!]!
 	videos: [Video!]!
 	similar: [FilmBasic!]!
-	recommendation: [FilmBasic!]!
+	recommendations: [FilmBasic!]!
 }
 # reference link https://developers.themoviedb.org/3/movies/get-movie-credits
 # { CAST DATA
