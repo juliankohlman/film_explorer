@@ -13,7 +13,12 @@ const FilmTrailer = props => {
 						key={video.id}
 						src={`//www.youtube.com/embed/${video.key}`}
 						alt={video.type}
-						style={{ marginRight: '5px', borderStyle: 'none' }}
+						style={{
+							// width: '700px',
+							// height: '395px',
+							marginRight: '5px',
+							borderStyle: 'none'
+						}}
 					/>
 				);
 			})

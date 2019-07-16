@@ -1,6 +1,9 @@
 .sliderContainer {
-	width: 22rem;
-	font-size: $mb;
+	width: 50%;
+	padding: 5px;
+	justify-content: space-evenly;
+	margin: auto;
+	// font-size: $mb;
 	.control-dots,
 	.thumbs,
 	.animated {
@@ -10,13 +13,9 @@
 	li.thumb.selected {
 		border: 3px solid $coolRed;
 	}
-	.memberImage {
-		// width: 200px;
-		// height: 550px;
-	}
 
 	.memberName {
-		margin: 2rem;
+		// margin: 2rem;
 		font-family: $montserrat;
 		font-size: $sm;
 
@@ -28,18 +27,30 @@
 	}
 
 	@include respond-to(mobile) {
-		margin: auto;
+		.memberName {
+			font-size: $mb - 0.2rem;
+			margin: 0.5rem;
+		}
 	}
 
 	@include respond-to(tablet) {
-		margin: auto;
+		.memberName {
+			font-size: $sm;
+			margin: 1rem;
+		}
 	}
 
 	@include respond-to(desktop) {
-		margin: auto;
+		.memberName {
+			font-size: $sm;
+			margin: 1.5rem;
+		}
 	}
 
 	@include respond-to(wide) {
-		margin: auto;
+		.memberName {
+			font-size: $sm;
+			margin: 2rem;
+		}
 	}
 }

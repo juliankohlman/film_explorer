@@ -61,26 +61,17 @@ class Details extends Component {
 								title={data.getFilmDetails.title}
 							/>
 							<div className="detailContainer">
-								<div>
-									{/* <h3>Film Overview</h3> */}
-									<h2 style={{ marginTop: '0px' }}>
-										{data.getFilmDetails.title} (
-										{data.getFilmDetails.release_date.split('-')[0]})
-									</h2>
-									<p>{data.getFilmDetails.overview}</p>
-									{/* <FilmTrailer videos={data.getFilmDetails.videos} /> */}
-								</div>
 								<FilmPoster
 									poster_path={data.getFilmDetails.poster_path}
 									title={data.getFilmDetails.title}
 								/>
-								<FilmCast cast={data.getFilmDetails.cast} />
-								<FilmCrew crew={data.getFilmDetails.crew} />
+								<div className="detailTitle">
+									{data.getFilmDetails.title} (
+									{data.getFilmDetails.release_date.split('-')[0]})
+									<p>{data.getFilmDetails.overview}</p>
+								</div>
+
 								<div style={{ marginLeft: '10px' }}>
-									{/* <h2 style={{ marginTop: '0px' }}>
-										{data.getFilmDetails.title} (
-										{data.getFilmDetails.release_date.split('-')[0]})
-									</h2> */}
 									<FilmTrailer videos={data.getFilmDetails.videos} />
 									<FilmMetaData
 										revenue={data.getFilmDetails.revenue}
@@ -101,7 +92,8 @@ class Details extends Component {
 										}
 									/>
 								</div>
-
+								<FilmCast cast={data.getFilmDetails.cast} />
+								<FilmCrew crew={data.getFilmDetails.crew} />
 								{/* <FilmOverview overview={data.getFilmDetails.overview} /> */}
 								{/* Create new component for crew */}
 								{/* Look into more readable date format */}

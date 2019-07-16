@@ -8,10 +8,12 @@ const FilmCrew = props => {
 		<div className="sliderContainer">
 			<p>{console.log(crew)}</p>
 			<h1>Crew</h1>
-
-			{/* {crew.map(crewMember => ( */}
-			{/* reducing results to 5 max */}
-			<Carousel showThumbs={true} showArrows={true} axis={'horizontal'}>
+			<Carousel
+				showThumbs={true}
+				showArrows={true}
+				axis={'horizontal'}
+				showIndicators={false}
+			>
 				{crew.map(crewMember => (
 					//TODO href will become links to cast/crew profile pages
 					<article
@@ -23,11 +25,9 @@ const FilmCrew = props => {
 							alt="thumbnail"
 							src={crewMember.profile_path}
 							className="memberImage"
-							// className="ba b--black-10 db br-100 w2 w3-ns h2 h3-ns"
 						/>
 						<div className="memberName">
-							{crewMember.name} <p className="memberPop">for</p>{' '}
-							{crewMember.job}
+							{crewMember.name} <p className="memberPop">⏤</p> {crewMember.job}
 						</div>
 					</article>
 				))}
