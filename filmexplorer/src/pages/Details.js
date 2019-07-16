@@ -60,43 +60,50 @@ class Details extends Component {
 								backdrop_path={data.getFilmDetails.backdrop_path}
 								title={data.getFilmDetails.title}
 							/>
-							<div className="detailContainer">
-								<FilmPoster
+							<div>
+								{/* <FilmPoster
 									poster_path={data.getFilmDetails.poster_path}
 									title={data.getFilmDetails.title}
-								/>
-								<div className="detailTitle">
-									{data.getFilmDetails.title} (
-									{data.getFilmDetails.release_date.split('-')[0]})
+								/> */}
+								<div className="detailContainer">
+									<h1>
+										{data.getFilmDetails.title} (
+										{data.getFilmDetails.release_date.split('-')[0]})
+									</h1>
 									<p>{data.getFilmDetails.overview}</p>
+									<div className="posterWithData">
+										<div className="left">
+											<FilmPoster
+												poster_path={data.getFilmDetails.poster_path}
+												title={data.getFilmDetails.title}
+											/>
+										</div>
+										<div className="right">
+											<FilmMetaData
+												revenue={data.getFilmDetails.revenue}
+												budget={data.getFilmDetails.budget}
+												runtime={data.getFilmDetails.runtime}
+												status={data.getFilmDetails.status}
+												tagline={data.getFilmDetails.tagline}
+												release_date={data.getFilmDetails.release_date}
+												similar={
+													data.getFilmDetails.similar.length
+														? data.getFilmDetails.similar[0].title
+														: 'No similar films found'
+												}
+												recommendation={
+													data.getFilmDetails.recommendation
+														? data.getFilmDetails.recommendation[0].title
+														: 'No current Recommendations'
+												}
+											/>
+										</div>
+									</div>
 								</div>
 
-								<div style={{ marginLeft: '10px' }}>
-									<FilmTrailer videos={data.getFilmDetails.videos} />
-									<FilmMetaData
-										revenue={data.getFilmDetails.revenue}
-										budget={data.getFilmDetails.budget}
-										runtime={data.getFilmDetails.runtime}
-										status={data.getFilmDetails.status}
-										tagline={data.getFilmDetails.tagline}
-										release_date={data.getFilmDetails.release_date}
-										similar={
-											data.getFilmDetails.similar.length
-												? data.getFilmDetails.similar[0].title
-												: 'No similar films found'
-										}
-										recommendation={
-											data.getFilmDetails.recommendation
-												? data.getFilmDetails.recommendation[0].title
-												: 'No current Recommendations'
-										}
-									/>
-								</div>
+								<FilmTrailer videos={data.getFilmDetails.videos} />
 								<FilmCast cast={data.getFilmDetails.cast} />
 								<FilmCrew crew={data.getFilmDetails.crew} />
-								{/* <FilmOverview overview={data.getFilmDetails.overview} /> */}
-								{/* Create new component for crew */}
-								{/* Look into more readable date format */}
 							</div>
 						</Container>
 					);

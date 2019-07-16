@@ -30,7 +30,7 @@ const FilmCast = props => {
 							}`}
 						/>
 						<div className="memberName">
-							{castMember.name} <p className="memberPop">as</p>{' '}
+							{castMember.name} <p className="memberPop">as</p>
 							{castMember.character}
 						</div>
 					</article>

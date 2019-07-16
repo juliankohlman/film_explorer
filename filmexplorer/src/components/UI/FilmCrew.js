@@ -22,9 +22,9 @@ const FilmCrew = props => {
 						key={crewMember.credit_id}
 					>
 						<img
+							className="memberImage"
 							alt="thumbnail"
 							src={crewMember.profile_path}
-							className="memberImage"
 						/>
 						<div className="memberName">
 							{crewMember.name} <p className="memberPop">⏤</p> {crewMember.job}
