@@ -1,10 +1,13 @@
+.castCrew {
+	display: flex;
+	flex-flow: row;
+	width: 50%;
+	align-self: center;
+}
 .sliderContainer {
-	width: 100%;
-	height: auto;
-	padding: 5px;
-	justify-content: space-evenly;
+	width: 50%;
 	margin: auto;
-	// font-size: $mb;
+	padding: 0.25rem;
 	.control-dots,
 	.thumbs,
 	.animated {
@@ -16,12 +19,11 @@
 	}
 
 	.memberName {
-		// margin: 2rem;
 		font-family: $montserrat;
 		font-size: $sm;
 
 		p.memberPop {
-			// margin: 1rem;
+			margin: auto;
 			font-family: $expletus;
 			color: $coolRed;
 		}

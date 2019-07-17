@@ -6,7 +6,6 @@ const FilmCast = props => {
 	const cast = props.cast;
 	return (
 		<div className="sliderContainer">
-			<p>{console.log(cast)}</p>
 			<h1>Cast</h1>
 			{/* todo href will become links to cast/crew profile page */}
 			<Carousel
@@ -25,9 +24,7 @@ const FilmCast = props => {
 							//Todo build string on server-side like crewMember
 							className="memberImage"
 							alt="thumbnail"
-							src={`https://image.tmdb.org/t/p/original${
-								castMember.profile_path
-							}`}
+							src={castMember.profile_path}
 						/>
 						<div className="memberName">
 							{castMember.name} <p className="memberPop">as</p>

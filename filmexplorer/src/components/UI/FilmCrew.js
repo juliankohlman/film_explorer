@@ -6,7 +6,6 @@ const FilmCrew = props => {
 	const crew = Array.from(new Set(props.crew));
 	return (
 		<div className="sliderContainer">
-			<p>{console.log(crew)}</p>
 			<h1>Crew</h1>
 			<Carousel
 				showThumbs={true}

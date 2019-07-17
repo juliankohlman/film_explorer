@@ -29,8 +29,22 @@ export const filmDetails = async (_, { filmID }) => {
 		];
 
 		//TODO: handle null cases for profile path of cast and crew members
-		film.cast = film.credits.cast.filter(member => member.order <= 20);
-
+		film.cast = film.credits.cast
+			.filter(member => member.order <= 20)
+			.map(castMember =>
+				castMember.profile_path === null
+					? Object.assign(
+							castMember,
+							(castMember.profile_path =
+								'https://via.placeholder.com/300x450.png?text=cast+Member+Image+Not+Available')
+					  )
+					: Object.assign(
+							castMember,
+							(castMember.profile_path = `https://image.tmdb.org/t/p/original${
+								castMember.profile_path
+							}`)
+					  )
+			);
 		//Todo replace with random thumbnail images
 		film.crew = film.credits.crew
 			.filter(

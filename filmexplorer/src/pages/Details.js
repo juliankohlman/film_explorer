@@ -96,10 +96,12 @@ class Details extends Component {
 									<div className="trailerContainer">
 										<FilmTrailer videos={data.getFilmDetails.videos} />
 									</div>
-								</div>
+									<div className="castCrew">
+										<FilmCast cast={data.getFilmDetails.cast} />
 
-								<FilmCast cast={data.getFilmDetails.cast} />
-								<FilmCrew crew={data.getFilmDetails.crew} />
+										<FilmCrew crew={data.getFilmDetails.crew} />
+									</div>
+								</div>
 							</div>
 						</Container>
 					);
