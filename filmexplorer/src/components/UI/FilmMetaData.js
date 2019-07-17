@@ -33,7 +33,7 @@ const FilmMetaData = props => {
 				<label className="metaLabel">Similar:</label> {similar || 'Not found'}
 			</li>
 			<li>
-				<label className="metaLabel">Recommendations:</label>
+				<label className="metaLabel">Recommendations:</label>{' '}
 				{recommendations || 'Not found'}
 			</li>
 		</ul>
