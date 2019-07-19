@@ -7,10 +7,11 @@
 
 	// align-self: center;
 	@include respond-to(mobile) {
-		flex-flow: row;
-		width: 80%;
+		flex-flow: column;
+		// width: 80%;
+		width: 100%;
 		// justify-self: space-evenly;
-		// align-self: center;
+		align-items: center;
 	}
 
 	@include respond-to(tablet) {

@@ -2,9 +2,10 @@
 	font-family: $lato;
 	color: $offWhite;
 	list-style-type: none;
-	text-align: justify;
+	// text-align: justify;
 	padding: 0;
 	width: 100%;
+
 	.metaLabel {
 		color: $coolRed;
 		font-weight: 800;
@@ -23,7 +24,7 @@
 	}
 
 	@include respond-to(desktop) {
-		font-size: $sm;
+		font-size: $mb;
 		line-height: 3rem;
 		margin-left: 2rem;
 	}
