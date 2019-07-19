@@ -19,7 +19,8 @@ const FilmList = props => {
 						//! Todo move this into class in filmList.scss
 						style={{
 							background: `url(${film.poster_path}) no-repeat center center`,
-							backgroundSize: 'cover',
+							backgroundSize: 'contain',
+							// objectFit: 'contain',
 							zIndex: '0',
 							margin: '1.15rem'
 						}}

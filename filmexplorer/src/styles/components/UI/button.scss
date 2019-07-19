@@ -1,0 +1,22 @@
+.backToGenre {
+	align-self: center;
+	height: 35px;
+	font-size: 10px;
+	background: $coolRed;
+	color: $offWhite;
+	font-family: $lato;
+	border-radius: 0.65rem;
+	margin: 0;
+
+	@include respond-to(mobile) {
+	}
+
+	@include respond-to(tablet) {
+	}
+
+	@include respond-to(desktop) {
+	}
+
+	@include respond-to(wide) {
+	}
+}

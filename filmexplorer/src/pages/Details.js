@@ -39,19 +39,20 @@ class Details extends Component {
 								{/* Conditional render here: if user got here via a search on landing button should say back to genre(S)/ if user got here via a genre selection go back to genre */}
 								<button
 									onClick={this.props.history.goBack}
-									style={{
-										// padding: '2px',
-										alignSelf: 'center',
-										height: '35px',
-										fontSize: '10px',
-										// width: '9%',
-										background: 'red',
-										color: 'white',
-										fontFamily: 'lato',
-										borderRadius: '.65rem',
-										margin: '0'
-										// lineHeight: '3px'
-									}}
+									// style={{
+									// 	// padding: '2px',
+									// 	alignSelf: 'center',
+									// 	height: '35px',
+									// 	fontSize: '10px',
+									// 	// width: '9%',
+									// 	background: 'red',
+									// 	color: 'white',
+									// 	fontFamily: 'lato',
+									// 	borderRadius: '.65rem',
+									// 	margin: '0'
+									// 	// lineHeight: '3px'
+									// }}
+									className="backToGenre"
 								>
 									BACK TO GENRE
 								</button>
