@@ -89,7 +89,9 @@ class Details extends Component {
 												release_date={data.getFilmDetails.release_date}
 												similar={data.getFilmDetails.similar[0].title}
 												recommendations={
-													data.getFilmDetails.recommendations[0].title
+													data.getFilmDetails.recommendations.length
+														? data.getFilmDetails.recommendations[0].title
+														: 'No recommendations found.'
 												}
 											/>
 										</div>
