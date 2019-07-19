@@ -1,13 +1,40 @@
 .castCrew {
 	display: flex;
 	flex-flow: row;
-	width: 50%;
-	align-self: center;
+	// width: 50%;
+	// max-width: 1100px;
+	margin: auto;
+
+	// align-self: center;
+	@include respond-to(mobile) {
+		flex-flow: row;
+		width: 80%;
+		// justify-self: space-evenly;
+		// align-self: center;
+	}
+
+	@include respond-to(tablet) {
+		flex-flow: row;
+		width: 75%;
+		// align-self: center;
+	}
+
+	@include respond-to(desktop) {
+		flex-flow: row;
+		width: 50%;
+		// align-self: center;
+	}
+
+	@include respond-to(wide) {
+		flex-flow: row;
+		width: 50%;
+		// align-self: center;
+	}
 }
 .sliderContainer {
 	width: 50%;
-	margin: auto;
-	padding: 0.25rem;
+
+	padding: 1rem;
 	.control-dots,
 	.thumbs,
 	.animated {
@@ -24,6 +51,7 @@
 
 		p.memberPop {
 			margin: auto;
+			padding: 0;
 			font-family: $expletus;
 			color: $coolRed;
 		}
@@ -38,21 +66,21 @@
 
 	@include respond-to(tablet) {
 		.memberName {
-			font-size: $sm;
+			font-size: $mb;
 			margin: 1rem;
 		}
 	}
 
 	@include respond-to(desktop) {
 		.memberName {
-			font-size: $sm;
+			font-size: $mb;
 			margin: 1.5rem;
 		}
 	}
 
 	@include respond-to(wide) {
 		.memberName {
-			font-size: $sm;
+			font-size: $mb;
 			margin: 2rem;
 		}
 	}

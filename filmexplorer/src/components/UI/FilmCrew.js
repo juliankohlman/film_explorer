@@ -16,6 +16,7 @@ const FilmCrew = props => {
 				{crew.map(crewMember => (
 					//TODO href will become links to cast/crew profile pages
 					<article
+						// className="sliderContainer"
 						className="dt w-100 bb b--black-05 pb2 mt2"
 						href="#0"
 						key={crewMember.credit_id}

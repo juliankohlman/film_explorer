@@ -17,7 +17,7 @@ const FilmTrailer = props => {
 					/>
 				);
 			})
-			.slice(0, 4) || []
+			.slice(0, 2) || []
 	);
 };
 
