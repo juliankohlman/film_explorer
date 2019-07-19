@@ -7,6 +7,15 @@ $breakpoints: (
 	mobile: (
 		min-width: 320px
 	),
+	mobileLandscape: (
+		(
+				min-width: 568px
+			)
+			and
+			(
+				max-width: 812px
+			)
+	),
 	tablet: (
 		min-width: 740px
 	),

@@ -58,6 +58,10 @@
 		}
 	}
 
+	@include respond-to(mobileLandscape) {
+		background: green;
+	}
+
 	@include respond-to(mobile) {
 		font-size: $mb;
 		flex-direction: column;
@@ -69,19 +73,32 @@
 				width: 45px;
 			}
 		}
+		// .logoDisplay {
+		// 	width: 2rem;
+		// 	height: 2rem;
+		// }
 	}
 
 	@include respond-to(tablet) {
 		font-size: $sm;
+		// flex-direction: row;
 		flex-direction: column;
 		.searchForm {
 			width: $formWidth - 35px;
 		}
+		// .logoDisplay {
+		// 	width: 3rem;
+		// 	height: 3rem;
+		// }
 	}
 
 	@include respond-to(desktop) {
 		font-size: $smid;
 		flex-direction: row;
+		// .logoDisplay {
+		// 	width: 4rem;
+		// 	height: 4rem;
+		// }
 	}
 
 	@include respond-to(wide) {
@@ -90,5 +107,9 @@
 		.headerWelcome {
 			font-size: $xl;
 		}
+		// .logoDisplay {
+		// 	width: 5rem;
+		// 	height: 5rem;
+		// }
 	}
 }
