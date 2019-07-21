@@ -16,8 +16,8 @@
 		align-self: center;
 
 		.logoDisplay {
-			width: 5rem;
-			height: 5rem;
+			// width: 5rem;
+			// height: 5rem;
 		}
 	}
 
@@ -69,26 +69,47 @@
 	@include respond-to(mobile) {
 		font-size: $mb;
 		flex-direction: column;
+		.logoDisplay {
+			width: 2rem;
+			height: 2rem;
+		}
 	}
 
 	//* Testing out landscape styling *//
 	@include respond-to(mobileLandscape) {
 		// background: green;
-		// flex-direction: row;
+		flex-direction: row;
+		.logoDisplay {
+			width: 2rem;
+			height: 2rem;
+		}
 	}
 
 	@include respond-to(tablet) {
 		font-size: $sm;
-		flex-direction: column;
+		// flex-direction: column;
+		flex-direction: row;
+		.logoDisplay {
+			width: 5rem;
+			height: 5rem;
+		}
 	}
 
 	@include respond-to(desktop) {
 		font-size: $smid;
 		flex-direction: row;
+		.logoDisplay {
+			width: 5rem;
+			height: 5rem;
+		}
 	}
 
 	@include respond-to(wide) {
 		font-size: $smid;
 		flex-direction: row;
+		.logoDisplay {
+			width: 5rem;
+			height: 5rem;
+		}
 	}
 }

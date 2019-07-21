@@ -21,16 +21,25 @@
 		}
 	}
 
+	//! TODO Don't be afraid to reduce poster sizes on mobile to fit underneath search options
 	@include respond-to(mobile) {
-		margin-top: 500px;
+		// .grow {
+		// 	padding: 25%;
+		// }
+		margin-top: 270px;
 	}
 
 	@include respond-to(tablet) {
-		margin-top: 500px;
+		// margin-top: 500px;
+		margin-top: 280px;
 	}
 
 	@include respond-to(desktop) {
-		margin-top: 300px;
+		margin-top: 280px;
+
+		.grow {
+			padding-bottom: 90%;
+		}
 	}
 
 	@include respond-to(wide) {

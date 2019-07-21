@@ -87,11 +87,15 @@ class Details extends Component {
 												status={data.getFilmDetails.status}
 												tagline={data.getFilmDetails.tagline}
 												release_date={data.getFilmDetails.release_date}
-												similar={data.getFilmDetails.similar[0].title}
+												similar={
+													data.getFilmDetails.similar[0] === undefined
+														? 'N/A'
+														: data.getFilmDetails.similar[0].title
+												}
 												recommendations={
 													data.getFilmDetails.recommendations.length
 														? data.getFilmDetails.recommendations[0].title
-														: 'No recommendations found.'
+														: 'N/A'
 												}
 											/>
 										</div>

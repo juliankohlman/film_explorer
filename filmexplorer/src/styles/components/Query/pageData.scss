@@ -42,11 +42,15 @@
 	}
 
 	@include respond-to(mobile) {
-		font-size: $mb - 0.75;
-		flex-direction: column;
+		// font-size: $mb - 0.75;
+		font-size: 1px;
+		// flex-direction: column;
+		flex-direction: row;
+		flex-wrap: wrap;
 		justify-content: center;
 		align-items: center;
-		margin-top: 159px;
+		// margin-top: 159px;
+		margin-top: 80px;
 		.chevron {
 			font-size: $smid;
 			float: left;
@@ -72,7 +76,8 @@
 		justify-content: space-evenly;
 		// justify-content: center;
 		align-items: center;
-		margin-top: 175px;
+		// margin-top: 175px;
+		margin-top: 140px;
 		.chevron {
 			font-size: $mid;
 			margin-top: 0;
