@@ -60,6 +60,12 @@
 		}
 	}
 
+	//Todo accounting for landscape view
+	@include respond-to(mobileLandscape) {
+		// background: green;
+		// flex-direction: row;
+	}
+
 	@include respond-to(tablet) {
 		font-size: $mb - 0.55;
 		flex-direction: row;

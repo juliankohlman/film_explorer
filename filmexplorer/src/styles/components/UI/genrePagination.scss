@@ -76,6 +76,12 @@
 		}
 	}
 
+	//* Testing out landscape styling *//
+	@include respond-to(mobileLandscape) {
+		// background: green;
+		// flex-direction: row;
+	}
+
 	@include respond-to(tablet) {
 		font-size: $mb;
 		flex-direction: column;

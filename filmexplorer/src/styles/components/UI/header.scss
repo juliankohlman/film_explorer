@@ -58,10 +58,6 @@
 		}
 	}
 
-	@include respond-to(mobileLandscape) {
-		background: green;
-	}
-
 	@include respond-to(mobile) {
 		font-size: $mb;
 		flex-direction: column;
@@ -73,10 +69,17 @@
 				width: 45px;
 			}
 		}
-		// .logoDisplay {
-		// 	width: 2rem;
-		// 	height: 2rem;
-		// }
+		// Todo remove logo on mobile/landscape views
+		.logoDisplay {
+			// width: 0rem;
+			// height: 0rem;
+		}
+	}
+
+	//* Testing out landscape styling *//
+	@include respond-to(mobileLandscape) {
+		// background: green;
+		// flex-direction: row;
 	}
 
 	@include respond-to(tablet) {

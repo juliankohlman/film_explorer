@@ -13,7 +13,7 @@
 
 	@include respond-to(mobile) {
 		margin: 6px auto;
-		font-size: $mb;
+		font-size: $mb - 0.2rem;
 	}
 
 	@include respond-to(tablet) {
