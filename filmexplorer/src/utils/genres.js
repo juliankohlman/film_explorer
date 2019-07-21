@@ -24,7 +24,7 @@ const genres = [
 const genreIDs = {
 	nowplaying: {
 		id: 1,
-		label: 'Films currently in Theaters...'
+		label: 'Films in Theaters...'
 	},
 	action: {
 		id: 28,

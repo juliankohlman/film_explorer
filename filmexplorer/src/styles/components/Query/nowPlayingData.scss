@@ -42,11 +42,15 @@
 	}
 
 	@include respond-to(mobile) {
-		font-size: $mb - 0.75;
+		// font-size: $mb - 0.75;
+		font-size: 1px;
 		flex-direction: column;
-		justify-content: center;
+		// flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
 		align-items: center;
-		margin-top: 159px;
+		margin-top: 80px;
+		// padding: $sm;
 		.chevron {
 			font-size: $smid;
 			float: left;
@@ -56,8 +60,14 @@
 			font-family: $lato;
 			font-weight: 700;
 			// padding: $mb;
-			margin: 4px;
+			margin: $mb;
 		}
+	}
+
+	@include respond-to(mobileLandscape) {
+		background: green;
+		margin-top: 80px;
+		flex-direction: row;
 	}
 
 	@include respond-to(tablet) {
@@ -66,7 +76,7 @@
 		justify-content: space-evenly;
 		// justify-content: center;
 		align-items: center;
-		margin-top: 175px;
+		margin-top: 135px;
 		.chevron {
 			font-size: $mid;
 			margin-top: 0;

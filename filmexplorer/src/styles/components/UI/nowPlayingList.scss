@@ -21,11 +21,20 @@
 	}
 
 	@include respond-to(mobile) {
-		margin-top: 285px;
+		// margin-top: 285px;
+		margin-top: 190px;
+	}
+
+	@include respond-to(mobileLandscape) {
+		margin-top: 110px;
+		.grow {
+			padding-bottom: 60%;
+		}
 	}
 
 	@include respond-to(tablet) {
-		margin-top: 230px;
+		// margin-top: 230px;
+		margin-top: 190px;
 	}
 
 	@include respond-to(desktop) {
