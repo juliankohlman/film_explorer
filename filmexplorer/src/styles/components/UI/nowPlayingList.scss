@@ -35,13 +35,22 @@
 	@include respond-to(tablet) {
 		// margin-top: 230px;
 		margin-top: 190px;
+		// .grow {
+		// 	padding-bottom: 40%;
+		// }
 	}
 
 	@include respond-to(desktop) {
 		margin-top: 225px;
+		.grow {
+			padding-bottom: 110%;
+		}
 	}
 
 	@include respond-to(wide) {
 		margin-top: 225px;
+		.grow {
+			padding-bottom: 110%;
+		}
 	}
 }

@@ -13,10 +13,10 @@
 	.logoLink {
 		align-self: center;
 
-		.logoDisplay {
-			width: 5rem;
-			height: 5rem;
-		}
+		// .logoDisplay {
+		// 	width: 5rem;
+		// 	height: 5rem;
+		// }
 	}
 
 	.headerWelcome {
@@ -37,7 +37,7 @@
 		border-bottom-left-radius: 80rem;
 		border: medium solid $offWhite;
 		border-right: none;
-		padding: 8px 8px 7px;
+		// padding: 8px 8px 7px;
 		font-family: $lato;
 		outline: none;
 		width: 80%;
@@ -50,7 +50,7 @@
 		border-bottom-right-radius: 80rem;
 		border: medium solid $offWhite;
 		border-left: none;
-		padding: 9px 2px 6.73px;
+		// padding: 9px 2px 6.73px;
 		cursor: pointer;
 
 		&:hover {
@@ -60,48 +60,81 @@
 
 	@include respond-to(mobile) {
 		font-size: $mb;
-		flex-direction: column;
+		// flex-direction: column;
+		flex-direction: row;
+
+		.logoDisplay {
+			width: 2rem;
+			height: 2rem;
+		}
 
 		.searchForm {
-			font-size: $sm;
+			font-size: $mb;
 			width: $formWidth - 105px;
+
+			.searchInput {
+				// padding: 3px;
+				padding: 3.5px;
+			}
 			.searchButton {
 				width: 45px;
+				// padding: 2.75px;
+				padding: 3px;
 			}
-		}
-		// Todo remove logo on mobile/landscape views
-		.logoDisplay {
-			// width: 0rem;
-			// height: 0rem;
 		}
 	}
 
 	//* Testing out landscape styling *//
 	@include respond-to(mobileLandscape) {
-		// background: green;
-		// flex-direction: row;
+		background: green;
+		flex-direction: row;
+		padding: $mb;
+		.logoDisplay {
+			width: 2rem;
+			height: 2rem;
+		}
+		.searchForm {
+			font-size: $mb;
+			width: $formWidth - 105px;
+			padding: 4.5px;
+			.searchInput {
+				padding: 3px;
+			}
+			.searchButton {
+				width: 45px;
+				padding: 2.75px;
+			}
+		}
 	}
 
 	@include respond-to(tablet) {
 		font-size: $sm;
-		// flex-direction: row;
-		flex-direction: column;
+		flex-direction: row;
+		// flex-direction: column;
 		.searchForm {
 			width: $formWidth - 35px;
+			// padding: 4.5px;
+			.searchInput {
+				padding: 3.5px;
+			}
+			.searchButton {
+				// width: 45px;
+				padding: 3.25px;
+			}
 		}
-		// .logoDisplay {
-		// 	width: 3rem;
-		// 	height: 3rem;
-		// }
+		.logoDisplay {
+			width: 5rem;
+			height: 5rem;
+		}
 	}
 
 	@include respond-to(desktop) {
 		font-size: $smid;
 		flex-direction: row;
-		// .logoDisplay {
-		// 	width: 4rem;
-		// 	height: 4rem;
-		// }
+		.logoDisplay {
+			width: 5rem;
+			height: 5rem;
+		}
 	}
 
 	@include respond-to(wide) {
@@ -110,9 +143,9 @@
 		.headerWelcome {
 			font-size: $xl;
 		}
-		// .logoDisplay {
-		// 	width: 5rem;
-		// 	height: 5rem;
-		// }
+		.logoDisplay {
+			width: 5rem;
+			height: 5rem;
+		}
 	}
 }

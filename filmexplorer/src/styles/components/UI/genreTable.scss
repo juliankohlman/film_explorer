@@ -13,12 +13,19 @@
 	/* ------------------- */
 
 	@include respond-to(mobile) {
-		margin-top: 235px;
+		// margin-top: 235px;
+		margin-top: 140px;
 		padding-top: 25px;
 	}
 
+	@include respond-to(mobileLandscape) {
+		margin-top: 95px;
+	}
+
 	@include respond-to(tablet) {
-		margin-top: 238px;
+		// margin-top: 238px;
+		// margin-top: 195px;
+		margin-top: 120px;
 		padding-top: 25px;
 	}
 
