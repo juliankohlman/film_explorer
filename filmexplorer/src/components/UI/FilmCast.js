@@ -13,10 +13,10 @@ const FilmCast = props => {
 				showArrows={true}
 				axis={'horizontal'}
 				showIndicators={false}
+				thumbWidth={10}
 			>
 				{cast.map(castMember => (
 					<article
-						// className="sliderContainer"
 						className="dt w-100 bb b--black-05 pb2 mt2"
 						href="#0"
 						key={castMember.id}

@@ -12,6 +12,7 @@ const FilmCrew = props => {
 				showArrows={true}
 				axis={'horizontal'}
 				showIndicators={false}
+				thumbWidth={10}
 			>
 				{crew.map(crewMember => (
 					//TODO href will become links to cast/crew profile pages
