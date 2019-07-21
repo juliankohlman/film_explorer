@@ -4,22 +4,14 @@
 @import './fonts';
 // Breakpoints
 $breakpoints: (
-	mobile: (
-		min-width: 320px
-	),
 	mobileLandscape: (
-		(
-				// min-width: 568px
-					min-width: 0px
-			)
-			and
-			(
-				max-width: 812px
-			)
-			and
+		only screen and
 			(
 				orientation: landscape
 			)
+	),
+	mobile: (
+		min-width: 320px
 	),
 	tablet: (
 		min-width: 740px

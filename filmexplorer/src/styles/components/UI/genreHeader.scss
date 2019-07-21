@@ -68,7 +68,8 @@
 
 	@include respond-to(mobile) {
 		font-size: $mb;
-		flex-direction: column;
+		// flex-direction: column;
+		flex-direction: row;
 		.logoDisplay {
 			width: 2rem;
 			height: 2rem;
