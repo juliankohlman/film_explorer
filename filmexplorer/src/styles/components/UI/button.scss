@@ -1,7 +1,6 @@
 .backToGenre {
 	align-self: center;
-	height: 35px;
-	font-size: 10px;
+
 	background: $coolRed;
 	color: $offWhite;
 	font-family: $lato;
@@ -9,14 +8,27 @@
 	margin: 0;
 
 	@include respond-to(mobile) {
+		height: 17px;
+		font-size: 2px;
+	}
+
+	@include respond-to(mobileLandscape) {
+		height: 20px;
+		font-size: 10px;
 	}
 
 	@include respond-to(tablet) {
+		height: 25px;
+		font-size: 16px;
 	}
 
 	@include respond-to(desktop) {
+		height: 30px;
+		font-size: 18px;
 	}
 
 	@include respond-to(wide) {
+		height: 35px;
+		font-size: 20px;
 	}
 }

@@ -91,7 +91,7 @@
 
 	//* Testing out landscape styling *//
 	@include respond-to(mobileLandscape) {
-		background: green;
+		// background: green;
 		margin-top: 132px;
 	}
 

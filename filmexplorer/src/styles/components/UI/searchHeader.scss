@@ -1,4 +1,4 @@
-.header {
+.searchHeader {
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -60,8 +60,8 @@
 
 	@include respond-to(mobile) {
 		font-size: $mb;
-		// flex-direction: column;
-		flex-direction: row;
+		flex-direction: column;
+		// flex-direction: row;
 
 		.logoDisplay {
 			width: 2rem;

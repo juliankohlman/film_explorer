@@ -42,7 +42,7 @@ export default class Landing extends Component {
 		// console.log(this.state.useSearch);
 		return (
 			<Container>
-				<Header style={`header`}>
+				<Header style={`searchHeader`}>
 					<header className="headerWelcome">
 						Welcome to the Film Explorer
 					</header>

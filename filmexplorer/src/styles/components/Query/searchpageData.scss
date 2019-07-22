@@ -14,7 +14,7 @@
 	color: $offWhite;
 	align-items: center;
 	justify-content: space-around;
-	border-top: medium solid $coolRed;
+	// border-top: medium solid $coolRed;
 	border-bottom: solid $coolRed;
 	.searchPaginationText {
 		font-family: $lato;
@@ -45,7 +45,9 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		margin-top: 233px;
+		vertical-align: middle;
+		// margin-top: 140px;
+		margin-top: 175px;
 		.searchChevron {
 			font-size: $smid;
 			margin-top: 0;
@@ -56,6 +58,11 @@
 			// padding: $mb;
 			margin: 4px;
 		}
+	}
+
+	@include respond-to(mobileLandscape) {
+		// background: green;
+		margin-top: 132px;
 	}
 
 	@include respond-to(tablet) {

@@ -66,6 +66,9 @@
 		}
 	}
 
+	@include respond-to(mobileLandscape) {
+	}
+
 	@include respond-to(tablet) {
 		.memberName {
 			font-size: $mb;
