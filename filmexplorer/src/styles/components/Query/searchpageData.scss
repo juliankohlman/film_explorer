@@ -62,7 +62,8 @@
 
 	@include respond-to(mobileLandscape) {
 		// background: green;
-		margin-top: 132px;
+		// margin-top: 132px;
+		margin-top: 89px;
 	}
 
 	@include respond-to(tablet) {
@@ -70,7 +71,8 @@
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
-		margin-top: 237px;
+		// margin-top: 237px;
+		margin-top: 129px;
 		.searchChevron {
 			font-size: $mid;
 			margin-top: 0;
