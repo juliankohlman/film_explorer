@@ -65,7 +65,7 @@
 	}
 
 	@include respond-to(mobileLandscape) {
-		background: green;
+		// background: green;
 		margin-top: 80px;
 		flex-direction: row;
 	}
