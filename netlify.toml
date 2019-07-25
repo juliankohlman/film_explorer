@@ -1,7 +1,7 @@
 [build]
   command = "yarn build"
-  functions = "built-lambda"
-  publish = "build"
+  functions = "./filmexplorer/built-lambda"
+  publish = "./filmexplorer/build"
 [[redirects]]
   from = "/*"
   to = "/index.html"
