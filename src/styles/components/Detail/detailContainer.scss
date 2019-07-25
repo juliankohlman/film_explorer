@@ -1,0 +1,135 @@
+.detailContainer {
+	display: flex;
+	flex-flow: column;
+	color: $offWhite;
+	font-family: $lato;
+	width: 100%;
+
+	.posterWithData {
+		// align-items: center;
+		// align-self: left;
+		margin: auto;
+
+		.left,
+		.right {
+			flex: 1;
+		}
+	}
+	h1 {
+		color: $coolRed;
+		margin: 0;
+		padding-top: 1rem;
+		font-family: $montserrat;
+		width: 100%;
+		text-align: center;
+		// padding: 1rem;
+	}
+	p {
+		font-family: $lato;
+		font-weight: 500;
+		// text-align: center;
+		// align-self: center;
+		// margin: auto;
+		padding: 1rem;
+	}
+
+	@include respond-to(mobile) {
+		.posterWithData {
+			align-items: center;
+			align-self: center;
+			// display: flex;
+			.left,
+			.right {
+				flex: 1;
+			}
+		}
+		.left {
+			width: 15rem;
+			height: 21rem;
+		}
+		h1 {
+			font-size: $smid;
+		}
+		p {
+			font-size: $mb;
+			width: 100%;
+			// align-self: center;
+			// margin: auto;
+		}
+	}
+
+	@include respond-to(tablet) {
+		.posterWithData {
+			align-items: center;
+			align-self: stretch;
+			display: flex;
+			padding: 1rem;
+			// width: 65%;
+
+			.left,
+			.right {
+				flex: 1;
+			}
+		}
+		.left {
+			width: 14rem;
+			height: 21rem;
+		}
+		h1 {
+			font-size: $mid;
+		}
+		p {
+			margin: auto;
+			font-size: $sm;
+			width: 78%;
+		}
+	}
+
+	@include respond-to(desktop) {
+		.posterWithData {
+			// align-items: center;
+			// align-self: stretch;
+			// display: flex;
+			width: 65%;
+			.left,
+			.right {
+				flex: 1;
+			}
+		}
+		.left {
+			width: 16rem;
+			height: 24rem;
+		}
+		h1 {
+			font-size: $lg;
+		}
+		p {
+			font-size: $smid - 0.2rem;
+			width: 65%;
+		}
+	}
+
+	@include respond-to(wide) {
+		.posterWithData {
+			// align-items: center;
+			// align-self: stretch;
+			// display: flex;
+			width: 60%;
+			.left,
+			.right {
+				flex: 1;
+			}
+		}
+		.left {
+			width: 20rem;
+			height: 30rem;
+		}
+		h1 {
+			font-size: $xl;
+		}
+		p {
+			font-size: $mid - 0.15rem;
+			width: 60%;
+		}
+	}
+}

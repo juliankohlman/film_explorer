@@ -1,0 +1,56 @@
+.nowPlayingContainer {
+	// margin-top: 60px;
+	padding: $mid;
+	.grow {
+		-moz-osx-font-smoothing: grayscale;
+		backface-visibility: hidden;
+		z-index: 0;
+		transform: translateZ();
+		transition: transform 0.25s ease-out;
+		// * Tweak this value to adjust poster size 150% is the default
+		padding-bottom: 110%;
+		// padding-bottom: 125%;
+		&:hover,
+		&:focus {
+			transform: scale(1.05);
+		}
+
+		&:active {
+			transform: scale(0.9);
+		}
+	}
+
+	@include respond-to(mobile) {
+		// margin-top: 285px;
+		margin-top: 190px;
+	}
+
+	@include respond-to(mobileLandscape) {
+		margin-top: 110px;
+		.grow {
+			padding-bottom: 60%;
+		}
+	}
+
+	@include respond-to(tablet) {
+		// margin-top: 230px;
+		margin-top: 190px;
+		// .grow {
+		// 	padding-bottom: 40%;
+		// }
+	}
+
+	@include respond-to(desktop) {
+		margin-top: 225px;
+		.grow {
+			padding-bottom: 110%;
+		}
+	}
+
+	@include respond-to(wide) {
+		margin-top: 225px;
+		.grow {
+			padding-bottom: 110%;
+		}
+	}
+}

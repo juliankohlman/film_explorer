@@ -1,0 +1,92 @@
+.castCrew {
+	display: flex;
+	flex-flow: row;
+	// width: 50%;
+	// max-width: 1100px;
+	margin: auto;
+
+	// align-self: center;
+	@include respond-to(mobile) {
+		flex-flow: column;
+		// width: 80%;
+		width: 100%;
+		// justify-self: space-evenly;
+		align-items: center;
+	}
+
+	@include respond-to(tablet) {
+		flex-flow: row;
+		width: 75%;
+		// align-self: center;
+	}
+
+	@include respond-to(desktop) {
+		flex-flow: row;
+		width: 50%;
+		// align-self: center;
+	}
+
+	@include respond-to(wide) {
+		flex-flow: row;
+		width: 50%;
+		// align-self: center;
+	}
+}
+.sliderContainer {
+	width: 50%;
+
+	padding: 1rem;
+	.control-dots,
+	.thumbs,
+	.animated {
+		padding: 0;
+	}
+
+	li.thumb.selected {
+		border: 3px solid $coolRed;
+	}
+
+	.memberName {
+		font-family: $montserrat;
+		font-size: $sm;
+		font-weight: 800;
+
+		p.memberPop {
+			margin: auto;
+			padding: 0;
+			font-family: $expletus;
+			color: $coolRed;
+		}
+	}
+
+	@include respond-to(mobile) {
+		.memberName {
+			font-size: $mb - 0.2rem;
+			margin: 0.5rem;
+		}
+	}
+
+	@include respond-to(mobileLandscape) {
+	}
+
+	@include respond-to(tablet) {
+		.memberName {
+			font-size: $mb;
+			margin: 1rem;
+		}
+	}
+
+	@include respond-to(desktop) {
+		.memberName {
+			font-size: $mb;
+			margin: 1.5rem;
+		}
+	}
+
+	@include respond-to(wide) {
+		.memberName {
+			font-size: $mb;
+			margin: 2rem;
+		}
+	}
+}

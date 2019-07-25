@@ -1,0 +1,61 @@
+.searchContainer {
+	// margin-top: 60px;
+	padding: $mid;
+
+	.grow {
+		-moz-osx-font-smoothing: grayscale;
+		backface-visibility: hidden;
+		z-index: 0;
+		transform: translateZ();
+		transition: transform 0.25s ease-out;
+		// * Tweak this value to adjust poster size 150% is the default
+		// padding-bottom: 110%;
+		// padding-bottom: 125%;
+		&:hover,
+		&:focus {
+			transform: scale(1.05);
+		}
+
+		&:active {
+			transform: scale(0.9);
+		}
+	}
+
+	@include respond-to(mobile) {
+		margin-top: 250px;
+		.grow {
+			padding-bottom: 100%;
+		}
+	}
+
+	@include respond-to(mobileLandscape) {
+		// background: green;
+		// margin-top: 120px;
+		margin-top: 175px;
+		.grow {
+			padding-bottom: 45%;
+		}
+	}
+
+	@include respond-to(tablet) {
+		// margin-top: 280px;
+		margin-top: 155px;
+		.grow {
+			padding-bottom: 50%;
+		}
+	}
+
+	@include respond-to(desktop) {
+		margin-top: 215px;
+		.grow {
+			padding-bottom: 100%;
+		}
+	}
+
+	@include respond-to(wide) {
+		margin-top: 215px;
+		.grow {
+			padding-bottom: 100%;
+		}
+	}
+}

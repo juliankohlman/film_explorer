@@ -1,0 +1,27 @@
+// Query component style imports
+@import './Query/pageData.scss';
+@import './Query/searchpageData.scss';
+@import './Query/nowPlayingData.scss';
+// Detail page/component style imports
+@import './Detail/backdrop.scss';
+@import './Detail/detailContainer.scss';
+@import './Detail/castCrew.scss';
+@import './Detail/filmMetaData.scss';
+@import './Detail/trailerContainer.scss';
+
+// UI component style imports
+@import './UI/button.scss';
+@import './UI/genreCard.scss';
+@import './UI/genreTable.scss';
+@import './UI/header.scss';
+@import './UI/callToAction.scss';
+@import './UI/genreHeader.scss';
+@import './UI/genreExplore.scss';
+@import './UI/genrePagination.scss';
+@import './UI/filmListData.scss';
+@import './UI/filmList.scss';
+@import './UI/filmPageControls.scss';
+@import './UI/searchPageControls.scss';
+@import './UI/nowPlayingList.scss';
+@import './UI/searchContainer.scss';
+@import './UI/searchHeader.scss';

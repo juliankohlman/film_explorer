@@ -1,0 +1,154 @@
+.explorerForm {
+	display: flex;
+	flex-wrap: row;
+	justify-content: space-evenly;
+	position: fixed;
+	top: 0;
+	// margin-top: 438px;
+	width: 100%;
+	z-index: 999;
+	background: $darkGray;
+	// padding: 25px 20px;
+	border-top: medium solid $coolRed;
+	border-bottom: medium solid $coolRed;
+
+	.searchInput {
+		// border-top-left-radius: 80rem;
+		// border-bottom-left-radius: 80rem;
+		// border-top-right-radius: 80rem;
+		// border-bottom-right-radius: 80rem;
+		border: thin solid $offWhite;
+		padding: 6px;
+		margin-left: 5px;
+		font-family: $lato;
+		outline: none;
+		background: $darkGray;
+		color: #fff;
+		font-size: $mb;
+		width: 165px;
+	}
+
+	.selectInput {
+		border: thin solid $offWhite;
+		// padding: 6px;
+		// margin-left: 5px;
+		font-family: $lato;
+		// outline: none;
+		background: $darkGray;
+		color: #fff;
+		font-size: $mb;
+		width: 115px;
+	}
+
+	.searchButton {
+		background: $coolRed;
+		border-top-left-radius: 80rem;
+		border-bottom-left-radius: 80rem;
+		border-top-right-radius: 80rem;
+		border-bottom-right-radius: 80rem;
+		border: thin solid $offWhite;
+		color: $offWhite;
+		width: 5rem;
+		// margin: auto;
+		font-family: $lalezar;
+		font-size: $mb;
+
+		padding: 6px;
+		cursor: pointer;
+		//* Adjust this hover effect since, the gradient is no longer applied to this version of the button
+		&:hover {
+			background-position: right center;
+		}
+	}
+
+	@include respond-to(mobile) {
+		font-size: $mb - 0.5rem;
+		// flex-direction: column;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		// margin-top: 261px;
+		// margin-top: 7.3rem;
+		// margin-top: 153px;
+		margin-top: 132px;
+		padding: $sm;
+		// padding: 2px;
+		.searchInput,
+		.selectInput {
+			padding: 2px;
+			// width: 240px;
+			width: 120px;
+			margin: 0.25rem;
+			font-size: $mb - 0.5rem;
+		}
+		.searchButton {
+			// margin-top: 15px;
+			font-size: $mb - 0.5rem;
+			width: 3.5rem;
+		}
+	}
+
+	//* Testing out landscape styling *//
+	@include respond-to(mobileLandscape) {
+		// background: green;
+		margin-top: 132px;
+	}
+
+	@include respond-to(tablet) {
+		font-size: $mb;
+		// flex-direction: column;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		// margin-top: 217px;
+		// margin-top: 190px;
+		margin-top: 189px;
+		// padding: 25px 20px;
+		.searchInput,
+		.selectInput {
+			padding: 4px;
+			// width: 350px;
+			width: 125px;
+			margin: 0.25rem;
+		}
+		.searchButton {
+			// margin-top: 15px;
+			margin-top: 0;
+		}
+	}
+
+	@include respond-to(desktop) {
+		font-size: $sm;
+		flex-direction: row;
+		justify-content: space-evenly;
+		// align-content: center;
+		padding: $smid - 0.5rem;
+		// padding: $sm;
+
+		margin-top: 214px;
+		.searchInput,
+		.selectInput {
+			padding: 5px;
+			width: 165px;
+		}
+		.searchButton {
+			margin-top: 0;
+		}
+	}
+
+	@include respond-to(wide) {
+		font-size: $smid;
+		flex-direction: row;
+		margin-top: 213px;
+		padding: 25px 20px;
+		.searchInput,
+		.selectInput {
+			padding: 5px;
+			width: 160px;
+		}
+		.searchButton {
+			margin-top: 0;
+		}
+	}
+}

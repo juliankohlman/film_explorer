@@ -1,0 +1,151 @@
+.header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background: $solidBlack;
+	padding: $smid;
+	display: flex;
+	z-index: 999;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	border-bottom: medium solid $coolRed;
+
+	.logoLink {
+		align-self: center;
+
+		// .logoDisplay {
+		// 	width: 5rem;
+		// 	height: 5rem;
+		// }
+	}
+
+	.headerWelcome {
+		color: $offWhite;
+		align-self: center;
+		padding: 1rem;
+		// margin: auto;
+		// margin-left: 0.75rem;
+	}
+
+	.searchForm {
+		align-self: center;
+		width: $formWidth;
+	}
+
+	.searchInput {
+		border-top-left-radius: 80rem;
+		border-bottom-left-radius: 80rem;
+		border: medium solid $offWhite;
+		border-right: none;
+		// padding: 8px 8px 7px;
+		font-family: $lato;
+		outline: none;
+		width: 80%;
+		background: $darkGray;
+		color: #fff;
+	}
+	.searchButton {
+		background: $shinyRed;
+		border-top-right-radius: 80rem;
+		border-bottom-right-radius: 80rem;
+		border: medium solid $offWhite;
+		border-left: none;
+		// padding: 9px 2px 6.73px;
+		cursor: pointer;
+
+		&:hover {
+			background-position: right center;
+		}
+	}
+
+	@include respond-to(mobile) {
+		font-size: $mb;
+		// flex-direction: column;
+		flex-direction: row;
+
+		.logoDisplay {
+			width: 2rem;
+			height: 2rem;
+		}
+
+		.searchForm {
+			font-size: $mb;
+			width: $formWidth - 105px;
+
+			.searchInput {
+				// padding: 3px;
+				padding: 3.5px;
+			}
+			.searchButton {
+				width: 45px;
+				// padding: 2.75px;
+				padding: 3px;
+			}
+		}
+	}
+
+	//* Testing out landscape styling *//
+	@include respond-to(mobileLandscape) {
+		// background: green;
+		flex-direction: row;
+		padding: $mb;
+		.logoDisplay {
+			width: 2rem;
+			height: 2rem;
+		}
+		.searchForm {
+			font-size: $mb;
+			width: $formWidth - 105px;
+			padding: 4.5px;
+			.searchInput {
+				padding: 3px;
+			}
+			.searchButton {
+				width: 45px;
+				padding: 2.75px;
+			}
+		}
+	}
+
+	@include respond-to(tablet) {
+		font-size: $sm;
+		flex-direction: row;
+		// flex-direction: column;
+		.searchForm {
+			width: $formWidth - 35px;
+			// padding: 4.5px;
+			.searchInput {
+				padding: 3.5px;
+			}
+			.searchButton {
+				// width: 45px;
+				padding: 3.25px;
+			}
+		}
+		.logoDisplay {
+			width: 5rem;
+			height: 5rem;
+		}
+	}
+
+	@include respond-to(desktop) {
+		font-size: $smid;
+		flex-direction: row;
+		.logoDisplay {
+			width: 5rem;
+			height: 5rem;
+		}
+	}
+
+	@include respond-to(wide) {
+		font-size: $mid;
+		flex-direction: row;
+		.headerWelcome {
+			font-size: $xl;
+		}
+		.logoDisplay {
+			width: 5rem;
+			height: 5rem;
+		}
+	}
+}
