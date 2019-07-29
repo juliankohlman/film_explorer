@@ -14,7 +14,7 @@ const CallToAction = props => {
 	// could even pass prop into component to inform styling via the classNames variable
 	return (
 		<div className="ctaMessage">
-			Now exploring the <span className="genrePop">{callout}</span>
+			Now exploring <span className="genrePop">{callout}</span>
 		</div>
 	);
 };
