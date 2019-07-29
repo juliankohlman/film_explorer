@@ -41,8 +41,24 @@ class Details extends Component {
 									onClick={this.props.history.goBack}
 									className="backToGenre"
 								>
-									<MdKeyboardBackspace style={{ verticalAlign: 'middle' }} />
+									<MdKeyboardBackspace
+										style={{
+											verticalAlign: 'middle',
+											color: '#d9411e'
+											// cursor: 'pointer',
+											// height: '20px',
+											// width: '40px'
+										}}
+									/>
 								</button>
+								{/* <MdKeyboardBackspace
+									style={{
+										verticalAlign: 'middle',
+										color: 'red',
+										margin: '2rem'
+									}}
+									onClick={this.props.history.goBack}
+								/> */}
 							</Header>
 							<FilmBackdrop
 								backdrop_path={data.getFilmDetails.backdrop_path}

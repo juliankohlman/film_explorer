@@ -1,4 +1,3 @@
-import { GiSasquatch } from 'react-icons/gi';
 const genres = [
 	'Now Playing',
 	'Action',
@@ -37,8 +36,7 @@ const genreIDs = {
 	},
 	animation: {
 		id: 16,
-		label: 'Animation Films',
-		icon: <GiSasquatch />
+		label: 'Animation Films'
 	},
 	comedy: {
 		id: 35,

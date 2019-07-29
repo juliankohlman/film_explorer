@@ -1,5 +1,4 @@
 import React from 'react';
-import { GiBowels } from 'react-icons/gi';
 
 const GenreCard = props => {
 	return (
