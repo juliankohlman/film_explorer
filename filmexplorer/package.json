@@ -17,6 +17,7 @@
 		"react-scripts": "^3.0.1"
 	},
 	"scripts": {
+		"start": "run-p start:**",
 		"start:app": "react-scripts start",
 		"start:lambda": "netlify-lambda serve src/lambda",
 		"build": "run-p build:**",
