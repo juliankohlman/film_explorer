@@ -1,9 +1,0 @@
-[build]
-  base = "filmexplorer/"
-  publish = "filmexplorer/build"
-  command = "yarn build"
-  functions = "filmexplorer/built-lambda"
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
