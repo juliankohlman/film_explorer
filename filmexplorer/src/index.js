@@ -13,8 +13,8 @@ import Details from './pages/Details';
 // import NowPlaying from './pages/NowPlaying';
 
 const client = new ApolloClient({
-	uri: '/.netlify/functions/graphql'
-	// fetch: fetch
+	uri: '/.netlify/functions/graphql',
+	fetch: fetch
 });
 
 const rootElement = document.getElementById('root');
