@@ -24,80 +24,80 @@ const genres = [
 const genreIDs = {
 	nowplaying: {
 		id: 1,
-		label: 'Films in Theaters...'
+		label: 'Newly Released Films...'
 	},
 	action: {
 		id: 28,
-		label: 'Action Film Genre...'
+		label: 'Action Films...'
 	},
 	adventure: {
 		id: 12,
-		label: 'Adventure Film Genre...'
+		label: 'Adventure Films...'
 	},
 	animation: {
 		id: 16,
-		label: 'Animation Film Genre...'
+		label: 'Animation Films'
 	},
 	comedy: {
 		id: 35,
-		label: 'Comedy Film Genre...'
+		label: 'Comedy Films'
 	},
 	crime: {
 		id: 80,
-		label: 'Crime Film Genre...'
+		label: 'Crime Films'
 	},
 	documentary: {
 		id: 99,
-		label: 'Documentary Film Genre...'
+		label: 'Documentary Films'
 	},
 	drama: {
 		id: 18,
-		label: 'Drama Film Genre...'
+		label: 'Drama Films'
 	},
 	family: {
 		id: 10751,
-		label: 'Family Film Genre...'
+		label: 'Family Films'
 	},
 	fantasy: {
 		id: 14,
-		label: 'Fantasy Film Genre...'
+		label: 'Fantasy Films'
 	},
 	history: {
 		id: 36,
-		label: 'History Film Genre...'
+		label: 'History Films'
 	},
 	horror: {
 		id: 27,
-		label: 'Horror Film Genre...'
+		label: 'Horror Films'
 	},
 	music: {
 		id: 10402,
-		label: 'Music Film Genre...'
+		label: 'Music Films'
 	},
 	mystery: {
 		id: 9648,
-		label: 'Mystery Film Genre...'
+		label: 'Mystery Films'
 	},
 	romance: {
 		id: 10749,
-		label: 'Romance Film Genre...'
+		label: 'Romance Films'
 	},
 	scienceFiction: {
 		id: 878,
-		label: 'Science Fiction Film Genre...'
+		label: 'Science Fiction Films'
 	},
 	tvMovie: {
 		id: 10770,
-		label: 'TV Movie Genre...'
+		label: 'TV Movies'
 	},
 	thriller: {
 		id: 53,
-		label: 'Thriller Film Genre...'
+		label: 'Thriller Films'
 	},
-	war: { id: 10752, label: 'War Film Genre...' },
+	war: { id: 10752, label: 'War Films' },
 	western: {
 		id: 37,
-		label: 'Western Film Genre...'
+		label: 'Western Films'
 	}
 };
 

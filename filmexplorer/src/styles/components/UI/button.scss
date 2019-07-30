@@ -1,11 +1,16 @@
 .backToGenre {
 	align-self: center;
 
-	background: $coolRed;
-	color: $offWhite;
+	background-color: transparent;
+	// background: $coolRed;
+	// color: $offWhite;
 	font-family: $lato;
-	border-radius: 0.65rem;
+	// border-color: $coolRed;
+	border-style: none;
+	// border-radius: 0.65rem;
 	margin: 0;
+	width: 3rem;
+	cursor: pointer;
 
 	@include respond-to(mobile) {
 		height: 17px;

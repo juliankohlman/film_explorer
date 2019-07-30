@@ -6,8 +6,9 @@
 	min-height: 150px;
 	// Todo experiment with fonts as well
 	// font-family: $expletus;
-	font-family: $lato;
-	font-size: $mid;
+	font-family: $montserrat;
+	// font-family: $lato;
+	// font-size: $mid;
 	color: $solidBlack;
 	border-radius: 10px;
 	box-shadow: 0 0 0 1px #d4d4d5, 0 2px 4px 0 rgba(34, 36, 38, 0.12),
@@ -21,22 +22,26 @@
 	}
 
 	@include respond-to(mobile) {
-		min-width: 200px;
+		min-width: 130px;
 		min-height: 75px;
+		font-size: $mb;
 	}
 
 	@include respond-to(tablet) {
 		min-width: 255px;
 		min-height: 150px;
+		font-size: $smid;
 	}
 
 	@include respond-to(desktop) {
 		min-width: 255px;
 		min-height: 150px;
+		font-size: $mid;
 	}
 
 	@include respond-to(wide) {
 		min-width: 255px;
 		min-height: 150px;
+		font-size: $mid;
 	}
 }

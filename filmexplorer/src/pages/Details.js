@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
+import { Query, graphql } from 'react-apollo';
+import { MdKeyboardBackspace } from 'react-icons/md';
+import { GET_FILM_DETAILS } from '../queries/getFilmDetails';
 import Container from '../components/UI/Container';
 import Header from '../components/UI/Header';
-// import CallToAction from '../components/UI/CallToAction';
 import FilmBackdrop from '../components/UI/FilmBackdrop';
-// import Button from '../components/UI/Button';
 import FilmPoster from '../components/UI/FilmPoster';
-import FilmOverview from '../components/UI/FilmOverview';
+
 import FilmCast from '../components/UI/FilmCast';
 import FilmCrew from '../components/UI/FilmCrew';
-import { GET_FILM_DETAILS } from '../queries/getFilmDetails';
-import { Query, graphql } from 'react-apollo';
+
 import FilmTrailer from '../components/UI/FilmTrailer';
 import FilmMetaData from '../components/UI/FilmMetaData';
 
@@ -41,8 +41,24 @@ class Details extends Component {
 									onClick={this.props.history.goBack}
 									className="backToGenre"
 								>
-									Back
+									<MdKeyboardBackspace
+										style={{
+											verticalAlign: 'middle',
+											color: '#d9411e'
+											// cursor: 'pointer',
+											// height: '20px',
+											// width: '40px'
+										}}
+									/>
 								</button>
+								{/* <MdKeyboardBackspace
+									style={{
+										verticalAlign: 'middle',
+										color: 'red',
+										margin: '2rem'
+									}}
+									onClick={this.props.history.goBack}
+								/> */}
 							</Header>
 							<FilmBackdrop
 								backdrop_path={data.getFilmDetails.backdrop_path}
