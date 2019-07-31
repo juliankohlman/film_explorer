@@ -7,13 +7,11 @@ import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 
 import Landing from './pages/Landing';
 import Genre from './pages/Genre';
-// import Detail from './pages/Detail';
-//* Test Details component
 import Details from './pages/Details';
-// import NowPlaying from './pages/NowPlaying';
 
 const client = new ApolloClient({
 	uri: '/.netlify/functions/graphql',
+	// uri: 'http://localhost:9000/graphql',
 	fetch: fetch
 });
 
