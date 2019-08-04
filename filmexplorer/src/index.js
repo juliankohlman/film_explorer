@@ -8,11 +8,10 @@ import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import Landing from './pages/Landing';
 import Genre from './pages/Genre';
 import Details from './pages/Details';
-import * as serviceWorker from './serviceWorker';
+// import * as serviceWorker from './serviceWorker';
 
 const client = new ApolloClient({
 	uri: '/.netlify/functions/graphql',
-	// uri: 'http://localhost:9000/graphql',
 	fetch: fetch
 });
 
@@ -31,4 +30,4 @@ ReactDOM.render(
 	</Router>,
 	rootElement
 );
-serviceWorker.unregister();
+// serviceWorker.unregister();

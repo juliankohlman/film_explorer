@@ -3,6 +3,7 @@
   command = "yarn build"
   functions = "/filmexplorer/built-lambda"
   publish = "/filmexplorer/build"
+  
 [[redirects]]
   from = "/*"
   to = "/index.html"
