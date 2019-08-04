@@ -28,6 +28,7 @@ class GenreFilms extends Component {
 				query={GET_GENRE}
 				// variables={{ genreID: 28, page: 1 }}
 				variables={{ genreID: id, page: this.state.page }}
+				ssr={true}
 				// notifyOnNetworkStatusChange={true}
 			>
 				{({ loading, error, data, fetchMore }) => {

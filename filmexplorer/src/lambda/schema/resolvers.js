@@ -1,5 +1,4 @@
 import { connectors } from './tmdbConnectors';
-import { UserInputError } from 'apollo-server-lambda';
 
 export const resolvers = {
 	Query: {
