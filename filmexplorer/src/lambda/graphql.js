@@ -4,7 +4,10 @@ import { typeDefs } from './schema/schema.js';
 import { resolvers } from './schema/resolvers.js';
 
 const server = new ApolloServer({
-	cors: false,
+	cors: {
+		origin: '*',
+		allowedHeaders: '*'
+	},
 	typeDefs,
 	resolvers,
 	playground: true,

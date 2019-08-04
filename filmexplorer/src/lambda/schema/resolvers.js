@@ -1,4 +1,5 @@
 import { connectors } from './tmdbConnectors';
+import { UserInputError } from 'apollo-server-lambda';
 
 export const resolvers = {
 	Query: {
@@ -12,6 +13,15 @@ export const resolvers = {
 			return connectors.getFilm(_, { queryString, page });
 		},
 		getGenre(_, { genreID, page }) {
+			const validationErrors = {};
+			if (genreID === null) {
+				validationErrors.genreID = 'No genre id given';
+			}
+			if (Object.keys(validationErrors).length > 0) {
+				throw new UserInputError('failed to validate input', {
+					validationErrors
+				});
+			}
 			return connectors.genreFilms(_, { genreID, page });
 		},
 		getFilmDetails(_, { filmID }) {
