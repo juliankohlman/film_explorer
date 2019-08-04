@@ -25,7 +25,7 @@ export const genreFilms = async (_, { genreID = 16, page = 1 }) => {
 			film.total_pages = res.data.total_pages;
 		});
 
-		return films;
+		return films || [];
 	} catch (error) {
 		console.log(error);
 	}
