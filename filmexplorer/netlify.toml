@@ -3,3 +3,9 @@
   command = "yarn build"
   functions = "/filmexplorer/built-lambda"
   publish = "/filmexplorer/build"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/graphql"
+  status = 200
+  query = {genre: ":genre"}
