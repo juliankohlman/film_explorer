@@ -8,11 +8,11 @@ import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import Landing from './pages/Landing';
 import Genre from './pages/Genre';
 import Details from './pages/Details';
+
 // import * as serviceWorker from './serviceWorker';
 
 const client = new ApolloClient({
-	uri: '/.netlify/functions/graphql',
-	fetch: fetch
+	uri: '/.netlify/functions/graphql'
 });
 
 const rootElement = document.getElementById('root');
