@@ -34,7 +34,7 @@ class GenreFilms extends Component {
 					if (error) return <p>error :(</p>;
 					let page = this.state.page;
 					let films = data.getGenre;
-					console.log(data.getGenre);
+					// console.log(data.getGenre);
 					return (
 						<>
 							<>

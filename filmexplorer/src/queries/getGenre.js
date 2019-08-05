@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost';
 
 export const GET_GENRE = gql`
-	query getGenre($genreID: Int, $page: Int = 1) {
+	query getGenre($genreID: Int!, $page: Int = 1) {
 		getGenre(genreID: $genreID, page: $page) {
 			id
 			poster_path
