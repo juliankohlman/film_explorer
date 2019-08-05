@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/main.scss';
-import ApolloClient from 'apollo-boost';
+import ApolloClient, { InMemoryCache } from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 
@@ -9,9 +9,10 @@ import Landing from './pages/Landing';
 import Genre from './pages/Genre';
 import Details from './pages/Details';
 
-// import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from './serviceWorker';
 
 const client = new ApolloClient({
+	cache: new InMemoryCache(),
 	uri: '/.netlify/functions/graphql'
 });
 
@@ -30,4 +31,4 @@ ReactDOM.render(
 	</Router>,
 	rootElement
 );
-// serviceWorker.unregister();
+serviceWorker.unregister();
