@@ -71,6 +71,6 @@ US for accurate filtering
 		});
 		return genreFilms;
 	} catch (error) {
-		console.log(error);
+		console.error(error);
 	}
 };
