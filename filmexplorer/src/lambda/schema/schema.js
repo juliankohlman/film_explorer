@@ -3,7 +3,7 @@
 export const typeDefs = `
 	type Query {
 		getFilmDetails(filmID: Int!): FilmDetails
-		getGenre(genreID: Int!, page: Int = 1): [FilmBasic!]!
+		getGenre(genreID: Int, page: Int = 1): [FilmBasic!]!
 		getNowPlaying(page: Int = 1): [FilmBasic!]!
 		exploreGenre(input: GenreInput, page: Int = 1): [FilmBasic!]!
 		searchPerson(queryString: String, page: Int = 1): [Person!]!

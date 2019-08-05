@@ -14,17 +14,16 @@ export const genreFilms = async (_, { genreID, page }) => {
 		const res = await axios.get(
 			`https://api.themoviedb.org/3/discover/movie?api_key=${API}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreID}`
 		);
-		const films = await res.data.results;
+		let films = await res.data.results;
 		// films === null ? (films = []) : films;
 		films.map(film => {
 			film.poster_path = posterImageCheck(film.poster_path, film);
 			film.total_results = res.data.total_results;
 			film.total_pages = res.data.total_pages;
-    });
-    console.log(films);
-    
+		});
+		console.log('films after mutation:', films);
 		return films;
 	} catch (err) {
-		console.log('Something went wrong:' err.message);
+		console.log('Something went wrong:', err.message);
 	}
 };
