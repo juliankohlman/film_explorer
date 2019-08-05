@@ -5,10 +5,10 @@ import { resolvers } from './schema/resolvers.js';
 const server = new ApolloServer({
 	typeDefs,
 	resolvers,
-	ssrMode: true,
-	ssrForceFetchDelay: 100
+	introspection: true
+	// ssrMode: true,
+	// ssrForceFetchDelay: 100
 	// playground: true,
-	// introspection: true
 });
 
 exports.handler = server.createHandler({

@@ -12,11 +12,8 @@ import Details from './pages/Details';
 import * as serviceWorker from './serviceWorker';
 
 const client = new ApolloClient({
-	cache: new InMemoryCache().restore(window.__APOLLO_STATE__),
-	uri:
-		process.env.NODE_ENV === 'production'
-			? '/.netlify/functions/graphql'
-			: 'http://localhost:3000/.netlify/functions/graphql'
+	cache: new InMemoryCache(),
+	uri: '/.netlify/functions/graphql'
 });
 
 const rootElement = document.getElementById('root');
