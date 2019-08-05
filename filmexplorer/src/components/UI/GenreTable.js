@@ -54,4 +54,24 @@ class GenreTable extends Component {
 	}
 }
 
+/**
+ * 	<section className="genreTable">
+						{Object.keys(genreIDs).map((genre, idx) => (
+							<Link
+								to={`/genre/${genre}`}
+								key={genre}
+								style={{
+									margin: '25px',
+									background: '#fff',
+									borderRadius: '10px',
+									textDecoration: 'none'
+									// color: 'red'
+								}}
+							>
+								<GenreCard key={genreIDs.genre} genre={genres[idx]} />
+							</Link>
+						))}
+					</section>
+ */
+
 export default graphql(GET_GENRE)(GenreTable);
