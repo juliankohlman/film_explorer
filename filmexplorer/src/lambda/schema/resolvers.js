@@ -12,7 +12,7 @@ export const resolvers = {
 			return connectors.getFilm(_, { queryString, page });
 		},
 		async getGenre(_, { genreID, page }) {
-			console.log(connectors.genreFilms(_, { genreID, page }));
+			console.log('resolver:', connectors.genreFilms(_, { genreID, page }));
 			let genres = await connectors.genreFilms(_, { genreID, page });
 			return genres;
 			// return connectors.genreFilms(_, { genreID, page });

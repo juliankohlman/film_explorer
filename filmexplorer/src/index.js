@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './styles/main.scss';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 
 import Landing from './pages/Landing';
@@ -11,8 +13,11 @@ import Details from './pages/Details';
 
 // import * as serviceWorker from './serviceWorker';
 
+const cache = new InMemoryCache();
+
 const client = new ApolloClient({
-	uri: '/.netlify/functions/graphql'
+  uri: '/.netlify/functions/graphql',
+  cache
 });
 
 const rootElement = document.getElementById('root');

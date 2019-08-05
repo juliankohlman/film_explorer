@@ -21,7 +21,7 @@ export const genreFilms = async (_, { genreID, page }) => {
 			film.total_results = res.data.total_results;
 			film.total_pages = res.data.total_pages;
 		});
-		console.log('films after mutation:', films);
+		// console.log('films after mutation:', films);
 		return films;
 	} catch (err) {
 		console.log('Something went wrong:', err.message);

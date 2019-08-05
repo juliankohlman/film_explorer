@@ -40,13 +40,10 @@ class GenreFilms extends Component {
 							<>
 								<div className="paginationData">
 									<span className="paginationText">
-										{/* {films[0].total_results} Total Films To Explore */}
-										{0} Total Films To Explore
+										{films[0].total_results} Total Films To Explore
 									</span>
 									<span className="paginationText">
-										{/* {`Now viewing Page ${page} of ${films[0]
-                    .total_pages || 0}`} */}
-										Now viewing page 0 of total pages
+										{`Now viewing Page ${page} of ${films[0].total_pages || 0}`}
 									</span>
 									<form onSubmit={this.jumpPage}>
 										<label htmlFor="jump">
@@ -162,7 +159,6 @@ class GenreFilms extends Component {
 									style={`listContainer`}
 								/>
 							</>
-							)}
 						</>
 					);
 				}}
