@@ -10,8 +10,7 @@ class GenreFilms extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			page: 1,
-			ed: this.props.id
+			page: 1
 		};
 	}
 
@@ -22,22 +21,20 @@ class GenreFilms extends Component {
 		});
 	};
 	render() {
-		console.log(this.state.ed);
 		const id = this.props.id;
 		console.log(this.props);
 
 		const GenrePosters = () => (
 			<Query
 				query={GET_GENRE}
-				// variables={{ genreID: id, page: this.state.page }}
-				variables={{ genreID: this.state.ed, page: this.state.page }}
+				variables={{ genreID: id, page: this.state.page }}
 			>
 				{({ loading, error, data, fetchMore }) => {
 					if (loading) return <p>loading...</p>;
 					if (error) return <p>error :(</p>;
-					console.log(data.getGenre);
 					let page = this.state.page;
 					let films = data.getGenre;
+					console.log(data.getGenre);
 					return (
 						<>
 							{films === null ? (
