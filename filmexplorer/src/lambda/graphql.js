@@ -4,7 +4,9 @@ import { resolvers } from './schema/resolvers.js';
 
 const server = new ApolloServer({
 	typeDefs,
-	resolvers
+	resolvers,
+	ssrMode: true,
+	ssrForceFetchDelay: 100
 	// playground: true,
 	// introspection: true
 });

@@ -161,7 +161,6 @@ class GenreFilms extends Component {
 									style={`listContainer`}
 								/>
 							</>
-							)}
 						</>
 					);
 				}}

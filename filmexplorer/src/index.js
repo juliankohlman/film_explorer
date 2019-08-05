@@ -16,9 +16,7 @@ const client = new ApolloClient({
 	uri:
 		process.env.NODE_ENV === 'production'
 			? '/.netlify/functions/graphql'
-			: 'http://localhost:3000/.netlify/functions/graphql',
-	ssrMode: true,
-	ssrForceFetchDelay: 100
+			: 'http://localhost:3000/.netlify/functions/graphql'
 });
 
 const rootElement = document.getElementById('root');
