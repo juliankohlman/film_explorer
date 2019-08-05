@@ -10,9 +10,7 @@ import Genre from './pages/Genre';
 import Details from './pages/Details';
 
 const client = new ApolloClient({
-	uri: '/.netlify/functions/graphql',
-	// uri: 'http://localhost:9000/graphql',
-	fetch: fetch
+	uri: '/.netlify/functions/graphql'
 });
 
 const rootElement = document.getElementById('root');
