@@ -12,7 +12,9 @@
     -->
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
-
+  <script>
+    window.__APOLLO_STATE__ = JSON.stringify(client.extract())
+  </script>
 
   <!--
       Notice the use of %PUBLIC_URL% in the tags above.
