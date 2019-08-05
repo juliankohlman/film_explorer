@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost';
 
 export const GET_FILM_DETAILS = gql`
-	query($filmID: Int!) {
+	query getFilmDetails($filmID: Int!) {
 		getFilmDetails(filmID: $filmID) {
 			backdrop_path
 			budget

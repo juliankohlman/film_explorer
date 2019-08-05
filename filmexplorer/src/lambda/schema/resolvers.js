@@ -11,8 +11,11 @@ export const resolvers = {
 		searchFilm(_, { queryString, page }) {
 			return connectors.getFilm(_, { queryString, page });
 		},
-		getGenre(_, { genreID, page }) {
-			return connectors.genreFilms(_, { genreID, page });
+		async getGenre(_, { genreID, page }) {
+			console.log(connectors.genreFilms(_, { genreID, page }));
+			let genres = await connectors.genreFilms(_, { genreID, page });
+			return genres;
+			// return connectors.genreFilms(_, { genreID, page });
 		},
 		getFilmDetails(_, { filmID }) {
 			return connectors.filmDetails(_, { filmID });
