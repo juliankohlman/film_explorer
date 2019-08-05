@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/main.scss';
-import ApolloClient from 'apollo-boost';
+import ApolloClient, { InMemoryCache } from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 
@@ -9,10 +9,14 @@ import Landing from './pages/Landing';
 import Genre from './pages/Genre';
 import Details from './pages/Details';
 
-// import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from './serviceWorker';
 
 const client = new ApolloClient({
-	uri: '/.netlify/functions/graphql'
+	uri:
+		process.env.NODE_ENV === 'production'
+			? '/.netlify/functions/graphql'
+			: 'http://localhost:3000/.netlify/functions/graphql',
+	cache: new InMemoryCache()
 });
 
 const rootElement = document.getElementById('root');
@@ -30,4 +34,4 @@ ReactDOM.render(
 	</Router>,
 	rootElement
 );
-// serviceWorker.unregister();
+serviceWorker.unregister();
