@@ -61,7 +61,7 @@ export default class Genre extends Component {
 				input: {}
 			}));
 		}
-		alert(`Options selected: ${JSON.stringify(this.state)}`);
+		// alert(`Options selected: ${JSON.stringify(this.state)}`);
 		e.preventDefault();
 	};
 
