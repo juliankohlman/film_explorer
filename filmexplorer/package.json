@@ -27,7 +27,8 @@
 		"build:lambda": "netlify-lambda build src/lambda",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"deploy:draft": "netlify deploy --dir=build --functions=filmexplorer/built-lambda"
+		"deploy:draft": "netlify deploy --dir=build --functions=filmexplorer/built-lambda",
+		"deploy:prod": "netlify deploy --dir=build --functions=filmexplorer/built-lambda --prod"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
