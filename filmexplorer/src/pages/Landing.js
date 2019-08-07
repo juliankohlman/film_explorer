@@ -24,7 +24,7 @@ export default class Landing extends Component {
 	};
 
 	onSearch = e => {
-		console.log('onSearch clicked', this.state.query);
+		// console.log('onSearch clicked', this.state.query);
 
 		if (this.state.query !== '') {
 			this.setState(state => ({ useSearch: !state.useSearch }));

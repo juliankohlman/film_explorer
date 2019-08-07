@@ -1,3 +1,4 @@
+//! Deprecated detail component
 import React, { Component } from 'react';
 import Container from '../components/UI/Container';
 import Header from '../components/UI/Header';

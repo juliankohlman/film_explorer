@@ -1,6 +1,5 @@
 import React from 'react';
 
-//Todo logo should be it's own component
 const logo = require('../../images/logo.png');
 
 const Header = props => {

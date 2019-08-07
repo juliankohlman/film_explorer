@@ -23,15 +23,14 @@ class Details extends Component {
 				{({ loading, error, data }) => {
 					if (loading) return <p>loading...</p>;
 					if (error) return <p>error :(</p>;
-					console.log(data.getFilmDetails);
+					// console.log(data.getFilmDetails);
 					//Todo Back to search results if user reached the detail page via a search query
 					return (
 						<Container>
-							{console.log(this.props)}
+							{/* {console.log(this.props)} */}
 
 							<Header style={`header`}>
 								<div className="ctaMessage">
-									{/* {data.getFilmDetails.title} */}
 									<span className="genrePop">
 										{data.getFilmDetails.tagline}
 									</span>
@@ -51,14 +50,6 @@ class Details extends Component {
 										}}
 									/>
 								</button>
-								{/* <MdKeyboardBackspace
-									style={{
-										verticalAlign: 'middle',
-										color: 'red',
-										margin: '2rem'
-									}}
-									onClick={this.props.history.goBack}
-								/> */}
 							</Header>
 							<FilmBackdrop
 								backdrop_path={data.getFilmDetails.backdrop_path}
@@ -104,7 +95,6 @@ class Details extends Component {
 									</div>
 									<div className="castCrew">
 										<FilmCast cast={data.getFilmDetails.cast} />
-
 										<FilmCrew crew={data.getFilmDetails.crew} />
 									</div>
 								</div>

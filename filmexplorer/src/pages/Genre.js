@@ -42,7 +42,7 @@ export default class Genre extends Component {
 			.slice(0, 7)
 			.filter(field => field !== 'undefined' || field !== '');
 
-		console.log(`query fields with input entered by user: ${runQuery.length}`);
+		// console.log(`query fields with input entered by user: ${runQuery.length}`);
 
 		if (runQuery.length >= 2) {
 			this.setState(state => ({
@@ -77,11 +77,7 @@ export default class Genre extends Component {
 							/>
 							{/* <Button text="Home" href="/" /> */}
 						</Header>
-						<form
-							// className="dtc-ns tc pv4 bg-black-05 v-mid"
-							className="explorerForm"
-							onSubmit={this.handleSubmit}
-						>
+						<form className="explorerForm" onSubmit={this.handleSubmit}>
 							<label style={{ color: 'white' }}>
 								{/* Actor or Director: */}
 								<input

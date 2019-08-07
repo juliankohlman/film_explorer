@@ -21,8 +21,8 @@ class ExploreGenreFilms extends Component {
 	};
 
 	render() {
-		console.log(this.props.input);
-		console.log(this.props.input.page);
+		// console.log(this.props.input);
+		// console.log(this.props.input.page);
 		const ExplorePosters = () => (
 			<Query
 				query={EXPLORE_GENRE}
@@ -31,7 +31,7 @@ class ExploreGenreFilms extends Component {
 				{({ loading, error, data, fetchMore }) => {
 					if (loading) return <p>loading...</p>;
 					if (error) return <p>error :(</p>;
-					console.log(data.exploreGenre);
+					// console.log(data.exploreGenre);
 					let page = this.state.page;
 					let films = data.exploreGenre;
 					return (

@@ -5,14 +5,6 @@ import React from 'react';
 
 const FilmBackdrop = props => {
 	return !props.backdrop_path.includes('placeholder') ? (
-		// <div
-		// 	className="filmBackdrop"
-		// 	style={{
-		// 		backgroundImage: `url(https://image.tmdb.org/t/p/original/${
-		// 			props.backdrop_path
-		// 		})`
-		// 	}}
-		// />
 		<div className="filmBackdrop">
 			<img
 				className="backdropImage"
@@ -31,7 +23,6 @@ const FilmBackdrop = props => {
 			/>
 		</div>
 	);
-	// null;
 };
 
 export default FilmBackdrop;

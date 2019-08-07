@@ -1,6 +1,5 @@
 import React from 'react';
 
-//todo clean up component make it more flexible/responsive ready for FilmDetail components
 const FilmPoster = props => {
 	const { title, poster_path } = props;
 	return (

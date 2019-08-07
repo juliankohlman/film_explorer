@@ -30,7 +30,7 @@ class SearchFilms extends Component {
 				{({ loading, error, data, fetchMore }) => {
 					if (loading) return 'Loading...';
 					if (error) return `Error! ${error.message}`;
-					console.log(data.searchFilm);
+					// console.log(data.searchFilm);
 					let page = this.state.page;
 					let films = data.searchFilm;
 

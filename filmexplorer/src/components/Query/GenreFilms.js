@@ -22,7 +22,7 @@ class GenreFilms extends Component {
 	};
 	render() {
 		const id = this.props.id;
-		console.log(this.props);
+		// console.log(this.props);
 
 		const GenrePosters = () => (
 			<Query
