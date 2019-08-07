@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './styles/main.scss';
 import ApolloClient, { InMemoryCache } from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 
 import Landing from './pages/Landing';

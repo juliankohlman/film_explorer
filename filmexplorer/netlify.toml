@@ -2,7 +2,7 @@
   base = "/filmexplorer"
   command = "yarn build"
   functions = "/filmexplorer/built-lambda"
-  publish = "/filmexplorer/build"
+  publish = "/filmexplorer/filmexplorer/build"
   
 [[redirects]]
   from = "/*"

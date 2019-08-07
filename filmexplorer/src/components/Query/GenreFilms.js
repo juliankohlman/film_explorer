@@ -42,11 +42,9 @@ class GenreFilms extends Component {
 									<span className="paginationText">
 										{films[0].total_results} Total Films To Explore
 									</span>
-									<span className="paginationText">{`Now viewing Page ${page} of ${
-										films[0].total_pages
-									}`}</span>
-									{/* <h3>{films[0].total_results} Total Films To Explore</h3>
-								<h3>{`Now viewing Page ${page} of ${films[0].total_pages}`}</h3> */}
+									<span className="paginationText">
+										{`Now viewing Page ${page} of ${films[0].total_pages || 0}`}
+									</span>
 									<form onSubmit={this.jumpPage}>
 										<label htmlFor="jump">
 											Page Jump <GoRocket style={{ verticalAlign: 'middle' }} />

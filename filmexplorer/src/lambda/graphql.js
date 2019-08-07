@@ -3,6 +3,7 @@ import { typeDefs } from './schema/schema.js';
 import { resolvers } from './schema/resolvers.js';
 
 const server = new ApolloServer({
+	cors: false,
 	typeDefs,
 	resolvers,
 	introspection: true
@@ -13,7 +14,8 @@ const server = new ApolloServer({
 
 exports.handler = server.createHandler({
 	cors: {
-		origin: '*',
+		// origin: '*',
+		origin: true,
 		credentials: true,
 		allowedHeaders: '*'
 	}

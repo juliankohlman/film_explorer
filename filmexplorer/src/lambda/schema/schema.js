@@ -1,6 +1,6 @@
-import { gql } from 'apollo-boost';
+// import { gql } from 'apollo-boost';
 
-export const typeDefs = gql`
+export const typeDefs = `
 	type Query {
 		getFilmDetails(filmID: Int!): FilmDetails
 		getGenre(genreID: Int!, page: Int = 1): [FilmBasic!]!
