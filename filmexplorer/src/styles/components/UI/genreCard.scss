@@ -18,7 +18,7 @@
 	align-items: center;
 
 	&:hover {
-		transition: 1.25s;
+		transition: all, linear, 0.3s;
 		color: $red;
 		font-weight: 500;
 		background: $darkGray;
