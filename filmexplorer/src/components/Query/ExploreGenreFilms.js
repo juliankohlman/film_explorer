@@ -38,14 +38,8 @@ class ExploreGenreFilms extends Component {
             // ! MUST HANDLE CONDITION WHERE (data.exploreGenre[0].total_pages) returns null, handle this condition and render out a nice page for the user [See SearchFilms component]
             <>
               <div className="paginationData">
-                <span className="numericalData">
-                  {/* Add genrepop class to numerical information */}
-                  {films[0].total_results}
-                  {/* Total Films To Explore */}
-                </span>
                 <span className="paginationText">
-                  {/* Add genrepop class to numerical information */}
-                  {/* {films[0].total_results} */}
+                  {films[0].total_results}
                   Total Films To Explore
                 </span>
                 <span className="paginationText">{`Now viewing Page ${page} of ${films[0].total_pages}`}</span>
